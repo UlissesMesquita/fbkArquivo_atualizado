@@ -1,0 +1,5 @@
+// Aqui será postado alguns comentátários sobre o que ficou faltando finalizar no projeto
+
+
+A Realizar:
+1 - Finalizar o cadastro de editar: adicionar a função "old()" em todos os values na viewer Documento.blade.php para finalizar a função de editar.
