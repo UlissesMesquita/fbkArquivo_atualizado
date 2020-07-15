@@ -59,7 +59,7 @@
                                 
                                     <a class="far fa-edit" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET"></a>
                                 
-                                    <!-- Botão de Apagar -->
+                                <!-- Botão de Apagar -->
 
                                     <a class="fas fa-trash" href="delete/{{$dashboard->id_codigo}}" method="GET"></a>
 
