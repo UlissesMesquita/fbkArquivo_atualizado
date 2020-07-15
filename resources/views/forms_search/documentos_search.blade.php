@@ -102,7 +102,7 @@
             <th>Palavra Chave</th>
             <th>Nome Documento</th>
             <th>Observações</th>
-            <th>Ação</th>
+            <th>Ferramentas</th>
         </tr>
     </thead>
 
@@ -118,35 +118,23 @@
                 <td> {{$dashboard->Nome_Doc}}</td>
                 <td> {{$dashboard->Loc_Obs}} </td>
     
-                    <!-- Botões de Ação-->
-                    <td>
-                        <!-- Botão de Exibir PDF -->
-                        <form method="POST" action="{{ asset('storage/pdfs/'.$dashboard->id_codigo.'_'. $dashboard->Tit_Doc .'.pdf')}}" target="_blank">
-                            <input type="hidden" name="pdf" value="#">
-                            <button type="submit" class="btn btn-success">
-                                <span class="fas fa-file-pdf"></span>
-                            </button>
-                        </form>
+                            <!-- Botões de Ação-->
+                            <td>
 
-                        <span></span>
+                                <!-- Botão de Exibir PDF -->
 
-                        <!-- Botão de Editar -->
-                        <form method="GET" action="documentos_edit/{{$dashboard->id_codigo}}">
-                            <input type="hidden" value="{{$dashboard->id_codigo}}">
-                            <button type="submit" class="btn btn-primary">
-                                <span class="far fa-edit"></span>
-                            </button>
-                        </form>
+                                    <a class="fas fa-file-pdf" href="{{ asset('storage/pdfs/'.$dashboard->id_codigo.'_'. $dashboard->Tit_Doc .'.pdf')}}" target="_blank" method="POST"></a>
 
-                        <span></span>
-                        <!-- Botão de Apagar -->
-                        <form method="GET" action="delete/{{$dashboard->id_codigo}}">
-                                <button type="submit" class="btn btn-danger">
-                                    <input type="hidden" value="{{$dashboard->id_codigo}}">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                        </form>
-                    </td>
+                                <!-- Botão de Editar -->
+                                
+                                    <a class="far fa-edit" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET"></a>
+                                
+                                <!-- Botão de Apagar -->
+
+                                    <a class="fas fa-trash" href="delete/{{$dashboard->id_codigo}}" method="GET"></a>
+
+                               
+                            </td>
             </tr>
         @endforeach
     </tbody>

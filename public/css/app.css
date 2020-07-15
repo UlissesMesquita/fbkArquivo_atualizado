@@ -13,17 +13,28 @@ div {
 }
 
 tbody {
-    text-align: center;
+    text-align: auto;
     width: 30px;
     height: 30px;
 }
 
 thead {
     text-align: center;
-    width: 30px;
-    height: 30px;
+    width: auto;
+    height: auto;
 }
+th {
+    text-align: center;
+    width: 200;
 
+}
+a {
+    padding-left: 1px;
+    padding-right: 5px;
+    text-align: center;
+    position: relative;
+    flex: auto;
+}
 span {
     text-align: center;
     width: 10px;
@@ -34,7 +45,90 @@ span {
     align-items: center; 
     justify-content: center; 
 }
+/*
+Tables
+*/
 
+/* Table Base */
+
+table {
+    font-family: arial;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  .table { 
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .table th,
+  .table td {
+    font-weight: normal;
+    font-size: 12px;
+    padding: 8px 15px;
+    line-height: 20px;
+    border-width: 20px;
+    text-align: left;
+    vertical-align: middle;
+    border-top: 1px solid #dddddd;
+    
+  }
+  .table thead th {
+    background: #eeeeee;
+    vertical-align: bottom;
+    width: 15%;
+    
+  }   
+  .table tbody > tr:nth-child(odd) > td,
+  .table tbody > tr:nth-child(odd) > th {
+    background-color: #dddddd;
+  }    
+  .table .t-small {
+    width: 10%;
+  }
+  .table .t-medium {
+    width: 15%;
+  }
+  .table .t-status {
+    font-weight: bold;
+  }
+  .table .t-active {
+    color: #46a546;
+  }
+  .table .t-inactive {
+    color: #e00300;
+  }
+  .table .t-draft {
+    color: #f89406;
+  }
+  .table .t-scheduled {
+    color: #049cdb;
+  }
+  
+  /* Small Sizes */
+  @media (max-width: 480px) { 
+    .table-action thead {
+      display: none;
+    }
+    .table-action tr {
+      border-bottom: 1px solid #dddddd;
+    }
+    .table-action td {
+      border: 0;
+    }
+    .table-action td:not(:first-child) {
+      display: block;
+    }
+  }
+
+/*
+Tables
+*/
+
+  
 .arquivo_meio {
     font-style: italic;
     font-weight: 500;
