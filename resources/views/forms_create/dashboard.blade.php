@@ -35,7 +35,7 @@
                 @foreach($dash as $dashboard)
                     <tr>
                         <td scope="row">{{$dashboard->id_codigo}}</td>
-                        <td> {{$dashboard->data}} </td>
+                        <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{$dashboard->data}}</a></td>
                         <td> {{$dashboard->Emp_Emit}}</td>
                         <td> {{$dashboard->Emp_Dest}}</td>
                         <td> {{$dashboard->Tp_Doc}}</td>
