@@ -98,7 +98,7 @@
    <!-- Mostra os dados no banco de dados -->
    <table class="table table-striped">
     <thead>
-        <tr>
+        <tr id="Cabecalho-tabela">
             <th>Código</th>
             <th>Data Principal</th>
             <th>Emitente</th>
