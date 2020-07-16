@@ -20,9 +20,7 @@ Dados do Documento
         
                 <div class="col-md-2">
                     <label>Código: *</label>
-
         @foreach($dash as $dashboard)
-
                 <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="codigo" value="{{ ($dashboard->id_codigo) + (1) }}"  disabled >
         @endforeach
 

@@ -34,7 +34,7 @@
         <!-- Linha 2 -->
         <div class="row">
             <div class="col-md-3">
-                <label>Empresa Emitente: *</label>
+                <label>Empresa Emitente: </label>
                 <label for="Emp_Emit"></label>
                     <select id="Emp_Emit" name="Emp_Emit" class="form-control" >
                         <option value="">Escolha...</option>
@@ -48,7 +48,7 @@
             </div>
 
             <div class="col-md-3">
-                <label>Empresa Destinatária: *</label>
+                <label>Empresa Destinatária: </label>
                 <label for="Emp_Dest"></label>
                     <select id="Emp_Dest" name="Emp_Dest" class="form-control" value="" >
                         <option value="">Escolha...</option>
@@ -62,12 +62,12 @@
             
 
             <div class="col-md-3">
-                <label>Palavra-Chave: *</label>
+                <label>Palavra-Chave: </label>
                 <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="Palavra-Chave" >
             </div>
 
             <div class="col-md-3">
-                <label>Nome Documento: *</label>
+                <label>Nome Documento: </label>
                 <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" placeholder="Nome_Doc" >
             </div>
 
@@ -76,6 +76,10 @@
                 <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="3"></textarea>
             </div>
 
+            <div class="col-md-2">
+                <label>Valor:</label>
+                <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$">
+            </div>
         </div>
 
 
@@ -102,6 +106,7 @@
             <th>Palavra Chave</th>
             <th>Nome Documento</th>
             <th>Observações</th>
+            <th>Valor</th>
             <th>Ferramentas</th>
         </tr>
     </thead>
@@ -111,12 +116,13 @@
         @foreach($dash as $dashboard)
             <tr>
                 <td scope="row">{{$dashboard->id_codigo}}</td>
-                <td> {{$dashboard->data}} </td>
+                <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{$dashboard->data}}</a></td>
                 <td> {{$dashboard->Emp_Emit}}</td>
                 <td> {{$dashboard->Emp_Dest}}</td>
                 <td> {{$dashboard->Palavra_Chave}} </td>
                 <td> {{$dashboard->Nome_Doc}}</td>
                 <td> {{$dashboard->Loc_Obs}} </td>
+                <td> R${{$dashboard->Valor_Doc}}</td>
     
                             <!-- Botões de Ação-->
                             <td>

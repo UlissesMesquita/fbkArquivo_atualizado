@@ -25,7 +25,7 @@ class ControladorPesquisas extends Controller
 
         $emit = Empresas_Emitentes::all();
         $dest = Empresas_Destinatarias::all();
-        $dash = Cadastro_Documentos::all();
+        $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
         
         return view('forms_search/documentos_search', compact('emit', 'dest', 'dash'));
     }
