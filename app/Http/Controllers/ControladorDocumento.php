@@ -37,9 +37,10 @@ class ControladorDocumento extends Controller
         $dep = Departamentos::get();
         
         $documentos = Cadastro_Documentos::all();
+        $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo')->take(1);
 
        
-        return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos'));
+        return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash'));
 
     }
 
@@ -77,24 +78,15 @@ class ControladorDocumento extends Controller
 
         //Nome do documento pdf.
 
-        //Dia do Dia Atual -> Formato: Dia-Mês-Ano -- Hora-Minuto-Segundo
-        
-        $timeStamp = mktime(date("H")-3, date("i"), date("s"), date("m"), date("d"), date("Y"));
-        $today = gmdate("d-m-Y_H-i-s", $timeStamp);
 
         $extension_pdf = $request->pdf->extension();
 
 
         $name_file = $doc->id_codigo. '_' .$doc->Tit_Doc. '.' .$extension_pdf;
 
+        $request->file('pdf')->storeAs('pdfs', $name_file);
 
-        if ($request->file('pdf')->isValid()){
-                $request->file('pdf')->storeAs('pdfs', $name_file);
-        }
-        else {
-            echo "<div class='alert-danger' align='center'> Arquivo PDF inválido</div> ";
-        }
-
+        
        if ($doc->save() == TRUE) {
            echo "<div class='alert-success' align='center'> Documento cadastrado com sucesso</div> ";
            return view('forms_create/documentos');

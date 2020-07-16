@@ -17,9 +17,15 @@ Dados do Documento
 
         <!-- Linha 1 -->
         <div class="row">
+        
                 <div class="col-md-2">
                     <label>Código: *</label>
-                <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="codigo" value=""  disabled >
+
+        @foreach($dash as $dashboard)
+
+                <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="codigo" value="{{ ($dashboard->id_codigo) + (1) }}"  disabled >
+        @endforeach
+
                 </div>
 
                 <div class="col-md-3">
