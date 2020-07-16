@@ -89,7 +89,8 @@ class ControladorDocumento extends Controller
         
        if ($doc->save() == TRUE) {
            echo "<div class='alert-success' align='center'> Documento cadastrado com sucesso</div> ";
-           return view('forms_create/documentos');
+           //Responsável por redirecionar para o lugar certo
+           return redirect('documento');
        }
 
 
