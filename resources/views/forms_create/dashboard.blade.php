@@ -35,13 +35,13 @@
                 @foreach($dash as $dashboard)
                     <tr>
                         <td scope="row">{{$dashboard->id_codigo}}</td>
-                        <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{$dashboard->data}}</a></td>
+                        <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{date('d/m/Y', strtotime($dashboard->data))}}</a></td>
                         <td> {{$dashboard->Emp_Emit}}</td>
                         <td> {{$dashboard->Emp_Dest}}</td>
                         <td> {{$dashboard->Tp_Doc}}</td>
                         <td> {{$dashboard->Nome_Doc}}</td>
                         <td> R${{$dashboard->Valor_Doc}}</td>
-                        <td> {{$dashboard->Dt_Ref}} </td>
+                        <td> {{date('d/m/Y', strtotime($dashboard->Dt_Ref))}}</td>
                         <td> {{$dashboard->Tit_Doc}} </td>
                         <td> {{$dashboard->Palavra_Chave}} </td>
                         <td> {{$dashboard->Dep}} </td>

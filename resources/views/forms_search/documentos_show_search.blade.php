@@ -32,7 +32,7 @@
             @foreach($result as $dashboard)
                 <tr>
                     <td scope="row">{{$dashboard->id_codigo}}</td>
-                    <td> {{$dashboard->data}} </td>
+                    <td> {{date('d/m/Y', strtotime($dashboard->data))}} </td>
                     <td> {{$dashboard->Emp_Emit}}</td>
                     <td> {{$dashboard->Emp_Dest}}</td>
                     <td> {{$dashboard->Palavra_Chave}} </td>

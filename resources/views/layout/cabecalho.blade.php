@@ -40,15 +40,6 @@
                 </div>
             </div>
 
-            <!-- Configurações -->
-            <div class="dropdown1">
-                <button class="dropbtn1">Configurações</button>
-                    <div class="dropdown-content1">
-                        <a href="#">Códigos</a>
-                        <a href="#">Criar Usuários</a>
-                        <a href="#">Gerenciar Usuários</a>
-                    </div>
-            </div>
 
             <!-- Sair -->
             <div class="dropdownExit1">
