@@ -76,34 +76,34 @@ class ControladorDocumento extends Controller
         $doc->save();
 
 
-        //Nome do documento pdf.
+        
 
-
+        //Obtenção da extensão do arquivo.
         $extension_pdf = $request->pdf->extension();
-
+        
+        //Nome do documento pdf.
         $name_file = $doc->id_codigo.'_'.$doc->Tit_Doc. '.' .$extension_pdf;
+       
+        //Define local de armazenamento do documento
+        $upload = $request->file('pdf')->storeAs('pdfs', $name_file);
 
-        $request->file('pdf')->storeAs('pdfs', $name_file);
+
+        if(!$upload) {
+            echo "<div class='alert-danger' align='center'> Erro ao realizar Upload</div> ";
+        }
+        else {
+
+            echo "<div class='alert-success' align='center'> Documento cadastrado com sucesso</div> ";
+            return redirect('documento');
+        }
+        
+        
+       
 
 
-  
-  
 
-  
 
-       if ($doc->save() == TRUE) {
-           echo "<div class='alert-success' align='center'> Documento cadastrado com sucesso</div> ";
-           //Responsável por redirecionar para o lugar certo
-           return redirect('documento');
        }
-
-
-
-
-       }
-
-
-
 
 
 
