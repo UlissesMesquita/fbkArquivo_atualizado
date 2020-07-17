@@ -91,6 +91,7 @@ class ControladorDocumento extends Controller
         if(!$upload) {
             echo "<div class='alert-danger' align='center'> Erro ao realizar Upload</div> ";
         }
+        
         else {
 
             echo "<div class='alert-success' align='center'> Documento cadastrado com sucesso</div> ";
