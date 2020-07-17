@@ -81,12 +81,16 @@ class ControladorDocumento extends Controller
 
         $extension_pdf = $request->pdf->extension();
 
-
-        $name_file = $doc->id_codigo. '_' .$doc->Tit_Doc. '.' .$extension_pdf;
+        $name_file = $doc->id_codigo.'_'.$doc->Tit_Doc. '.' .$extension_pdf;
 
         $request->file('pdf')->storeAs('pdfs', $name_file);
 
-        
+
+  
+  
+
+  
+
        if ($doc->save() == TRUE) {
            echo "<div class='alert-success' align='center'> Documento cadastrado com sucesso</div> ";
            //Responsável por redirecionar para o lugar certo
@@ -97,7 +101,6 @@ class ControladorDocumento extends Controller
 
 
        }
-
 
 
 
