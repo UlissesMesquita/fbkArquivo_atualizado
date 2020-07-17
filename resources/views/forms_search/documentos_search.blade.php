@@ -13,8 +13,14 @@
     @csrf
 
         <!-- Linha 1 -->
-        <div class="row">            <div class="col-md-3">
-                <label>Data Início: *</label>
+        <div class="row">   
+
+        <div class="col-md-2">
+                <label>Código:</label>
+                <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="codigo">
+            </div>
+         <div class="col-md-3">
+                <label>Data Início: </label>
                 <label for="data_in"></label><input type="date" class="form-control" id="data_in" name="data_in" placeholder="data_in" >
             @error('data_in')
                 <div class="alert alert-warning">{{ $message }}</div>
@@ -22,7 +28,7 @@
             </div>
 
             <div class="col-md-3">
-                <label>Data Fim: *</label>
+                <label>Data Fim: </label>
                 <label for="data_out"></label><input type="date" class="form-control" id="data_out" name="data_out" placeholder="data_out" >
             @error('data_out')
                 <div class="alert alert-warning">{{ $message }}</div>
@@ -80,6 +86,7 @@
                 <label>Valor:</label>
                 <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$">
             </div>
+
         </div>
 
 
@@ -107,6 +114,7 @@
             <th>Nome Documento</th>
             <th>Observações</th>
             <th>Valor</th>
+            <th>Código</th>
             <th>Ferramentas</th>
         </tr>
     </thead>
@@ -123,6 +131,7 @@
                 <td> {{$dashboard->Nome_Doc}}</td>
                 <td> {{$dashboard->Loc_Obs}} </td>
                 <td> R${{$dashboard->Valor_Doc}}</td>
+                <td> R${{$dashboard->id_codigo}}</td>
     
                             <!-- Botões de Ação-->
                             <td>
