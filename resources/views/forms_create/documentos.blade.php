@@ -88,7 +88,7 @@ Dados do Documento
 
             <div class="col-md-2">
                 <label>Valor: *</label>
-                <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$" required>
+                <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$" required onkeypress="mascaraMoeda(this)">
             </div>
         </div>
 

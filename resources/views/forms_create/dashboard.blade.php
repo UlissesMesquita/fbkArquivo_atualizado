@@ -55,7 +55,7 @@
 
                                 <!-- Botão de Exibir PDF -->
 
-                                    <a class="fas fa-file-pdf" href="{{ asset('storage/pdfs/'.$dashboard->id_codigo.'_'. $dashboard->Tit_Doc .'.pdf')}}" target="_blank" method="POST"></a>
+                                    <a class="fas fa-file-pdf" href="{{ asset('storage/pdfs/1_')}}" target="_blank" method="POST"></a>
 
                                 <!-- Botão de Editar -->
                                 

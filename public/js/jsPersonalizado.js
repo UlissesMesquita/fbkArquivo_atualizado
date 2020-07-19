@@ -20,22 +20,11 @@
   }
   
 
-  function mascaraValor( campo, e )
-  {
-    var kC = (document.all) ? event.keyCode : e.keyCode;
-    var valor = campo.value;
-    
-    if( kC!=8 && kC!=46 )
-    {
-      if( valor.length==3 ){
-        campo.value = valor += '.';
-      }
-      else if( valor.length==3 ){
-        campo.valor = valor += '.';
-      }
-      else
-        campo.valor = valor += ',00';
-    }
-  }
+  //Mascara Valor
+  function mascaraMoeda(numero){
+    var formatado = "R$ " + numero.toFixed(2).replace(".",",");
+    return formatado;
+}
+
   
 
