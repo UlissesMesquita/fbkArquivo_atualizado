@@ -129,6 +129,7 @@
             <th>Observações</th>
             <th>Valor</th>
             <th>Caixa/Etiqueta</th>
+            <th>Tipo Projeto</th>
 
             <th>Ferramentas</th>
         </tr>
@@ -146,7 +147,8 @@
                 <td> {{$dashboard->Nome_Doc}}</td>
                 <td> {{$dashboard->Loc_Obs}} </td>
                 <td> R${{$dashboard->Valor_Doc}}</td>
-                <td> R${{$dashboard->Loc_Box_Eti}}</td>
+                <td> {{$dashboard->Loc_Box_Eti}}</td>
+                <td> {{$dashboard->Tp_Projeto}}</td>
     
                             <!-- Botões de Ação-->
                             <td>
