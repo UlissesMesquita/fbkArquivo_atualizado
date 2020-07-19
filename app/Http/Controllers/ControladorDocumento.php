@@ -78,7 +78,6 @@ class ControladorDocumento extends Controller
 
 
         
-
         //Obtenção da extensão do arquivo.
         $extension_pdf = $request->pdf->extension();
         
