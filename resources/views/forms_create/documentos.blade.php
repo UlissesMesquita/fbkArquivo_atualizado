@@ -81,7 +81,7 @@ Dados do Documento
 
             <div class="col-md-3">
                 <label>Número Documento: *</label>
-                <label for="Nome_Doc"></label><input type="number" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="Número Documento" required>
+                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="Número Documento" required>
             </div>
 
             <div class="col-md-2">
@@ -96,7 +96,7 @@ Dados do Documento
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                    <label for="Dt_Ref"></label><input type="month" class="form-control" id="Dt_Ref" name="Dt_Ref" placeholder="Dt_Ref" required>
+                    <label for="Dt_Ref"></label><input type="date" class="form-control" id="Dt_Ref" name="Dt_Ref" placeholder="Dt_Ref" required>
                 </div>
 
                 <div class="col-md-8">

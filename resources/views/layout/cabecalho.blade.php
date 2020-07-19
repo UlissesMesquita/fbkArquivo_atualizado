@@ -57,9 +57,9 @@
         </div>
 
 
-
+    
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/JQuery.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/jQuery.Mascara.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jQuery.Mascaras.js')}}"></script>
 </body>
 </html>

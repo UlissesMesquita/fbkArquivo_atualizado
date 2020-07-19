@@ -76,7 +76,7 @@
             </div>
 
             <div class="col-md-6">
-                <label>Nome Documento: *</label>
+                <label>Número Documento: *</label>
                 <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" placeholder="Nome_Doc" value="{{$edit->Nome_Doc}}" required>
             </div>
 
@@ -90,7 +90,7 @@
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                <label for="Dt_Ref"></label><input type="month" class="form-control" id="Dt_Ref" name="Dt_Ref" placeholder="Dt_Ref" value="{{$edit->Dt_Ref}}">
+                <label for="Dt_Ref"></label><input type="date" class="form-control" id="Dt_Ref" name="Dt_Ref" placeholder="Dt_Ref" value="{{$edit->Dt_Ref}}">
                 </div>
 
                 <div class="col-md-8">
