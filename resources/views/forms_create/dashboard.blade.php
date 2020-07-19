@@ -43,7 +43,7 @@
                         <td> {{$dashboard->Tp_Projeto}}</td>
                         <td> {{$dashboard->Nome_Doc}}</td>
                         <td> R${{$dashboard->Valor_Doc}}</td>
-                        <td> {{date('d/m/Y', strtotime($dashboard->Dt_Ref))}}</td>
+                        <td> {{$dashboard->Dt_Ref}}</td>
                         <td> {{$dashboard->Tit_Doc}} </td>
                         <td> {{$dashboard->Palavra_Chave}} </td>
                         <td> {{$dashboard->Dep}} </td>

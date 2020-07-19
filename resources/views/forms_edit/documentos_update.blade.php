@@ -90,7 +90,7 @@
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                <label for="Dt_Ref"></label><input type="date" class="form-control" id="Dt_Ref" name="Dt_Ref" placeholder="Dt_Ref" value="{{$edit->Dt_Ref}}">
+                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" type="text"class="form-control" maxlength="7" name="Dt_Ref" value= "{{$edit->Dt_Ref}}" id="Dt_Ref" onkeypress="mascaraData( this, event )" />
                 </div>
 
                 <div class="col-md-8">
@@ -203,7 +203,7 @@
                 </select>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label>Status: *</label>
                 <label for="Loc_Status"></label>
                 <select id="Loc_Status" name="Loc_Status" class="form-control" required>
@@ -230,9 +230,9 @@
                 </select>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <label>Desfaz/Destruir: *</label>
-                <label for="Desfaz"></label><input type="date" class="form-control" id="Desfaz" name="Desfaz" placeholder="Desfaz" value="{{$edit->Desfaz}}" required>
+            <label for="Desfaz"></label><input placeholder= "Mês/Ano" type="text" class="form-control" value= "{{$edit->Desfaz}}" name="Desfaz" id="Desfaz" maxlength="7" onkeypress="mascaraData( this, event )" required/>
             </div>
 
             <div class="col-md-2">

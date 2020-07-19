@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="{{asset('css/cabecalho.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/fontawesome/css/all.css')}}">
+
     <meta charset="utf-8">
+
 
         <title>@yield('titulo_pagina')</title>
 
@@ -16,6 +18,11 @@
 
 
 <body>
+    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/JQuery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery-ui.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jsPersonalizado.js')}}"></script>
+
         <!-- Logotipo - Fabrika Filmes -->
         <div class="navbar1">
                 <a href="{{route('index')}}"><i class="fas fa-industry">  Fabrika Filmes</i></a>
@@ -57,9 +64,8 @@
         </div>
 
 
-    
-    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/JQuery.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/jQuery.Mascaras.js')}}"></script>
+
+
+
 </body>
 </html>
