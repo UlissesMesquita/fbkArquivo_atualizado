@@ -139,7 +139,7 @@
             <th>Observações</th>
             <th>Valor</th>
             <th>Caixa/Etiqueta</th>
-            <th>Tipo de Projeto</th>
+            <th>Tipo Projeto</th>
 
             <th>Ferramentas</th>
         </tr>

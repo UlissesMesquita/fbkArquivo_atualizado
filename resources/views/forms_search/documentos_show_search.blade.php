@@ -17,29 +17,36 @@
         <thead>
             <tr>
                 <th>Código</th>
-                <th>Data Principal</th>
+                <th>Data</th>
                 <th>Emitente</th>
                 <th>Destinatária</th>
-                <th>Palavra Chave</th>
+                <th>Tipo Documento Arquivado</th>
+                <th>Tipo de Projeto</th>
                 <th>Número Documento</th>
-                <th>Observações</th>
-                <th>Ação</th>
+                <th>Valor</th>
+                <th>Data Referência</th>
+                <th>Titulo Documento</th>
+                <th>Palavra Chave</th>
+                <th>Departamento</th>
+                <th>Ferramentas</th>
             </tr>
         </thead>
 
         <tbody>
 
-            @foreach($result as $dashboard)
-                <tr>
-                    <td scope="row">{{$dashboard->id_codigo}}</td>
-                    <td> {{date('d/m/Y', strtotime($dashboard->data))}} </td>
-                    <td> {{$dashboard->Emp_Emit}}</td>
-                    <td> {{$dashboard->Emp_Dest}}</td>
-                    <td> {{$dashboard->Palavra_Chave}} </td>
-                    <td> {{$dashboard->Nome_Doc}}</td>
-                    <td> {{$dashboard->Loc_Obs}} </td>
-        
-                        <!-- Botões de Ação-->
+            <tr>
+                <td scope="row">{{$dashboard->id_codigo}}</td>
+                <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{date('d/m/Y', strtotime($dashboard->data))}}</a></td>
+                <td> {{$dashboard->Emp_Emit}}</td>
+                <td> {{$dashboard->Emp_Dest}}</td>
+                <td> {{$dashboard->Palavra_Chave}} </td>
+                <td> {{$dashboard->Nome_Doc}}</td>
+                <td> {{$dashboard->Loc_Obs}} </td>
+                <td> R${{$dashboard->Valor_Doc}}</td>
+                <td> {{$dashboard->Loc_Box_Eti}}</td>
+                <td> {{$dashboard->Tp_Projeto}}</td>
+    
+                            <!-- Botões de Ação-->
                         <td>
                             <!-- Botão de Exibir PDF -->
                             <form method="POST" action="{{ asset('storage/pdfs/'.$dashboard->id_codigo.'_'. $dashboard->Tit_Doc .'.pdf')}}" target="_blank">
