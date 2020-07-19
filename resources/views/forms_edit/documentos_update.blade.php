@@ -66,7 +66,7 @@
         <!-- Linha 3 -->
         <div class="row">
             <div class="col-md-4">
-                <label>Tipo Documento: *</label>
+                <label>Tipo Documento Arquivado: *</label>
                 <label for="Tp_Doc"></label>
                     <select id="Tp_Doc" name="Tp_Doc" class="form-control" required>
                         <option>{{$edit->Tp_Doc}}</option>
@@ -90,7 +90,7 @@
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                <label for="Dt_Ref"></label><input type="date" class="form-control" id="Dt_Ref" name="Dt_Ref" placeholder="Dt_Ref" value="{{$edit->Dt_Ref}}">
+                <label for="Dt_Ref"></label><input type="month" class="form-control" id="Dt_Ref" name="Dt_Ref" placeholder="Dt_Ref" value="{{$edit->Dt_Ref}}">
                 </div>
 
                 <div class="col-md-8">
@@ -228,6 +228,16 @@
                         @break
                 @endswitch
 
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <label>Tipo de Projeto:</label>
+                <label for="Tp_Projeto"></label>
+                <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" >
+                    <option>{{$edit->Tp_Projeto}}</option>
+                    <option>JOB</option>
+                    <option>ADM</option>
                 </select>
             </div>
         </div>

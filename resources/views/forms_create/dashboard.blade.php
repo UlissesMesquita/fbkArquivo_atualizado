@@ -18,7 +18,7 @@
                     <th>Data</th>
                     <th>Emitente</th>
                     <th>Destinatária</th>
-                    <th>Tipo Documento</th>
+                    <th>Tipo Documento Arquivado</th>
                     <th>Tipo de Projeto</th>
                     <th>Número Documento</th>
                     <th>Valor</th>

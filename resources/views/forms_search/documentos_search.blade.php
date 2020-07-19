@@ -90,14 +90,24 @@
             <div class="col-md-2">
                 <label>Caixa/Etiqueta:</label>
                 <label for="Loc_Box_Eti"></label>
-                <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
-                    <option selected>Escolha...</option>
+                <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" >
+                    <option value="">Escolha...</option>
                     <?php
                     for ($i=1; $i<31; $i++) {
                         echo "<option value='".$i."'>". $i ."</option>";
                     }
                     ?>
 
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <label>Tipo de Projeto:</label>
+                <label for="Tp_Projeto"></label>
+                <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" >
+                    <option value="">Escolha...</option>
+                    <option>JOB</option>
+                    <option>ADM</option>
                 </select>
             </div>
 
@@ -129,7 +139,7 @@
             <th>Observações</th>
             <th>Valor</th>
             <th>Caixa/Etiqueta</th>
-            <th>Tipo Projeto</th>
+            <th>Tipo de Projeto</th>
 
             <th>Ferramentas</th>
         </tr>

@@ -70,7 +70,7 @@ Dados do Documento
         <!-- Linha 3 -->
         <div class="row">
             <div class="col-md-4">
-                <label>Tipo Documento: *</label>
+                <label>Tipo Documento Arquivado: *</label>
                 <label for="Tp_Doc"></label>
                     <select id="Tp_Doc" name="Tp_Doc" class="form-control" required>
                         <option selected>Escolha...</option>

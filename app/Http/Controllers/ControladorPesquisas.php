@@ -21,12 +21,12 @@ class ControladorPesquisas extends Controller
     public function index()
     {
 
-
+      
 
         $emit = Empresas_Emitentes::all();
         $dest = Empresas_Destinatarias::all();
         $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
-        
+
         return view('forms_search/documentos_search', compact('emit', 'dest', 'dash'));
     }
 
@@ -63,6 +63,7 @@ class ControladorPesquisas extends Controller
     public function show(Request $request)
     {
 
+     
 
     // Vetificar se tem data_in e data_out 
     if (isset($request['data_in']) && isset($request['data_out'])) {
