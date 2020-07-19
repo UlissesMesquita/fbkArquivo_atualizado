@@ -21,7 +21,7 @@
                 <th>Emitente</th>
                 <th>Destinatária</th>
                 <th>Palavra Chave</th>
-                <th>Nome Documento</th>
+                <th>Número Documento</th>
                 <th>Observações</th>
                 <th>Ação</th>
             </tr>

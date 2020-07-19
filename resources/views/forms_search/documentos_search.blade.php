@@ -73,8 +73,8 @@
             </div>
 
             <div class="col-md-3">
-                <label>Nome Documento: </label>
-                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" placeholder="Nome_Doc" >
+                <label>Número Documento: </label>
+                <label for="Nome_Doc"></label><input type="number" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="Número Documento" >
             </div>
 
             <div class="col-md-6">
@@ -85,6 +85,20 @@
             <div class="col-md-2">
                 <label>Valor:</label>
                 <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$">
+            </div>
+
+            <div class="col-md-2">
+                <label>Caixa/Etiqueta:</label>
+                <label for="Loc_Box_Eti"></label>
+                <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
+                    <option selected>Escolha...</option>
+                    <?php
+                    for ($i=1; $i<31; $i++) {
+                        echo "<option value='".$i."'>". $i ."</option>";
+                    }
+                    ?>
+
+                </select>
             </div>
 
         </div>
@@ -111,10 +125,11 @@
             <th>Emitente</th>
             <th>Destinatária</th>
             <th>Palavra Chave</th>
-            <th>Nome Documento</th>
+            <th>Número Documento</th>
             <th>Observações</th>
             <th>Valor</th>
-            <th>Código</th>
+            <th>Caixa/Etiqueta</th>
+
             <th>Ferramentas</th>
         </tr>
     </thead>
@@ -131,7 +146,7 @@
                 <td> {{$dashboard->Nome_Doc}}</td>
                 <td> {{$dashboard->Loc_Obs}} </td>
                 <td> R${{$dashboard->Valor_Doc}}</td>
-                <td> R${{$dashboard->id_codigo}}</td>
+                <td> R${{$dashboard->Loc_Box_Eti}}</td>
     
                             <!-- Botões de Ação-->
                             <td>

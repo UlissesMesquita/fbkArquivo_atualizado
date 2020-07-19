@@ -60,5 +60,6 @@
 
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/JQuery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jQuery.Mascara.js')}}"></script>
 </body>
 </html>

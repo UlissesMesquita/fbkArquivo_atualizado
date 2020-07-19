@@ -80,8 +80,8 @@ Dados do Documento
             </div>
 
             <div class="col-md-6">
-                <label>Nome Documento: *</label>
-                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" placeholder="Nome_Doc" required>
+                <label>Número Documento: *</label>
+                <label for="Nome_Doc"></label><input type="number" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="Número Documento" required>
             </div>
 
             <div class="col-md-2">
@@ -90,11 +90,13 @@ Dados do Documento
             </div>
         </div>
 
+
+
         <!-- Linha 4 -->
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                    <label for="Dt_Ref"></label><input type="date" class="form-control" id="Dt_Ref" name="Dt_Ref" placeholder="Dt_Ref" required>
+                    <label for="Dt_Ref"></label><input type="month" class="form-control" id="Dt_Ref" name="Dt_Ref" placeholder="Dt_Ref" required>
                 </div>
 
                 <div class="col-md-8">
@@ -215,6 +217,16 @@ Dados do Documento
                     <option>Arquivado</option>
                     <option>Não Arquivado</option>
                     <option>Em Processamento</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label>Tipo de Projeto: *</label>
+                <label for="Tp_Projeto"></label>
+                <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" required>
+                    <option selected>Escolha...</option>
+                    <option>ADM</option>
+                    <option>JOB</option>
                 </select>
             </div>
         </div>

@@ -22,6 +22,9 @@ $( "#warning-btn" ).click(function() {
 
 /*-----------------------------------------------*/
 
+/*Mascara valor*/ 
+$('.Valor_Doc').mask('#.##0,00', {reverse: true});
+/*-----*/
 
 
 /******/ (function(modules) { // webpackBootstrap

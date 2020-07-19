@@ -19,7 +19,8 @@
                     <th>Emitente</th>
                     <th>Destinatária</th>
                     <th>Tipo Documento</th>
-                    <th>Nome Documento</th>
+                    <th>Tipo de Projeto</th>
+                    <th>Número Documento</th>
                     <th>Valor</th>
                     <th>Data Referência</th>
                     <th>Titulo Documento</th>
@@ -39,6 +40,7 @@
                         <td> {{$dashboard->Emp_Emit}}</td>
                         <td> {{$dashboard->Emp_Dest}}</td>
                         <td> {{$dashboard->Tp_Doc}}</td>
+                        <td> {{$dashboard->Tp_Projeto}}</td>
                         <td> {{$dashboard->Nome_Doc}}</td>
                         <td> R${{$dashboard->Valor_Doc}}</td>
                         <td> {{date('d/m/Y', strtotime($dashboard->Dt_Ref))}}</td>
