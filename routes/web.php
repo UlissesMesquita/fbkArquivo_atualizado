@@ -16,16 +16,6 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 
-//Rotas para teste
-
- // Rotas E-mail
-Route::get('/email', function () {
-   Mail::send('formularios.cadastro_documentos', ['Nome' => 'Ulisses'], function ($m){
-       $m->from('ulisses.mesquita@xpon.com.br');
-       $m->to('souza.mesquita@gmail.com');
-   });
-});
-
 
 
 Route::GET('/teste', 'ControladorTeste@index')->name('teste');
