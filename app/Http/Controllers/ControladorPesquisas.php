@@ -63,7 +63,7 @@ class ControladorPesquisas extends Controller
     public function show(Request $request)
     {
 
-     
+     //dd($request);
 
     // Vetificar se tem data_in e data_out 
     if (isset($request['data_in']) && isset($request['data_out'])) {

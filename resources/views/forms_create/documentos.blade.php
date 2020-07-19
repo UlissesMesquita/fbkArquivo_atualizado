@@ -164,8 +164,8 @@ Dados do Documento
 
         <!-- Linha 7 -->
         <div class="row">
-            <div class="col-md-2">
-                <label>Corredor: *</label>
+            <div class="col-md-1">
+                <label>Corredor:*</label>
                 <label for="Loc_Cor"></label>
                 <select id="Loc_Cor" name="Loc_Cor" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -177,8 +177,8 @@ Dados do Documento
                 </select>
             </div>
 
-            <div class="col-md-2">
-                <label>Estante: *</label>
+            <div class="col-md-1">
+                <label>Estante:*</label>
                 <label for="Loc_Est"></label>
                 <select id="Loc_Est" name="Loc_Est" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -191,8 +191,8 @@ Dados do Documento
                 </select>
             </div>
 
-            <div class="col-md-2">
-                <label>Caixa/Etiqueta: *</label>
+            <div class="col-md-1">
+                <label>Caixa:*</label>
                 <label for="Loc_Box_Eti"></label>
                 <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -205,8 +205,8 @@ Dados do Documento
                 </select>
             </div>
 
-            <div class="col-md-2">
-                <label>Maço: *</label>
+            <div class="col-md-1">
+                <label>Maço:*</label>
                 <label for="Loc_Maço"></label>
                 <select id="Loc_Maço" name="Loc_Maco" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -220,7 +220,7 @@ Dados do Documento
             </div>
 
             <div class="col-md-2">
-                <label>Status: *</label>
+                <label>Status:*</label>
                 <label for="Loc_Status"></label>
                 <select id="Loc_Status" name="Loc_Status" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -230,13 +230,18 @@ Dados do Documento
                 </select>
             </div>
 
+            <div class="col-md-4">
+                <label>Desfaz/Destruir: *</label>
+                <label for="Desfaz"></label><input type="date" class="form-control" id="Desfaz" name="Desfaz" placeholder="Desfaz" required>
+            </div>
+
         </div>
 
         <!-- Linha 8 -->
         <div class="row">
             <div class="col-md-8">
                 <label for="exampleFormControlTextarea1">Observações:</label>
-                <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="3"></textarea>
+                <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1">Nenhuma Observação</textarea>
             </div>
 
 

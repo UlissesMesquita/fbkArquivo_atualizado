@@ -9,7 +9,7 @@
 @endsection
 
 @section('conteudo')
-<div class="container">
+<div class="container" id="campo-pesquisa">
     
 
     <form class="form-horizontal" name="form" method="POST" action="{{route('pesquisa_novo')}}" enctype="multipart/form-data">
@@ -112,6 +112,11 @@
                         <option>JOB</option>
                         <option>ADM</option>
                     </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Defaz/Destruir: </label>
+                    <label for="Desfaz"></label><input type="date" class="form-control" id="Desfaz" name="Desfaz" placeholder="Desfaz" required>
                 </div>
 
             </div>

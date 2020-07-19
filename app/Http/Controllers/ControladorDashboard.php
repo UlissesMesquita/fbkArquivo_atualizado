@@ -110,6 +110,7 @@ class ControladorDashboard extends Controller
         $doc->Loc_Maco = $request->input('Loc_Maco');
         $doc->Loc_Status = $request->input('Loc_Status');
         $doc->Loc_Obs = $request->input('Loc_Obs');
+        $doc->Desfaz = $request->input('Desfaz');
         
 
 
@@ -133,7 +134,8 @@ class ControladorDashboard extends Controller
             'Loc_Box_Eti' => $doc->Loc_Box_Eti,
             'Loc_Maco' => $doc->Loc_Maco,
             'Loc_Status' => $doc->Loc_Status,
-            'Loc_Obs' => $doc->Loc_Obs
+            'Loc_Obs' => $doc->Loc_Obs,
+            'Desfaz' => $doc->Desfaz
             
             ]);
 

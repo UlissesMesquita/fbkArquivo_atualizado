@@ -227,8 +227,12 @@
                         <option> Arquivado </option>
                         @break
                 @endswitch
-
                 </select>
+            </div>
+
+            <div class="col-md-4">
+                <label>Desfaz/Destruir: *</label>
+                <label for="Desfaz"></label><input type="date" class="form-control" id="Desfaz" name="Desfaz" placeholder="Desfaz" value="{{$edit->Desfaz}}" required>
             </div>
 
             <div class="col-md-2">

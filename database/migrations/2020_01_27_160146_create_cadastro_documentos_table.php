@@ -33,9 +33,10 @@ class CreateCadastroDocumentosTable extends Migration
             $table->integer('Loc_Cor');
             $table->integer('Loc_Est');
             $table->integer('Loc_Box_Eti');
+            $table->string('Desfaz');
             $table->integer('Loc_Maco');
             $table->string('Loc_Status');
-            $table->string('Loc_Obs');
+            $table->string('Loc_Obs')->nullble();
 
         });
     }
