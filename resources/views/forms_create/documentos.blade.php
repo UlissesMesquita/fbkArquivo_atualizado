@@ -28,7 +28,7 @@ Dados do Documento
 
                 <div class="col-md-3">
                     <label>Data: *</label>
-                    <label for="data"></label><input type="date" class="form-control" id="data" name="data" placeholder="data" required>
+                    <label for="data"></label><input type="date" class="form-control" id="data" name="data" placeholder="data" required >
                 </div>
 
                 <div class="col-md-7">
@@ -69,7 +69,7 @@ Dados do Documento
 
         <!-- Linha 3 -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label>Tipo Documento Arquivado: *</label>
                 <label for="Tp_Doc"></label>
                     <select id="Tp_Doc" name="Tp_Doc" class="form-control" required>
@@ -79,7 +79,7 @@ Dados do Documento
                     </select>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label>Número Documento: *</label>
                 <label for="Nome_Doc"></label><input type="number" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="Número Documento" required>
             </div>
@@ -148,6 +148,16 @@ Dados do Documento
 
                         </select>
                 </div>
+
+                <div class="col-md-2">
+                    <label>Tipo de Projeto: *</label>
+                    <label for="Tp_Projeto"></label>
+                    <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" required>
+                        <option selected>Escolha...</option>
+                        <option>ADM</option>
+                        <option>JOB</option>
+                    </select>
+                </div>
         </div>
 
     <h2>Localização</h2>
@@ -209,7 +219,7 @@ Dados do Documento
                 </select>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label>Status: *</label>
                 <label for="Loc_Status"></label>
                 <select id="Loc_Status" name="Loc_Status" class="form-control" required>
@@ -220,15 +230,6 @@ Dados do Documento
                 </select>
             </div>
 
-            <div class="col-md-3">
-                <label>Tipo de Projeto: *</label>
-                <label for="Tp_Projeto"></label>
-                <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" required>
-                    <option selected>Escolha...</option>
-                    <option>ADM</option>
-                    <option>JOB</option>
-                </select>
-            </div>
         </div>
 
         <!-- Linha 8 -->
