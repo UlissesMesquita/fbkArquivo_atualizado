@@ -115,8 +115,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <label>Defaz/Destruir: </label>
-                    <label for="Desfaz"></label><input type="date" class="form-control" id="Desfaz" name="Desfaz" placeholder="Desfaz">
+                    <label>Desfaz/Destruir: *</label>
+                    <label for="Desfaz"></label><input type="text" placeholder= "Mês/Ano" class="form-control" name="Desfaz" id="Desfaz" maxlength="7" onkeypress="mascaraData( this, event )"/>
                 </div>
 
             </div>
