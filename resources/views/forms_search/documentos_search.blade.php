@@ -121,7 +121,6 @@
 
             </div>
 
-
             <!-- Botões Pagina-->
                 <div class="form-group">
                 <label class="col-md-6 control-label" for="Cadastrar"></label>
