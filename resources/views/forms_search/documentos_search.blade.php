@@ -116,7 +116,7 @@
 
                 <div class="col-md-4">
                     <label>Defaz/Destruir: </label>
-                    <label for="Desfaz"></label><input type="date" class="form-control" id="Desfaz" name="Desfaz" placeholder="Desfaz" required>
+                    <label for="Desfaz"></label><input type="date" class="form-control" id="Desfaz" name="Desfaz" placeholder="Desfaz">
                 </div>
 
             </div>
