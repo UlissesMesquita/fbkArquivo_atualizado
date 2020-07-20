@@ -23,7 +23,7 @@
 
     <!--Exibição de dados -->
 
-    <h2> Lista de Origens Cadadstradas </h2>
+    <h2> Lista de Origens Cadastradas </h2>
     <!-- Mostra os dados no banco de dados -->
     <table class="table table-striped">
         <thead>

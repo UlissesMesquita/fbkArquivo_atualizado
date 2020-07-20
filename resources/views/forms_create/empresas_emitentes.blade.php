@@ -23,7 +23,7 @@
 
 
 
-    <h2> Lista de Empresas Emitentes Cadadstradas </h2>
+    <h2> Lista de Empresas Emitentes Cadastradas </h2>
 
 
     <!-- Dados da Tabela -->
