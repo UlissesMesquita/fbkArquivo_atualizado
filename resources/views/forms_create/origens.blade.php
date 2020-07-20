@@ -42,28 +42,14 @@
                 <th scope="row">{{ $origens->id_origem }}</th>
                 <td> {{ $origens->cad_origem }} </td>
 
-<!-- Botões de Ação-->
-                    <td>
-
-
+        <!-- Botões de Ação-->
+                <td>
                     <span></span>
                     <!-- Botão de Editar -->
-                    <form method="GET" action="{{route('origem_edit', $origens->id_origem)}}">
-                        <input type="hidden" name="edit" value="{{$origens->id_origem}}" required>
-                        <button type="submit" class="btn btn-primary">
-                            <span class="far fa-edit"></span>
-                        </button>
-                    </form>
-
-                    <span></span>
+                    <a class="far fa-edit" href="{{route('origem_edit', $origens->id_origem)}}" method="GET"></a>
                     <!-- Botão de Apagar -->
-                    <form method="GET" action="/origem/delete/{{$origens->id_origem}}">
-                            <button type="submit" class="btn btn-danger">
-                            <input type="hidden" value="{{$origens->id_origem}}">
-                                <span class="fas fa-trash"></span>
-                            </button>
-                    </form>
-
+                    <a class="fas fa-trash" href="/origem/delete/{{$origens->id_origem}}" method="GET"></a>
+                    
                 </td>
             </tr>
         @endforeach

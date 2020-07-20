@@ -40,28 +40,18 @@
                         <th scope="row">{{$destinataria->id_empresa_destinataria}} </th>
                         <td> {{$destinataria->cad_destinatarias}} </td>
 
-                        <!-- Botões de Ação-->
-                        <td>
-                            
-                            <span></span>
-                            <!-- Botão de Editar -->
-                            <form method="GET" action="{{route('destinatarias_edit',$destinataria->id_empresa_destinataria)}}">
-                                <input type="hidden" name="edit" value="{{$destinataria->id_empresa_destinataria}}" required>
-                                <button type="submit" class="btn btn-primary">
-                                    <span class="far fa-edit"></span>
-                                </button>
-                            </form>
 
-                            <span></span>
-                            <!-- Botão de Apagar -->
-                            <form method="GET" action="/destinataria/delete/{{$destinataria->id_empresa_destinataria}}">
-                                    <button type="submit" class="btn btn-danger">
-                                    <input type="hidden" value="{{$destinataria->id_empresa_destinataria}}">
-                                        <span class="fas fa-trash"></span>
-                                    </button>
-                            </form>
+                   <!-- Botões de Ação-->
+                   <td>
+                    <span></span>
+                    <!-- Botão de Editar -->
+                    <a class="far fa-edit" href="{{route('destinatarias_edit',$destinataria->id_empresa_destinataria)}}" method="GET"></a>
+                    <!-- Botão de Apagar -->
+                    <a class="fas fa-trash" href="/destinataria/delete/{{$destinataria->id_empresa_destinataria}}" method="GET"></a>
+                </td>
 
-                        </td>
+
+
                     </tr>
                 @endforeach
 

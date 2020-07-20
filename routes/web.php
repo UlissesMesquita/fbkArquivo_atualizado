@@ -16,19 +16,11 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 
-//Rotas para teste
-
- // Rotas E-mail
-Route::get('/email', function () {
-   Mail::send('formularios.cadastro_documentos', ['Nome' => 'Ulisses'], function ($m){
-       $m->from('ulisses.mesquita@xpon.com.br');
-       $m->to('souza.mesquita@gmail.com');
-   });
-});
 
 
-
-Route::GET('/teste', 'ControladorTeste@index')->name('teste');
+//Rotas para Login
+Route::GET('/login', 'ControladorLogin@index')->name('login');
+Route::POST('/login', 'ControladorLogin@show')->name('valida-login');
 
 
 //Rotas Dashboard
@@ -74,3 +66,9 @@ Route::PUT('/destinataria/update/{id}', 'ControladorDestinataria@update')->name(
 Route::GET('/pesquisas', 'ControladorPesquisas@index')->name('pesquisa_index');
 Route::POST('/pesquisas', 'ControladorPesquisas@show')->name('pesquisa_novo');
 Route::POST('/pesquisas/getPdf','ControladorPesquisas@getPdf')->name('pesquisa_getPdf');
+
+//Rotas Para Configurações de usuários
+
+Route::GET('/config/usuarios', 'ControladorLogin@show')->name('configuracoes-usuarios');
+//Route::GET('/sair/{id_usuario}', 'ControladorLogin@destroy')->name('sair-usuario');
+

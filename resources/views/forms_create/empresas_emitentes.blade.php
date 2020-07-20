@@ -43,27 +43,19 @@
                 <th scope="row">{{$emitente->id_empresa_emitente}} </th>
                 <td> {{$emitente->cad_emitentes}} </td>
                     <!-- Botões de Ação-->
-                    <td>
-        
-                        <span></span>
-                        <!-- Botão de Editar -->
-                    <form method="GET" action="{{route('emitente_edit', $emitente->id_empresa_emitente)}}">
-                        <input type="hidden" name="edit" value="{{$emitente->id_empresa_emitente}}" required>
-                            <button type="submit" class="btn btn-primary">
-                                <span class="far fa-edit"></span>
-                            </button>
-                        </form>
+                <!-- Botões de Ação-->
+                <td>
+                    <span></span>
+                    <!-- Botão de Editar -->
+                    <a class="far fa-edit" href="{{route('emitente_edit', $emitente->id_empresa_emitente)}}" method="GET"></a>
+                    <!-- Botão de Apagar -->
+                    <a class="fas fa-trash" href="/emitente/delete/{{$emitente->id_empresa_emitente}}" method="GET"></a>
+                </td>
 
-                        <span></span>
-                        <!-- Botão de Apagar -->
-                        <form method="GET" action="/emitente/delete/{{$emitente->id_empresa_emitente}}">
-                                <button type="submit" class="btn btn-danger">
-                                <input type="hidden" value="{{$emitente->id_empresa_emitente}}">
-                                    <span class="fas fa-trash"></span>
-                                </button>
-                        </form>
 
-                    </td>
+
+
+
             </tr>
             @endforeach
         </form>

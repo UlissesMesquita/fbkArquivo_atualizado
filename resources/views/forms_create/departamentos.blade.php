@@ -43,27 +43,13 @@
                     <td>{{$departamento['cad_departamento']}}</td>
 
                    <!-- Botões de Ação-->
-                   <td>
-                       
-                    <span></span>
-                    <!-- Botão de Editar -->
-                    <form method="GET" action="{{route('departamento_edit', $departamento->id_departamento)}}">
-                        <input type="hidden" name="edit" value="{{$departamento->id_departamento}}" required>
-                        <button type="submit" class="btn btn-primary">
-                            <span class="far fa-edit"></span>
-                        </button>
-                    </form>
-
-                    <span></span>
-                    <!-- Botão de Apagar -->
-                    <form method="GET" action="/departamento/delete/{{$departamento->id_departamento}}">
-                            <button type="submit" class="btn btn-danger">
-                            <input type="hidden" value="{{$departamento->id_departamento}}">
-                                <span class="fas fa-trash"></span>
-                            </button>
-                    </form>
-
-                </td>
+                    <td>
+                        <span></span>
+                        <!-- Botão de Editar -->
+                        <a class="far fa-edit" href="{{route('departamento_edit', $departamento->id_departamento)}}" method="GET"></a>
+                        <!-- Botão de Apagar -->
+                        <a class="fas fa-trash" href="/departamento/delete/{{$departamento->id_departamento}}" method="GET"></a>
+                    </td>
                 </tr>
             @endforeach
     </table>

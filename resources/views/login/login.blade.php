@@ -32,10 +32,11 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="container">
         <a class="navbar-brand" href="login.blade.php">FBK - Controle de Arquivos Digitalizados</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
     </div>
+    <br>
+    <br>
+    <br>
+    
 </nav>
 
 <main class="login-form">
@@ -45,7 +46,7 @@
                 <div class="card">
                     <div class="card-header">Controle de Arquivos Digitalizados</div>
                     <div class="card-body">
-                        <form action="../funcoes_aplicacao/credencial.php" method="post">
+                        <form action="{{route('valida-login')}}" method="POST">
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">Login</label>
                                 <div class="col-md-6">
@@ -60,11 +61,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Acessar
-                                </button>
-                            </div>
+                            <div class="col-md-6 offset-md-4"><button type="submit" class="btn btn-primary">Acessar</button></div>
+        
                     </div>
                     </form>
                 </div>
