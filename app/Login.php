@@ -8,6 +8,11 @@ use Illuminate\Notifications\Notifiable;
 
 class Login extends Authenticatable
 {
+
+    protected $primaryKey = 'id_usuario';
+    public $incrementing = true;
+    public $table = 'usuarios';
+
     use Notifiable;
 
     /**
@@ -16,7 +21,7 @@ class Login extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'Login', 'Password', 'id_usuario',
     ];
 
     /**
@@ -25,7 +30,7 @@ class Login extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'Password', 'remember_token',
     ];
 
     /**
@@ -36,4 +41,6 @@ class Login extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
 }

@@ -16,7 +16,6 @@ class ControladorLogin extends Controller
         //Envia novo usuário para tela de login
        return view('login/login');
 
-        
     }
 
     /**
@@ -27,13 +26,13 @@ class ControladorLogin extends Controller
     public function create(Request $request)
     {
         
-/*
-        //Cria usuario e senha do novo usuário
-        $login = $log->login = $request->input('login');
-        $password = $log->password = $request->input('password');
-        $doc->save();
+
+        $log->login = $request->input('Login_Create');
+        $log->password = md5($request->input('Password_Create'));
+        dd($log->login);
+        $log->save();
         return redirect('configuracoes-usuarios');
-*/
+
     }
 
     /**
@@ -45,6 +44,15 @@ class ControladorLogin extends Controller
     public function store(Request $request)
     {
         //Autentica usuário 
+
+        /*
+        //Verifica usuario autenticado
+        $log = new Login();
+
+        $login = $log->login = $request->input('login');
+        $password = $log->password = $request->input('password');
+
+*/
     }
 
     /**
@@ -53,41 +61,16 @@ class ControladorLogin extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show()
     {
+        //$user = Login::all();
 
         return view('login/usuarios');
-/*
-        //Verifica usuario autenticado
-        $log = new Login();
-
-        $login = $log->login = $request->input('login');
-        $password = $log->password = $request->input('password');
-
-*/
 
 
 
-    //Busca dados do banco
-        $auth = Login::all();
 
 
-    if ($login == $auth->login){
-        
-        if($password == md5($auth->password)){
-            session_start();
-            $_SESSION[$auth->id_usuario]; 
-            return view('dashboard');
-        }
-        else {
-
-            aleta:"senha errada";
-            return view('login/login');
-        }
-    }
-    else {
-        alerta:"usuario errado";
-    }
      
     
 
@@ -137,5 +120,40 @@ class ControladorLogin extends Controller
         //Sair
         //Destroi sessão
         //Envia usuário para pagina de login
+    }
+    public function valida()
+    {
+
+    //Busca dados do banco
+    $auth = Login::all();
+
+
+    return view('forms_create/dashboard');
+        dd($auth);
+/*
+    if ($login == $auth->login){
+        
+        if($password == md5($auth->password)){
+            session_start();
+            $_SESSION[$auth->id_usuario]; 
+            return view('dashboard');
+        }
+        else {
+
+            aleta:"senha errada";
+            return view('login/login');
+        }
+    }
+    else {
+        alerta:"usuario errado";
+    }
+    }
+
+
+}
+*/
+
+
+
     }
 }

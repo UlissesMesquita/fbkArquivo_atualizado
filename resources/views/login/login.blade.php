@@ -46,7 +46,7 @@
                 <div class="card">
                     <div class="card-header">Controle de Arquivos Digitalizados</div>
                     <div class="card-body">
-                        <form action="{{route('valida-login')}}" method="POST">
+                        <form action="{{route('index')}}" method="GET">
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">Login</label>
                                 <div class="col-md-6">

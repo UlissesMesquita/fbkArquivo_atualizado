@@ -19,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 
 //Rotas para Login
+//Route::GET('/login', 'ControladorLogin@index')->name('login');
 Route::GET('/login', 'ControladorLogin@index')->name('login');
-Route::POST('/login', 'ControladorLogin@show')->name('valida-login');
+//Route::POST('/login', 'ControladorLogin@valida')->name('valida-login');
 
 
 //Rotas Dashboard
@@ -68,7 +69,7 @@ Route::POST('/pesquisas', 'ControladorPesquisas@show')->name('pesquisa_novo');
 Route::POST('/pesquisas/getPdf','ControladorPesquisas@getPdf')->name('pesquisa_getPdf');
 
 //Rotas Para Configurações de usuários
-
 Route::GET('/config/usuarios', 'ControladorLogin@show')->name('configuracoes-usuarios');
+//Route::POST('/config/usuarios', 'ControladorLogin@create')->name('create-usuarios');
 //Route::GET('/sair/{id_usuario}', 'ControladorLogin@destroy')->name('sair-usuario');
 

@@ -21,7 +21,7 @@
 
     <!--Exibição de dados -->
 
-<h2> Lista de Empresas Destinatárias Cadastradas </h2>
+<h2> Lista de Empresas Destinatárias Cadadstradas </h2>
 
     <!-- Mostra os dados no banco de dados -->
         <table class="table table-striped">
@@ -40,15 +40,15 @@
                         <th scope="row">{{$destinataria->id_empresa_destinataria}} </th>
                         <td> {{$destinataria->cad_destinatarias}} </td>
 
-
-                   <!-- Botões de Ação-->
-                   <td>
+                <!-- Botões de Ação-->
+                <td>
                     <span></span>
                     <!-- Botão de Editar -->
                     <a class="far fa-edit" href="{{route('destinatarias_edit',$destinataria->id_empresa_destinataria)}}" method="GET"></a>
                     <!-- Botão de Apagar -->
                     <a class="fas fa-trash" href="/destinataria/delete/{{$destinataria->id_empresa_destinataria}}" method="GET"></a>
                 </td>
+
 
 
 
