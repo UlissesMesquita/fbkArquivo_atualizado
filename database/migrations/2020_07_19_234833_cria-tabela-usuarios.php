@@ -15,10 +15,10 @@ class CriaTabelaUsuarios extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->bigIncrements('id_usuario');
-            $table->string('login')->unique()->default('admin');
-            $table->string('password')->default('21232f297a57a5a743894a0e4a801fc3');
-            $table->integer('autenticado')->default(0);
-            $table->string('permissao')->default('Operador');
+            $table->string('login')->unique();
+            $table->string('password');
+            $table->integer('autenticado')->default(1);
+            $table->string('permissao');
             $table->string('ativo')->default('ativo');
 
         });
