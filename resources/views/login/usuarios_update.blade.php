@@ -16,7 +16,7 @@
   <br>
     <div class="row">
 
-    <div class="col-md-2">
+    <div class="col-md-1">
         <label>ID:</label>
         <label for="ID"></label><input type="text" class="form-control" value="{{$edit->id_usuario}}" id="id_usuario" name="id_usuario" value="{{$edit->id_usuario}}" disabled >
     </div>
@@ -25,6 +25,16 @@
         <label>Login:</label>
         <label for="login"></label><input type="text" class="form-control" value="{{$edit->login}}" id="login" name="login" placeholder="login" required>
       </div>
+
+      <div class="col-md-2">
+        <label>Permissão: *</label>
+        <label for="permissao"></label>
+            <select id="permissao" name="permissao" class="form-control" required>
+                  <option selected>{{$edit->permissao}}</option>
+                    <option>Admin</option>
+                    <option>Operador</option>
+            </select>
+        </div>
   
       <div class="col-md-3">
         <label>Password:</label>

@@ -37,10 +37,10 @@ class ControladorLogin extends Controller
   
 
 foreach($consulta as $dados) {
-
-        if ($dados['login'] == $log->login) {
+        //Verifica se o login digitado está correto
+        while ($dados['login'] == $log->login) {
             //Verificar Password se está correto.
-            if($dados['password'] == $log->password) {
+            if($dados['password'] == md5($log->password)) {
                 //Criar Sessão
                     session_start();
                 //Atribuir ID Sessão.
@@ -53,15 +53,10 @@ foreach($consulta as $dados) {
             else{
                 //Caso esteja errado a senha, informa o erro
                 //Senha errada, envia usuário com senha errada para pagina Dashboard
-                echo "Senha Errado";    
-                //return redirect(route('index'));
+                    return redirect(route('index'));
             }
         }
-        else {
-            //Usuario errado, envia usuário com login errado para pagina login.
-            echo "Usuário Errado";   
-            //return redirect(route('index'));
-        }
+        
 }
 
      
@@ -80,6 +75,7 @@ foreach($consulta as $dados) {
         $log = new Login();
         $log->login = $request->input('login');
         $log->password = md5($request->input('password'));
+        $log->permissao = $request->input('permissao');
         $log->save();
 
         //Mostra usuários Cadastrados na Tela de Cadastro
@@ -128,10 +124,12 @@ foreach($consulta as $dados) {
         $log = new Login();
         $log->login = $request->input('login');
         $log->password = $request->input('password');
+        $log->permissao = $request->input('permissao');
 
         //Altera Valores usuários Banco de Dados
         Login::where('id_usuario', $id_usuario)->update(['login' => $log->login]);
         Login::where('id_usuario', $id_usuario)->update(['password' => md5($log->password)]);
+        Login::where('id_usuario', $id_usuario)->update(['permissao' => $log->permissao]);
 
         return redirect(route('configuracoes-usuarios'));
     }

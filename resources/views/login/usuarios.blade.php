@@ -16,18 +16,28 @@
 <br>
   <div class="row">
 
-    <div class="col-md-6">
-      <label>Login:</label>
+    <div class="col-md-4">
+      <label>Login:*</label>
       <label for="login"></label><input type="text" class="form-control" id="login" name="login" placeholder="login" required>
     </div>
 
+    <div class="col-md-2">
+        <label>Permissão:*</label>
+        <label for="permissao"></label>
+            <select id="permissao" name="permissao" class="form-control" required>
+                  <option selected>Escolha...</option>
+                    <option>Admin</option>
+                    <option>Operador</option>
+            </select>
+        </div>
+
     <div class="col-md-3">
-      <label>Password:</label>
+      <label>Password:*</label>
       <label for="password"></label><input type="password" class="form-control" id="#" name="#" placeholder="password" required>
     </div>
 
     <div class="col-md-3">
-      <label>Confirma Password:</label>
+      <label>Confirma Password:*</label>
       <label for="password"></label><input type="password" class="form-control" id="password" name="password" placeholder="Confirma Password" required>
     </div>
 
@@ -49,6 +59,7 @@
           <tr>
               <th scope="col">ID</th>
               <th scope="col">Login</th>
+              <th scope="col">Permissão</th>            
               <th scope="col">Ação</th>
           </tr>
       </thead>
@@ -59,6 +70,7 @@
               <tr>
                   <th scope="row">{{$user->id_usuario}}</th>
                   <td>{{$user->login}}</td>
+                  <td>{{$user->permissao}}</td>
 
 
 
