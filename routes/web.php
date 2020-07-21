@@ -19,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 
 //Rotas para Login
-//Route::GET('/login', 'ControladorLogin@index')->name('login');
-Route::GET('/', 'ControladorLogin@index')->name('index');
-//Route::POST('/login', 'ControladorLogin@valida')->name('valida-login');
+Route::GET('/login', 'ControladorLogin@index')->name('index');
+Route::POST('/login', 'ControladorLogin@create')->name('valida-login');
 
 
 //Rotas Dashboard
@@ -74,5 +73,4 @@ Route::GET('/config/usuarios/delete/{id}', 'ControladorLogin@destroy')->name('us
 Route::POST('/config/usuarios', 'ControladorLogin@store')->name('create-store');
 Route::GET('/config/usuarios/edit/{id}', 'ControladorLogin@edit')->name('usuarios-edit');
 Route::PUT('/config/usuarios/update/{id}', 'ControladorLogin@update')->name('usuarios-update');
-//Route::GET('/sair/{id_usuario}', 'ControladorLogin@destroy')->name('sair-usuario');
 

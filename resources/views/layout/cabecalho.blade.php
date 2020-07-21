@@ -58,7 +58,7 @@
 
             <!-- Sair -->
             <div class="dropdownExit1">
-                <a href="#">Sair</a>
+                <a href="/login">Sair</a>
             </div>
         </div>
 

@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <link rel="icon" href="Favicon.png">
+    <link rel="icon" href="/public/img/fbk.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -31,7 +31,7 @@
 <div class="cor"
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="container">
-        <a class="navbar-brand" href="login.blade.php">FBK - Controle de Arquivos Digitalizados</a>
+        <a class="navbar-brand">FBK - Controle de Arquivos Digitalizados</a>
     </div>
     <br>
     <br>
@@ -46,7 +46,8 @@
                 <div class="card">
                     <div class="card-header">Controle de Arquivos Digitalizados</div>
                     <div class="card-body">
-                        <form action="{{route('index')}}" method="GET">
+                        <form action="{{route('valida-login')}}" method="POST">
+                            @csrf
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">Login</label>
                                 <div class="col-md-6">

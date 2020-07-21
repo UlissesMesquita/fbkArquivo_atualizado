@@ -23,9 +23,48 @@ class ControladorLogin extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        //Consultando os Valores do envio $Request
+        $log = new Login();
+        $log->login = $request->input('login');
+        $log->password = $request->input('password');
+
+        //Consultando no Banco de Dados por usuário;
+        $consulta = Login::all();
+
+
+  
+
+foreach($consulta as $dados) {
+
+        if ($dados['login'] == $log->login) {
+            //Verificar Password se está correto.
+            if($dados['password'] == $log->password) {
+                //Criar Sessão
+                    session_start();
+                //Atribuir ID Sessão.
+                    $_SESSION = [$dados['id_usuario']];
+                //Autentica usuário
+                    Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
+                //Envia usuário autenticado para pagina Dashboard.
+                    return redirect(route('dashboard'));    
+            }
+            else{
+                //Caso esteja errado a senha, informa o erro
+                //Senha errada, envia usuário com senha errada para pagina Dashboard
+                echo "Senha Errado";    
+                //return redirect(route('index'));
+            }
+        }
+        else {
+            //Usuario errado, envia usuário com login errado para pagina login.
+            echo "Usuário Errado";   
+            //return redirect(route('index'));
+        }
+}
+
+     
     }
 
     /**
@@ -93,7 +132,7 @@ class ControladorLogin extends Controller
         //Altera Valores usuários Banco de Dados
         Login::where('id_usuario', $id_usuario)->update(['login' => $log->login]);
         Login::where('id_usuario', $id_usuario)->update(['password' => md5($log->password)]);
-        
+
         return redirect(route('configuracoes-usuarios'));
     }
 
