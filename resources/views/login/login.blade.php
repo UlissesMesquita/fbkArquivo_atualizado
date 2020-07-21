@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <link rel="icon" href="/public/img/fbk.png">
+    <link rel="icon" href="Favicon.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -31,7 +31,7 @@
 <div class="cor"
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="container">
-        <a class="navbar-brand">FBK - Controle de Arquivos Digitalizados</a>
+        <a class="navbar-brand" href="login.blade.php">FBK - Controle de Arquivos Digitalizados</a>
     </div>
     <br>
     <br>

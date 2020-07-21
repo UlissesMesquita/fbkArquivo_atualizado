@@ -38,13 +38,14 @@ class ControladorLogin extends Controller
 
 foreach($consulta as $dados) {
         //Verifica se o login digitado está correto
+        
         while ($dados['login'] == $log->login) {
             //Verificar Password se está correto.
             if($dados['password'] == md5($log->password)) {
                 //Criar Sessão
                     session_start();
                 //Atribuir ID Sessão.
-                    $_SESSION = [$dados['id_usuario']] = $dados['id_usuario'];
+                    $_SESSION = [$dados['permissao']] = $dados['permissao'];
                 //Autentica usuário
                     Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
                 //Envia usuário autenticado para pagina Dashboard.
@@ -144,7 +145,7 @@ foreach($consulta as $dados) {
     public function destroy($id_usuario)
     {
 
-        session_destroy($id_usuario);
+        //session_destroy($id_usuario);
         $log = Login::find($id_usuario);
         $log->delete();
 

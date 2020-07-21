@@ -76,3 +76,4 @@ Route::POST('/config/usuarios', 'ControladorLogin@store')->name('create-store');
 Route::GET('/config/usuarios/edit/{id}', 'ControladorLogin@edit')->name('usuarios-edit');
 Route::PUT('/config/usuarios/update/{id}', 'ControladorLogin@update')->name('usuarios-update');
 
+
