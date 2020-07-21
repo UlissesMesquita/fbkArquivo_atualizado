@@ -2,45 +2,13 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class Login extends Authenticatable
+class Login extends Model
 {
-
-    protected $primaryKey = 'id_usuario';
-    public $incrementing = true;
-    public $table = 'usuarios';
-
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'Login', 'Password', 'id_usuario',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'Password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-
+        //Model referente a tabela cadastro Login
+        protected $primaryKey = 'id_usuario';
+        public $incrementing = true;
+        public $table = 'usuarios';
+        public $timestamps = false;
 }

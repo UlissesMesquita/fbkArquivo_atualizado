@@ -25,7 +25,7 @@
 
         <!-- Logotipo - Fabrika Filmes -->
         <div class="navbar1">
-                <a href="{{route('index')}}"><i class="fas fa-industry">  Fabrika Filmes</i></a>
+                <a href="{{route('dashboard')}}"><i class="fas fa-industry">  Fabrika Filmes</i></a>
 
             <!-- Cadastros -->
             <div class="dropdown1">

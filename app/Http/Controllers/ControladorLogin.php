@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Login;
 use Illuminate\Http\Request;
 
 class ControladorLogin extends Controller
@@ -13,9 +14,8 @@ class ControladorLogin extends Controller
      */
     public function index()
     {
-        //Envia novo usuário para tela de login
+    //Envia novo usuário para tela de login
        return view('login/login');
-
     }
 
     /**
@@ -23,16 +23,9 @@ class ControladorLogin extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        
-
-        $log->login = $request->input('Login_Create');
-        $log->password = md5($request->input('Password_Create'));
-        dd($log->login);
-        $log->save();
-        return redirect('configuracoes-usuarios');
-
+        //
     }
 
     /**
@@ -43,117 +36,80 @@ class ControladorLogin extends Controller
      */
     public function store(Request $request)
     {
-        //Autentica usuário 
 
-        /*
-        //Verifica usuario autenticado
+        //Adiciona Usuário no banco de dados já com o MD5
         $log = new Login();
+        $log->login = $request->input('login');
+        $log->password = md5($request->input('password'));
+        $log->save();
 
-        $login = $log->login = $request->input('login');
-        $password = $log->password = $request->input('password');
-
-*/
+        //Mostra usuários Cadastrados na Tela de Cadastro
+        $users = Login::all();
+        return view('login/usuarios', compact('users'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Login  $login
      * @return \Illuminate\Http\Response
      */
     public function show()
     {
-        //$user = Login::all();
-
-        return view('login/usuarios');
-
-
-
-
-
-     
-    
-
-
+        //Mostra usuários na tela de Cadastro
+        $users = Login::all();
+        return view('login/usuarios', compact('users'));
 
     }
-
-        
-
-   
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Login  $login
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_usuario)
     {
-        //
+        
+        $edit = Login::find($id_usuario);
+        return view('login/usuarios_update', compact('edit'));
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Login  $login
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_usuario)
     {
-        //
+        //Recupera Valores
+        $log = new Login();
+        $log->login = $request->input('login');
+        $log->password = $request->input('password');
+
+        //Altera Valores usuários Banco de Dados
+        Login::where('id_usuario', $id_usuario)->update(['login' => $log->login]);
+        Login::where('id_usuario', $id_usuario)->update(['password' => md5($log->password)]);
+        
+        return redirect(route('configuracoes-usuarios'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Login  $login
      * @return \Illuminate\Http\Response
      */
     public function destroy($id_usuario)
     {
 
-        session_destroy($id_usuario);
-        return view('login/login');
+        //session_destroy($id_usuario);
+        $log = Login::find($id_usuario);
+        $log->delete();
 
-        //Sair
-        //Destroi sessão
-        //Envia usuário para pagina de login
-    }
-    public function valida()
-    {
-
-    //Busca dados do banco
-    $auth = Login::all();
-
-
-    return view('forms_create/dashboard');
-        dd($auth);
-/*
-    if ($login == $auth->login){
-        
-        if($password == md5($auth->password)){
-            session_start();
-            $_SESSION[$auth->id_usuario]; 
-            return view('dashboard');
-        }
-        else {
-
-            aleta:"senha errada";
-            return view('login/login');
-        }
-    }
-    else {
-        alerta:"usuario errado";
-    }
-    }
-
-
-}
-*/
-
-
-
+        return redirect(route('configuracoes-usuarios'));
     }
 }

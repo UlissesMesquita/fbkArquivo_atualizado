@@ -15,10 +15,9 @@ class CriaTabelaUsuarios extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->bigIncrements('id_usuario');
-            $table->string('login')->default(1);
-            $table->string('password')->default(1);
-            $table->integer('autenticado');
-            $table->timestamps();
+            $table->string('login');
+            $table->string('password');
+            $table->integer('autenticado')->default(0);
 
         });
     }

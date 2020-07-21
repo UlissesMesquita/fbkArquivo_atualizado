@@ -10,7 +10,7 @@
 
 
 @section('conteudo')
-<form action="" method="POST">
+<form action="{{route('create-store')}}" method="POST">
   @csrf
 <br>
 <br>
@@ -18,12 +18,17 @@
 
     <div class="col-md-6">
       <label>Login:</label>
-      <label for="Login_Create"></label><input type="text" class="form-control" id="Login_Create" name="Login_Create" placeholder="Login_Create" required>
+      <label for="login"></label><input type="text" class="form-control" id="login" name="login" placeholder="login" required>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-3">
       <label>Password:</label>
-      <label for="Password_Create"></label><input type="text" class="form-control" id="Password_Create" name="Password_Create" placeholder="Password_Create" required>
+      <label for="password"></label><input type="password" class="form-control" id="#" name="#" placeholder="password" required>
+    </div>
+
+    <div class="col-md-3">
+      <label>Confirma Password:</label>
+      <label for="password"></label><input type="password" class="form-control" id="password" name="password" placeholder="Confirma Password" required>
     </div>
 
   </div>
@@ -50,10 +55,10 @@
 
       {{csrf_field()}}
       
-        
+      @foreach($users as $user)
               <tr>
-                  <th scope="row"></th>
-                  <td></td>
+                  <th scope="row">{{$user->id_usuario}}</th>
+                  <td>{{$user->login}}</td>
 
 
 
@@ -61,13 +66,13 @@
                 <td>
                   <span></span>
                   <!-- Botão de Editar -->
-                  <a class="far fa-edit" method="GET" href="editar"></a>
+                  <a class="far fa-edit" method="GET" href="{{route('usuarios-edit', $user->id_usuario)}}"></a>
                   <!-- Botão de Apagar -->
-                  <a class="fas fa-trash"  method="GET" href="apagar"></a>
+                  <a class="fas fa-trash"  method="GET" href="{{route('usuarios-delete', $user->id_usuario)}}"></a>
               </td>
 
               </tr>
-        
+        @endforeach
 
   </table>
 

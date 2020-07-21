@@ -20,12 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 //Rotas para Login
 //Route::GET('/login', 'ControladorLogin@index')->name('login');
-Route::GET('/login', 'ControladorLogin@index')->name('login');
+Route::GET('/', 'ControladorLogin@index')->name('index');
 //Route::POST('/login', 'ControladorLogin@valida')->name('valida-login');
 
 
 //Rotas Dashboard
-Route::GET('/', 'ControladorDashboard@index')->name('index');
+Route::GET('/', 'ControladorDashboard@index')->name('dashboard');
 Route::GET('/pdf/{name_pdf}', 'ControladorDashboard@showPdf')->name('pdf');
 Route::GET('/documentos_edit/{id}', 'ControladorDashboard@edit')->name('edit');
 Route::PUT('/documentos_update/{id}', 'ControladorDashboard@update')->name('update');
@@ -70,6 +70,9 @@ Route::POST('/pesquisas/getPdf','ControladorPesquisas@getPdf')->name('pesquisa_g
 
 //Rotas Para Configurações de usuários
 Route::GET('/config/usuarios', 'ControladorLogin@show')->name('configuracoes-usuarios');
-//Route::POST('/config/usuarios', 'ControladorLogin@create')->name('create-usuarios');
+Route::GET('/config/usuarios/delete/{id}', 'ControladorLogin@destroy')->name('usuarios-delete');
+Route::POST('/config/usuarios', 'ControladorLogin@store')->name('create-store');
+Route::GET('/config/usuarios/edit/{id}', 'ControladorLogin@edit')->name('usuarios-edit');
+Route::PUT('/config/usuarios/update/{id}', 'ControladorLogin@update')->name('usuarios-update');
 //Route::GET('/sair/{id_usuario}', 'ControladorLogin@destroy')->name('sair-usuario');
 
