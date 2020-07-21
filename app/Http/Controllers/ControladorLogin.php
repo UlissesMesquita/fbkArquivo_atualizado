@@ -34,12 +34,12 @@ class ControladorLogin extends Controller
         $consulta = Login::all();
 
 
-  
+ 
 
 foreach($consulta as $dados) {
         //Verifica se o login digitado está correto
-        
-        while ($dados['login'] == $log->login && $dados['ativo'] == 'ativo') {
+        //dd($dados);     
+        while ($dados['login'] == $log->login && $dados['ativo'] == 'Ativo') {
             //Verificar Password se está correto.
             if($dados['password'] == md5($log->password)) {
                 //Atribuir Permissão da  Sessão.
