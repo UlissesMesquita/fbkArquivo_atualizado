@@ -31,6 +31,16 @@
             </select>
         </div>
 
+      <div class="col-md-2">
+        <label>Ativo:*</label>
+        <label for="permissao"></label>
+            <select id="ativo" name="ativo" class="form-control" required>
+                  <option selected>Escolha...</option>
+                    <option>Ativo</option>
+                    <option>Desativado</option>
+            </select>
+        </div>
+
     <div class="col-md-3">
       <label>Password:*</label>
       <label for="password"></label><input type="password" class="form-control" id="#" name="#" placeholder="password" required>
@@ -59,7 +69,8 @@
           <tr>
               <th scope="col">ID</th>
               <th scope="col">Login</th>
-              <th scope="col">Permissão</th>            
+              <th scope="col">Permissão</th>   
+              <th scope="col">Valido</th>           
               <th scope="col">Ação</th>
           </tr>
       </thead>
@@ -71,6 +82,7 @@
                   <th scope="row">{{$user->id_usuario}}</th>
                   <td>{{$user->login}}</td>
                   <td>{{$user->permissao}}</td>
+                  <td>{{$user->ativo}}</td>
 
 
 

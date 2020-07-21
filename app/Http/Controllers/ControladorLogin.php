@@ -39,13 +39,15 @@ class ControladorLogin extends Controller
 foreach($consulta as $dados) {
         //Verifica se o login digitado está correto
         
-        while ($dados['login'] == $log->login) {
+        while ($dados['login'] == $log->login && $dados['ativo'] == 'ativo') {
             //Verificar Password se está correto.
             if($dados['password'] == md5($log->password)) {
                 //Atribuir Permissão da  Sessão.
                     session()->put('permissao', $dados['permissao']);
+                    session()->put('id_usuario', $dados['id_usuario']);
                 //Autentica usuário
                     Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
+                    session()->put('autenticado', $dados['autenticado']);
                 //Envia usuário autenticado para pagina Dashboard.
                     return redirect(route('dashboard'));    
             }
@@ -55,7 +57,10 @@ foreach($consulta as $dados) {
                     return redirect(route('index'));
             }
         }
-        
+
+        $erro = ['Erro' => 'Usuário incorreto <br>', 'Erro' => 'Usuário Desativado'];
+        //return redirect(route('index'));
+
 }
 
      
@@ -75,6 +80,7 @@ foreach($consulta as $dados) {
         $log->login = $request->input('login');
         $log->password = md5($request->input('password'));
         $log->permissao = $request->input('permissao');
+        $log->ativo = $request->input('ativo');
         $log->save();
 
         //Mostra usuários Cadastrados na Tela de Cadastro
@@ -125,11 +131,13 @@ foreach($consulta as $dados) {
         $log->login = $request->input('login');
         $log->password = $request->input('password');
         $log->permissao = $request->input('permissao');
+        $log->ativo = $request->input('ativo');
 
         //Altera Valores usuários Banco de Dados
         Login::where('id_usuario', $id_usuario)->update(['login' => $log->login]);
         Login::where('id_usuario', $id_usuario)->update(['password' => md5($log->password)]);
         Login::where('id_usuario', $id_usuario)->update(['permissao' => $log->permissao]);
+        Login::where('id_usuario', $id_usuario)->update(['ativo' => $log->ativo]);
 
         return redirect(route('configuracoes-usuarios'));
     }
@@ -150,9 +158,9 @@ foreach($consulta as $dados) {
         return redirect(route('configuracoes-usuarios'));
     }
 
-    public function leave()
+    public function leave($id_usuario)
     {
-        session_destroy($id_usuario);
+        session()->put('autenticado', 'null');
         $log = Login::find($id_usuario);
         Login::where('id_usuario', $id_usuario)->update(['autenticado' => 0]);
 

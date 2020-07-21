@@ -35,6 +35,16 @@
                     <option>Operador</option>
             </select>
         </div>
+
+        <div class="col-md-2">
+          <label>Ativo:*</label>
+          <label for="permissao"></label>
+              <select id="ativo" name="ativo" class="form-control" required>
+                    <option selected>{{$edit->ativo}}</option>
+                      <option>Ativo</option>
+                      <option>Desativado</option>
+              </select>
+          </div>
   
       <div class="col-md-3">
         <label>Password:</label>

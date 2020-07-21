@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="pt_BR">
 <head>
@@ -55,10 +57,10 @@
                 <div class="dropdown-content1">
                     <a href="{{route('configuracoes-usuarios')}}">Usuários</a>
                 </div>
-        @endif
+        
           
         </div>
-
+        @endif
             <!-- Sair -->
             <div class="dropdownExit1">
             <a href="{{route('index')}}">Sair</a>
@@ -82,3 +84,6 @@
 
 </body>
 </html>
+
+
+

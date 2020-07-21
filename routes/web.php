@@ -15,15 +15,13 @@
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-//Rotas para Sessão
-Route::GET('session', 'ControladorSessao@session');
 
 
 //Rotas para Login
 Route::GET('/login', 'ControladorLogin@index')->name('index');
-//Route::GET('/login', 'ControladorLogin@leave/{id_usuario}')->name('index');
-Route::POST('/login', 'ControladorLogin@create')->name('valida-login');
 
+//Route::GET('/sair', 'ControladorLogin@leave/{id_usuario}')->name('index');
+Route::POST('/login', 'ControladorLogin@create')->name('valida-login');
 
 
 //Rotas Dashboard
