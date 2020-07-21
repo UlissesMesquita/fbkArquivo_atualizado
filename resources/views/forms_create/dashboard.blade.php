@@ -10,7 +10,7 @@
 
 
 @section('conteudo')
-    
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -51,7 +51,6 @@
                             <!-- Botões de Ação-->
                             <td>
 
-                            
 
                                 <!-- Botão de Exibir PDF -->
 

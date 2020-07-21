@@ -15,7 +15,8 @@
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-
+//Rotas para Sessão
+Route::GET('session', 'ControladorSessao@session');
 
 
 //Rotas para Login

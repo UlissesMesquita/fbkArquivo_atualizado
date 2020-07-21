@@ -19,6 +19,8 @@ class ControladorDashboard extends Controller
      */
     public function index()
     {
+
+  
        $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
        $documentos = Cadastro_Documentos::all();
 

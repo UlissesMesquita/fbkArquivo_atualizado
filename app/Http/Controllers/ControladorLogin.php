@@ -42,10 +42,8 @@ foreach($consulta as $dados) {
         while ($dados['login'] == $log->login) {
             //Verificar Password se está correto.
             if($dados['password'] == md5($log->password)) {
-                //Criar Sessão
-                    session_start();
-                //Atribuir ID Sessão.
-                    $_SESSION = [$dados['permissao']] = $dados['permissao'];
+                //Atribuir Permissão da  Sessão.
+                    session()->put('permissao', $dados['permissao']);
                 //Autentica usuário
                     Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
                 //Envia usuário autenticado para pagina Dashboard.

@@ -48,14 +48,14 @@
             </div>
 
             
-        
+        @if(session()->get('permissao') == 'Admin')
             <!-- Configurações -->
             <div class="dropdown1">
             <button class="dropbtn1">Configurações</button>
                 <div class="dropdown-content1">
                     <a href="{{route('configuracoes-usuarios')}}">Usuários</a>
                 </div>
-        
+        @endif
           
         </div>
 

@@ -38,12 +38,12 @@
   
       <div class="col-md-3">
         <label>Password:</label>
-        <label for="password"></label><input type="password" class="form-control" value="{{$edit->password}}" id="#" name="#" placeholder="password" required>
+        <label for="password"></label><input type="password" class="form-control"  id="#" name="#" placeholder="password" required>
       </div>
   
       <div class="col-md-3">
         <label>Confirma Password:</label>
-        <label for="password"></label><input type="password" class="form-control" value="{{$edit->password}}" id="password" name="password" placeholder="Confirma Password" required>
+        <label for="password"></label><input type="password" class="form-control"  id="password" name="password" placeholder="Confirma Password" required>
       </div>
   
     </div>
