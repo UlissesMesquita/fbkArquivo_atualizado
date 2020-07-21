@@ -49,7 +49,7 @@
 
             <!-- Sair -->
             <div class="dropdownExit1">
-                <a href="/login">Sair</a>
+            <a href="{{route('index')}}">Sair</a>
             </div>
         </div>
 

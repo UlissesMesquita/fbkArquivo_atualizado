@@ -44,7 +44,7 @@ foreach($consulta as $dados) {
                 //Criar Sessão
                     session_start();
                 //Atribuir ID Sessão.
-                    $_SESSION = [$dados['id_usuario']];
+                    $_SESSION = [$dados['id_usuario']] = $dados['id_usuario'];
                 //Autentica usuário
                     Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
                 //Envia usuário autenticado para pagina Dashboard.
@@ -91,6 +91,7 @@ foreach($consulta as $dados) {
      */
     public function show()
     {
+ 
         //Mostra usuários na tela de Cadastro
         $users = Login::all();
         return view('login/usuarios', compact('users'));
@@ -143,10 +144,20 @@ foreach($consulta as $dados) {
     public function destroy($id_usuario)
     {
 
-        //session_destroy($id_usuario);
+        session_destroy($id_usuario);
         $log = Login::find($id_usuario);
         $log->delete();
 
         return redirect(route('configuracoes-usuarios'));
+    }
+
+    public function leave()
+    {
+        session_destroy($id_usuario);
+        $log = Login::find($id_usuario);
+        Login::where('id_usuario', $id_usuario)->update(['autenticado' => 0]);
+
+        return redirect(route('index'));
+
     }
 }
