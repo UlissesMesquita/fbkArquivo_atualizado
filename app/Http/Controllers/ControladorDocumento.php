@@ -77,7 +77,29 @@ class ControladorDocumento extends Controller
         $doc->Loc_Obs = $request->input('Loc_Obs');
         $doc->save();
 
+        for($i = 1; $i < count($request->allFiles()['anexo']); $i++) {
+           
+            $file = $request->allFiles()['anexo'][$i];
 
+            $doc->path = $file->store('anexos');
+            $doc->save();
+            unset($fileUpload);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
         
         //Obtenção da extensão do arquivo.
         $extension_pdf = $request->pdf->extension();
@@ -101,7 +123,7 @@ class ControladorDocumento extends Controller
         
         
        
-
+*/
 
 
 

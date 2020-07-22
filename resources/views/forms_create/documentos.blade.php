@@ -252,7 +252,7 @@ Dados do Documento
                         <div class="input-group mb-10">
                             <div class="custom-file">
                                 <input type="hidden" name="enviou" value="1">
-                                <input type="file" name="pdf" required="" class="custom-file-input" id="pdf" aria-describedby="inputGroupFileAddon01">
+                                <input type="file" name="anexo[]" required="" class="custom-file-input" id="anexo[]" aria-describedby="inputGroupFileAddon01" multiple>
                                 <label class="custom-file-label" for="arquivo_campo">Upload..</label>
                             </div>
                         </div>

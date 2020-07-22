@@ -14,13 +14,12 @@ class CreateUploadsTable extends Migration
     public function up()
     {
         Schema::create('uploads', function (Blueprint $table) {
-            $table->integer('id_upload');
+            $table->bigIncrements('id_upload');
 
             $table->bigInteger('id_upload_codigo')->unsigned();
-            $table->foreign('id_upload_codigo')->references('id_codigo')->on('cadastro__documentos');
+            $table->foreign('id_upload_codigo')->references('id_codigo')->on('cadastro__documentos')->onDelete('cascade');
 
-            $table->string('path')->nullable();
-            $table->timestamps();
+            $table->string('path');
         });
     }
 
