@@ -16,6 +16,8 @@ class CreateCadastroDocumentosTable extends Migration
         Schema::create('cadastro__documentos', function (Blueprint $table) {
             $table->timestamps();
             $table->bigIncrements('id_codigo');
+
+
             $table->date('data');
             $table->string('Assunto');
             $table->string('Emp_Emit');
