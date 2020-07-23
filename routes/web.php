@@ -34,6 +34,7 @@ Route::GET('/delete/{id}', 'ControladorDashboard@destroy')->name('delete_documen
 //Rotas Criação de Novos Documentos
 Route::GET('/documento', 'ControladorDocumento@create')->name('documentos_create');
 Route::POST('/documento/novo', 'ControladorDocumento@store')->name('novo_documento');
+Route::POST('/documento/anexo', 'ControladorDocumento@show')->name('visualizar_anexo');
 
 //Rotas Departamentos
 Route::GET('/departamento', 'ControladorDepartamento@index')->name('departamento_index');

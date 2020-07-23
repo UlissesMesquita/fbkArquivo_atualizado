@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Upload;
 
 class Cadastro_Documentos extends Model
 {
@@ -17,7 +18,7 @@ class Cadastro_Documentos extends Model
     public $table = 'cadastro__documentos';
     
     public function uploads() {
-        return $this->hasMany(Upload::class); 
+        return $this->hasMany('App\Upload', 'id_upload_codigo'); 
     }
 
 }

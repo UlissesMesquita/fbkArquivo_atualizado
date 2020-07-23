@@ -7,6 +7,7 @@ use App\Departamentos;
 use App\Empresas_Destinatarias;
 use App\Empresas_Emitentes;
 use App\Origens;
+use App\Upload;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use http\Header;
@@ -77,14 +78,30 @@ class ControladorDocumento extends Controller
         $doc->Loc_Status = $request->input('Loc_Status');
         $doc->Loc_Obs = $request->input('Loc_Obs');
         $doc->save();
+        $doc->refresh();
 
-        for($i = 1; $i < count($request->allFiles()['anexo']); $i++) {
-           
-            $file = $request->allFiles()['anexo'][$i];
+        
 
-            $doc->path = $file->store('anexos');
-            $doc->save();
-            unset($fileUpload);
+        foreach($request->allFiles()['anexo'] as $file) {
+            //dd($file->getClientOriginalName());
+
+            $fileUpload = new Upload();
+            $fileUpload->id_upload_codigo = $doc->id_codigo;
+
+            try {
+                $fileUpload->path = $file->getClientOriginalName();
+                $file->storeAs('anexos', $file->getClientOriginalName());
+                //dd($file->store('anexos'));
+                //dd($fileUpload);
+                $fileUpload->save();
+                unset($fileUpload);
+
+            } catch (\Exception $e) {
+                return redirect()->back()->withErrors(['erro' => 'Erro:'. $e->getMessage() ]);
+            }
+            
+            
+            
 
         }
 
@@ -139,8 +156,11 @@ class ControladorDocumento extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
+        $files = Upload::where('id_upload_codigo', '=', $request->input('id_codigo'))->get();
+
+        return view('forms_create/visualizar_anexo', compact('files'));
 
     }
 

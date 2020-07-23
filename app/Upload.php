@@ -9,6 +9,7 @@ class Upload extends Model
 
     protected $primaryKey = 'id_upload';
     public $table = 'uploads';
+    public $timestamps = false;
 
    protected $fillble = [
        'id_codigo',

@@ -11,6 +11,10 @@ Dados do Documento
 
 @section('conteudo')
 
+@error('erro')
+    {{$message}}
+@enderror
+
 <div class="container">
     <form class="form-horizontal" name="form" method="POST" action="{{route('novo_documento')}}" enctype="multipart/form-data">
     @csrf

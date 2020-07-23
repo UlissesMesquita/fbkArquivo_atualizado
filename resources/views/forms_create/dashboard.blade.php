@@ -48,24 +48,13 @@
                         <td> {{$dashboard->Palavra_Chave}} </td>
                         <td> {{$dashboard->Dep}} </td>
             
-                            <!-- Botões de Ação-->
-                            <td>
 
+                    <td><form method="POST" action="{{route('visualizar_anexo')}}" >
+                    @csrf
+                    <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
+                    <input type="submit" value="visualizar anexo" class="btn btn-default">
+                    </form></td>
 
-                                <!-- Botão de Exibir PDF -->
-
-                                <a class="fas fa-file-pdf" href="{{ asset('storage/pdfs/'.$dashboard->id_codigo.'_'. $dashboard->Tit_Doc .'.pdf')}}" target="_blank" method="POST"></a>
-
-                                <!-- Botão de Editar -->
-                                
-                                    <a class="far fa-edit" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET"></a>
-                                
-                                <!-- Botão de Apagar -->
-
-                                    <a class="fas fa-trash" href="delete/{{$dashboard->id_codigo}}" method="GET"></a>
-
-                               
-                            </td>
                     </tr>
                 @endforeach
             </tbody>
