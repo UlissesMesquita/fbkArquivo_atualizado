@@ -18,14 +18,14 @@ class CreateCadastroDocumentosTable extends Migration
             $table->bigIncrements('id_codigo');
 
 
-            $table->date('data');
+            $table->string('data');
             $table->string('Assunto');
             $table->string('Emp_Emit');
             $table->string('Emp_Dest');
             $table->string('Formato_Doc');
             $table->string('Nome_Doc');
             $table->string('Valor_Doc')->nullable();
-            $table->string('Dt_Ref');
+            $table->string('Dt_Ref')->nullable();
             $table->string('Tit_Doc');
             $table->string('Tp_Projeto');
             $table->string('Palavra_Chave');

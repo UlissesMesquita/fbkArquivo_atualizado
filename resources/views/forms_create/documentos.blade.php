@@ -28,7 +28,7 @@ Dados do Documento
 
                 <div class="col-md-3">
                     <label>Data: *</label>
-                    <label for="data"></label><input type="date" class="form-control" id="data" name="data" placeholder="" required >
+                <label for="data"></label><input type="text" value="{{date("d/m/Y")}}" class="form-control" id="data" name="data" placeholder="" required >
                 </div>
 
 

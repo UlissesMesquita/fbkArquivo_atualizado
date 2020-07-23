@@ -25,7 +25,7 @@
 
                 <div class="col-md-3">
                     <label>Data: *</label>
-                <label for="data"></label><input type="date" class="form-control" id="data" name="data" placeholder="" value="{{$edit->data}}" required>
+                <label for="data"></label><input type="text" class="form-control" id="data" name="data" placeholder="" value="{{$edit->data}}" required>
                 </div>
 
                 <div class="col-md-7">
