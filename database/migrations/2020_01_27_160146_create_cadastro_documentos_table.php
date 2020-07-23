@@ -22,7 +22,7 @@ class CreateCadastroDocumentosTable extends Migration
             $table->string('Assunto');
             $table->string('Emp_Emit');
             $table->string('Emp_Dest');
-            $table->string('Tp_Doc');
+            $table->string('Formato_Doc');
             $table->string('Nome_Doc');
             $table->string('Valor_Doc')->nullable();
             $table->string('Dt_Ref');

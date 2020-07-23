@@ -16,7 +16,7 @@ class CreateEmpresasEmitentesTable extends Migration
         Schema::create('empresas__emitentes', function (Blueprint $table) {
             $table->timestamps();
             $table->bigIncrements('id_empresa_emitente');
-            $table->string('cad_emitentes');
+            $table->string('cad_emitentes')->unique();
 
         });
     }

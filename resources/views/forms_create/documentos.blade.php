@@ -72,11 +72,12 @@ Dados do Documento
         <!-- Linha 3 -->
         <div class="row">
             <div class="col-md-3">
-                <label>Tipo Documento Arquivado: *</label>
-                <label for="Tp_Doc"></label>
-                    <select id="Tp_Doc" name="Tp_Doc" class="form-control" required>
+                <label>Formato do Documento Arquivado: *</label>
+                <label for="Formato_Doc"></label>
+                    <select id="Formato_Doc" name="Formato_Doc" class="form-control" required>
                         <option selected>Escolha...</option>
-                        <option>Original</option>
+                        <option>Original Físico</option>
+                        <option>Original Digital</option>
                         <option>Cópia</option>
                     </select>
             </div>
@@ -169,6 +170,7 @@ Dados do Documento
                 <label for="Loc_Cor"></label>
                 <select id="Loc_Cor" name="Loc_Cor" class="form-control" required>
                     <option selected>Escolha...</option>
+                    <option>Digital</option>
                     <?php
                     for ($i=1; $i<31; $i++) {
                         echo "<option value='" .$i."'>". $i ."</option>";
@@ -182,6 +184,7 @@ Dados do Documento
                 <label for="Loc_Est"></label>
                 <select id="Loc_Est" name="Loc_Est" class="form-control" required>
                     <option selected>Escolha...</option>
+                    <option>Digital</option>
                     <?php
                     for ($i=1; $i<31; $i++) {
                         echo "<option value='".$i."'>". $i ."</option>";
@@ -196,6 +199,7 @@ Dados do Documento
                 <label for="Loc_Box_Eti"></label>
                 <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
                     <option selected>Escolha...</option>
+                    <option>Digital</option>
                     <?php
                     for ($i=1; $i<31; $i++) {
                         echo "<option value='".$i."'>". $i ."</option>";
@@ -210,6 +214,7 @@ Dados do Documento
                 <label for="Loc_Maço"></label>
                 <select id="Loc_Maço" name="Loc_Maco" class="form-control" required>
                     <option selected>Escolha...</option>
+                    <option>Digital</option>
                     <?php
                     for ($i=1; $i<4; $i++) {
                         echo "<option value='".$i."'>". $i ."</option>";

@@ -15,7 +15,7 @@ class CreateEmpresasDestinatariasTable extends Migration
     {
         Schema::create('empresas__destinatarias', function (Blueprint $table) {
             $table->bigIncrements('id_empresa_destinataria');
-            $table->string('cad_destinatarias');
+            $table->string('cad_destinatarias')->unique();
 
         });
     }
