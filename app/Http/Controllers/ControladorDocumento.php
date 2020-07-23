@@ -31,7 +31,7 @@ class ControladorDocumento extends Controller
      */
     public function create()
     {
-        $emit  = Empresas_Emitentes::get();
+        $emit = Empresas_Emitentes::get();
         $dest = Empresas_Destinatarias::get();
         $ori = Origens::get();
         $dep = Departamentos::get();

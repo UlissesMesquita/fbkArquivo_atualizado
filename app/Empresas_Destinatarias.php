@@ -10,4 +10,5 @@ class Empresas_Destinatarias extends Model
         protected $primaryKey = 'id_empresa_destinataria';
         public $incrementing = true;
         public $table = 'empresas__destinatarias';
+        public $timestamps = false;
 }

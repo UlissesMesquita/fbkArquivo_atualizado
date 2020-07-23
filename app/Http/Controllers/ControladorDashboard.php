@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Cadastro_Documentos;
 use App\Departamentos;
+use App\Empresas_Destinatarias;
 use App\Empresas_Emitentes;
 use App\Origens;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use PhpParser\Node\Expr\New_;
+use App\Cadastro_Documentos;
+use Illuminate\Http\Response;
+
 
 class ControladorDashboard extends Controller
 {
@@ -67,10 +68,10 @@ class ControladorDashboard extends Controller
     public function edit($id)
     {  
 
-        $emit  = Empresas_Emitentes::get();
+        $emit  = Empresas_Emitentes::all();
         $dest = Empresas_Destinatarias::all();
-        $ori = Origens::get();
-        $dep = Departamentos::get();
+        $ori = Origens::all();
+        $dep = Departamentos::all();
         $edit = Cadastro_Documentos::find($id);
         
         return view('forms_edit/documentos_update', compact('emit', 'dest', 'ori', 'dep', 'edit'));
