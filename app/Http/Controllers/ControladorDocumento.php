@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Cadastro_Documentos;
 use App\Departamentos;
 use App\Empresas_Destinatarias;
 use App\Empresas_Emitentes;
 use App\Origens;
 use Illuminate\Http\Request;
-use App\Cadastro_Documentos;
 use Illuminate\Http\Response;
+use http\Header;
 
 class ControladorDocumento extends Controller
 {

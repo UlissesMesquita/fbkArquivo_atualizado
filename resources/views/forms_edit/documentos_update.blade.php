@@ -41,13 +41,11 @@
                 <div class="col-md-6">
                     <label>Empresa Emitente: *</label>
                     <label for="Emp_Dest"></label>
-                        <select d="Emp_Emit" name="Emp_Emit" class="form-control" required>
+                        <select id="Emp_Emit" name="Emp_Emit" class="form-control" required>
                             <option selected>{{$edit->Emp_Emit}}</option>
-                            @if(isset($dest))
                             @foreach($emit as $emitente)
                                 <option value ="{{$emitente->Emp_Emit}}">{{$emitente->Emp_Emit}}</option>
                             @endforeach
-                            @endif
                         </select>
                     </div>
 
@@ -58,11 +56,9 @@
                     <label for="Emp_Dest"></label>
                         <select id="Emp_Dest" name="Emp_Dest" class="form-control"  required>
                             <option selected>{{$edit->Emp_Dest}}</option>
-                            @if(isset($dest))
                             @foreach($dest as $destinataria)
                                 <option value ="{{ $destinataria->cad_destinatarias }}">{{ $destinataria->cad_destinatarias }}</option>
                             @endforeach
-                            @endif
                         </select>
                     </div>
             </div>

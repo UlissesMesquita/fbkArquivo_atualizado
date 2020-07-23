@@ -153,6 +153,6 @@ class ControladorDashboard extends Controller
         
         $document = Cadastro_Documentos::find($id);
         $document->Delete();
-        return redirect(route('index'));
+        return redirect(route('dashboard'));
     }
 }
