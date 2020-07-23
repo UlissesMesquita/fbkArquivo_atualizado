@@ -91,6 +91,7 @@ class ControladorDocumento extends Controller
 
 
 
+        return redirect(route('dashboard'));
 
 
 
