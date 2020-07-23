@@ -20,11 +20,11 @@
 
             <div class="col-md-2">
                     <label>Código:</label>
-                    <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="codigo">
+                    <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="">
                 </div>
             <div class="col-md-3">
                     <label>Data Início: </label>
-                    <label for="data_in"></label><input type="date" class="form-control" id="data_in" name="data_in" placeholder="data_in" >
+                    <label for="data_in"></label><input type="date" class="form-control" id="data_in" name="data_in" placeholder="" >
                 @error('data_in')
                     <div class="alert alert-warning">{{ $message }}</div>
                 @enderror
@@ -32,7 +32,7 @@
 
                 <div class="col-md-3">
                     <label>Data Fim: </label>
-                    <label for="data_out"></label><input type="date" class="form-control" id="data_out" name="data_out" placeholder="data_out" >
+                    <label for="data_out"></label><input type="date" class="form-control" id="data_out" name="data_out" placeholder="" >
                 @error('data_out')
                     <div class="alert alert-warning">{{ $message }}</div>
                 @enderror    
@@ -72,12 +72,12 @@
 
                 <div class="col-md-3">
                     <label>Palavra-Chave: </label>
-                    <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="Palavra-Chave" >
+                    <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" >
                 </div>
 
                 <div class="col-md-3">
                     <label>Número Documento: </label>
-                    <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="Número Documento" >
+                    <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" >
                 </div>
 
                 <div class="col-md-6">
@@ -87,7 +87,7 @@
 
                 <div class="col-md-2">
                     <label>Valor:</label>
-                    <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$">
+                    <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="">
                 </div>
 
                 <div class="col-md-2">
@@ -116,7 +116,7 @@
 
                 <div class="col-md-4">
                     <label>Defaz/Destruir: </label>
-                    <label for="Desfaz"></label><input type="texr" class="form-control" id="Desfaz" name="Desfaz" maxlength="7" placeholder="Desfaz">
+                    <label for="Desfaz"></label><input type="texr" class="form-control" id="Desfaz" name="Desfaz" maxlength="7" placeholder="">
                 </div>
 
             </div>

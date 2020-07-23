@@ -23,7 +23,7 @@
   
       <div class="col-md-3">
         <label>Login:</label>
-        <label for="login"></label><input type="text" class="form-control" value="{{$edit->login}}" id="login" name="login" placeholder="login" required>
+        <label for="login"></label><input type="text" class="form-control" value="{{$edit->login}}" id="login" name="login" placeholder="" required>
       </div>
 
       <div class="col-md-2">
@@ -48,12 +48,12 @@
   
       <div class="col-md-3">
         <label>Password:</label>
-        <label for="password"></label><input type="password" class="form-control"  id="#" name="#" placeholder="password" required>
+        <label for="password"></label><input type="password" class="form-control"  id="#" name="#" placeholder="" required>
       </div>
   
       <div class="col-md-3">
         <label>Confirma Password:</label>
-        <label for="password"></label><input type="password" class="form-control"  id="password" name="password" placeholder="Confirma Password" required>
+        <label for="password"></label><input type="password" class="form-control"  id="password" name="password" placeholder="" required>
       </div>
   
     </div>

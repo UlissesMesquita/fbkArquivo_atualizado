@@ -20,17 +20,17 @@
         <div class="row">
                 <div class="col-md-2">
                     <label>Código: *</label>   <a href="#"><i class="fas fa-search" id="fas fa-search"></i></a>
-                <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="codigo" value="{{$edit->id_codigo}}"  disabled >
+                <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="" value="{{$edit->id_codigo}}"  disabled >
                 </div>
 
                 <div class="col-md-3">
                     <label>Data: *</label>
-                <label for="data"></label><input type="date" class="form-control" id="data" name="data" placeholder="data" value="{{$edit->data}}" required>
+                <label for="data"></label><input type="date" class="form-control" id="data" name="data" placeholder="" value="{{$edit->data}}" required>
                 </div>
 
                 <div class="col-md-7">
                     <label>Assunto: *</label>
-                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="Assunto" value="{{$edit->Assunto}}" required>
+                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" value="{{$edit->Assunto}}" required>
                 </div>
         </div>
 
@@ -78,12 +78,12 @@
 
             <div class="col-md-6">
                 <label>Número Documento: *</label>
-                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" placeholder="Nome_Doc" value="{{$edit->Nome_Doc}}" required>
+                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" placeholder="" value="{{$edit->Nome_Doc}}" required>
             </div>
 
             <div class="col-md-2">
                 <label>Valor: *</label>
-                <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$" value="{{$edit->Valor_Doc}}">
+                <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="" value="{{$edit->Valor_Doc}}">
             </div>
         </div>
 
@@ -91,12 +91,12 @@
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" type="text"class="form-control" maxlength="7" name="Dt_Ref" value= "{{$edit->Dt_Ref}}" id="Dt_Ref"/>
+                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" type="text"class="form-control" maxlength="7" name="" value= "{{$edit->Dt_Ref}}" id="Dt_Ref"/>
                 </div>
 
                 <div class="col-md-8">
                     <label>Título Documento: *</label>
-                <label for="Tit_Doc"></label><input type="text" class="form-control" id="Tit_Doc" name="Tit_Doc" placeholder="Tit_Doc" value="{{$edit->Tit_Doc}}">
+                <label for="Tit_Doc"></label><input type="text" class="form-control" id="Tit_Doc" name="Tit_Doc" placeholder="" value="{{$edit->Tit_Doc}}">
                 </div>
             </div>
 
@@ -104,12 +104,12 @@
         <div class="row">
                 <div class="col-md-4">
                     <label>Palavra-Chave: *</label>
-                <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="Palavra-Chave" value="{{$edit->Palavra_Chave}}">
+                <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" value="{{$edit->Palavra_Chave}}">
                 </div>
 
                 <div class="col-md-8">
                     <label>Descrição: *</label>
-                <label for="Desc"></label><input type="text" class="form-control" id="Desc" name="Desc" placeholder="Desc" value="{{$edit->Desc}}" required>
+                <label for="Desc"></label><input type="text" class="form-control" id="Desc" name="Desc" placeholder="" value="{{$edit->Desc}}" required>
                 </div>
             </div>
 
@@ -237,7 +237,7 @@
 
             <div class="col-md-2">
                 <label>Desfaz/Destruir: *</label>
-            <label for="Desfaz"></label><input placeholder= "Mês/Ano" type="text" class="form-control" value= "{{$edit->Desfaz}}" name="Desfaz" maxlength="7" id="Desfaz" required/>
+            <label for="Desfaz"></label><input placeholder= "" type="text" class="form-control" value= "{{$edit->Desfaz}}" name="Desfaz" maxlength="7" id="Desfaz" required/>
             </div>
 
             <div class="col-md-2">
