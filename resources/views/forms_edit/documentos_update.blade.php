@@ -36,18 +36,22 @@
 
         <!-- Linha 2 -->
         <div class="row">
+
+
                 <div class="col-md-6">
                     <label>Empresa Emitente: *</label>
-                    <label for="Emp_Emit"></label>
-                        <select id="Emp_Emit" name="Emp_Emit" class="form-control" required>
+                    <label for="Emp_Dest"></label>
+                        <select d="Emp_Emit" name="Emp_Emit" class="form-control" required>
                             <option selected>{{$edit->Emp_Emit}}</option>
-                            @if(isset($emit))
-                                @foreach($emit as $emitente)
-                                    <option value="{{ $edit->Emp_Emit }}"> {{ $edit->Emp_Emit }} </option>
-                                @endforeach
+                            @if(isset($dest))
+                            @foreach($emit as $emitente)
+                                <option value ="{{$emitente->Emp_Emit}}">{{$emitente->Emp_Emit}}</option>
+                            @endforeach
                             @endif
                         </select>
                     </div>
+
+
 
                 <div class="col-md-6">
                     <label>Empresa Destinatária: *</label>
@@ -90,7 +94,7 @@
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" type="text"class="form-control" maxlength="7" name="Dt_Ref" value= "{{$edit->Dt_Ref}}" id="Dt_Ref" onkeypress="mascaraData( this, event )" />
+                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" type="text"class="form-control" maxlength="7" name="Dt_Ref" value= "{{$edit->Dt_Ref}}" id="Dt_Ref"/>
                 </div>
 
                 <div class="col-md-8">
@@ -232,7 +236,7 @@
 
             <div class="col-md-2">
                 <label>Desfaz/Destruir: *</label>
-            <label for="Desfaz"></label><input placeholder= "Mês/Ano" type="text" class="form-control" value= "{{$edit->Desfaz}}" name="Desfaz" id="Desfaz" maxlength="7" onkeypress="mascaraData( this, event )" required/>
+            <label for="Desfaz"></label><input placeholder= "Mês/Ano" type="text" class="form-control" value= "{{$edit->Desfaz}}" name="Desfaz" maxlength="7" id="Desfaz" required/>
             </div>
 
             <div class="col-md-2">
@@ -250,7 +254,7 @@
         <div class="row">
             <div class="col-md-6">
                 <label for="exampleFormControlTextarea1">Observações:</label>
-            <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="3" value="{{$edit->Loc_Obs}}">{{$edit->Loc_Obs}}</textarea>
+            <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" value="{{$edit->Loc_Obs}}">{{$edit->Loc_Obs}}</textarea>
             </div>
 
 

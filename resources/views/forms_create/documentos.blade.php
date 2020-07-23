@@ -96,7 +96,7 @@ Dados do Documento
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" class="form-control" type="text" name="Dt_Ref" id="Dt_Ref" maxlength="7" onkeypress="mascaraData( this, event )" />
+                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" class="form-control" type="text" name="Dt_Ref" id="Dt_Ref"  />
                 </div>
 
                 <div class="col-md-8">
@@ -232,7 +232,7 @@ Dados do Documento
 
             <div class="col-md-4">
                 <label>Desfaz/Destruir: *</label>
-                <label for="Desfaz"></label><input type="text" placeholder= "Mês/Ano" class="form-control" name="Desfaz" id="Desfaz" maxlength="7" onkeypress="mascaraData( this, event )" required/>
+                <label for="Desfaz"></label><input type="text" placeholder= "Mês/Ano" class="form-control" name="Desfaz" id="Desfaz" maxlength="7" required/>
             </div>
 
         </div>

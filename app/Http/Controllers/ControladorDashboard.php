@@ -68,16 +68,13 @@ class ControladorDashboard extends Controller
     {  
 
         $emit  = Empresas_Emitentes::get();
-        //$dest = Empresas_Destinatarias::get();
+        $dest = Empresas_Destinatarias::all();
         $ori = Origens::get();
         $dep = Departamentos::get();
         $edit = Cadastro_Documentos::find($id);
         
-        return view('forms_edit/documentos_update', compact('emit', 'ori', 'dep', 'edit'));
+        return view('forms_edit/documentos_update', compact('emit', 'dest', 'ori', 'dep', 'edit'));
 
-        
-
-       
     }
 
     /**
@@ -141,7 +138,7 @@ class ControladorDashboard extends Controller
             
             ]);
 
-            return redirect(route('index'));
+            return redirect(route('dashboard'));
     }
 
     /**
