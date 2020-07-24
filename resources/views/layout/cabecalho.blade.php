@@ -34,6 +34,7 @@
                     <button class="dropbtn1">Cadastros</button>
                     <div class="dropdown-content1">
                         <a href="{{route('documentos_create')}}">Cadastro de Documentos</a>
+                        <a href="{{route('job_index')}}">Cadastro de JOB</a>
                         <a href="{{route('emitente_index')}}">Empresas Emitentes</a>
                         <a href="{{route(('destinataria_index'))}}">Empresas Destinatárias</a>
                         <a href="{{route('origem_index')}}">Origens</a>

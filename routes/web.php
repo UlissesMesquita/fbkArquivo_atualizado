@@ -36,6 +36,13 @@ Route::GET('/documento', 'ControladorDocumento@create')->name('documentos_create
 Route::POST('/documento/novo', 'ControladorDocumento@store')->name('novo_documento');
 Route::POST('/documento/anexo', 'ControladorDocumento@show')->name('visualizar_anexo');
 
+//Rotas JOB
+Route::GET('/job', 'ControladorJob@index')->name('job_index');
+Route::POST('/job/novo', 'ControladorJob@store')->name('novo_job');
+Route::GET('/job/delete/{id}', 'ControladorJob@destroy')->name('job_delete');
+Route::GET('/job/edit/{id}', 'ControladorJob@edit')->name('job_edit');
+Route::PUT('/job/update/{id}', 'ControladorJob@update')->name('job_update');
+
 //Rotas Departamentos
 Route::GET('/departamento', 'ControladorDepartamento@index')->name('departamento_index');
 Route::POST('/departamento/novo', 'ControladorDepartamento@store')->name('novo_departamento');
@@ -75,5 +82,7 @@ Route::GET('/config/usuarios/delete/{id}', 'ControladorLogin@destroy')->name('us
 Route::POST('/config/usuarios', 'ControladorLogin@store')->name('create-store');
 Route::GET('/config/usuarios/edit/{id}', 'ControladorLogin@edit')->name('usuarios-edit');
 Route::PUT('/config/usuarios/update/{id}', 'ControladorLogin@update')->name('usuarios-update');
+
+
 
 

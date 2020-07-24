@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TipoDocumento extends Controller
+class ControladorTipoDocumento extends Controller
 {
     /**
      * Display a listing of the resource.
