@@ -10,6 +10,7 @@
 
 
 @section('conteudo')
+
 <form action="{{route('create-store')}}" method="POST">
   @csrf
 <br>

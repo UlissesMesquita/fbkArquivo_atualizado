@@ -19,6 +19,8 @@ function validaLoginAdmin($permissao, $sessao ) {
   }
 
 
+
+
   //Função autentica login
 function validaLogin($sessao) {
         if($sessao != '1') {

@@ -42,10 +42,7 @@ class ControladorDepartamento extends Controller
         $dep->cad_departamento = $request->input('cad_departamento');
         $dep->save();
 
-        if ($dep->save() == TRUE) {
-            echo "<div class='alert-success' align='center'> Departamentos cadastrado com sucesso</div> ";
-            return redirect(route('departamento_index'));
-        }
+        return redirect(route('departamento_index'));
     }
 
     /**

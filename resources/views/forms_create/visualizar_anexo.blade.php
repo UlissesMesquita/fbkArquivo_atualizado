@@ -13,7 +13,7 @@
 
     @foreach($files as $file)
         <ul>
-            <a href="{{ asset("storage/anexos/".$file->id_upload_codigo.'/'.$file->path)}}" class="btn btn-default">  {{$file->path}} </a>
+            <a href="{{ asset("storage/anexos/".$file->id_upload_codigo.'/'.$file->path)}}" class="btn btn-default" target="_blank">  {{$file->path}} </a>
         </ul>
     @endforeach
 
