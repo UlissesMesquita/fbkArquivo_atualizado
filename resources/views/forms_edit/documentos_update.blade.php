@@ -91,7 +91,7 @@
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" type="text"class="form-control" maxlength="7" name="" value= "{{$edit->Dt_Ref}}" id="Dt_Ref"/>
+                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" type="text"class="form-control" maxlength="7" name="Dt_Ref" value= "{{$edit->Dt_Ref}}" id="Dt_Ref"/>
                 </div>
 
                 <div class="col-md-4">
