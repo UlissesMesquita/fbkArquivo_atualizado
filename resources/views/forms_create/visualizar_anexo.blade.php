@@ -12,17 +12,13 @@
 @section('conteudo')
 
 <table>
-  <thead>
-    <tr> <th> </th> </tr>
-  </thead>
-    <tbody>
-        @foreach($files as $file)
-        <tr>
-            <a href="{{ asset("storage/anexos/".$file->path)}}" class="btn btn-default">  {{$file->path}} </a>
-        </tr>
-        @endforeach
+  
+    @foreach($files as $file)
+        <ul>
+            <a href="{{ asset("storage/anexos/".$file->id_upload_codigo.'/'.$file->path)}}" class="btn btn-default">  {{$file->path}} </a>
+        </ul>
+    @endforeach
 
-    </tbody>
 </table>
 
 

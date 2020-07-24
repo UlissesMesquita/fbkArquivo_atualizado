@@ -176,23 +176,27 @@
                 <td> R${{$dashboard->Valor_Doc}}</td>
                 <td> {{$dashboard->Loc_Box_Eti}}</td>
                 <td> {{$dashboard->Tp_Projeto}}</td>
-    
-                            <!-- Botões de Ação-->
-                            <td>
+                
+                
+                <td>
 
-                                <!-- Botão de Exibir PDF -->
+                    <!-- Botão de Editar -->
 
-                                    <a class="fas fa-file-pdf" href="{{ asset('storage/pdfs/'.$dashboard->id_codigo.'_'. $dashboard->Tit_Doc .'.pdf')}}" target="_blank" method="POST"></a>
+                    <a class="far fa-edit" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET"></a>
 
-                                <!-- Botão de Editar -->
-                                
-                                    <a class="far fa-edit" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET"></a>
-                                
-                                <!-- Botão de Apagar -->
-                                    <a class="fas fa-trash" href="delete/{{$dashboard->id_codigo}}" method="GET"></a>
+                    <!-- Botão de Apagar -->
 
-                               
-                            </td>
+                    <a class="fas fa-trash" href="delete/{{$dashboard->id_codigo}}" method="GET"></a>
+
+                    <!-- Botão de Anexo -->
+                    <form method="POST" action="{{route('visualizar_anexo')}}" >
+                        @csrf
+                            <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
+                            <input type="submit" class="fas fa-file-pdf" target="_blank" value="Anexos">
+                    </form>
+
+
+                </td>
             </tr>
         @endforeach
     </tbody>

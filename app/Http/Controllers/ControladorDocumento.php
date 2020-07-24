@@ -90,7 +90,7 @@ class ControladorDocumento extends Controller
 
             try {
                 $fileUpload->path = $file->getClientOriginalName();
-                $file->storeAs('anexos', $file->getClientOriginalName());
+                $file->storeAs('anexos/'.$fileUpload->id_upload_codigo.'/', $file->getClientOriginalName());
                 //dd($file->store('anexos'));
                 //dd($fileUpload);
                 $fileUpload->save();

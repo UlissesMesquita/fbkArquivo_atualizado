@@ -49,15 +49,44 @@
                         <td> {{$dashboard->Dep}} </td>
             
 
-                    <td><form method="POST" action="{{route('visualizar_anexo')}}" >
-                    @csrf
-                    <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
-                    <input type="submit" value="visualizar anexo" class="btn btn-default">
-                    </form></td>
+                        <td>
 
-                    </tr>
+
+
+                            <!-- Botão de Editar -->
+
+                            <a class="far fa-edit" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET"></a>
+        
+                            <!-- Botão de Apagar -->
+
+                            <a class="fas fa-trash" href="delete/{{$dashboard->id_codigo}}" method="GET"></a>
+
+                            <!-- Botão de Anexo -->
+                            <form method="POST" action="{{route('visualizar_anexo')}}" >
+                                @csrf
+                                    <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
+                                    <input type="submit" class="fas fa-file-pdf" target="_blank" value="Anexos">
+                            </form>
+
+
+                        </td>
+
+                </tr>
+
                 @endforeach
             </tbody>
         </table>
  
     @endsection
+
+    
+                        
+
+                                    
+
+                                    <!-- Botão de Editar -->
+                                    
+
+    
+                                   
+                                </td>
