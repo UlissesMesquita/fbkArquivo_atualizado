@@ -6,6 +6,8 @@ use App\Departamentos;
 use App\Empresas_Destinatarias;
 use App\Empresas_Emitentes;
 use App\Origens;
+use App\TipoDocumento;
+use App\Job;
 use Illuminate\Http\Request;
 use App\Cadastro_Documentos;
 use Illuminate\Http\Response;
@@ -73,8 +75,10 @@ class ControladorDashboard extends Controller
         $ori = Origens::all();
         $dep = Departamentos::all();
         $edit = Cadastro_Documentos::find($id);
+        $tp_documento = TipoDocumento::get();
+        $job = Job::get();
         
-        return view('forms_edit/documentos_update', compact('emit', 'dest', 'ori', 'dep', 'edit'));
+        return view('forms_edit/documentos_update', compact('emit', 'dest', 'ori', 'dep', 'edit', 'tp_documento', 'job'));
 
     }
 
@@ -99,7 +103,7 @@ class ControladorDashboard extends Controller
         $doc->Nome_Doc = $request->input('Nome_Doc');
         $doc->Valor_Doc = $request->input('Valor_Doc');
         $doc->Dt_Ref = $request->input('Dt_Ref');
-        $doc->Tit_Doc = $request->input('Tit_Doc');
+        $doc->tp_documento = $request->input('tp_documento');
         $doc->Palavra_Chave = $request->input('Palavra_Chave');
         $doc->Desc = $request->input('Desc');
         $doc->Dep = $request->input('Dep');
@@ -124,7 +128,7 @@ class ControladorDashboard extends Controller
             'Nome_Doc' => $doc->Nome_Doc,
             'Valor_Doc' => $doc->Valor_Doc,
             'Dt_Ref' => $doc->Dt_Ref,
-            'Tit_Doc' => $doc->Tit_Doc,
+            'tp_documento' => $doc->tp_documento,
             'Palavra_Chave' => $doc->Palavra_Chave,
             'Desc' => $doc->Desc,
             'Dep' => $doc->Dep,

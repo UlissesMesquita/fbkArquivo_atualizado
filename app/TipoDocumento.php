@@ -8,6 +8,6 @@ class TipoDocumento extends Model
 {
     protected $primaryKey = 'id_tp_documento';
     public $incrementing = true;
-    public $table = 'tp_documento';
+    public $table = 'tipo_documentos';
     public $timestamps = false;
 }

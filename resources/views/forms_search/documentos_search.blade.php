@@ -113,6 +113,20 @@
                         <option>ADM</option>
                     </select>
                 </div>
+                
+                <div class="col-md-4">
+                    <label>Tipo de Documento: *</label>
+                    <label for="tp_documento"></label>
+                        <select id="tp_documento" name="tp_documento" class="form-control" required>
+                            <option selected>Escolha...</option>
+                            @if(isset($tp_documento))
+                                @foreach($tp_documento as $tp_documentos)
+                                    <option value="{{$tp_documento->tp_documento}}">{{$tp_documento->tp_documento}}</option>
+                                @endforeach
+                                @endif
+                            </select>
+                        </select>
+                </div>
 
                 <div class="col-md-4">
                     <label>Defaz/Destruir: </label>

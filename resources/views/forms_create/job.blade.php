@@ -31,7 +31,7 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Empresas Emitentes</th>
+                <th scope="col">Jobs</th>
                 <th scope="col">Ação</th>
             </tr>
         </thead>

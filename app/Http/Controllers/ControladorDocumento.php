@@ -8,6 +8,8 @@ use App\Empresas_Destinatarias;
 use App\Empresas_Emitentes;
 use App\Origens;
 use App\Upload;
+use App\TipoDocumento;
+use App\Job;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use http\Header;
@@ -37,12 +39,14 @@ class ControladorDocumento extends Controller
         $dest = Empresas_Destinatarias::get();
         $ori = Origens::get();
         $dep = Departamentos::get();
+        $tp_documentos = TipoDocumento::get();
+        $job = Job::get();
         
         $documentos = Cadastro_Documentos::all();
         $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo')->take(1);
 
        
-        return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash'));
+        return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash', 'tp_documentos', 'job'));
 
     }
 
@@ -66,7 +70,7 @@ class ControladorDocumento extends Controller
         $doc->Valor_Doc = $request->input('Valor_Doc');
         $doc->Dt_Ref = $request->input('Dt_Ref');
         $doc->Desfaz = $request->input('Desfaz');
-        $doc->Tit_Doc = $request->input('Tit_Doc');
+        $doc->tp_documento = $request->input('tp_documento');
         $doc->Palavra_Chave = $request->input('Palavra_Chave');
         $doc->Desc = $request->input('Desc');
         $doc->Dep = $request->input('Dep');
@@ -81,7 +85,7 @@ class ControladorDocumento extends Controller
         $doc->refresh();
 
         
-
+        //Multiplos Uploads
         foreach($request->allFiles()['anexo'] as $file) {
             //dd($file->getClientOriginalName());
 

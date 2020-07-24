@@ -25,8 +25,8 @@ class CreateCadastroDocumentosTable extends Migration
             $table->string('Formato_Doc');
             $table->string('Nome_Doc');
             $table->string('Valor_Doc')->nullable();
-            $table->string('Dt_Ref')->nullable();
-            $table->string('Tit_Doc');
+            $table->string('Dt_Ref');
+            $table->string('tp_documento');
             $table->string('Tp_Projeto');
             $table->string('Palavra_Chave');
             $table->string('Desc');

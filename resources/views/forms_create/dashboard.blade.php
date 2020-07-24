@@ -23,7 +23,7 @@
                     <th>Número Documento</th>
                     <th>Valor</th>
                     <th>Data Referência</th>
-                    <th>Titulo Documento</th>
+                    <th>Tipo Documento</th>
                     <th>Palavra Chave</th>
                     <th>Departamento</th>
                     <th>Ferramentas</th>
@@ -44,7 +44,7 @@
                         <td> {{$dashboard->Nome_Doc}}</td>
                         <td> R${{$dashboard->Valor_Doc}}</td>
                         <td> {{$dashboard->Dt_Ref}}</td>
-                        <td> {{$dashboard->Tit_Doc}} </td>
+                        <td> {{$dashboard->tp_documento}} </td>
                         <td> {{$dashboard->Palavra_Chave}} </td>
                         <td> {{$dashboard->Dep}} </td>
             

@@ -43,6 +43,13 @@ Route::GET('/job/delete/{id}', 'ControladorJob@destroy')->name('job_delete');
 Route::GET('/job/edit/{id}', 'ControladorJob@edit')->name('job_edit');
 Route::PUT('/job/update/{id}', 'ControladorJob@update')->name('job_update');
 
+//Rotas Tipo de Documento
+Route::GET('/tp_documento', 'ControladorTipoDocumento@index')->name('tp_documento_index');
+Route::POST('/tp_documento/novo', 'ControladorTipoDocumento@store')->name('novo_tp_documento');
+Route::GET('/tp_documento/delete/{id}', 'ControladorTipoDocumento@destroy')->name('tp_documento_delete');
+Route::GET('/tp_documento/edit/{id}', 'ControladorTipoDocumento@edit')->name('tp_documento_edit');
+Route::PUT('/tp_documento/update/{id}', 'ControladorTipoDocumento@update')->name('tp_documento_update');
+
 //Rotas Departamentos
 Route::GET('/departamento', 'ControladorDepartamento@index')->name('departamento_index');
 Route::POST('/departamento/novo', 'ControladorDepartamento@store')->name('novo_departamento');

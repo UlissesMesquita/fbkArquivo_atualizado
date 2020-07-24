@@ -104,11 +104,18 @@ Dados do Documento
                     <label for="Dt_Ref"></label><input placeholder= "" class="form-control" type="text" name="Dt_Ref" id="Dt_Ref"  />
                 </div>
 
-                <div class="col-md-8">
-                    <label>Título Documento: *</label>
-                    <label for="Tit_Doc"></label><input type="text" class="form-control" id="Tit_Doc" name="Tit_Doc" placeholder="" required>
-                </div>
-            </div>
+                    <div class="col-md-4">
+                        <label>Tipo de Documento: *</label>
+                        <label for="tp_documento"></label>
+                            <select id="tp_documento" name="tp_documento" class="form-control" required>
+                                <option selected>Escolha...</option>
+                                    @foreach($tp_documentos as $tp_documento)
+                                        <option value="{{$tp_documento->tp_documento}}">{{$tp_documento->tp_documento}}</option>
+                                    @endforeach
+                                </select>
+                            </select>
+                    </div>
+        </div>            
 
         <!-- Linha 5 -->
         <div class="row">
