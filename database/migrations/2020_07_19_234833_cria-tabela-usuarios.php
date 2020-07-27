@@ -17,7 +17,7 @@ class CriaTabelaUsuarios extends Migration
             $table->bigIncrements('id_usuario');
             $table->string('login')->unique();
             $table->string('password');
-            $table->integer('autenticado')->default(1);
+            $table->integer('autenticado')->default(0);
             $table->string('permissao');
             $table->string('ativo')->default('ativo');
 
