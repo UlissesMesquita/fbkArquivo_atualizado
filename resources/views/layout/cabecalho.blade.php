@@ -20,10 +20,15 @@
 
 
 <body>
+<div id = "upper">
+
+
+
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/JQuery.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jquery-ui.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jsPersonalizado.js')}}"></script>
+
 
         <!-- Logotipo - Fabrika Filmes -->
         <div class="navbar1">
@@ -74,7 +79,7 @@
     <!-- Template -->
         <h1>@yield('titulo')</h1>
 
-        <div class="container">
+        <div class="container" onfocus="upper(this.event)">
 
             @yield('conteudo')
             

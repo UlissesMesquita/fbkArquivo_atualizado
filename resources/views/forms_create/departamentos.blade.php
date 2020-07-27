@@ -9,6 +9,8 @@
 @endsection
 
 @section('conteudo')
+
+
     <form action="{{route('novo_departamento')}}" method="POST">
         @csrf
         <div class=""><br>
@@ -54,3 +56,15 @@
             @endforeach
     </table>
 @endsection
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+ $(function(){
+	 var campo = $("#cad_departamento");
+	 campo.keyup(function(e){
+		 e.preventDefault();
+		 campo.val($(this).val().toUpperCase());
+	 });
+ });
+</script>
