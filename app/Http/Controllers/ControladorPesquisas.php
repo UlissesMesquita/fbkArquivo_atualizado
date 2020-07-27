@@ -6,6 +6,7 @@ use App\Cadastro_Documentos;
 use App\Empresas_Destinatarias;
 use App\Empresas_Emitentes;
 use App\Pesquisas;
+use App\TipoDocumento;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Illuminate\Support\Facades\DB;
@@ -25,8 +26,9 @@ class ControladorPesquisas extends Controller
             $emit = Empresas_Emitentes::all();
             $dest = Empresas_Destinatarias::all();
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
+            $tp_documento = TipoDocumento::all();
 
-            return view('forms_search/documentos_search', compact('emit', 'dest', 'dash'));
+            return view('forms_search/documentos_search', compact('tp_documento','emit', 'dest', 'dash'));
         }
         else {
             return redirect(route('index'));
@@ -101,7 +103,8 @@ class ControladorPesquisas extends Controller
                 }
                 $emit = Empresas_Emitentes::get();
                 $dest = Empresas_Destinatarias::get();
-                return view('forms_search/documentos_search', compact('dest', 'emit', 'dash'));
+                $tp_documento = TipoDocumento::get();
+                return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash'));
         }
         else {
             return redirect(route('index'));
@@ -125,7 +128,7 @@ class ControladorPesquisas extends Controller
                         'Content-Disposition' => 'inline; filename="'.$file_name.'"'
                     ];
                     // dd(asset('storage/pdfs'));
-                    $path = storage_path('pdfs/'.$cad_doc->id_codigo.'_'. $cad_doc->Tit_Doc .'.pdf');
+                    $path = storage_path('anexo/'.$cad_doc->id_codigo.'_'. $cad_doc->Tit_Doc .'.pdf');
                     if(!file_exists($path))
                     {
                         return '<h1>Arquivo não encontrado</h1>';
@@ -182,7 +185,7 @@ class ControladorPesquisas extends Controller
         
         foreach($request->toArray() as $key => $valor) {
             if ($valor <> NULL && $valor <> '' && $key <> '_token' && $key <> 'data_in' && $key <> 'data_out') {
-                $dados[] = [DB::raw($key), 'LIKE', '%'. $valor. '%'];
+                $dados[] = [DB::raw('UPPER('.$key.')'), 'LIKE', '%'. strtoupper($valor). '%'];
             }
 
 

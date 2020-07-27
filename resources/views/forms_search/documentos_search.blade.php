@@ -120,18 +120,16 @@
                     <label for="tp_documento"></label>
                         <select id="tp_documento" name="tp_documento" class="form-control" onkeyup="maiuscula(this)">
                             <option value="">Escolha...</option>
-                            @if(isset($tp_documento))
                                 @foreach($tp_documento as $tp_documentos)
-                                    <option value="{{$tp_documento->tp_documento}}">{{$tp_documento->tp_documento}}</option>
+                                    <option value="{{$tp_documentos->tp_documento}}">{{$tp_documentos->tp_documento}}</option>
                                 @endforeach
-                                @endif
                             </select>
                         </select>
                 </div>
 
                 <div class="col-md-4">
                     <label>Defaz/Destruir: </label>
-                    <label for="Desfaz"></label><input type="texr" class="form-control" id="Desfaz" name="Desfaz" maxlength="7" placeholder="" onkeyup="maiuscula(this)">
+                    <label for="Desfaz"></label><input type="text" class="form-control" id="Desfaz" name="Desfaz" maxlength="7" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
             </div>
