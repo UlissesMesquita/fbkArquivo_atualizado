@@ -36,36 +36,35 @@ class ControladorLogin extends Controller
         $consulta = Login::all();
 
 
- 
+        
 
-foreach($consulta as $dados) {
-        //Verifica se o login digitado está correto
-        //dd($dados);     
-        while ($dados['login'] == $log->login && $dados['ativo'] == 'Ativo') {
-            //Verificar Password se está correto.
-            if($dados['password'] == md5($log->password)) {
-                //Atribuir Permissão da  Sessão.
-                    session()->put('permissao', $dados['permissao']);
-                    session()->put('id_usuario', $dados['id_usuario']);
-                //Autentica usuário
-                    Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
-                    session()->put('autenticado', $dados['autenticado']);
-                //Envia usuário autenticado para pagina Dashboard.
-                    return redirect(route('dashboard'));    
-            }
-            else{
-                //Caso esteja errado a senha, informa o erro
-                //Senha errada, envia usuário com senha errada para pagina Dashboard
-                    return redirect(route('index'));
-            }
+        foreach($consulta as $dados) {
+                //Verifica se o login digitado está correto
+                //dd($dados);  
+                
+                while ($dados['login'] == $log->login && $dados['ativo'] == 'Ativo') {
+                    //Verificar Password se está correto.
+                    if($dados['password'] == md5($log->password)) {
+                        //Atribuir Permissão da  Sessão.
+                            session()->put('permissao', $dados['permissao']);
+                            session()->put('id_usuario', $dados['id_usuario']);
+                        //Autentica usuário
+                            Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
+                            session()->put('autenticado', $dados['autenticado']);
+                        //Envia usuário autenticado para pagina Dashboard.
+                            return redirect(route('dashboard'));    
+                    }
+                    else{
+                        //Caso esteja errado a senha, informa o erro
+                        //Senha errada, envia usuário com senha errada para pagina Dashboard
+                            //return redirect(route('index'));
+                            return redirect()->back()->withErrors(['erro' =>  'Senha Errada' ]);
+                    }
+
+                }
+                //Tela branca
         }
 
-        $erro = ['Erro' => 'Usuário incorreto <br>', 'Erro' => 'Usuário Desativado'];
-        //return redirect(route('index'));
-
-}
-
-     
     }
 
     /**
@@ -160,12 +159,14 @@ foreach($consulta as $dados) {
         return redirect(route('configuracoes-usuarios'));
     }
 
-    public function leave($id_usuario)
+    public function leave()
     {
         session()->put('autenticado', 'null');
-        $log = Login::find($id_usuario);
-        Login::where('id_usuario', $id_usuario)->update(['autenticado' => 0]);
+        //Session::flush();
 
+        //$log = Login::find($id_usuario);
+        Login::where('id_usuario', session()->get('id_usuario'))->update(['autenticado' => 0]);
+        //dd(session()->get('id_usuario'));
         return redirect(route('index'));
 
     }

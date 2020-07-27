@@ -1,3 +1,7 @@
+@if(session()->get('autenticado') != 1)
+<meta http-equiv="refresh" content="0;URL='/'"/>
+
+@endif 
 
 
 <!doctype html>
@@ -71,7 +75,7 @@
         @endif
             <!-- Sair -->
             <div class="dropdownExit1">
-            <a href="{{route('index')}}">Sair</a>
+            <a href="{{route('leave')}}">Sair</a>
             </div>
 
             
@@ -80,7 +84,7 @@
     <!-- Template -->
         <h1>@yield('titulo')</h1>
 
-        <div class="container" onfocus="upper(this.event)">
+        <div class="container">
 
             @yield('conteudo')
             

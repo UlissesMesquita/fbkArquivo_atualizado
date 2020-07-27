@@ -77,14 +77,6 @@
  
     @endsection
 
-    
-                        
+                           
+</td>
 
-                                    
-
-                                    <!-- Botão de Editar -->
-                                    
-
-    
-                                   
-                                </td>
