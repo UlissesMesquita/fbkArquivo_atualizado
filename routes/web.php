@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 
 //Rotas para Login
-Route::GET('/login', 'ControladorLogin@index')->name('index');
+Route::GET('/', 'ControladorLogin@index')->name('index');
 
 //Route::GET('/sair', 'ControladorLogin@leave/{id_usuario}')->name('index');
-Route::POST('/login', 'ControladorLogin@create')->name('valida-login');
+Route::POST('/', 'ControladorLogin@create')->name('valida-login');
 
 
 //Rotas Dashboard
-Route::GET('/', 'ControladorDashboard@index')->name('dashboard');
+Route::GET('/dash', 'ControladorDashboard@index')->name('dashboard');
 Route::GET('/pdf/{name_pdf}', 'ControladorDashboard@showPdf')->name('pdf');
 Route::GET('/documentos_edit/{id}', 'ControladorDashboard@edit')->name('edit');
 Route::PUT('/documentos_update/{id}', 'ControladorDashboard@update')->name('update');
@@ -84,11 +84,11 @@ Route::POST('/pesquisas', 'ControladorPesquisas@show')->name('pesquisa_novo');
 Route::POST('/pesquisas/getPdf','ControladorPesquisas@getPdf')->name('pesquisa_getPdf');
 
 //Rotas Para Configurações de usuários
-Route::GET('/config', 'ControladorLogin@show')->name('configuracoes-usuarios');
-Route::GET('/config/usuarios/delete/{id}', 'ControladorLogin@destroy')->name('usuarios-delete');
-Route::POST('/config/usuarios', 'ControladorLogin@store')->name('create-store');
-Route::GET('/config/usuarios/edit/{id}', 'ControladorLogin@edit')->name('usuarios-edit');
-Route::PUT('/config/usuarios/update/{id}', 'ControladorLogin@update')->name('usuarios-update');
+Route::GET('/config/d1sc73637da336815574f515c222f7a28095c880d4d37823455c99928caceb680', 'ControladorLogin@show')->name('configuracoes-usuarios');
+Route::GET('/config/o2173637da3368asdac222f7a28095c880d4d37823455c99928cb680/delete/{id}', 'ControladorLogin@destroy')->name('usuarios-delete');
+Route::POST('/config/i3173637da336815574f515casdf7a28095c880d4d37823455c99928caceb680', 'ControladorLogin@store')->name('create-store');
+Route::GET('/config/2o973637da33681557asdas22f7a28095c880d4d37823455c99928c1a3c3e4b680/edit/{id}', 'ControladorLogin@edit')->name('usuarios-edit');
+Route::PUT('/config/is973637da3asdasd15c222f7a28095c880d4d37823455c99928c1a2680/update/{id}', 'ControladorLogin@update')->name('usuarios-update');
 
 
 
