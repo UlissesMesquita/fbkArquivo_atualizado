@@ -118,8 +118,8 @@
                 <div class="col-md-4">
                     <label>Tipo de Documento: *</label>
                     <label for="tp_documento"></label>
-                        <select id="tp_documento" name="tp_documento" class="form-control" required onkeyup="maiuscula(this)">
-                            <option selected>Escolha...</option>
+                        <select id="tp_documento" name="tp_documento" class="form-control" onkeyup="maiuscula(this)">
+                            <option value="">Escolha...</option>
                             @if(isset($tp_documento))
                                 @foreach($tp_documento as $tp_documentos)
                                     <option value="{{$tp_documento->tp_documento}}">{{$tp_documento->tp_documento}}</option>
