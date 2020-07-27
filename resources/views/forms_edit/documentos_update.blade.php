@@ -37,19 +37,16 @@
         <!-- Linha 2 -->
         <div class="row">
 
-
-                <div class="col-md-6">
-                    <label>Empresa Emitente: *</label>
-                    <label for="Emp_Dest"></label>
-                        <select id="Emp_Emit" name="Emp_Emit" class="form-control" required>
-                            <option selected>{{$edit->Emp_Emit}}</option>
-                            @foreach($emit as $emitente)
-                                <option value ="{{$emitente->Emp_Emit}}">{{$emitente->Emp_Emit}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-
+            <div class="col-md-6">
+                <label>Empresa Emitente *</label>
+                <label for="Emp_Dest"></label>
+                    <select id="Emp_Emit" name="Emp_Emit" class="form-control"  required>
+                        <option selected>{{$edit->Emp_Emit}}</option>
+                        @foreach($emit as $emitente)
+                            <option value ="{{ $emitente->cad_emitentes }}">{{ $emitente->cad_emitentes }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
                 <div class="col-md-6">
                     <label>Empresa Destinatária: *</label>

@@ -47,12 +47,9 @@
                     <label for="Emp_Emit"></label>
                         <select id="Emp_Emit" name="Emp_Emit" class="form-control" >
                             <option value="">Escolha...</option>
-                            
-                            @if(isset($emit))
                             @foreach($emit as $emitente)
                                 <option value="{{ $emitente->cad_emitentes }}"> {{ $emitente->cad_emitentes }} </option>
                             @endforeach
-                            @endif
                         </select>
                 </div>
 
@@ -61,11 +58,9 @@
                     <label for="Emp_Dest"></label>
                         <select id="Emp_Dest" name="Emp_Dest" class="form-control" value="" >
                             <option value="">Escolha...</option>
-                            @if(isset($dest))
                             @foreach($dest as $destinataria)
                                 <option value ="{{ $destinataria->cad_destinatarias }}">{{ $destinataria->cad_destinatarias }}</option>
                             @endforeach
-                            @endif
                         </select>
                 </div>
                 

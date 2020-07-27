@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 use App\Departamentos;
 use App\Empresas_Destinatarias;
@@ -8,9 +10,8 @@ use App\Empresas_Emitentes;
 use App\Origens;
 use App\TipoDocumento;
 use App\Job;
-use Illuminate\Http\Request;
 use App\Cadastro_Documentos;
-use Illuminate\Http\Response;
+
 
 
 class ControladorDashboard extends Controller
