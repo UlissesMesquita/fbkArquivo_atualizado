@@ -17,8 +17,14 @@ class ControladorTipoDocumento extends Controller
      */
     public function index()
     {
-        $tp_documento = TipoDocumento::all()->sortByDesc('id_tp_documento');
-       return view('forms_create/tp_documento', compact('tp_documento'));
+        if(session()->get('autenticado') == 1) {
+            $tp_documento = TipoDocumento::all()->sortByDesc('id_tp_documento');
+            return view('forms_create/tp_documento', compact('tp_documento'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+    
 
 
     }
@@ -41,14 +47,20 @@ class ControladorTipoDocumento extends Controller
      */
     public function store(Request $request)
     {
-        $tp_documento = new TipoDocumento();
-        $tp_documento->tp_documento = $request->input('tp_documento');
-        $tp_documento->save();
+        if(session()->get('autenticado') == 1) {
+            $tp_documento = new TipoDocumento();
+            $tp_documento->tp_documento = $request->input('tp_documento');
+            $tp_documento->save();
 
-        if ($tp_documento->save() == TRUE) {
-            echo "<div class='alert-success' align='center'> O Tipo de Documento foi cadastrado com sucesso</div> ";
-            return redirect(route('tp_documento_index'));
+            if ($tp_documento->save() == TRUE) {
+                echo "<div class='alert-success' align='center'> O Tipo de Documento foi cadastrado com sucesso</div> ";
+                return redirect(route('tp_documento_index'));
+            }
         }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**
@@ -70,8 +82,14 @@ class ControladorTipoDocumento extends Controller
      */
     public function edit($id)
     {
-        $edit = TipoDocumento::find($id);
-        return view('forms_edit/tp_documento_update', compact('edit'));
+        if(session()->get('autenticado') == 1) {
+            $edit = TipoDocumento::find($id);
+            return view('forms_edit/tp_documento_update', compact('edit'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**
@@ -83,10 +101,16 @@ class ControladorTipoDocumento extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tp_documento = new TipoDocumento();
-        $tp_documento->tp_documento = $request->input('tp_documento');
-        TipoDocumento::where('id_tp_documento', $id)->update(['tp_documento' => $tp_documento->tp_documento]);
-        return redirect(route('tp_documento_index'));
+        
+        if(session()->get('autenticado') == 1) {
+            $tp_documento = new TipoDocumento();
+            $tp_documento->tp_documento = $request->input('tp_documento');
+            TipoDocumento::where('id_tp_documento', $id)->update(['tp_documento' => $tp_documento->tp_documento]);
+            return redirect(route('tp_documento_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**
@@ -97,9 +121,15 @@ class ControladorTipoDocumento extends Controller
      */
     public function destroy($id)
     {
-        $tp_documento = TipoDocumento::find($id);
-        $tp_documento->delete();
+        
 
-        return redirect(route('tp_documento_index'));
+        if(session()->get('autenticado') == 1) {
+            $tp_documento = TipoDocumento::find($id);
+            $tp_documento->delete();
+            return redirect(route('tp_documento_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 }

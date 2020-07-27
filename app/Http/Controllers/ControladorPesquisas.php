@@ -21,13 +21,18 @@ class ControladorPesquisas extends Controller
     public function index()
     {
 
-      
+        if(session()->get('autenticado') == 1) {
+            $emit = Empresas_Emitentes::all();
+            $dest = Empresas_Destinatarias::all();
+            $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
 
-        $emit = Empresas_Emitentes::all();
-        $dest = Empresas_Destinatarias::all();
-        $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
+            return view('forms_search/documentos_search', compact('emit', 'dest', 'dash'));
+        }
+        else {
+            return redirect(route('index'));
+        }
 
-        return view('forms_search/documentos_search', compact('emit', 'dest', 'dash'));
+        
     }
 
     /**
@@ -63,65 +68,76 @@ class ControladorPesquisas extends Controller
     public function show(Request $request)
     {
 
-     //dd($request);
+        if(session()->get('autenticado') == 1) {
+            // Vetificar se tem data_in e data_out 
+            if (isset($request['data_in']) && isset($request['data_out'])) {
+                if( empty($request->input('data_in')) && !empty($request->input('data_out')))
+                    return redirect()->back()->withErrors([
+                        'data_in' => 'Sem data inicial'
+                    ])->withInput();
 
-    // Vetificar se tem data_in e data_out 
-    if (isset($request['data_in']) && isset($request['data_out'])) {
-        if( empty($request->input('data_in')) && !empty($request->input('data_out')))
-            return redirect()->back()->withErrors([
-                'data_in' => 'Sem data inicial'
-            ])->withInput();
+                    if( empty($request->input('data_out')) && ! empty($request->input('data_in')))
+                    return redirect()->back()->withErrors([
+                        'data_out' => 'Sem data final'
+                    ])->withInput();
+                    $data_in =  $request->input('data_in');
+                    $data_out = $request->input('data_out');
 
-            if( empty($request->input('data_out')) && ! empty($request->input('data_in')))
-            return redirect()->back()->withErrors([
-                'data_out' => 'Sem data final'
-            ])->withInput();
-            $data_in =  $request->input('data_in');
-            $data_out = $request->input('data_out');
-
-    }   //
+            }   //
 
 
-    $dados = $this->arrayParse($request);
-    // $dadosData = $this->arrayParseDate($request);
-       
-        //dd($dados);
-        if(isset($data_in) && isset($data_out)){
-            $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
-                            Cadastro_Documentos::where($dados)->whereBetween('data', [$data_in, $data_out])->get() ;
-        }elseif (isset($dados) ) {
-            $dash = Cadastro_Documentos::where($dados)->get();
+            $dados = $this->arrayParse($request);
+            // $dadosData = $this->arrayParseDate($request);
+            
+                //dd($dados);
+                if(isset($data_in) && isset($data_out)){
+                    $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
+                                    Cadastro_Documentos::where($dados)->whereBetween('data', [$data_in, $data_out])->get() ;
+                }elseif (isset($dados) ) {
+                    $dash = Cadastro_Documentos::where($dados)->get();
+                }
+                else {
+                    $dash = Cadastro_Documentos::all();
+                }
+                $emit = Empresas_Emitentes::get();
+                $dest = Empresas_Destinatarias::get();
+                return view('forms_search/documentos_search', compact('dest', 'emit', 'dash'));
         }
         else {
-            $dash = Cadastro_Documentos::all();
+            return redirect(route('index'));
         }
-        $emit = Empresas_Emitentes::get();
-        $dest = Empresas_Destinatarias::get();
-        return view('forms_search/documentos_search', compact('dest', 'emit', 'dash'));
+
+    
         
     }
     
     public function getPdf(Request $request)
     {
-        if (isset($request['id_codigo']) && !empty($request->input('id_codigo')) )
-        {
-            $cad_doc = Cadastro_documentos::where('id_codigo', '=', $request->input('id_codigo'))->first();
-            if($cad_doc)
+        if(session()->get('autenticado') == 1) {
+            if (isset($request['id_codigo']) && !empty($request->input('id_codigo')) )
             {
-                $file_name = $cad_doc->id_codigo .'_'. $cad_doc->Tit_Doc .'.pdf';
-                $header =  [
-                    'Content-Type' => 'application/pdf',
-                    'Content-Disposition' => 'inline; filename="'.$file_name.'"'
-                ];
-                // dd(asset('storage/pdfs'));
-                $path = storage_path('pdfs/'.$cad_doc->id_codigo.'_'. $cad_doc->Tit_Doc .'.pdf');
-                if(!file_exists($path))
+                $cad_doc = Cadastro_documentos::where('id_codigo', '=', $request->input('id_codigo'))->first();
+                if($cad_doc)
                 {
-                    return '<h1>Arquivo não encontrado</h1>';
+                    $file_name = $cad_doc->id_codigo .'_'. $cad_doc->Tit_Doc .'.pdf';
+                    $header =  [
+                        'Content-Type' => 'application/pdf',
+                        'Content-Disposition' => 'inline; filename="'.$file_name.'"'
+                    ];
+                    // dd(asset('storage/pdfs'));
+                    $path = storage_path('pdfs/'.$cad_doc->id_codigo.'_'. $cad_doc->Tit_Doc .'.pdf');
+                    if(!file_exists($path))
+                    {
+                        return '<h1>Arquivo não encontrado</h1>';
+                    }
+                    return response()->file($path, $header);
                 }
-                return response()->file($path, $header);
             }
         }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**

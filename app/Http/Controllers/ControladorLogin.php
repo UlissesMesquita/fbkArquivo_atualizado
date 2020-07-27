@@ -50,14 +50,23 @@ class ControladorLogin extends Controller
                             session()->put('id_usuario', $dados['id_usuario']);
                         //Autentica usuário
                             Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
-                            session()->put('autenticado', $dados['autenticado']);
+                            session()->put('autenticado', 1);
                         //Envia usuário autenticado para pagina Dashboard.
-                            return redirect(route('dashboard'));    
+                            if(session()->get('autenticado') == 1) {
+                                return redirect(route('dashboard'));
+                            }
+                            else {
+                                dd(session()->get('autenticado'));
+                                session()->put('autenticado', '0');
+                                return redirect(route('index'));
+                            }
+                                
                     }
                     else{
                         //Caso esteja errado a senha, informa o erro
                         //Senha errada, envia usuário com senha errada para pagina Dashboard
                             //return redirect(route('index'));
+                            session()->put('autenticado', '0');
                             return redirect()->back()->withErrors(['erro' =>  'Senha Errada' ]);
                     }
 
@@ -98,9 +107,15 @@ class ControladorLogin extends Controller
     public function show()
     {
  
-        //Mostra usuários na tela de Cadastro
-        $users = Login::all();
-        return view('login/usuarios', compact('users'));
+        if(session()->get('autenticado') == 1) {
+            //Mostra usuários na tela de Cadastro
+            $users = Login::all();
+            return view('login/usuarios', compact('users'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+
 
     }
 
@@ -113,8 +128,14 @@ class ControladorLogin extends Controller
     public function edit($id_usuario)
     {
         
-        $edit = Login::find($id_usuario);
-        return view('login/usuarios_update', compact('edit'));
+        if(session()->get('autenticado') == 1) {
+            $edit = Login::find($id_usuario);
+            return view('login/usuarios_update', compact('edit'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
 
     }
 
@@ -127,20 +148,26 @@ class ControladorLogin extends Controller
      */
     public function update(Request $request, $id_usuario)
     {
-        //Recupera Valores
-        $log = new Login();
-        $log->login = $request->input('login');
-        $log->password = $request->input('password');
-        $log->permissao = $request->input('permissao');
-        $log->ativo = $request->input('ativo');
+        if(session()->get('autenticado') == 1) {
+            //Recupera Valores
+            $log = new Login();
+            $log->login = $request->input('login');
+            $log->password = $request->input('password');
+            $log->permissao = $request->input('permissao');
+            $log->ativo = $request->input('ativo');
 
-        //Altera Valores usuários Banco de Dados
-        Login::where('id_usuario', $id_usuario)->update(['login' => $log->login]);
-        Login::where('id_usuario', $id_usuario)->update(['password' => md5($log->password)]);
-        Login::where('id_usuario', $id_usuario)->update(['permissao' => $log->permissao]);
-        Login::where('id_usuario', $id_usuario)->update(['ativo' => $log->ativo]);
+            //Altera Valores usuários Banco de Dados
+            Login::where('id_usuario', $id_usuario)->update(['login' => $log->login]);
+            Login::where('id_usuario', $id_usuario)->update(['password' => md5($log->password)]);
+            Login::where('id_usuario', $id_usuario)->update(['permissao' => $log->permissao]);
+            Login::where('id_usuario', $id_usuario)->update(['ativo' => $log->ativo]);
 
-        return redirect(route('configuracoes-usuarios'));
+            return redirect(route('configuracoes-usuarios'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**
@@ -151,23 +178,30 @@ class ControladorLogin extends Controller
      */
     public function destroy($id_usuario)
     {
-
-        //session_destroy($id_usuario);
-        $log = Login::find($id_usuario);
-        $log->delete();
-
-        return redirect(route('configuracoes-usuarios'));
+        if(session()->get('autenticado') == 1) {
+            $log = Login::find($id_usuario);
+            $log->delete();
+            return redirect(route('configuracoes-usuarios'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     public function leave()
     {
-        session()->put('autenticado', 'null');
-        //Session::flush();
+        if(session()->get('autenticado') == 1) {
 
-        //$log = Login::find($id_usuario);
-        Login::where('id_usuario', session()->get('id_usuario'))->update(['autenticado' => 0]);
-        //dd(session()->get('id_usuario'));
-        return redirect(route('index'));
+            session()->put('autenticado', '0');
+            Login::where('id_usuario', session()->get('id_usuario'))->update(['autenticado' => 0]);
+            return redirect(route('index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+
+        
 
     }
 }

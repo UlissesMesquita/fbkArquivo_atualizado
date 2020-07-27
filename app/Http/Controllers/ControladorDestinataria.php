@@ -14,8 +14,14 @@ class ControladorDestinataria extends Controller
      */
     public function index()
     {
-        $destinatarias = Empresas_Destinatarias::all()->sortByDesc('id_empresa_destinataria');
-        return view('forms_create/empresas_destinatarias', compact('destinatarias'));
+        if(session()->get('autenticado') == 1) {
+            $destinatarias = Empresas_Destinatarias::all()->sortByDesc('id_empresa_destinataria');
+            return view('forms_create/empresas_destinatarias', compact('destinatarias'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**
@@ -36,15 +42,21 @@ class ControladorDestinataria extends Controller
      */
     public function store(Request $request)
     {
-        $dest = new Empresas_Destinatarias();
-        $dest->cad_destinatarias = $request->input('cad_destinatarias');
-        $dest->save();
+        if(session()->get('autenticado') == 1) {
+            $dest = new Empresas_Destinatarias();
+            $dest->cad_destinatarias = $request->input('cad_destinatarias');
+            $dest->save();
 
-            if ($dest->save() == TRUE) {
+                if ($dest->save() == TRUE) {
 
-                echo "<div class='alert-success' align='center'> Empresa Cadastrada com sucesso</div> ";
-                return redirect(route('destinataria_index'));
-            }
+                    echo "<div class='alert-success' align='center'> Empresa Cadastrada com sucesso</div> ";
+                    return redirect(route('destinataria_index'));
+                }
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
 
     }
 
@@ -67,8 +79,14 @@ class ControladorDestinataria extends Controller
      */
     public function edit($id)
     {
-        $edit = Empresas_Destinatarias::find($id);
-        return view('forms_edit/destinatarias_update', compact('edit'));
+        if(session()->get('autenticado') == 1) {
+            $edit = Empresas_Destinatarias::find($id);
+            return view('forms_edit/destinatarias_update', compact('edit'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**
@@ -80,11 +98,17 @@ class ControladorDestinataria extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dest = new Empresas_Destinatarias();
-        $dest->cad_destinatarias = $request->input('cad_destinatarias');
+        if(session()->get('autenticado') == 1) {
+            $dest = new Empresas_Destinatarias();
+            $dest->cad_destinatarias = $request->input('cad_destinatarias');
 
-        Empresas_Destinatarias::where('id_empresa_destinataria', $id)->update(['cad_destinatarias' => $dest->cad_destinatarias]);
-        return redirect(route('destinataria_index'));
+            Empresas_Destinatarias::where('id_empresa_destinataria', $id)->update(['cad_destinatarias' => $dest->cad_destinatarias]);
+            return redirect(route('destinataria_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**
@@ -95,9 +119,15 @@ class ControladorDestinataria extends Controller
      */
     public function destroy($id)
     {
-        $destinataria = Empresas_Destinatarias::find($id);
-        $destinataria->delete();
+        if(session()->get('autenticado') == 1) {
+            $destinataria = Empresas_Destinatarias::find($id);
+            $destinataria->delete();
 
-        return redirect(route('destinataria_index'));
+            return redirect(route('destinataria_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 }

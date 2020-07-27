@@ -1,6 +1,5 @@
 @if(session()->get('autenticado') != 1)
 <meta http-equiv="refresh" content="0;URL='/'"/>
-
 @endif 
 
 

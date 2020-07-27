@@ -23,9 +23,15 @@ class ControladorDocumento extends Controller
      */
     public function index()
     {
-        $documentos = Cadastro_Documentos::all()->sortByDesc('id_codigo')->last();
+        if(session()->get('autenticado') == 1) {
+            $documentos = Cadastro_Documentos::all()->sortByDesc('id_codigo')->last();
 
-        return view('forms_create/dashboard', compact('documentos'));
+            return view('forms_create/dashboard', compact('documentos'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**
@@ -35,18 +41,24 @@ class ControladorDocumento extends Controller
      */
     public function create()
     {
-        $emit = Empresas_Emitentes::get();
-        $dest = Empresas_Destinatarias::get();
-        $ori = Origens::get();
-        $dep = Departamentos::get();
-        $tp_documentos = TipoDocumento::get();
-        $job = Job::get();
-        
-        $documentos = Cadastro_Documentos::all();
-        $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo')->take(1);
+        if(session()->get('autenticado') == 1) {
+            $emit = Empresas_Emitentes::get();
+            $dest = Empresas_Destinatarias::get();
+            $ori = Origens::get();
+            $dep = Departamentos::get();
+            $tp_documentos = TipoDocumento::get();
+            $job = Job::get();
+            
+            $documentos = Cadastro_Documentos::all();
+            $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo')->take(1);
 
-       
-        return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash', 'tp_documentos', 'job'));
+        
+            return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash', 'tp_documentos', 'job'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
 
     }
 
@@ -58,59 +70,65 @@ class ControladorDocumento extends Controller
      */
     public function store(Request $request)
     {
-        $doc = new Cadastro_Documentos();
+        if(session()->get('autenticado') == 1) {
+            $doc = new Cadastro_Documentos();
 
-        $doc->data = $request->input('data');
-        $doc->Assunto = $request->input('Assunto');
-        $doc->Emp_Emit = $request->input('Emp_Emit');
-        $doc->Emp_Dest = $request->input('Emp_Dest');
-        $doc->Formato_Doc = $request->input('Formato_Doc');
-        $doc->Tp_Projeto = $request->input('Tp_Projeto');
-        $doc->Nome_Doc = $request->input('Nome_Doc');
-        $doc->Valor_Doc = $request->input('Valor_Doc');
-        $doc->Dt_Ref = $request->input('Dt_Ref');
-        $doc->Desfaz = $request->input('Desfaz');
-        $doc->Loc_Arquivo = $request->input('Loc_Arquivo');
-        $doc->tp_documento = $request->input('tp_documento');
-        $doc->Palavra_Chave = $request->input('Palavra_Chave');
-        $doc->Desc = $request->input('Desc');
-        $doc->Dep = $request->input('Dep');
-        $doc->Origem = $request->input('Origem');
-        $doc->Loc_Cor = $request->input('Loc_Cor');
-        $doc->Loc_Est = $request->input('Loc_Est');
-        $doc->Loc_Box_Eti = $request->input('Loc_Box_Eti');
-        $doc->Loc_Maco = $request->input('Loc_Maco');
-        $doc->Loc_Status = $request->input('Loc_Status');
-        $doc->Loc_Obs = $request->input('Loc_Obs');
-        $doc->save();
-        $doc->refresh();
+            $doc->data = $request->input('data');
+            $doc->Assunto = $request->input('Assunto');
+            $doc->Emp_Emit = $request->input('Emp_Emit');
+            $doc->Emp_Dest = $request->input('Emp_Dest');
+            $doc->Formato_Doc = $request->input('Formato_Doc');
+            $doc->Tp_Projeto = $request->input('Tp_Projeto');
+            $doc->Nome_Doc = $request->input('Nome_Doc');
+            $doc->Valor_Doc = $request->input('Valor_Doc');
+            $doc->Dt_Ref = $request->input('Dt_Ref');
+            $doc->Desfaz = $request->input('Desfaz');
+            $doc->Loc_Arquivo = $request->input('Loc_Arquivo');
+            $doc->tp_documento = $request->input('tp_documento');
+            $doc->Palavra_Chave = $request->input('Palavra_Chave');
+            $doc->Desc = $request->input('Desc');
+            $doc->Dep = $request->input('Dep');
+            $doc->Origem = $request->input('Origem');
+            $doc->Loc_Cor = $request->input('Loc_Cor');
+            $doc->Loc_Est = $request->input('Loc_Est');
+            $doc->Loc_Box_Eti = $request->input('Loc_Box_Eti');
+            $doc->Loc_Maco = $request->input('Loc_Maco');
+            $doc->Loc_Status = $request->input('Loc_Status');
+            $doc->Loc_Obs = $request->input('Loc_Obs');
+            $doc->save();
+            $doc->refresh();
 
-        
-        //Multiplos Uploads
-        foreach($request->allFiles()['anexo'] as $file) {
-            //dd($file->getClientOriginalName());
+            
+            //Multiplos Uploads
+            foreach($request->allFiles()['anexo'] as $file) {
+                //dd($file->getClientOriginalName());
 
-            $fileUpload = new Upload();
-            $fileUpload->id_upload_codigo = $doc->id_codigo;
+                $fileUpload = new Upload();
+                $fileUpload->id_upload_codigo = $doc->id_codigo;
 
-            try {
-                $fileUpload->path = $file->getClientOriginalName();
-                $file->storeAs('anexos/'.$fileUpload->id_upload_codigo.'/', $file->getClientOriginalName());
-                //dd($file->store('anexos'));
-                //dd($fileUpload);
-                $fileUpload->save();
-                unset($fileUpload);
+                try {
+                    $fileUpload->path = $file->getClientOriginalName();
+                    $file->storeAs('anexos/'.$fileUpload->id_upload_codigo.'/', $file->getClientOriginalName());
+                    //dd($file->store('anexos'));
+                    //dd($fileUpload);
+                    $fileUpload->save();
+                    unset($fileUpload);
 
-            } catch (\Exception $e) {
-                return redirect()->back()->withErrors(['erro' => 'Erro:'. $e->getMessage() ]);
+                } catch (\Exception $e) {
+                    return redirect()->back()->withErrors(['erro' => 'Erro:'. $e->getMessage() ]);
+                }
+                
+                
+
             }
-            
-            
 
+
+            return redirect(route('dashboard'));
         }
-
-
-        return redirect(route('dashboard'));
+        else {
+            return redirect(route('index'));
+        }
+        
 
 
        }
@@ -125,9 +143,15 @@ class ControladorDocumento extends Controller
      */
     public function show(Request $request)
     {
-        $files = Upload::where('id_upload_codigo', '=', $request->input('id_codigo'))->get();
+        if(session()->get('autenticado') == 1) {
+            $files = Upload::where('id_upload_codigo', '=', $request->input('id_codigo'))->get();
 
-        return view('forms_create/visualizar_anexo', compact('files'));
+            return view('forms_create/visualizar_anexo', compact('files'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
 
     }
 

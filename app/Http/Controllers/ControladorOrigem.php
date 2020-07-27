@@ -14,8 +14,16 @@ class ControladorOrigem extends Controller
      */
     public function index()
     {
-        $origem = Origens::all()->sortByDesc('id_origem');
-        return view('forms_create/origens', compact('origem'));
+        
+
+        if(session()->get('autenticado') == 1) {
+            
+            $origem = Origens::all()->sortByDesc('id_origem');
+            return view('forms_create/origens', compact('origem'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**
@@ -36,13 +44,19 @@ class ControladorOrigem extends Controller
      */
     public function store(Request $request)
     {
-        $ori = new Origens();
-        $ori->cad_origem = $request->input('cad_origem');
-        $ori->save();
 
-        if ($ori->save() == TRUE) {
-            echo "<div class='alert-success' align='center'> Origens cadastrada com sucesso</div> ";
-            return redirect(route('origem_index'));
+        if(session()->get('autenticado') == 1) {
+            $ori = new Origens();
+            $ori->cad_origem = $request->input('cad_origem');
+            $ori->save();
+
+            if ($ori->save() == TRUE) {
+                echo "<div class='alert-success' align='center'> Origens cadastrada com sucesso</div> ";
+                return redirect(route('origem_index'));
+            }
+        }
+        else {
+            return redirect(route('index'));
         }
 
     }
@@ -66,8 +80,15 @@ class ControladorOrigem extends Controller
      */
     public function edit($id)
     {
-        $edit = Origens::find($id);
-        return view('forms_edit/origens_update', compact('edit'));
+        
+        if(session()->get('autenticado') == 1) {
+            $edit = Origens::find($id);
+            return view('forms_edit/origens_update', compact('edit'));
+
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**
@@ -79,14 +100,17 @@ class ControladorOrigem extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ori = new Origens();
-        $ori->cad_origem = $request->input('cad_origem');
+        
 
-
-
-
-        Origens::where('id_origem', $id)->update(['cad_origem' => $ori->cad_origem]);
-        return redirect(route('origem_index'));
+        if(session()->get('autenticado') == 1) {
+            $ori = new Origens();
+            $ori->cad_origem = $request->input('cad_origem');
+            Origens::where('id_origem', $id)->update(['cad_origem' => $ori->cad_origem]);
+            return redirect(route('origem_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**
@@ -97,9 +121,15 @@ class ControladorOrigem extends Controller
      */
     public function destroy($id)
     {
-        $origen = Origens::find($id);
-        $origen->delete();
+        
 
-        return redirect(route('origem_index'));
+        if(session()->get('autenticado') == 1) {
+            $origen = Origens::find($id);
+            $origen->delete();
+            return redirect(route('origem_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 }

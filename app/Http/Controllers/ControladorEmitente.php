@@ -18,9 +18,15 @@ class ControladorEmitente extends Controller
      */
     public function index()
     {
-        $emit = Empresas_Emitentes::all()->sortByDesc('id_empresa_emitente');
-       return view('forms_create/empresas_emitentes', compact('emit'));
+        
 
+    if(session()->get('autenticado') == 1) {
+        $emit = Empresas_Emitentes::all()->sortByDesc('id_empresa_emitente');
+        return view('forms_create/empresas_emitentes', compact('emit'));
+    }
+    else {
+        return redirect(route('index'));
+    }
 
     }
 
@@ -42,13 +48,20 @@ class ControladorEmitente extends Controller
      */
     public function store(Request $request)
     {
-        $emi = new Empresas_Emitentes();
-        $emi->cad_emitentes = $request->input('cad_emitentes');
-        $emi->save();
 
-        if ($emi->save() == TRUE) {
-            echo "<div class='alert-success' align='center'> Empresa Emitente cadastrada com sucesso</div> ";
-            return redirect(route('emitente_index'));
+
+        if(session()->get('autenticado') == 1) {
+            $emi = new Empresas_Emitentes();
+            $emi->cad_emitentes = $request->input('cad_emitentes');
+            $emi->save();
+    
+            if ($emi->save() == TRUE) {
+                echo "<div class='alert-success' align='center'> Empresa Emitente cadastrada com sucesso</div> ";
+                return redirect(route('emitente_index'));
+            }
+        }
+        else {
+            return redirect(route('index'));
         }
     }
 
@@ -71,8 +84,15 @@ class ControladorEmitente extends Controller
      */
     public function edit($id)
     {
-        $edit = Empresas_Emitentes::find($id);
-        return view('forms_edit/empresas_emitentes_update', compact('edit'));
+
+
+        if(session()->get('autenticado') == 1) {
+            $edit = Empresas_Emitentes::find($id);
+            return view('forms_edit/empresas_emitentes_update', compact('edit'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**
@@ -84,10 +104,17 @@ class ControladorEmitente extends Controller
      */
     public function update(Request $request, $id)
     {
-        $emi = new Empresas_Emitentes();
-        $emi->cad_emitentes = $request->input('cad_emitentes');
-        Empresas_Emitentes::where('id_empresa_emitente', $id)->update(['cad_emitentes' => $emi->cad_emitentes]);
-        return redirect(route('emitente_index'));
+
+
+        if(session()->get('autenticado') == 1) {
+            $emi = new Empresas_Emitentes();
+            $emi->cad_emitentes = $request->input('cad_emitentes');
+            Empresas_Emitentes::where('id_empresa_emitente', $id)->update(['cad_emitentes' => $emi->cad_emitentes]);
+            return redirect(route('emitente_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**
@@ -98,9 +125,16 @@ class ControladorEmitente extends Controller
      */
     public function destroy($id)
     {
-        $emitente = Empresas_Emitentes::find($id);
-        $emitente->delete();
 
-        return redirect(route('emitente_index'));
+
+        if(session()->get('autenticado') == 1) {
+            $emitente = Empresas_Emitentes::find($id);
+            $emitente->delete();
+    
+            return redirect(route('emitente_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 }

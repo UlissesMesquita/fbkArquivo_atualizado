@@ -16,9 +16,16 @@ class ControladorJob extends Controller
      * @return \Illuminate\Contracts\View\Factory|View
      */
     public function index()
-    {
+    {     
+           
+    if(session()->get('autenticado') == 1) {
         $job = Job::all()->sortByDesc('id_job');
        return view('forms_create/job', compact('job'));
+    }
+    else {
+        return redirect(route('index'));
+    }
+
 
 
     }
@@ -41,13 +48,19 @@ class ControladorJob extends Controller
      */
     public function store(Request $request)
     {
-        $job = new Job();
-        $job->nome_job = $request->input('nome_job');
-        $job->save();
 
-        if ($job->save() == TRUE) {
-            echo "<div class='alert-success' align='center'> O Job foi cadastrado com sucesso</div> ";
-            return redirect(route('job_index'));
+        if(session()->get('autenticado') == 1) {
+            $job = new Job();
+            $job->nome_job = $request->input('nome_job');
+            $job->save();
+    
+            if ($job->save() == TRUE) {
+                echo "<div class='alert-success' align='center'> O Job foi cadastrado com sucesso</div> ";
+                return redirect(route('job_index'));
+            }
+        }
+        else {
+            return redirect(route('index'));
         }
     }
 
@@ -70,8 +83,14 @@ class ControladorJob extends Controller
      */
     public function edit($id)
     {
-        $edit = Job::find($id);
-        return view('forms_edit/job_update', compact('edit'));
+        if(session()->get('autenticado') == 1) {
+            $edit = Job::find($id);
+            return view('forms_edit/job_update', compact('edit'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**
@@ -83,10 +102,16 @@ class ControladorJob extends Controller
      */
     public function update(Request $request, $id)
     {
-        $job = new Job();
-        $job->nome_job = $request->input('nome_job');
-        Job::where('id_job', $id)->update(['nome_job' => $job->nome_job]);
-        return redirect(route('job_index'));
+
+        if(session()->get('autenticado') == 1) {
+            $job = new Job();
+            $job->nome_job = $request->input('nome_job');
+            Job::where('id_job', $id)->update(['nome_job' => $job->nome_job]);
+            return redirect(route('job_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**
@@ -97,9 +122,17 @@ class ControladorJob extends Controller
      */
     public function destroy($id)
     {
-        $job = Job::find($id);
-        $job->delete();
+
+
+        if(session()->get('autenticado') == 1) {
+            $job = Job::find($id);
+            $job->delete();
+        }
+        else {
+            return redirect(route('index'));
+        }
 
         return redirect(route('job_index'));
     }
 }
+

@@ -38,11 +38,17 @@ class ControladorDepartamento extends Controller
      */
     public function store(Request $request)
     {
-        $dep = new Departamentos();
-        $dep->cad_departamento = $request->input('cad_departamento');
-        $dep->save();
+        if(session()->get('autenticado') == 1) {
+            $dep = new Departamentos();
+            $dep->cad_departamento = $request->input('cad_departamento');
+            $dep->save();
 
         return redirect(route('departamento_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 
     /**
@@ -64,9 +70,14 @@ class ControladorDepartamento extends Controller
      */
     public function edit($id)
     {
+        if(session()->get('autenticado') == 1) {
+            $dep_edit = Departamentos::find($id);
+            return view('forms_edit/departamentos_update', compact('dep_edit'));
+        }
+        else {
+            return redirect(route('index'));
+        }
         
-        $dep_edit = Departamentos::find($id);
-        return view('forms_edit/departamentos_update', compact('dep_edit'));
     }
 
     /**
@@ -78,11 +89,18 @@ class ControladorDepartamento extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dep = new Departamentos();
-        $dep->cad_departamento = $request->input('cad_departamento');
+        if(session()->get('autenticado') == 1) {
+            $dep = new Departamentos();
+            $dep->cad_departamento = $request->input('cad_departamento');
 
-        Departamentos::where('id_departamento', $id)->update(['cad_departamento' => $dep->cad_departamento]);
-        return redirect(route('departamento_index'));
+            Departamentos::where('id_departamento', $id)->update(['cad_departamento' => $dep->cad_departamento]);
+            return redirect(route('departamento_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+
+        
 
     }
 
@@ -94,8 +112,14 @@ class ControladorDepartamento extends Controller
      */
     public function destroy($id)
     {
-        $departament = Departamentos::find($id);
-        $departament->delete();
-        return redirect(route('departamento_index'));
+        if(session()->get('autenticado') == 1) {
+            $departament = Departamentos::find($id);
+            $departament->delete();
+            return redirect(route('departamento_index'));
+        }
+        else {
+            return redirect(route('index'));
+        }
+        
     }
 }
