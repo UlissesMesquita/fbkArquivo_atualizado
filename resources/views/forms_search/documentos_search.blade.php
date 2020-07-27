@@ -72,17 +72,17 @@
 
                 <div class="col-md-3">
                     <label>Palavra-Chave: </label>
-                    <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" >
+                    <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
                 <div class="col-md-3">
                     <label>Número Documento: </label>
-                    <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" >
+                    <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
                 <div class="col-md-6">
                     <label for="exampleFormControlTextarea1">Observações:</label>
-                    <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="3"></textarea>
+                    <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="3" onkeyup="maiuscula(this)"></textarea>
                 </div>
 
                 <div class="col-md-2">
@@ -117,7 +117,7 @@
                 <div class="col-md-4">
                     <label>Tipo de Documento: *</label>
                     <label for="tp_documento"></label>
-                        <select id="tp_documento" name="tp_documento" class="form-control" required>
+                        <select id="tp_documento" name="tp_documento" class="form-control" required onkeyup="maiuscula(this)">
                             <option selected>Escolha...</option>
                             @if(isset($tp_documento))
                                 @foreach($tp_documento as $tp_documentos)
@@ -130,7 +130,7 @@
 
                 <div class="col-md-4">
                     <label>Defaz/Destruir: </label>
-                    <label for="Desfaz"></label><input type="texr" class="form-control" id="Desfaz" name="Desfaz" maxlength="7" placeholder="">
+                    <label for="Desfaz"></label><input type="texr" class="form-control" id="Desfaz" name="Desfaz" maxlength="7" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
             </div>

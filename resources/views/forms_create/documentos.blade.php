@@ -39,7 +39,7 @@ Dados do Documento
 
                 <div class="col-md-7">
                     <label>Assunto: *</label>
-                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" required>
+                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" required onkeyup="maiuscula(this)">
                 </div>
         </div>
 
@@ -88,7 +88,7 @@ Dados do Documento
 
             <div class="col-md-3">
                 <label>Número Documento: *</label>
-                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" required>
+                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-2">
@@ -121,12 +121,12 @@ Dados do Documento
         <div class="row">
                 <div class="col-md-4">
                     <label>Palavra-Chave: *</label>
-                    <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" required>
+                    <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" required onkeyup="maiuscula(this)">
                 </div>
 
                 <div class="col-md-8">
                     <label>Descrição: *</label>
-                    <label for="Desc"></label><input type="text" class="form-control" id="Desc" name="Desc" placeholder="" required>
+                    <label for="Desc"></label><input type="text" class="form-control" id="Desc" name="Desc" placeholder="" required onkeyup="maiuscula(this)">
                 </div>
             </div>
 
@@ -248,7 +248,7 @@ Dados do Documento
 
             <div class="col-md-4">
                 <label>Desfaz/Destruir: *</label>
-                <label for="Desfaz"></label><input type="text" placeholder= "" class="form-control" name="Desfaz" id="Desfaz" maxlength="7" required/>
+                <label for="Desfaz"></label><input type="text" placeholder= "" class="form-control" name="Desfaz" id="Desfaz" maxlength="7" required onkeyup="maiuscula(this)">
             </div>
 
         </div>
@@ -257,7 +257,7 @@ Dados do Documento
         <div class="row">
             <div class="col-md-8">
                 <label for="exampleFormControlTextarea1">Observações:</label>
-                <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1">Nenhuma Observação</textarea>
+                <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" onkeyup="maiuscula(this)">Nenhuma Observação</textarea>
             </div>
 
 

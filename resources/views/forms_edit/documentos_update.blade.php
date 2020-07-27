@@ -30,7 +30,7 @@
 
                 <div class="col-md-7">
                     <label>Assunto: *</label>
-                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" value="{{$edit->Assunto}}" required>
+                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" value="{{$edit->Assunto}}" required onkeyup="maiuscula(this)">
                 </div>
         </div>
 
@@ -78,7 +78,7 @@
 
             <div class="col-md-6">
                 <label>Número Documento: *</label>
-                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" placeholder="" value="{{$edit->Nome_Doc}}" required>
+                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" placeholder="" value="{{$edit->Nome_Doc}}" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-2">
@@ -91,13 +91,13 @@
         <div class="row">
                 <div class="col-md-4">
                     <label>Data Referência: *</label>
-                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" type="text"class="form-control" maxlength="7" name="Dt_Ref" value= "{{$edit->Dt_Ref}}" id="Dt_Ref"/>
+                    <label for="Dt_Ref"></label><input placeholder= "Mês/Ano" type="text"class="form-control" maxlength="7" name="Dt_Ref" value= "{{$edit->Dt_Ref}}" id="Dt_Ref" onkeyup="maiuscula(this)">
                 </div>
 
                 <div class="col-md-4">
                     <label>Tipo de Documento: *</label>
                     <label for="tp_documento"></label>
-                        <select id="tp_documento" name="tp_documento" class="form-control" required>
+                        <select id="tp_documento" name="tp_documento" class="form-control" required onkeyup="maiuscula(this)">
                             <option selected>Escolha...</option>
                                 @foreach($tp_documento as $tp_documentos)
                                     <option value="{{$tp_documentos->tp_documento}}">{{$tp_documentos->tp_documento}}</option>
@@ -111,12 +111,12 @@
         <div class="row">
                 <div class="col-md-4">
                     <label>Palavra-Chave: *</label>
-                <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" value="{{$edit->Palavra_Chave}}">
+                <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" value="{{$edit->Palavra_Chave}}" onkeyup="maiuscula(this)">
                 </div>
 
                 <div class="col-md-8">
                     <label>Descrição: *</label>
-                <label for="Desc"></label><input type="text" class="form-control" id="Desc" name="Desc" placeholder="" value="{{$edit->Desc}}" required>
+                <label for="Desc"></label><input type="text" class="form-control" id="Desc" name="Desc" placeholder="" value="{{$edit->Desc}}" required onkeyup="maiuscula(this)">
                 </div>
             </div>
 
@@ -125,7 +125,7 @@
             <div class="col-md-4">
                 <label>Departamento: *</label>
                 <label for="Dep"></label>
-                    <select id="Dep" name="Dep" class="form-control" required>
+                    <select id="Dep" name="Dep" class="form-control" required onkeyup="maiuscula(this)">
                         <option selected>{{$edit->Dep}}</option>
                         @if(isset($dep))
                             @foreach($dep as $departamento)
@@ -139,7 +139,7 @@
             <div class="col-md-4">
                 <label>Origem: *</label>
                     <label for="Origem"></label>
-                        <select id="Origem" name="Origem" class="form-control" required>
+                        <select id="Origem" name="Origem" class="form-control" required onkeyup="maiuscula(this)">
                         <option selected>{{$edit->Origem}}</option>
                         @if(isset($ori))
                             @foreach($ori as $origem)
@@ -244,7 +244,7 @@
 
             <div class="col-md-2">
                 <label>Desfaz/Destruir: *</label>
-            <label for="Desfaz"></label><input placeholder= "" type="text" class="form-control" value= "{{$edit->Desfaz}}" name="Desfaz" maxlength="7" id="Desfaz" required/>
+            <label for="Desfaz"></label><input placeholder= "" type="text" class="form-control" value= "{{$edit->Desfaz}}" name="Desfaz" maxlength="7" id="Desfaz" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-2">
@@ -262,7 +262,7 @@
         <div class="row">
             <div class="col-md-6">
                 <label for="exampleFormControlTextarea1">Observações:</label>
-            <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" value="{{$edit->Loc_Obs}}">{{$edit->Loc_Obs}}</textarea>
+            <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" value="{{$edit->Loc_Obs}}" onkeyup="maiuscula(this)">{{$edit->Loc_Obs}}</textarea>
             </div>
 
 

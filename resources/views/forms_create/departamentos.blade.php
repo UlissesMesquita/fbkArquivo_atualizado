@@ -15,7 +15,7 @@
         @csrf
         <div class=""><br>
             <label>Departamentos:</label>
-            <label for="cad_departamento"></label><input type="text" class="form-control" id="cad_departamento" name="cad_departamento" placeholder="" required>
+            <label for="cad_departamento"></label><input type="text" class="form-control" id="cad_departamento" name="cad_departamento" placeholder="" required onkeyup="maiuscula(this)">
         </div>
 
         <br><button id="cadastrar" name="Cadastrar" class="btn btn-success btn-lg btn-block" type="Submit"> Salvar</button><br>
@@ -57,14 +57,3 @@
     </table>
 @endsection
 
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-<script type="text/javascript">
- $(function(){
-	 var campo = $("#cad_departamento");
-	 campo.keyup(function(e){
-		 e.preventDefault();
-		 campo.val($(this).val().toUpperCase());
-	 });
- });
-</script>

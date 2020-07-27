@@ -20,7 +20,7 @@
 
 
 <body>
-<div id = "upper">
+
 
 
 
@@ -28,6 +28,7 @@
     <script type="text/javascript" src="{{asset('js/JQuery.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jquery-ui.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jsPersonalizado.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/upper.js')}}"></script>
 
 
         <!-- Logotipo - Fabrika Filmes -->

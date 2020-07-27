@@ -13,7 +13,7 @@
         @csrf
         <div class=""><br>
             <label>Empresas Destinatarias:</label>
-            <label for="cad_destinatarias"></label><input type="text" class="form-control" id="cad_destinatarias" name="cad_destinatarias" placeholder="" required>
+            <label for="cad_destinatarias"></label><input type="text" class="form-control" id="cad_destinatarias" name="cad_destinatarias" placeholder="" required onkeyup="maiuscula(this)">
         </div>
 
         <br><button id="cadastrar" name="Cadastrar" class="btn btn-success btn-lg btn-block" type="Submit"> Salvar</button><br>
