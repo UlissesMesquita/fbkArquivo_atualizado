@@ -182,7 +182,7 @@ class ControladorPesquisas extends Controller
         
         foreach($request->toArray() as $key => $valor) {
             if ($valor <> NULL && $valor <> '' && $key <> '_token' && $key <> 'data_in' && $key <> 'data_out') {
-                $dados[] = [DB::raw('UPPER('.$key.')'), 'LIKE', '%'. strtoupper($valor). '%'];
+                $dados[] = [DB::raw($key), 'LIKE', '%'. $valor. '%'];
             }
 
 
