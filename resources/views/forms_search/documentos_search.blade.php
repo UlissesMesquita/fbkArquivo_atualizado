@@ -100,6 +100,7 @@
                     <label for="Loc_Box_Eti"></label>
                     <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" >
                         <option value="">Escolha...</option>
+                        <option>Digital</option>
                         <?php
                         for ($i=1; $i<31; $i++) {
                             echo "<option value='".$i."'>". $i ."</option>";

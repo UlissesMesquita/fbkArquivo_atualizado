@@ -215,33 +215,17 @@
                 </select>
             </div>
 
+
             <div class="col-md-2">
                 <label>Status: *</label>
                 <label for="Loc_Status"></label>
                 <select id="Loc_Status" name="Loc_Status" class="form-control" required>
-                    
-                @switch($edit->Loc_Status)
-                    @case($edit->Loc_Status == 'Arquivado')
-                        <option selected> Arquivado </option>
-                        <option> Em Processamento </option>
-                        <option> Não Arquivado </option>
-                        @break
-                
-                    @case($edit->Loc_Status == 'Não Arquivado')
-                        <option selected> Não Arquivado </option>
-                        <option> Arquivado </option>
-                        <option> Em Processamento </option>
-                        @break
-                
-                    @case($edit->Loc_Status == 'Em Processamento')
-                        <option selected> Em Processamento </option>
-                        <option> Não Arquivado </option>
-                        <option> Arquivado </option>
-                        @break
-                @endswitch
+                    <option>{{$edit->Loc_Status}}</option>
+                    <option> Em Processamento </option>
+                    <option> Não Arquivado </option>
                 </select>
             </div>
-            
+
 
             <div class="col-md-3">
                 <label>Local Arquivo: </label>

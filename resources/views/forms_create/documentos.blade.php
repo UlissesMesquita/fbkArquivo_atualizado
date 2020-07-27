@@ -248,7 +248,7 @@ Dados do Documento
 
             <div class="col-md-3">
                 <label>Local Arquivo: </label>
-                <label for="Loc_Arquivo"></label><input type="text" class="form-control" id="Loc_Arquivo" name="Loc_Arquivo" placeholder="" onkeyup="maiuscula(this)">
+                <label for="Loc_Arquivo"></label><input type="text" class="form-control" id="Loc_Arquivo" name="Loc_Arquivo" placeholder="" onkeyup="maiuscula(this)" required>
             </div>
 
             <div class="col-md-3">
