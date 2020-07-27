@@ -93,7 +93,7 @@ Dados do Documento
 
             <div class="col-md-2">
                 <label>Valor: *</label>
-                <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$" required onkeypress="mascaraMoeda(this)">
+                <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$" required onKeyPress="return(moeda(this,'.',',',event))">
             </div>
         </div>
 
@@ -246,7 +246,12 @@ Dados do Documento
                 </select>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <label>Local Arquivo: </label>
+                <label for="Loc_Arquivo"></label><input type="text" class="form-control" id="Loc_Arquivo" name="Loc_Arquivo" placeholder="" onkeyup="maiuscula(this)">
+            </div>
+
+            <div class="col-md-3">
                 <label>Desfaz/Destruir: *</label>
                 <label for="Desfaz"></label><input type="text" placeholder= "" class="form-control" name="Desfaz" id="Desfaz" maxlength="7" required onkeyup="maiuscula(this)">
             </div>
@@ -257,7 +262,7 @@ Dados do Documento
         <div class="row">
             <div class="col-md-8">
                 <label for="exampleFormControlTextarea1">Observações:</label>
-                <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" onkeyup="maiuscula(this)">Nenhuma Observação</textarea>
+                <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" onkeyup="maiuscula(this)">NENHUMA OBSERVAÇÃO</textarea>
             </div>
 
 
@@ -267,7 +272,7 @@ Dados do Documento
                     <div class="col-md-16">
                         <div class="input-group mb-10">
                             <div class="custom-file">
-                                <input type="hidden" name="enviou" value="1">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="16777216">
                                 <input type="file" name="anexo[]" required="" class="custom-file-input" id="anexo[]" aria-describedby="inputGroupFileAddon01" multiple>
                                 <label class="custom-file-label" for="arquivo_campo">Upload..</label>
                             </div>

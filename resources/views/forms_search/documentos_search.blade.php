@@ -80,14 +80,19 @@
                     <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
+                <div class="col-md-3">
+                    <label>Local Arquivo: </label>
+                    <label for="Loc_Arquivo"></label><input type="text" class="form-control" id="Loc_Arquivo" name="Loc_Arquivo" maxlength="" placeholder="" onkeyup="maiuscula(this)">
+                </div>
+
                 <div class="col-md-6">
                     <label for="exampleFormControlTextarea1">Observações:</label>
-                    <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="3" onkeyup="maiuscula(this)"></textarea>
+                    <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" onkeyup="maiuscula(this)"></textarea>
                 </div>
 
                 <div class="col-md-2">
                     <label>Valor:</label>
-                    <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="">
+                    <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="" onKeyPress="return(moeda(this,'.',',',event))">
                 </div>
 
                 <div class="col-md-2">

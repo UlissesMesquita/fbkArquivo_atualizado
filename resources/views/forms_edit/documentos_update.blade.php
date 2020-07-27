@@ -83,7 +83,7 @@
 
             <div class="col-md-2">
                 <label>Valor: *</label>
-                <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="" value="{{$edit->Valor_Doc}}">
+                <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="" value="{{$edit->Valor_Doc}}" onKeyPress="return(moeda(this,'.',',',event))">
             </div>
         </div>
 
@@ -240,6 +240,11 @@
                         @break
                 @endswitch
                 </select>
+            </div>
+
+            <div class="col-md-3">
+                <label>Local Arquivo: </label>
+                <label for="Loc_Arquivo"></label><input type="text" class="form-control" value="{{$edit->Loc_Arquivo}}" id="Loc_Arquivo" name="Loc_Arquivo" placeholder="" onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-2">

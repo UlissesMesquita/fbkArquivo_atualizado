@@ -38,6 +38,7 @@ class CreateCadastroDocumentosTable extends Migration
             $table->string('Desfaz');
             $table->string('Loc_Maco');
             $table->string('Loc_Status');
+            $table->string('Loc_Arquivo');
             $table->string('Loc_Obs')->nullble();
 
         });

@@ -70,6 +70,7 @@ class ControladorDocumento extends Controller
         $doc->Valor_Doc = $request->input('Valor_Doc');
         $doc->Dt_Ref = $request->input('Dt_Ref');
         $doc->Desfaz = $request->input('Desfaz');
+        $doc->Loc_Arquivo = $request->input('Loc_Arquivo');
         $doc->tp_documento = $request->input('tp_documento');
         $doc->Palavra_Chave = $request->input('Palavra_Chave');
         $doc->Desc = $request->input('Desc');
