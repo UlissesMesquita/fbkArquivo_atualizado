@@ -57,7 +57,7 @@
         
                             <!-- Botão de Apagar -->
 
-                            <a class="fas fa-trash" href="delete/{{$dashboard->id_codigo}}" method="GET"></a>
+                            <a class="fas fa-trash" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
 
                             <!-- Botão de Anexo -->
                             <form method="POST" action="{{route('visualizar_anexo')}}" >

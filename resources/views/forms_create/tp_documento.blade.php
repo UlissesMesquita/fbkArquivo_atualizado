@@ -48,7 +48,7 @@
                     <!-- Botão de Editar -->
                     <a class="far fa-edit" href="{{route('tp_documento_edit', $tp_documentos->id_tp_documento)}}" method="GET"></a>
                     <!-- Botão de Apagar -->
-                    <a class="fas fa-trash" href="/tp_documento/delete/{{$tp_documentos->id_tp_documento}}" method="GET"></a>
+                    <a class="fas fa-trash" href="/tp_documento/delete/{{$tp_documentos->id_tp_documento}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
                     
                 </td>
             </tr>

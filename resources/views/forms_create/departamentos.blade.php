@@ -50,7 +50,7 @@
                         <!-- Botão de Editar -->
                         <a class="far fa-edit" href="{{route('departamento_edit', $departamento->id_departamento)}}" method="GET"></a>
                         <!-- Botão de Apagar -->
-                        <a class="fas fa-trash" href="/departamento/delete/{{$departamento->id_departamento}}" method="GET"></a>
+                        <a class="fas fa-trash" href="/departamento/delete/{{$departamento->id_departamento}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
                     </td>
                 </tr>
             @endforeach

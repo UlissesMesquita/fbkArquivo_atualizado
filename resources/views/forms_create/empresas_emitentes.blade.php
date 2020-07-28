@@ -49,7 +49,7 @@
                     <!-- Botão de Editar -->
                     <a class="far fa-edit" href="{{route('emitente_edit', $emitente->id_empresa_emitente)}}" method="GET"></a>
                     <!-- Botão de Apagar -->
-                    <a class="fas fa-trash" href="/emitente/delete/{{$emitente->id_empresa_emitente}}" method="GET"></a>
+                    <a class="fas fa-trash" href="/emitente/delete/{{$emitente->id_empresa_emitente}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
                 </td>
 
 

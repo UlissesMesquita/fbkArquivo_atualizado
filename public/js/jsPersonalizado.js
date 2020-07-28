@@ -20,6 +20,9 @@
   }
   
 
+
+
+
   //Mascara Valor
   function moeda(a, e, r, t) {
     let n = ""
@@ -57,6 +60,9 @@
     }
     return !1
 }
+
+    
+
 
   
 
