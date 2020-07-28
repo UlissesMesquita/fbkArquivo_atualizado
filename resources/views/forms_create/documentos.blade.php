@@ -1,12 +1,12 @@
 @extends('layout.cabecalho')
 
 @section('titulo_pagina')
-Cadastro de Documentos
+Dados do Documento
 @endsection
 
 
 @section('titulo')
-Dados do Documento
+
 @endsection
 
 @section('conteudo')
@@ -18,6 +18,10 @@ Dados do Documento
 <div class="container">
     <form class="form-horizontal" name="form" method="POST" action="{{route('novo_documento')}}" enctype="multipart/form-data">
     @csrf
+
+
+
+<h2 style="text-align: left"> Cadastro de Documentos </h2>
 
         <!-- Linha 1 -->
         <div class="row">
