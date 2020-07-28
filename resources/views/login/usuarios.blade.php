@@ -19,7 +19,7 @@
 
     <div class="col-md-4">
       <label>Login:*</label>
-      <label for="login"></label><input type="text" class="form-control" id="login" name="login" placeholder="" required>
+      <label for="login"></label><input type="text" autofocus class="form-control" id="login" name="login" placeholder="" required>
     </div>
 
     <div class="col-md-2">

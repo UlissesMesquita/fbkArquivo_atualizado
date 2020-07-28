@@ -13,7 +13,7 @@
         @csrf
         <div class=""><br>
             <label>Tipo de Documentos:</label>
-            <label for="tp_documento"></label><input type="text" class="form-control" id="tp_documento" name="tp_documento" placeholder="" required onkeyup="maiuscula(this)">
+            <label for="tp_documento"></label><input type="text" autofocus class="form-control" id="tp_documento" name="tp_documento" placeholder="" required onkeyup="maiuscula(this)">
         </div>
 
         <br><button id="cadastrar" name="Cadastrar" class="btn btn-success btn-lg btn-block" type="Submit"> Salvar</button><br>

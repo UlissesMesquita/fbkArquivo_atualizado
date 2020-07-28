@@ -103,7 +103,7 @@ class ControladorPesquisas extends Controller
                 }
                 $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
                 $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
-                $tp_documento = TipoDocumento::orderBy('tp_documentos', 'ASC')->get();
+                $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
                 return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash'));
         }
         else {

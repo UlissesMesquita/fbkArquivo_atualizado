@@ -32,14 +32,14 @@ Dados do Documento
 
                 <div class="col-md-3">
                     <label>Data: *</label>
-                <label for="data"></label><input type="text" value="{{date("d/m/Y")}}" class="form-control" id="data" name="data" placeholder="" required >
+                <label for="data"></label><input type="text" value="{{date("d/m/Y")}}" class="form-control" id="data" name="data" placeholder="" required>
                 </div>
 
 
 
                 <div class="col-md-7">
                     <label>Assunto: *</label>
-                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" required onkeyup="maiuscula(this)">
+                    <label for="Assunto"></label><input type="text" autofocus class="form-control" id="Assunto" name="Assunto" placeholder="" required onkeyup="maiuscula(this)">
                 </div>
         </div>
 

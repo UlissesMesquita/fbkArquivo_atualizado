@@ -14,7 +14,7 @@
         {{csrf_field()}}
         <div class=""><br>
             <label>Job:</label>
-            <label for="nome_job"></label><input type="text" class="form-control" id="nome_job" name="nome_job" placeholder="" required onkeyup="maiuscula(this)">
+            <label for="nome_job"></label><input type="text" autofocus class="form-control" id="nome_job" name="nome_job" placeholder="" required onkeyup="maiuscula(this)">
         </div>
 
         <br><button id="cadastrar" name="Cadastrar" class="btn btn-success btn-lg btn-block" type="Submit"> Salvar</button><br>

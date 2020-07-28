@@ -15,7 +15,7 @@
         {{csrf_field()}}
         <div class=""><br>
             <label>Jobs:</label>
-        <label for="tp_documento"></label><input type="text" class="form-control" id="tp_documento" name="tp_documento" placeholder="" value="{{$edit->tp_documento}}" required onkeyup="maiuscula(this)">
+        <label for="tp_documento"></label><input type="text" class="form-control" id="tp_documento" autofocus name="tp_documento" placeholder="" value="{{$edit->tp_documento}}" required onkeyup="maiuscula(this)">
         </div>
 
         <br><button id="cadastrar" name="Cadastrar" class="btn btn-success btn-lg btn-block" type="Submit"> Salvar</button><br>

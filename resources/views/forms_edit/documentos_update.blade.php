@@ -30,7 +30,7 @@
 
                 <div class="col-md-7">
                     <label>Assunto: *</label>
-                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" value="{{$edit->Assunto}}" required onkeyup="maiuscula(this)">
+                    <label for="Assunto"></label><input type="text" autofocus class="form-control" id="Assunto" name="Assunto" placeholder="" value="{{$edit->Assunto}}" required onkeyup="maiuscula(this)">
                 </div>
         </div>
 
