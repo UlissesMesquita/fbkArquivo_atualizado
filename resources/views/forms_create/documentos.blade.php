@@ -76,7 +76,7 @@ Dados do Documento
         <!-- Linha 3 -->
         <div class="row">
             <div class="col-md-3">
-                <label>Formato do Documento Arquivado: *</label>
+                <label>Form. do Documento Arquivado: *</label>
                 <label for="Formato_Doc"></label>
                     <select id="Formato_Doc" name="Formato_Doc" class="form-control" required>
                         <option selected>Escolha...</option>
@@ -164,13 +164,30 @@ Dados do Documento
                 <div class="col-md-2">
                     <label>Tipo de Projeto: *</label>
                     <label for="Tp_Projeto"></label>
-                    <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" required>
+                    <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" onselect="mostra(Tp_Projeto)" required>
                         <option selected>Escolha...</option>
                         <option>ADM</option>
-                        <option>JOB</option>
+                        <option>JOB">JOB</option>
                     </select>
                 </div>
+
+                <div class="col-md-2" id="drop_job" style="display: none">
+                    <label>Tipo de Job: *</label>
+                    <label for="nome_job"></label>
+                    <select id="nome_job" name="nome_job" class="form-control" >
+                        <option selected>Escolha...</option>
+                        @if(isset($job))
+                        @foreach($job as $jobs)
+                            <option value="{{$jobs->nome_job}}">{{$jobs->nome_job}}</option>
+                        @endforeach
+                    @endif    
+                    </select>
+                </div>
+
+
         </div>
+
+
 
     <h2>Localização</h2>
 

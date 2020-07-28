@@ -19,10 +19,6 @@
     }
   }
   
-
-
-
-
   //Mascara Valor
   function moeda(a, e, r, t) {
     let n = ""
@@ -60,6 +56,21 @@
     }
     return !1
 }
+
+
+  //Função esconde e mostra valor Job Documentos
+  function mostra(id){
+    var valor = "JOB"
+    if(document.getElementById(id).value = valor) {
+      console.log("ouvi");
+      document.getElementById('drop_job').style = 'block'
+    }
+    else {
+      document.getElementById('drop_job').style = 'none'
+    }
+    
+   }
+ 
 
     
 
