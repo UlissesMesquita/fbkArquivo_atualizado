@@ -75,12 +75,12 @@ class ControladorDashboard extends Controller
     {  
 
         if(session()->get('autenticado') == 1) {
-            $emit  = Empresas_Emitentes::all();
-            $dest = Empresas_Destinatarias::all();
-            $ori = Origens::all();
-            $dep = Departamentos::all();
+            $emit  = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
+            $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
+            $ori = Origens::orderBy('cad_origem', 'ASC')->get();
+            $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
             $edit = Cadastro_Documentos::find($id);
-            $tp_documento = TipoDocumento::get();
+            $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
             $job = Job::get();
             
             return view('forms_edit/documentos_update', compact('emit', 'dest', 'ori', 'dep', 'edit', 'tp_documento', 'job'));

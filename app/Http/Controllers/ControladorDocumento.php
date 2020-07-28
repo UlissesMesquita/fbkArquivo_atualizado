@@ -42,12 +42,12 @@ class ControladorDocumento extends Controller
     public function create()
     {
         if(session()->get('autenticado') == 1) {
-            $emit = Empresas_Emitentes::get();
-            $dest = Empresas_Destinatarias::get();
-            $ori = Origens::get();
-            $dep = Departamentos::get();
-            $tp_documentos = TipoDocumento::get();
-            $job = Job::get();
+            $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
+            $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
+            $ori = Origens::orderBy('cad_origem', 'ASC')->get();
+            $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
+            $tp_documentos = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
+            $job = Job::all();
             
             $documentos = Cadastro_Documentos::all();
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo')->take(1);

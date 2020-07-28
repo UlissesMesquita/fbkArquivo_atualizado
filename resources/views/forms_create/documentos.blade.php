@@ -167,7 +167,7 @@ Dados do Documento
                     <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" onselect="mostra(Tp_Projeto)" required>
                         <option selected>Escolha...</option>
                         <option>ADM</option>
-                        <option>JOB">JOB</option>
+                        <option>JOB</option>
                     </select>
                 </div>
 
