@@ -88,7 +88,7 @@ Dados do Documento
 
             <div class="col-md-4">
                 <label>Assunto: *</label>
-                <label for="Assunto"></label><input type="text" autofocus class="form-control" id="Assunto" name="Assunto" placeholder="" required onkeyup="maiuscula(this)">
+                <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-2">
@@ -305,19 +305,15 @@ Dados do Documento
 
         </div>
 
-        <!-- Linha 8 -->
-        <div class="row">
 
-            <!-- Botões Pagina-->
-            <div class="form-group">
-                <label class="col-md-6 control-label" for="Cadastrar"></label>
-                  <div class="col-md-6" id="botoes_cadastros" style="padding: 10px">
-                    <button id="Cadastrar" name="Cadastrar" class="btn btn-lg btn-success" type="Submit"> Salvar</button>
-                    <button id="Cancelar" name="Cancelar" class="btn btn-lg btn-danger" type="Reset">Limpar</button>
-                  </div>
-            </div>
-
-        </div>
+                <!-- Botões Pagina-->
+                <div class="form-group">
+                    <label class="col-md-6 control-label" for="Cadastrar"></label>
+                        <div class="col-md-6" id="botoes_cadastros">
+                        <button id="Cadastrar" name="Cadastrar" class="btn btn-lg btn-success" type="Submit"> Salvar</button>
+                        <button id="Cancelar" name="Cancelar" class="btn btn-lg btn-danger" type="Reset">Limpar</button>
+                        </div>
+                </div>
 
 
 
