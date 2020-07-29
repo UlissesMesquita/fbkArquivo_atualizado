@@ -79,6 +79,7 @@ class ControladorDocumento extends Controller
             $doc->Emp_Dest = $request->input('Emp_Dest');
             $doc->Formato_Doc = $request->input('Formato_Doc');
             $doc->Tp_Projeto = $request->input('Tp_Projeto');
+            $doc->nome_job = $request->input('nome_job');
             $doc->Nome_Doc = $request->input('Nome_Doc');
             $doc->Valor_Doc = $request->input('Valor_Doc');
             $doc->Dt_Ref = $request->input('Dt_Ref');

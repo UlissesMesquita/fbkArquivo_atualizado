@@ -110,6 +110,7 @@ class ControladorDashboard extends Controller
             $doc->Emp_Dest = $request->input('Emp_Dest');
             $doc->Formato_Doc = $request->input('Formato_Doc');
             $doc->Tp_Projeto = $request->input('Tp_Projeto');
+            $doc->nome_job = $request->input('nome_job');
             $doc->Nome_Doc = $request->input('Nome_Doc');
             $doc->Valor_Doc = $request->input('Valor_Doc');
             $doc->Loc_Arquivo = $request->input('Loc_Arquivo');
@@ -136,6 +137,7 @@ class ControladorDashboard extends Controller
                 'Emp_Dest' => $doc->Emp_Dest,
                 'Formato_Doc' => $doc->Formato_Doc,
                 'Tp_Projeto' => $doc->Tp_Projeto,
+                'nome_job' => $doc->nome_job,
                 'Loc_Arquivo' => $doc->Loc_Arquivo,
                 'Nome_Doc' => $doc->Nome_Doc,
                 'Valor_Doc' => $doc->Valor_Doc,
