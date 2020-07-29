@@ -243,25 +243,22 @@
 
         @foreach($dash as $dashboard)
             <tr>
-                <td scope="row">{{$dashboard->id_codigo}}</td>
-                <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{$dashboard->data}}</a></td>
+                    <td scope="row">{{$dashboard->id_codigo}}</td>
+                    <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{$dashboard->data}}</a></td>
+                    <th>{{$dashboard->Emp_Emit}}Emitente</td>
+                    <th>{{$dashboard->Emp_Dest}}Destinatária</th>    
+                    <th>{{$dashboard->tp_documento}}Tipo Documento</td>
+                    <th>{{$dashboard->Nome_Doc}}Número Documento</td>
+                    <th>{{$dashboard->Palavra_Chave}}Palavra Chave</td>
+                    <th>{{$dashboard->Tp_Projeto}}Tipo projeto</td>
+                    <th>{{$dashboard->nome_job}}Nome Projeto</td>
+                    <th>{{$dashboard->Loc_Arquivo}}Local Arquivo</td>
+                    <th>{{$dashboard->Loc_Est}}Estante</td>
+                    <th>{{$dashboard->Loc_Box_Eti}}Caixa</td>
+                    <th>{{$dashboard->Loc_Maco}}Maço</td>
+                    <th>{{$dashboard->Loc_Obs}}Observações</td>
+                    <th>{{$dashboard->Valor_Doc}}Valor</td>
 
-                <th>{{$dashboard->Emp_Emit}}Emitente</td>
-                <th>{{$dashboard->Emp_Dest}}Destinatária</th>    
-                <th>{{$dashboard->tp_documento}}Tipo Documento</td>
-                <th>{{$dashboard->Nome_Doc}}Número Documento</td>
-                <th>{{$dashboard->Palavra_Chave}}Palavra Chave</td>
-                <th>{{$dashboard->Tp_Projeto}}Tipo projeto</td>
-                <th>{{$dashboard->nome_job}}Nome Projeto</td>
-                <th>{{$dashboard->Loc_Arquivo}}Local Arquivo</td>
-                <th>{{$dashboard->Loc_Est}}Estante</td>
-                <th>{{$dashboard->Loc_Box_Eti}}Caixa</td>
-                <th>{{$dashboard->Loc_Maco}}Maço</td>
-                <th>{{$dashboard->Loc_Obs}}Observações</td>
-                <th>{{$dashboard->Valor_Doc}}Valor</td>
-
-                
-                
                 <td>
 
                     <!-- Botão de Editar -->
