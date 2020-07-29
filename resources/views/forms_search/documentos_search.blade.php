@@ -9,7 +9,9 @@
 @endsection
 
 @section('conteudo')
-<div class="container" id="campo-pesquisa">
+
+
+<div class="container-lg" id="campo-pesquisa">
     
 
     <form class="form-horizontal" name="form" method="POST" action="{{route('pesquisa_novo')}}" enctype="multipart/form-data">
@@ -18,102 +20,53 @@
             <!-- Linha 1 -->
             <div class="row">   
 
-            <div class="col-md-2">
+                <div class="col-md-2">
                     <label>Código:</label>
                     <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="">
                 </div>
-            <div class="col-md-3">
+                
+                <div class="col-md-2">
                     <label>Data Início: </label>
                     <label for="data_in"></label><input type="date" class="form-control" id="data_in" name="data_in" placeholder="" >
-                @error('data_in')
-                    <div class="alert alert-warning">{{ $message }}</div>
-                @enderror
+                    @error('data_in')
+                        <div class="alert alert-warning">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <label>Data Fim: </label>
                     <label for="data_out"></label><input type="date" class="form-control" id="data_out" name="data_out" placeholder="" >
-                @error('data_out')
-                    <div class="alert alert-warning">{{ $message }}</div>
-                @enderror    
+                    @error('data_out')
+                        <div class="alert alert-warning">{{ $message }}</div>
+                    @enderror    
                 </div>
 
-            </div>
-    <br>
-            <!-- Linha 2 -->
-            <div class="row">
                 <div class="col-md-3">
                     <label>Empresa Emitente: </label>
                     <label for="Emp_Emit"></label>
                         <select id="Emp_Emit" name="Emp_Emit" class="form-control" >
                             <option value="">Escolha...</option>
-                            @foreach($emit as $emitente)
-                                <option value="{{ $emitente->cad_emitentes }}"> {{ $emitente->cad_emitentes }} </option>
-                            @endforeach
+                                @foreach($emit as $emitente)
+                                    <option value="{{ $emitente->cad_emitentes }}"> {{ $emitente->cad_emitentes }} </option>
+                                @endforeach
                         </select>
                 </div>
-
+    
                 <div class="col-md-3">
                     <label>Empresa Destinatária: </label>
                     <label for="Emp_Dest"></label>
                         <select id="Emp_Dest" name="Emp_Dest" class="form-control" value="" >
                             <option value="">Escolha...</option>
-                            @foreach($dest as $destinataria)
-                                <option value ="{{ $destinataria->cad_destinatarias }}">{{ $destinataria->cad_destinatarias }}</option>
-                            @endforeach
+                                @foreach($dest as $destinataria)
+                                    <option value ="{{ $destinataria->cad_destinatarias }}">{{ $destinataria->cad_destinatarias }}</option>
+                                @endforeach
                         </select>
                 </div>
-                
 
-                <div class="col-md-3">
-                    <label>Palavra-Chave: </label>
-                    <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" onkeyup="maiuscula(this)">
-                </div>
-
-                <div class="col-md-3">
-                    <label>Número Documento: </label>
-                    <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" onkeyup="maiuscula(this)">
-                </div>
-
-                <div class="col-md-3">
-                    <label>Local Arquivo: </label>
-                    <label for="Loc_Arquivo"></label><input type="text" class="form-control" id="Loc_Arquivo" name="Loc_Arquivo" maxlength="" placeholder="" onkeyup="maiuscula(this)">
-                </div>
-
-                <div class="col-md-6">
-                    <label for="exampleFormControlTextarea1">Observações:</label>
-                    <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" onkeyup="maiuscula(this)"></textarea>
-                </div>
-
-                <div class="col-md-2">
-                    <label>Valor:</label>
-                    <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="" onKeyPress="return(moeda(this,'.',',',event))">
-                </div>
-
-                <div class="col-md-2">
-                    <label>Caixa/Etiqueta:</label>
-                    <label for="Loc_Box_Eti"></label>
-                    <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" >
-                        <option value="">Escolha...</option>
-                        <option>Digital</option>
-                        <?php
-                        for ($i=1; $i<31; $i++) {
-                            echo "<option value='".$i."'>". $i ."</option>";
-                        }
-                        ?>
-
-                    </select>
-                </div>
-
-                <div class="col-md-2">
-                    <label>Tipo de Projeto:</label>
-                    <label for="Tp_Projeto"></label>
-                    <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" >
-                        <option value="">Escolha...</option>
-                        <option>JOB</option>
-                        <option>ADM</option>
-                    </select>
-                </div>
+            </div>
+    <br>
+            <!-- Linha 2 -->
+            <div class="row"> 
                 
                 <div class="col-md-4">
                     <label>Tipo de Documento: *</label>
@@ -127,13 +80,118 @@
                         </select>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-2">
+                    <label>Número Documento: </label>
+                    <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" onkeyup="maiuscula(this)">
+                </div>
+                
+                <div class="col-md-3">
+                    <label>Palavra-Chave: </label>
+                    <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" onkeyup="maiuscula(this)">
+                </div>
+
+                <div class="col-md-3">
                     <label>Defaz/Destruir: </label>
                     <label for="Desfaz"></label><input type="text" class="form-control" id="Desfaz" name="Desfaz" maxlength="7" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
             </div>
 
+                <!-- Linha 3 -->
+            <div class="row"> 
+
+                <div class="col-md-2">
+                    <label>Valor:</label>
+                    <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="" onKeyPress="return(moeda(this,'.',',',event))">
+                </div>
+
+
+                <div class="col-md-2">
+                    <label>Tipo de Projeto:</label>
+                    <label for="Tp_Projeto"></label>
+                    <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" >
+                        <option value="">Escolha...</option>
+                        <option>JOB</option>
+                        <option>ADM</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-8" id="drop_job" style="display: block">
+                    <label>Nome do Projeto: *</label>
+                    <label for="nome_job"></label>
+                    <select id="nome_job" name="nome_job" class="form-control" >
+                        <option selected>Escolha...</option>
+                        @if(isset($job))
+                            @foreach($job as $jobs)
+                                <option value="{{$jobs->nome_job}}">{{$jobs->nome_job}}</option>
+                            @endforeach
+                        @endif    
+                    </select>
+                </div>
+
+                
+
+            </div>
+
+            <!-- Linha 3 -->
+            <div class="row"> 
+
+                <div class="col-md-2">
+                    <label>Local Arquivo: </label>
+                    <label for="Loc_Arquivo"></label><input type="text" class="form-control" id="Loc_Arquivo" name="Loc_Arquivo" maxlength="" placeholder="" onkeyup="maiuscula(this)">
+                </div>
+
+                <div class="col-md-2">
+                    <label>Estante:*</label>
+                    <label for="Loc_Est"></label>
+                    <select id="Loc_Est" name="Loc_Est" class="form-control" required>
+                        <option selected>Escolha...</option>
+                        <option>Digital</option>
+                        <?php
+                        for ($i=1; $i<31; $i++) {
+                            echo "<option value='".$i."'>". $i ."</option>";
+                        }
+                        ?>
+    
+                    </select>
+                </div>
+    
+                <div class="col-md-2">
+                    <label>Caixa:*</label>
+                    <label for="Loc_Box_Eti"></label>
+                    <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
+                        <option selected>Escolha...</option>
+                        <option>Digital</option>
+                        <?php
+                        for ($i=1; $i<31; $i++) {
+                            echo "<option value='".$i."'>". $i ."</option>";
+                        }
+                        ?>
+    
+                    </select>
+                </div>
+    
+                <div class="col-md-2">
+                    <label>Maço:*</label>
+                    <label for="Loc_Maço"></label>
+                    <select id="Loc_Maço" name="Loc_Maco" class="form-control" required>
+                        <option selected>Escolha...</option>
+                        <option>Digital</option>
+                        <?php
+                        for ($i=1; $i<4; $i++) {
+                            echo "<option value='".$i."'>". $i ."</option>";
+                        }
+                        ?>
+    
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="exampleFormControlTextarea1">Observações:</label>
+                    <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" onkeyup="maiuscula(this)"></textarea>
+                </div>
+
+            </div>
 
             <!-- Botões Pagina-->
                 <div class="form-group">
