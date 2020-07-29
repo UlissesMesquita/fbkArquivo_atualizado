@@ -11,8 +11,8 @@
 @section('conteudo')
 
 
-<div class="container-lg" id="campo-pesquisa">
-    
+<div class="container" id="campo-pesquisa">
+
 
     <form class="form-horizontal" name="form" method="POST" action="{{route('pesquisa_novo')}}" enctype="multipart/form-data">
         @csrf
@@ -216,9 +216,11 @@
                     </div>
                 </form>
             <br>
+
 </div>
 
    <!-- Mostra os dados no banco de dados -->
+   <div class="table-responsive">
    <table class="table table-striped">
     <thead>
         <tr id="Cabecalho-tabela">
@@ -286,5 +288,6 @@
         @endforeach
     </tbody>
 </table>
+</div>
 @endsection
 

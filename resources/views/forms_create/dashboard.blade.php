@@ -11,9 +11,9 @@
 
 @section('conteudo')
 <div class="container">
+    <div class="table-responsive">
 
-
-    <table align=center width=800px class="table table-striped">
+        <table class="table table-striped">
                     <tr>
                         <th> Codigo</td>
                         <th>Data Principal</td>
@@ -79,7 +79,7 @@
                     @endforeach
                 </tbody>
             </table>
-
+    </div>
     </div>
 
 
