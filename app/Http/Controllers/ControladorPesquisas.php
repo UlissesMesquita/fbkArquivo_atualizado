@@ -6,6 +6,7 @@ use App\Cadastro_Documentos;
 use App\Empresas_Destinatarias;
 use App\Empresas_Emitentes;
 use App\Pesquisas;
+use App\Job;
 use App\TipoDocumento;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -27,8 +28,11 @@ class ControladorPesquisas extends Controller
             $dest = Empresas_Destinatarias::all();
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             $tp_documento = TipoDocumento::all();
+            $job = Job::all();
 
-            return view('forms_search/documentos_search', compact('tp_documento','emit', 'dest', 'dash'));
+        
+
+            return view('forms_search/documentos_search', compact('tp_documento','emit', 'dest', 'dash', 'job'));
         }
         else {
             return redirect(route('index'));
@@ -104,7 +108,9 @@ class ControladorPesquisas extends Controller
                 $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
                 $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
                 $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
-                return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash'));
+                $job = Job::orderBy('nome_job', 'ASC')->get();
+                //dd($request);
+                return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job'));
         }
         else {
             return redirect(route('index'));

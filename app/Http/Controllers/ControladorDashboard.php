@@ -81,7 +81,7 @@ class ControladorDashboard extends Controller
             $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
             $edit = Cadastro_Documentos::find($id);
             $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
-            $job = Job::get();
+            $job = Job::orderBy('nome_job', 'ASC')->get();
             
             return view('forms_edit/documentos_update', compact('emit', 'dest', 'ori', 'dep', 'edit', 'tp_documento', 'job'));
         }

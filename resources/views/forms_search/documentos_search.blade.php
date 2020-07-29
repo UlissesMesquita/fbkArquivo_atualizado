@@ -69,7 +69,7 @@
             <div class="row"> 
                 
                 <div class="col-md-4">
-                    <label>Tipo de Documento: *</label>
+                    <label>Tipo de Documento: </label>
                     <label for="tp_documento"></label>
                         <select id="tp_documento" name="tp_documento" class="form-control" onkeyup="maiuscula(this)">
                             <option value="">Escolha...</option>
@@ -116,11 +116,11 @@
                     </select>
                 </div>
                 
-                <div class="col-md-8" id="drop_job" style="display: block">
-                    <label>Nome do Projeto: *</label>
+                <div class="col-md-4" id="drop_job" style="display: block">
+                    <label>Nome do Projeto: </label>
                     <label for="nome_job"></label>
                     <select id="nome_job" name="nome_job" class="form-control" >
-                        <option selected>Escolha...</option>
+                        <option selected value="">Escolha...</option>
                         @if(isset($job))
                             @foreach($job as $jobs)
                                 <option value="{{$jobs->nome_job}}">{{$jobs->nome_job}}</option>
@@ -129,6 +129,10 @@
                     </select>
                 </div>
 
+                <div class="col-md-4">
+                    <label>Assunto:</label>
+                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" onkeyup="maiuscula(this)">
+                </div>
                 
 
             </div>
@@ -142,10 +146,10 @@
                 </div>
 
                 <div class="col-md-2">
-                    <label>Estante:*</label>
+                    <label>Estante:</label>
                     <label for="Loc_Est"></label>
-                    <select id="Loc_Est" name="Loc_Est" class="form-control" required>
-                        <option selected>Escolha...</option>
+                    <select id="Loc_Est" name="Loc_Est" class="form-control">
+                        <option selected value="">Escolha...</option>
                         <option>Digital</option>
                         <?php
                         for ($i=1; $i<31; $i++) {
@@ -157,10 +161,10 @@
                 </div>
     
                 <div class="col-md-2">
-                    <label>Caixa:*</label>
+                    <label>Caixa:</label>
                     <label for="Loc_Box_Eti"></label>
-                    <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
-                        <option selected>Escolha...</option>
+                    <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control">
+                        <option selected value="">Escolha...</option>
                         <option>Digital</option>
                         <?php
                         for ($i=1; $i<31; $i++) {
@@ -172,10 +176,10 @@
                 </div>
     
                 <div class="col-md-2">
-                    <label>Maço:*</label>
+                    <label>Maço:</label>
                     <label for="Loc_Maço"></label>
-                    <select id="Loc_Maço" name="Loc_Maco" class="form-control" required>
-                        <option selected>Escolha...</option>
+                    <select id="Loc_Maço" name="Loc_Maco" class="form-control">
+                        <option selected value="">Escolha...</option>
                         <option>Digital</option>
                         <?php
                         for ($i=1; $i<4; $i++) {
@@ -245,19 +249,19 @@
             <tr>
                     <td scope="row">{{$dashboard->id_codigo}}</td>
                     <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{$dashboard->data}}</a></td>
-                    <th>{{$dashboard->Emp_Emit}}Emitente</td>
-                    <th>{{$dashboard->Emp_Dest}}Destinatária</th>    
-                    <th>{{$dashboard->tp_documento}}Tipo Documento</td>
-                    <th>{{$dashboard->Nome_Doc}}Número Documento</td>
-                    <th>{{$dashboard->Palavra_Chave}}Palavra Chave</td>
-                    <th>{{$dashboard->Tp_Projeto}}Tipo projeto</td>
-                    <th>{{$dashboard->nome_job}}Nome Projeto</td>
-                    <th>{{$dashboard->Loc_Arquivo}}Local Arquivo</td>
-                    <th>{{$dashboard->Loc_Est}}Estante</td>
-                    <th>{{$dashboard->Loc_Box_Eti}}Caixa</td>
-                    <th>{{$dashboard->Loc_Maco}}Maço</td>
-                    <th>{{$dashboard->Loc_Obs}}Observações</td>
-                    <th>{{$dashboard->Valor_Doc}}Valor</td>
+                    <th>{{$dashboard->Emp_Emit}}</td>
+                    <th>{{$dashboard->Emp_Dest}}</th>    
+                    <th>{{$dashboard->tp_documento}}</td>
+                    <th>{{$dashboard->Nome_Doc}}</td>
+                    <th>{{$dashboard->Palavra_Chave}}</td>
+                    <th>{{$dashboard->Tp_Projeto}}</td>
+                    <th>{{$dashboard->nome_job}}</td>
+                    <th>{{$dashboard->Loc_Arquivo}}</td>
+                    <th>{{$dashboard->Loc_Est}}</td>
+                    <th>{{$dashboard->Loc_Box_Eti}}</td>
+                    <th>{{$dashboard->Loc_Maco}}</td>
+                    <th>{{$dashboard->Loc_Obs}}</td>
+                    <th>R${{$dashboard->Valor_Doc}}</td>
 
                 <td>
 
