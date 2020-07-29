@@ -218,16 +218,22 @@
    <table class="table table-striped">
     <thead>
         <tr id="Cabecalho-tabela">
-            <th>Código</th>
-            <th>Data Principal</th>
-            <th>Emitente</th>
-            <th>Destinatária</th>
-            <th>Palavra Chave</th>
-            <th>Número Documento</th>
-            <th>Observações</th>
-            <th>Valor</th>
-            <th>Caixa/Etiqueta</th>
-            <th>Tipo Projeto</th>
+
+            <th> Codigo</td>
+            <th>Data Principal</td>
+            <th>Emitente</td>
+            <th>Destinatária</th>    
+            <th>Tipo Documento</td>
+            <th>Número Documento</td>
+            <th>Palavra Chave</td>
+            <th>Tipo projeto</td>
+            <th>Nome Projeto</td>
+            <th>Local Arquivo</td>
+            <th>Estante</td>
+            <th>Caixa</td>
+            <th>Maço</td>
+            <th>Observações</td>
+            <th>Valor</td>
 
             <th>Ferramentas</th>
         </tr>
@@ -239,14 +245,21 @@
             <tr>
                 <td scope="row">{{$dashboard->id_codigo}}</td>
                 <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{$dashboard->data}}</a></td>
-                <td> {{$dashboard->Emp_Emit}}</td>
-                <td> {{$dashboard->Emp_Dest}}</td>
-                <td> {{$dashboard->Palavra_Chave}} </td>
-                <td> {{$dashboard->Nome_Doc}}</td>
-                <td> {{$dashboard->Loc_Obs}} </td>
-                <td> R${{$dashboard->Valor_Doc}}</td>
-                <td> {{$dashboard->Loc_Box_Eti}}</td>
-                <td> {{$dashboard->Tp_Projeto}}</td>
+
+                <th>{{$dashboard->Emp_Emit}}Emitente</td>
+                <th>{{$dashboard->Emp_Dest}}Destinatária</th>    
+                <th>{{$dashboard->tp_documento}}Tipo Documento</td>
+                <th>{{$dashboard->Nome_Doc}}Número Documento</td>
+                <th>{{$dashboard->Palavra_Chave}}Palavra Chave</td>
+                <th>{{$dashboard->Tp_Projeto}}Tipo projeto</td>
+                <th>{{$dashboard->nome_job}}Nome Projeto</td>
+                <th>{{$dashboard->Loc_Arquivo}}Local Arquivo</td>
+                <th>{{$dashboard->Loc_Est}}Estante</td>
+                <th>{{$dashboard->Loc_Box_Eti}}Caixa</td>
+                <th>{{$dashboard->Loc_Maco}}Maço</td>
+                <th>{{$dashboard->Loc_Obs}}Observações</td>
+                <th>{{$dashboard->Valor_Doc}}Valor</td>
+
                 
                 
                 <td>
