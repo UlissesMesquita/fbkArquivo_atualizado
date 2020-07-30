@@ -29,7 +29,7 @@ class ControladorPesquisas extends Controller
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             $tp_documento = TipoDocumento::all();
             $job = Job::all();
-            $dash = Cadastro_Documentos::all();
+            $dash = Cadastro_Documentos::distinct()->all(); //Esse Trecho está deixando o DropDown repetindo os usuários que alteram e que criam
 
         
 
