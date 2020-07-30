@@ -254,8 +254,8 @@
 
 </div>
 
+<h5>Contultas Retornadas: {{$contador}}</h5>
    <!-- Mostra os dados no banco de dados -->
-
    <table class="table table-striped">
     <thead>
         <tr id="Cabecalho-tabela">

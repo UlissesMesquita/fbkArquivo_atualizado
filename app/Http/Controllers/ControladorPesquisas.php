@@ -110,8 +110,10 @@ class ControladorPesquisas extends Controller
                 $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
                 $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
                 $job = Job::orderBy('nome_job', 'ASC')->get();
+                $contador = Cadastro_Documentos::where($dados)->count();
                 
-                return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job'));
+
+                return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job', 'contador'));
         }
         else {
             return redirect(route('index'));
