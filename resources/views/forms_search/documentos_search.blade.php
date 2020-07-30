@@ -210,9 +210,9 @@
                     <label for="criado_por"></label>
                     <select id="criado_por" name="criado_por" class="form-control" >
                         <option selected value="">Escolha...</option>
-                        @if(isset($dash))
-                            @foreach($dash as $criado)
-                                <option value="{{$criado->criado_por}}">{{$criado->criado_por}}</option>
+                        @if(isset($criado))
+                            @foreach($criado as $create)
+                                <option value="{{$create->criado_por}}">{{$create->criado_por}}</option>
                             @endforeach
                         @endif    
                     </select>
@@ -223,9 +223,9 @@
                     <label for="editado_por"></label>
                     <select id="editado_por" name="editado_por" class="form-control" >
                         <option selected value="">Escolha...</option>
-                        @if(isset($dash))
-                            @foreach($dash as $editado)
-                                <option value="{{$editado->editado_por}}">{{$editado->editado_por}}</option>
+                        @if(isset($editado))
+                            @foreach($editado as $edit)
+                                <option value="{{$edit->editado_por}}">{{$edit->editado_por}}</option>
                             @endforeach
                         @endif    
                     </select>

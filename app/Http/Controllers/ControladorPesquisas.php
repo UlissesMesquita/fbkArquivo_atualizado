@@ -29,11 +29,11 @@ class ControladorPesquisas extends Controller
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             $tp_documento = TipoDocumento::all();
             $job = Job::all();
-            $dash = Cadastro_Documentos::distinct()->all(); //Esse Trecho está deixando o DropDown repetindo os usuários que alteram e que criam
-
+            $criado = Cadastro_Documentos::orderBy('criado_por', 'ASC')->distinct()->get('criado_por'); 
+            $editado = Cadastro_Documentos::orderBy('editado_por','ASC')->distinct()->get('editado_por');
         
 
-            return view('forms_search/documentos_search', compact('tp_documento','emit', 'dest', 'dash', 'job'));
+            return view('forms_search/documentos_search', compact('tp_documento','emit', 'dest', 'dash', 'job', 'criado', 'editado'));
         }
         else {
             return redirect(route('index'));
