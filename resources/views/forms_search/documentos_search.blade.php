@@ -290,63 +290,49 @@
             <tr>
                     <td scope="row">{{$dashboard->id_codigo}}</td>
                     <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{$dashboard->data}}</a></td>
-                    <th>{{$dashboard->Emp_Emit}}</td>
-                    <th>{{$dashboard->Emp_Dest}}</th>    
-                    <th>{{$dashboard->tp_documento}}</td>
-                    <th>{{$dashboard->Nome_Doc}}</td>
-                    <th>{{$dashboard->Palavra_Chave}}</td>
-                    <th>{{$dashboard->Tp_Projeto}}</td>
-                    <th>{{$dashboard->Assunto}}</th>
-                    <th>{{$dashboard->nome_job}}</td>
-                    <th>{{$dashboard->Loc_Arquivo}}</td>
-                    <th>{{$dashboard->Loc_Est}}</td>
-                    <th>{{$dashboard->Loc_Box_Eti}}</td>
-                    <th>{{$dashboard->Loc_Maco}}</td>
-                    <th>{{$dashboard->Loc_Obs}}</td>
-                    <th>{{$dashboard->criado_por}}</td>
-                    <th>{{$dashboard->editado_por}}</td>    
-                    <th>R${{$dashboard->Valor_Doc}}</td>
+                    <td>{{$dashboard->Emp_Emit}}</td>
+                    <td>{{$dashboard->Emp_Dest}}</td>    
+                    <td>{{$dashboard->tp_documento}}</td>
+                    <td>{{$dashboard->Nome_Doc}}</td>
+                    <td>{{$dashboard->Palavra_Chave}}</td>
+                    <td>{{$dashboard->Tp_Projeto}}</td>
+                    <td>{{$dashboard->Assunto}}</td>
+                    <td>{{$dashboard->nome_job}}</td>
+                    <td>{{$dashboard->Loc_Arquivo}}</td>
+                    <td>{{$dashboard->Loc_Est}}</td>
+                    <td>{{$dashboard->Loc_Box_Eti}}</td>
+                    <td>{{$dashboard->Loc_Maco}}</td>
+                    <td>{{$dashboard->Loc_Obs}}</td>
+                    <td>{{$dashboard->criado_por}}</td>
+                    <td>{{$dashboard->editado_por}}</td>    
+                    <td>R${{$dashboard->Valor_Doc}}</td>
 
-            <div class="row">
-                <div class="col">
-                    <!-- Botão de Editar -->
-                    <a id="delete-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
-                </div>
-                
-                    <!-- Botão de Apagar -->
-                <div class="col">
-                    <a id="edit-icon" class="fas fa-trash fa-2x" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
-                </div>
-
-                    <!-- Botão de Anexo -->
-                <div class="col">    
-                    <form method="POST" action="{{route('visualizar_anexo')}}">
-                        @csrf 
-                            <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
-                            <button type="submit" class="btn btn-link" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></button>
-                    </form>
-                </div>
-            </div>
-
-
+                <td>
                     
+
+                            <!-- Botão de Editar -->
+                            <a id="delete-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
                         
-                            <form action="/Ti01/AprovaSolicitacao" method="post" novalidate="novalidate">
-                                <input htmlattributes="{ class = form-control, readonly = readonly }" id="CadastroID" name="CadastroID" type="hidden" value="1">
-                                <input type="submit" class="btn btn-success btn-finish" name="aprova" value="Aprovar">
-                            </form>
                         
-                        <div class="col-xs-6 text-left">
-                            <form action="/Ti01/RejeitaSolicitacao" method="post" novalidate="novalidate">
-                                <input htmlattributes="{ class = form-control, readonly = readonly }" id="CadastroID" name="CadastroID" type="hidden" value="1">
-                                <input type="submit" class="btn btn-success btn-danger" name="rejeita" value="Rejeitar">
-                            </form>
-                        </div>
-                    </div>
+                            <!-- Botão de Apagar -->
+
+                            <a id="edit-icon" class="fas fa-trash fa-2x" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
 
 
+                            <!-- Botão de Anexo -->
+  
+                            <form method="POST" action="{{route('visualizar_anexo')}}">
+                                @csrf 
+                                    <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
+                                    <button type="submit" class="btn btn-link" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></button>
+                            </form>
+                      
+ 
 
                 </td>
+            </tr>
+                    
+
             </tr>
         @endforeach
     </tbody>
