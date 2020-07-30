@@ -96,6 +96,7 @@ class ControladorDocumento extends Controller
             $doc->Loc_Maco = $request->input('Loc_Maco');
             $doc->Loc_Status = $request->input('Loc_Status');
             $doc->Loc_Obs = $request->input('Loc_Obs');
+            $doc->criado_por = $request->input('criado_por');
             $doc->save();
             $doc->refresh();
 

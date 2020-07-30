@@ -48,7 +48,9 @@ class ControladorLogin extends Controller
                         //Atribuir Permissão da  Sessão.
                             session()->put('permissao', $dados['permissao']);
                             session()->put('id_usuario', $dados['id_usuario']);
-                        //Autentica usuário
+                            session()->put('usuario',$log->login);
+                            //dd(session()->get('usuario'));
+                                                    //Autentica usuário
                             Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
                             session()->put('autenticado', 1);
                         //Envia usuário autenticado para pagina Dashboard.

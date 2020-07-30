@@ -303,6 +303,15 @@ Dados do Documento
                 </div>
             </div>
 
+            <!-- Separador-->
+            <div class="col-md-10"></div>
+
+
+            <!-- Auditoria -> Criado e Editado pelo Usuario X -->
+            <div class="col-md-2">Criado Por:</label>
+                <label for="criado_por">
+                <input type="text" class="form-control" id="criado_por" name="criado_por" value="{{session()->get('usuario')}}" readonly="readonly">
+            </div>
         </div>
 
 
@@ -310,16 +319,13 @@ Dados do Documento
                 <div class="form-group">
                     <label class="col-md-6 control-label" for="Cadastrar"></label>
                         <div class="col-md-6" id="botoes_cadastros">
-                        <button id="Cadastrar" name="Cadastrar" class="btn btn-lg btn-success" type="Submit"> Salvar</button>
-                        <button id="Cancelar" name="Cancelar" class="btn btn-lg btn-danger" type="Reset">Limpar</button>
+                            <button id="Cadastrar" name="Cadastrar" class="btn btn-lg btn-success" type="Submit"> Salvar</button>
+                            <button id="Cancelar" name="Cancelar" class="btn btn-lg btn-danger" type="Reset">Limpar</button>
                         </div>
                 </div>
 
-
-
-
     </form>
-    
+
 </div>
 
 @endsection

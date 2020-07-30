@@ -267,6 +267,23 @@
 
         </div>
 
+                   <!-- Linha 7 -->
+        <div class="row">         
+            <!-- Separador-->
+            <div class="col-md-8"></div>
+
+                <!-- Auditoria -> Criado e Editado pelo Usuario X -->
+                <div class="col-md-2">Criado Por:</label>
+                    <label for="criado_por">
+                    <input type="text" class="form-control" id="criado_por" name="criado_por" value="{{$edit->criado_por}}" disabled"> 
+                </div>
+
+                <div class="col-md-2">Editado Por:</label>
+                    <label for="editado_por">
+                    <input type="text" class="form-control" id="editado_por" name="editado_por" value="{{$edit->editado_por}}" readonly="readonly"> 
+                </div>
+
+        </div>
 
         <!-- Botões Pagina-->
             <div class="form-group">

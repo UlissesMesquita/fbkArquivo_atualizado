@@ -28,7 +28,7 @@ class CreateCadastroDocumentosTable extends Migration
             $table->string('Dt_Ref');
             $table->string('tp_documento');
             $table->string('Tp_Projeto');
-            $table->string('jobs')->nullable();
+            $table->string('nome_job')->nullable();
             $table->string('Palavra_Chave');
             $table->string('Desc');
             $table->string('Dep');
@@ -41,6 +41,9 @@ class CreateCadastroDocumentosTable extends Migration
             $table->string('Loc_Status');
             $table->string('Loc_Arquivo');
             $table->string('Loc_Obs',2550)->nullble();
+
+            $table->string('criado_por')->nullble();
+            $table->string('editado_por')->nullble();
 
         });
     }
