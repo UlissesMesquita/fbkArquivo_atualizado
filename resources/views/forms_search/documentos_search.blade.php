@@ -68,7 +68,7 @@
             <!-- Linha 2 -->
             <div class="row"> 
                 
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label>Tipo de Documento: </label>
                     <label for="tp_documento"></label>
                         <select id="tp_documento" name="tp_documento" class="form-control" onkeyup="maiuscula(this)">
@@ -78,6 +78,11 @@
                                 @endforeach
                             </select>
                         </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label>Assunto: </label>
+                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
                 <div class="col-md-2">
@@ -195,6 +200,36 @@
                     <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" onkeyup="maiuscula(this)"></textarea>
                 </div>
 
+            </div>
+
+            <!-- Linha 4 -->
+            <div class="row"> 
+
+                <div class="col-md-2" id="drop_job" style="display: block">
+                    <label>Criado por: </label>
+                    <label for="criado_por"></label>
+                    <select id="criado_por" name="criado_por" class="form-control" >
+                        <option selected value="">Escolha...</option>
+                        @if(isset($dash))
+                            @foreach($dash as $criado)
+                                <option value="{{$criado->criado_por}}">{{$criado->criado_por}}</option>
+                            @endforeach
+                        @endif    
+                    </select>
+                </div>
+
+                <div class="col-md-2" id="drop_job" style="display: block">
+                    <label>Editado Por: </label>
+                    <label for="editado_por"></label>
+                    <select id="editado_por" name="editado_por" class="form-control" >
+                        <option selected value="">Escolha...</option>
+                        @if(isset($dash))
+                            @foreach($dash as $editado)
+                                <option value="{{$editado->editado_por}}">{{$editado->editado_por}}</option>
+                            @endforeach
+                        @endif    
+                    </select>
+                </div>
             </div>
 
             <!-- Botões Pagina-->
