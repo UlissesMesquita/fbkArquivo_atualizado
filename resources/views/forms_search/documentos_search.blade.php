@@ -233,6 +233,7 @@
             <th>Número Documento</td>
             <th>Palavra Chave</td>
             <th>Tipo projeto</td>
+            <th>Assunto</th>
             <th>Nome Projeto</td>
             <th>Local Arquivo</td>
             <th>Estante</td>
@@ -257,6 +258,7 @@
                     <th>{{$dashboard->Nome_Doc}}</td>
                     <th>{{$dashboard->Palavra_Chave}}</td>
                     <th>{{$dashboard->Tp_Projeto}}</td>
+                    <th>{{$dashboard->Assunto}}</th>
                     <th>{{$dashboard->nome_job}}</td>
                     <th>{{$dashboard->Loc_Arquivo}}</td>
                     <th>{{$dashboard->Loc_Est}}</td>
