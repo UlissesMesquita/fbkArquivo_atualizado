@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/cabecalho.css')}}">
+    <link rel="stylesheet" href="{{asset('css/table-search.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/fontawesome/css/all.css')}}">
 
