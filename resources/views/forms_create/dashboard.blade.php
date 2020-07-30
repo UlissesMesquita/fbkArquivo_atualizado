@@ -10,9 +10,9 @@
 
 
 @section('conteudo')
-<div class="container">
+<div class="">
  <!-- Mostra os dados no banco de dados -->
- <div class="table-responsive">
+ <div class="">
     <table class="table table-striped">
      <thead>
          <tr id="Cabecalho-tabela">

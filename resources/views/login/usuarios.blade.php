@@ -17,7 +17,7 @@
 <br>
   <div class="row">
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <label>Login:*</label>
       <label for="login"></label><input type="text" autofocus class="form-control" id="login" name="login" placeholder="" required>
     </div>
@@ -42,12 +42,12 @@
             </select>
         </div>
 
-    <div class="col-md-3">
+    <div class="col-md-2">
       <label>Password:*</label>
       <label for="password"></label><input type="password" class="form-control" id="#" name="#" placeholder="" required>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-2">
       <label>Confirma Password:*</label>
       <label for="password"></label><input type="password" class="form-control" id="password" name="password" placeholder="" required>
     </div>

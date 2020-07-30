@@ -18,7 +18,8 @@
 
 .dropdown1 {
     float: left;
-    overflow: hidden;
+    overflow: initial;
+    
 }
 
 .dropdownExit1 {

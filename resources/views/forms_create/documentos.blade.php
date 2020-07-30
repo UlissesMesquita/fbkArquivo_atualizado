@@ -15,7 +15,7 @@ Dados do Documento
     {{$message}}
 @enderror
 
-<div class="container">
+<div class="container-fluid">
     <form class="form-horizontal" name="form" method="POST" action="{{route('novo_documento')}}" enctype="multipart/form-data">
     @csrf
 

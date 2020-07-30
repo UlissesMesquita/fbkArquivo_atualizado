@@ -10,22 +10,19 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{asset('css/cabecalho.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/cabecalho.css')}}">
+
     <link rel="stylesheet" href="{{asset('css/fontawesome/css/all.css')}}">
 
     <meta charset="utf-8">
-
-
         <title>@yield('titulo_pagina')</title>
+
 
 </head>
 
 
 <body>
-
-
-
 
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/JQuery.js')}}"></script>
@@ -83,9 +80,11 @@
     <!-- Template -->
         <h1>@yield('titulo')</h1>
 
-        <div class="container">
 
+        <div class="container-fluid">
             @yield('conteudo')
+        </div>    
+
             
         </div>
 
