@@ -156,7 +156,7 @@ class ControladorDashboard extends Controller
                 'Loc_Status' => $doc->Loc_Status,
                 'Loc_Obs' => $doc->Loc_Obs,
                 'Desfaz' => $doc->Desfaz,
-                'editado_por' => $doc->editado_por
+                'editado_por' => $doc->editado_por,
                 
                 ]);
 

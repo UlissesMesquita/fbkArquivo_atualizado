@@ -53,6 +53,7 @@ class ControladorLogin extends Controller
                                                     //Autentica usuário
                             Login::where('id_usuario', $dados['id_usuario'])->update(['autenticado' => 1]);
                             session()->put('autenticado', 1);
+                            //dd(session()->get('autenticado'));
                         //Envia usuário autenticado para pagina Dashboard.
                             if(session()->get('autenticado') == 1) {
                                 return redirect(route('dashboard'));
