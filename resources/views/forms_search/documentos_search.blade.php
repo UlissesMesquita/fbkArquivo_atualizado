@@ -253,10 +253,11 @@
             <br>
 
 </div>
-
-<h5>Contultas Retornadas: {{$contador}}</h5>
+@if(isset($contador))
+<h5> Registros Encontrados: {{$contador}} </h5>
+@endif
    <!-- Mostra os dados no banco de dados -->
-   <table class="table table-striped">
+   <table class="table table-striped" style="">
     <thead>
         <tr id="Cabecalho-tabela">
 
@@ -306,21 +307,44 @@
                     <th>{{$dashboard->editado_por}}</td>    
                     <th>R${{$dashboard->Valor_Doc}}</td>
 
-                <td>
+            <div class="row">
+                <div class="col">
                     <!-- Botão de Editar -->
-
                     <a id="delete-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
-
+                </div>
+                
                     <!-- Botão de Apagar -->
-
+                <div class="col">
                     <a id="edit-icon" class="fas fa-trash fa-2x" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
+                </div>
 
                     <!-- Botão de Anexo -->
-                    <form method="POST" action="{{route('visualizar_anexo')}}" >
+                <div class="col">    
+                    <form method="POST" action="{{route('visualizar_anexo')}}">
                         @csrf 
                             <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
                             <button type="submit" class="btn btn-link" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></button>
                     </form>
+                </div>
+            </div>
+
+
+                    
+                        
+                            <form action="/Ti01/AprovaSolicitacao" method="post" novalidate="novalidate">
+                                <input htmlattributes="{ class = form-control, readonly = readonly }" id="CadastroID" name="CadastroID" type="hidden" value="1">
+                                <input type="submit" class="btn btn-success btn-finish" name="aprova" value="Aprovar">
+                            </form>
+                        
+                        <div class="col-xs-6 text-left">
+                            <form action="/Ti01/RejeitaSolicitacao" method="post" novalidate="novalidate">
+                                <input htmlattributes="{ class = form-control, readonly = readonly }" id="CadastroID" name="CadastroID" type="hidden" value="1">
+                                <input type="submit" class="btn btn-success btn-danger" name="rejeita" value="Rejeitar">
+                            </form>
+                        </div>
+                    </div>
+
+
 
                 </td>
             </tr>
