@@ -240,9 +240,11 @@
             <th scope="col">Caixa</td>
             <th scope="col">Maço</td>
             <th scope="col">Observações</td>
+            <th scope="col">Criado</td>
+            <th scope="col">Alterado</td>
             <th scope="col">Valor</td>
 
-            <th class="bg-success" scope="col">Ferramentas</th>
+            <th scope="col">Ferramentas</th>
         </tr>
     </thead>
 
@@ -265,6 +267,8 @@
                     <th>{{$dashboard->Loc_Box_Eti}}</td>
                     <th>{{$dashboard->Loc_Maco}}</td>
                     <th>{{$dashboard->Loc_Obs}}</td>
+                    <th>{{$dashboard->criado_por}}</td>
+                    <th>{{$dashboard->editado_por}}</td>    
                     <th>R${{$dashboard->Valor_Doc}}</td>
 
                 <td>
