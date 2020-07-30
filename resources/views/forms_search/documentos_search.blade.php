@@ -225,22 +225,22 @@
     <thead>
         <tr id="Cabecalho-tabela">
 
-            <th class="bg-success" scope="col"> Codigo</td>
-            <th class="bg-success" scope="col">Data Principal</td>
-            <th class="bg-success" scope="col">Emitente</td>
-            <th class="bg-success" scope="col">Destinatária</th>    
-            <th class="bg-success" scope="col">Tipo Documento</td>
-            <th class="bg-success" scope="col">Número Documento</td>
-            <th class="bg-success" scope="col">Palavra Chave</td>
-            <th class="bg-success" scope="col">Tipo projeto</td>
-            <th class="bg-success" scope="col">Assunto</th>
-            <th class="bg-success" scope="col">Nome Projeto</td>
-            <th class="bg-success" scope="col">Local Arquivo</td>
-            <th class="bg-success" scope="col">Estante</td>
-            <th class="bg-success" scope="col">Caixa</td>
-            <th class="bg-success" scope="col">Maço</td>
-            <th class="bg-success" scope="col">Observações</td>
-            <th class="bg-success" scope="col">Valor</td>
+            <th scope="col"> Codigo</td>
+            <th scope="col">Data Principal</td>
+            <th scope="col">Emitente</td>
+            <th scope="col">Destinatária</th>    
+            <th scope="col">Tipo Documento</td>
+            <th scope="col">Número Documento</td>
+            <th scope="col">Palavra Chave</td>
+            <th scope="col">Tipo projeto</td>
+            <th scope="col">Assunto</th>
+            <th scope="col">Nome Projeto</td>
+            <th scope="col">Local Arquivo</td>
+            <th scope="col">Estante</td>
+            <th scope="col">Caixa</td>
+            <th scope="col">Maço</td>
+            <th scope="col">Observações</td>
+            <th scope="col">Valor</td>
 
             <th class="bg-success" scope="col">Ferramentas</th>
         </tr>
