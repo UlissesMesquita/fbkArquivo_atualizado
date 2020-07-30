@@ -29,8 +29,8 @@ class ControladorPesquisas extends Controller
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             $tp_documento = TipoDocumento::all();
             $job = Job::all();
-            $criado = Cadastro_Documentos::orderBy('criado_por', 'ASC')->distinct()->get('criado_por'); 
-            $editado = Cadastro_Documentos::orderBy('editado_por','ASC')->distinct()->get('editado_por');
+            $criado = Cadastro_Documentos::orderBy('criado_por', 'ASC')->distinct()->whereNotNull('criado_por')->get('criado_por'); 
+            $editado = Cadastro_Documentos::orderBy('editado_por','ASC')->distinct()->whereNotNull('editado_por')->get('editado_por');
         
 
             return view('forms_search/documentos_search', compact('tp_documento','emit', 'dest', 'dash', 'job', 'criado', 'editado'));
