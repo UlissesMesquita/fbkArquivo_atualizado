@@ -60,7 +60,7 @@
                 <label>Tipo de Documento: *</label>
                 <label for="tp_documento"></label>
                     <select id="tp_documento" name="tp_documento" class="form-control" required onkeyup="maiuscula(this)">
-                        <option selected>Escolha...</option>
+                    <option selected>{{$edit->tp_documento}}</option>
                             @foreach($tp_documento as $tp_documentos)
                                 <option value="{{$tp_documentos->tp_documento}}">{{$tp_documentos->tp_documento}}</option>
                             @endforeach
