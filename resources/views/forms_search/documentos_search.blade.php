@@ -307,7 +307,6 @@
                     <th>R${{$dashboard->Valor_Doc}}</td>
 
                 <td>
-
                     <!-- Botão de Editar -->
 
                     <a id="delete-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
@@ -318,11 +317,10 @@
 
                     <!-- Botão de Anexo -->
                     <form method="POST" action="{{route('visualizar_anexo')}}" >
-                        @csrf
+                        @csrf 
                             <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
-                            <button type="submit" class="btn-sm btn btn-info" target="_blank">Anexos</button>
+                            <button type="submit" class="btn btn-link" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></button>
                     </form>
-
 
                 </td>
             </tr>
