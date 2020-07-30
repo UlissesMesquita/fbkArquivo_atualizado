@@ -310,17 +310,17 @@
 
                     <!-- Botão de Editar -->
 
-                    <a class="far fa-edit" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
+                    <a id="delete-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
 
                     <!-- Botão de Apagar -->
 
-                    <a class="fas fa-trash" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
+                    <a id="edit-icon" class="fas fa-trash fa-2x" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
 
                     <!-- Botão de Anexo -->
                     <form method="POST" action="{{route('visualizar_anexo')}}" >
                         @csrf
                             <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
-                            <input type="submit" class="fas fa-file-pdf" target="_blank" value="Anexos">
+                            <button type="submit" class="btn-sm btn btn-info" target="_blank">Anexos</button>
                     </form>
 
 
