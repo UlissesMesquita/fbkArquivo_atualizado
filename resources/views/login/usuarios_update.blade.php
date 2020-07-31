@@ -42,7 +42,7 @@
               <select id="ativo" name="ativo" class="form-control" required>
                     <option selected>{{$edit->ativo}}</option>
                       <option>Ativo</option>
-                      <option>Desativado</option>
+                      <option>Inativo</option>
               </select>
           </div>
   
