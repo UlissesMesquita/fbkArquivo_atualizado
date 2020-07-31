@@ -80,9 +80,18 @@
                         </select>
                 </div>
 
-                <div class="col-md-2">
-                    <label>Assunto: </label>
-                    <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" onkeyup="maiuscula(this)">
+                <div class="col-md-4">
+                    <label>Departamento: *</label>
+                    <label for="Dep"></label>
+                        <select id="Dep" name="Dep" class="form-control" required>
+                            <option selected>Escolha...</option>
+                            @if(isset($dep))
+                                @foreach($dep as $departamento)
+                                    <option value="{{$departamento->cad_departamento}}">{{$departamento->cad_departamento}}</option>
+                                @endforeach
+                                @endif
+                            </select>
+                        </select>
                 </div>
 
                 <div class="col-md-2">

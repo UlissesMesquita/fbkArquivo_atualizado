@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cadastro_Documentos;
 use App\Empresas_Destinatarias;
 use App\Empresas_Emitentes;
+use App\Departamentos;
 use App\Pesquisas;
 use App\Job;
 use App\TipoDocumento;
@@ -25,6 +26,7 @@ class ControladorPesquisas extends Controller
 
         if(session()->get('autenticado') == 1) {
             $emit = Empresas_Emitentes::all();
+            $dep = Departamentos::all();
             $dest = Empresas_Destinatarias::all();
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             $tp_documento = TipoDocumento::all();
@@ -33,7 +35,7 @@ class ControladorPesquisas extends Controller
             $editado = Cadastro_Documentos::orderBy('editado_por','ASC')->distinct()->whereNotNull('editado_por')->get('editado_por');
         
 
-            return view('forms_search/documentos_search', compact('tp_documento','emit', 'dest', 'dash', 'job', 'criado', 'editado'));
+            return view('forms_search/documentos_search', compact('tp_documento','emit', 'dest', 'dash', 'job', 'criado', 'editado', 'dep'));
         }
         else {
             return redirect(route('index'));
@@ -108,17 +110,18 @@ class ControladorPesquisas extends Controller
                 }
                 $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
                 $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
+                $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
                 $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
                 $job = Job::orderBy('nome_job', 'ASC')->get();
                 $contador = Cadastro_Documentos::where($dados)->whereNotNull('id_codigo')->count();
                 
                 if ($contador == null ) {
                     $contador = 0;
-                    return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job','contador'));
+                    return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job','contador', 'dep'));
                 }
                 else {
 
-                    return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job', 'contador'));
+                    return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job', 'contador', 'dep'));
                 }
 
                 
