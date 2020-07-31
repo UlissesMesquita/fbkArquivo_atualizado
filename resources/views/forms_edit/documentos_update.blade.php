@@ -270,30 +270,29 @@
         <!-- Linha 7 -->
         <div class="row"></div>
         <!-- Linha 8 -->
-        <div class="row">  
+        <div class="row">  </div>
      
             <!-- Separador-->
-            <div class="col-md-6"></div>
-
+            <div class="row">
                 <!-- Auditoria -> Criado e Editado pelo Usuario X -->
-                <div class="col-md-2">Criado Por:</label>
+                <div class="col-md-2" style="padding:27px">Criado Por:</label>
                     <label for="criado_por">
                     <input type="text" class="form-control" id="criado_por" name="criado_por" value="{{$edit->criado_por}}" readonly="readonly"> 
                 </div>
 
-                <div class="col-md-2">Alterado Por:</label>
+                <div class="col-md-2" style="padding:27px">Alterado Por:</label>
                     <label for="editado_por">
                     <input type="text" class="form-control" id="editado_por" name="editado_por" value="{{$edit->editado_por}}" readonly="readonly"> 
                 </div>
 
-                <div class="col-md-2">Editando:</label>
+                <div class="col-md-2" style="padding:27px">Editando:</label>
                     <label for="editado_por">
                     <input type="text" class="form-control" id="editado_por" name="editado_por" value="{{session()->get('usuario')}}" readonly="readonly"> 
                 </div>
-
-
-
         </div>
+
+    
+
 
         <!-- Botões Pagina-->
             <div class="form-group">
