@@ -83,8 +83,8 @@
                 <div class="col-md-2">
                     <label>Departamento: </label>
                     <label for="Dep"></label>
-                        <select id="Dep" name="Dep" class="form-control" required>
-                            <option selected>Escolha...</option>
+                        <select id="Dep" name="Dep" class="form-control">
+                            <option selected value="">Escolha...</option>
                             @if(isset($dep))
                                 @foreach($dep as $departamento)
                                     <option value="{{$departamento->cad_departamento}}">{{$departamento->cad_departamento}}</option>
