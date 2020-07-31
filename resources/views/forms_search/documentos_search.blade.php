@@ -80,7 +80,7 @@
                         </select>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label>Departamento: </label>
                     <label for="Dep"></label>
                         <select id="Dep" name="Dep" class="form-control" required>
