@@ -20,6 +20,7 @@ class ControladorJob extends Controller
            
     if(session()->get('autenticado') == 1) {
         $job = Job::all()->sortByDesc('id_job');
+        //$job = Job::orderBy('nome_job', 'ASC')->distinct('nome_job')->get();
        return view('forms_create/job', compact('job'));
     }
     else {

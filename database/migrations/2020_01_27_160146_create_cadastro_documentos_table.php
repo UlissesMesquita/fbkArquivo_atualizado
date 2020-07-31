@@ -43,7 +43,7 @@ class CreateCadastroDocumentosTable extends Migration
             $table->string('Loc_Obs',2550)->nullble();
 
             $table->string('criado_por')->nullble();
-            $table->string('editado_por')->nullble();
+            $table->string('editado_por')->nullble()->default('Não Editado');
 
         });
     }
