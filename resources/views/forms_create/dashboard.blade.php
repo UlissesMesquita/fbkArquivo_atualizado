@@ -42,7 +42,7 @@
          @foreach($dash as $dashboard)
              <tr>
                      <td scope="row">{{$dashboard->id_codigo}}</td>
-                     <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{$dashboard->data}}</a></td>
+                     <td> <a href="documentos_edit/{{$dashboard->id_codigo}}" method="GET">{{date('d/m/Y', strtotime($dashboard->data))}}</a></td>                     
                      <th>{{$dashboard->Emp_Emit}}</td>
                      <th>{{$dashboard->Emp_Dest}}</th>    
                      <th>{{$dashboard->tp_documento}}</td>
@@ -56,7 +56,7 @@
                      <th>{{$dashboard->Loc_Maco}}</td>
                      <th>{{$dashboard->Loc_Obs}}</td>
                      <th>R${{$dashboard->Valor_Doc}}</td>
- 
+                        
                         <td>
                             <!-- Botão de Editar -->
         

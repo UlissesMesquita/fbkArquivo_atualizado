@@ -115,7 +115,7 @@ class ControladorPesquisas extends Controller
                 $job = Job::orderBy('nome_job', 'ASC')->get();
                 $contador = Cadastro_Documentos::where($dados)->whereNotNull('id_codigo')->count();
                 
-                if ($contador == null ) {
+                if ($contador == null && $dash == null) {
                     $contador = 0;
                     return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job','contador', 'dep'));
                 }
