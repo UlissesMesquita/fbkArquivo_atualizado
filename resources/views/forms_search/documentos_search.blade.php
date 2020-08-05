@@ -21,12 +21,12 @@
             <div class="row">   
 
                 <div class="col-md-2">
-                    <label>Código:</label>
+                    <label><b>Código:</b></label>
                     <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="">
                 </div>
                 
                 <div class="col-md-2">
-                    <label>Data Início: </label>
+                    <label><b>Data Início: </b></label>
                     <label for="data_in"></label><input type="date" class="form-control" id="data_in" name="data_in" placeholder="" >
                     @error('data_in')
                         <div class="alert alert-warning">{{ $message }}</div>
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <label>Data Fim: </label>
+                    <label><b>Data Fim:</b> </label>
                     <label for="data_out"></label><input type="date" class="form-control" id="data_out" name="data_out" placeholder="" >
                     @error('data_out')
                         <div class="alert alert-warning">{{ $message }}</div>
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <label>Empresa Emitente: </label>
+                    <label><b>Empresa Emitente:</b> </label>
                     <label for="Emp_Emit"></label>
                         <select id="Emp_Emit" name="Emp_Emit" class="form-control" >
                             <option value="">Escolha...</option>
@@ -53,7 +53,7 @@
                 </div>
     
                 <div class="col-md-3">
-                    <label>Empresa Destinatária: </label>
+                    <label><b>Empresa Destinatária:</b> </label>
                     <label for="Emp_Dest"></label>
                         <select id="Emp_Dest" name="Emp_Dest" class="form-control" value="" >
                             <option value="">Escolha...</option>
@@ -69,7 +69,7 @@
             <div class="row"> 
                 
                 <div class="col-md-2">
-                    <label>Tipo de Documento: </label>
+                    <label><b>Tipo de Documento:</b> </label>
                     <label for="tp_documento"></label>
                         <select id="tp_documento" name="tp_documento" class="form-control" onkeyup="maiuscula(this)">
                             <option value="">Escolha...</option>
@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <label>Departamento: </label>
+                    <label><b>Departamento:</b> </label>
                     <label for="Dep"></label>
                         <select id="Dep" name="Dep" class="form-control">
                             <option selected value="">Escolha...</option>
@@ -95,17 +95,17 @@
                 </div>
 
                 <div class="col-md-2">
-                    <label>Número Documento: </label>
+                    <label><b>Número Documento:</b> </label>
                     <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" onkeyup="maiuscula(this)">
                 </div>
                 
                 <div class="col-md-3">
-                    <label>Palavra-Chave: </label>
+                    <label><b>Palavra-Chave:</b> </label>
                     <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
                 <div class="col-md-3">
-                    <label>Defaz/Destruir: </label>
+                    <label><b>Defaz/Destruir:</b> </label>
                     <label for="Desfaz"></label><input type="text" class="form-control" id="Desfaz" name="Desfaz" maxlength="7" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
@@ -115,13 +115,13 @@
             <div class="row"> 
 
                 <div class="col-md-2">
-                    <label>Valor:</label>
+                    <label><b>Valor:</b></label>
                     <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="" onKeyPress="return(moeda(this,'.',',',event))">
                 </div>
 
 
                 <div class="col-md-2">
-                    <label>Tipo de Projeto:</label>
+                    <label><b>Tipo de Projeto:</b></label>
                     <label for="Tp_Projeto"></label>
                     <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" >
                         <option value="">Escolha...</option>
@@ -131,7 +131,7 @@
                 </div>
                 
                 <div class="col-md-4" id="drop_job" style="display: block">
-                    <label>Nome do Projeto: </label>
+                    <label><b>Nome do Projeto:</b> </label>
                     <label for="nome_job"></label>
                     <select id="nome_job" name="nome_job" class="form-control" >
                         <option selected value="">Escolha...</option>
@@ -144,7 +144,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <label>Assunto:</label>
+                    <label><b>Assunto:</b></label>
                     <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" onkeyup="maiuscula(this)">
                 </div>
                 
@@ -155,12 +155,12 @@
             <div class="row"> 
 
                 <div class="col-md-2">
-                    <label>Local Arquivo: </label>
+                    <label><b>Local Arquivo:</b> </label>
                     <label for="Loc_Arquivo"></label><input type="text" class="form-control" id="Loc_Arquivo" name="Loc_Arquivo" maxlength="" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
                 <div class="col-md-2">
-                    <label>Estante:</label>
+                    <label><b>Estante:</b></label>
                     <label for="Loc_Est"></label>
                     <select id="Loc_Est" name="Loc_Est" class="form-control">
                         <option selected value="">Escolha...</option>
@@ -175,7 +175,7 @@
                 </div>
     
                 <div class="col-md-2">
-                    <label>Caixa:</label>
+                    <label><b>Caixa:</b></label>
                     <label for="Loc_Box_Eti"></label>
                     <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control">
                         <option selected value="">Escolha...</option>
@@ -190,7 +190,7 @@
                 </div>
     
                 <div class="col-md-2">
-                    <label>Maço:</label>
+                    <label><b>Maço:</b></label>
                     <label for="Loc_Maço"></label>
                     <select id="Loc_Maço" name="Loc_Maco" class="form-control">
                         <option selected value="">Escolha...</option>
@@ -205,7 +205,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <label for="exampleFormControlTextarea1">Observações:</label>
+                    <label for="exampleFormControlTextarea1"><b>Observações:</b></label>
                     <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" onkeyup="maiuscula(this)"></textarea>
                 </div>
 
@@ -214,8 +214,13 @@
             <!-- Linha 4 -->
             <div class="row"> 
 
+                <div class="col-md-2">
+                    <label><b>Data Referência:</b></label>
+                    <label for="Dt_Ref"></label><input placeholder= "" class="form-control" type="text" name="Dt_Ref" id="Dt_Ref">
+                </div>
+
                 <div class="col-md-2" id="drop_job" style="display: block">
-                    <label>Criado por: </label>
+                    <label><b>Criado por: </b></label>
                     <label for="criado_por"></label>
                     <select id="criado_por" name="criado_por" class="form-control" >
                         <option selected value="">Escolha...</option>
@@ -228,7 +233,7 @@
                 </div>
 
                 <div class="col-md-2" id="drop_job" style="display: block">
-                    <label>Editado Por: </label>
+                    <label><b>Editado Por:</b> </label>
                     <label for="editado_por"></label>
                     <select id="editado_por" name="editado_por" class="form-control" >
                         <option selected value="">Escolha...</option>
@@ -270,24 +275,25 @@
     <thead>
         <tr id="Cabecalho-tabela">
 
-            <th scope="col"> Codigo</td>
-            <th scope="col">Data Principal</td>
-            <th scope="col">Emitente</td>
-            <th scope="col">Destinatária</th>    
-            <th scope="col">Tipo Documento</td>
-            <th scope="col">Número Documento</td>
-            <th scope="col">Palavra Chave</td>
-            <th scope="col">Tipo projeto</td>
-            <th scope="col">Assunto</th>
-            <th scope="col">Nome Projeto</td>
-            <th scope="col">Local Arquivo</td>
-            <th scope="col">Estante</td>
-            <th scope="col">Caixa</td>
-            <th scope="col">Maço</td>
-            <th scope="col">Observações</td>
-            <th scope="col">Criado</td>
-            <th scope="col">Alterado</td>
-            <th scope="col">Valor</td>
+            <th scope="col"><b> Codigo</b></td>
+            <th scope="col"><b>Data Principal</b></td>
+            <th scope="col"><b>Emitente</b></td>
+            <th scope="col"><b>Destinatária</b></th>    
+            <th scope="col"><b>Tipo Documento</b></td>
+            <th scope="col"><b>Número Documento</b></td>
+            <th scope="col"><b>Palavra Chave</b></td>
+            <th scope="col"><b>Tipo projeto</b></td>
+            <th scope="col"><b>Assunto</b></th>
+            <th scope="col"><b>Nome Projeto</b></td>
+            <th scope="col"><b>Local Arquivo</b></td>
+            <th scope="col"><b>Estante</b></td>
+            <th scope="col"><b>Caixa</b></td>
+            <th scope="col"><b>Maço</b></td>
+            <th scope="col"><b>Observações</b></td>
+            <th scope="col"><b>Mês de Referência</b></td>               
+            <th scope="col"><b>Criado</b></td>
+            <th scope="col"><b>Alterado</b></td>
+            <th scope="col"><b>Valor</b></td>
 
             <th scope="col">Ferramentas</th>
         </tr>
@@ -312,6 +318,7 @@
                     <td>{{$dashboard->Loc_Box_Eti}}</td>
                     <td>{{$dashboard->Loc_Maco}}</td>
                     <td>{{$dashboard->Loc_Obs}}</td>
+                    <td>{{$dashboard->Dt_Ref}}</td>
                     <td>{{$dashboard->criado_por}}</td>
                     <td>{{$dashboard->editado_por}}</td>    
                     <td>R${{$dashboard->Valor_Doc}}</td>

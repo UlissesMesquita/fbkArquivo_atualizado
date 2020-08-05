@@ -104,7 +104,7 @@ class ControladorDashboard extends Controller
         if(session()->get('autenticado') == 1) {
             $doc = new Cadastro_Documentos();
 
-            $doc->data = $request->input('data');
+            //$doc->data = $request->input('data');
             $doc->Assunto = $request->input('Assunto');
             $doc->Emp_Emit = $request->input('Emp_Emit');
             $doc->Emp_Dest = $request->input('Emp_Dest');
@@ -133,7 +133,7 @@ class ControladorDashboard extends Controller
 
 
             Cadastro_Documentos::where('id_codigo', $id)->update([
-                'data' => $doc->data,
+                //'data' => $doc->data,
                 'Assunto' => $doc->Assunto,
                 'Emp_Emit' => $doc->Emp_Emit,
                 'Emp_Dest' => $doc->Emp_Dest,
