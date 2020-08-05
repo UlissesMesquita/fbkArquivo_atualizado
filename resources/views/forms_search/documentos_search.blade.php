@@ -332,8 +332,9 @@
                         
                             <!-- Botão de Apagar -->
 
-                            <a id="edit-icon" class="fas fa-trash fa-2x" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
-
+                            @if(session()->get('permissao') == 'Admin')
+                                <a id="edit-icon" class="fas fa-trash fa-2x" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
+                            @endif
 
                             <!-- Botão de Anexo -->
   
