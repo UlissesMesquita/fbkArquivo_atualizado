@@ -53,7 +53,7 @@ class ControladorDocumento extends Controller
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo')->take(1);
 
         
-            return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash', 'tp_documentos', 'job'));
+            return view('forms_create.documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash', 'tp_documentos', 'job'));
         }
         else {
             return redirect(route('index'));
@@ -148,7 +148,7 @@ class ControladorDocumento extends Controller
         if(session()->get('autenticado') == 1) {
             $files = Upload::where('id_upload_codigo', '=', $request->input('id_codigo'))->get();
 
-            return view('forms_create/visualizar_anexo', compact('files'));
+            return view('forms_create.visualizar_anexo', compact('files'));
         }
         else {
             return redirect(route('index'));

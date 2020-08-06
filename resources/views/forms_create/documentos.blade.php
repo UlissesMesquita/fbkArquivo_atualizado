@@ -27,19 +27,19 @@ Dados do Documento
         <div class="row">
         
            <div class="col-md-2">
-                <label>Código: *</label>
+                <label><b>Código: *</b></label>
                 @foreach($dash as $dashboard)
                     <label for="id_codigo"></label><input type="text" class="form-control" id="id_codigo" name="id_codigo" placeholder="" value="{{ ($dashboard->id_codigo) + (1) }}"  disabled >
                 @endforeach
             </div>
 
             <div class="col-md-2">
-                <label>Data: *</label>
+                <label><b>Data: *</b></label>
                 <label for="data"></label><input type="date" value="{{date("d/m/Y")}}" class="form-control" id="data" name="data" placeholder="" required>
             </div>
 
             <div class="col-md-4">
-                <label>Empresa Emitente: *</label>
+                <label><b>Empresa Emitente: *</b></label>
                 <label for="Emp_Emit"></label>
                     <select id="Emp_Emit" name="Emp_Emit" class="form-control" required>
                         <option selected>Escolha...</option>
@@ -52,7 +52,7 @@ Dados do Documento
             </div>
 
             <div class="col-md-4">
-                <label>Empresa Destinatária: *</label>
+                <label><b>Empresa Destinatária: *</b></label>
                 <label for="Emp_Dest"></label>
                     <select id="Emp_Dest" name="Emp_Dest" class="form-control" value="" required>
                         <option selected>Escolha...</option>
@@ -70,7 +70,7 @@ Dados do Documento
         <div class="row">
 
             <div class="col-md-3">
-                <label>Tipo de Documento: *</label>
+                <label><b>Tipo de Documento: *</b></label>
                 <label for="tp_documento"></label>
                     <select id="tp_documento" name="tp_documento" class="form-control" required>
                         <option selected>Escolha...</option>
@@ -82,17 +82,17 @@ Dados do Documento
             </div>
 
             <div class="col-md-3">
-                <label>Número Documento: *</label>
+                <label><b>Número Documento: *</b></label>
                 <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-4">
-                <label>Assunto: *</label>
+                <label><b>Assunto: *</b></label>
                 <label for="Assunto"></label><input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-2">
-                <label>Valor: *</label>
+                <label><b>Valor: *</b></label>
                 <label for="Valor_Doc"></label><input type="text" class="form-control" id="Valor_Doc" name="Valor_Doc" placeholder="R$" required onKeyPress="return(moeda(this,'.',',',event))">
             </div>
                 
@@ -102,7 +102,7 @@ Dados do Documento
         <div class="row">
 
             <div class="col-md-3">
-                <label>Form. do Documento Arquivado: *</label>
+                <label><b>Form. do Documento Arquivado: *</b></label>
                 <label for="Formato_Doc"></label>
                     <select id="Formato_Doc" name="Formato_Doc" class="form-control" required>
                         <option selected>Escolha...</option>
@@ -113,12 +113,12 @@ Dados do Documento
             </div>
             
             <div class="col-md-2">
-                <label>Data Referência: *</label>
+                <label><b>Data Referência: *</b></label>
                 <label for="Dt_Ref"></label><input placeholder= "" class="form-control" type="text" name="Dt_Ref" id="Dt_Ref"  />
             </div>
             
             <div class="col-md-4">
-                <label>Palavra-Chave: *</label>
+                <label><b>Palavra-Chave: *</b></label>
                 <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" required onkeyup="maiuscula(this)">
             </div>
 
@@ -130,12 +130,12 @@ Dados do Documento
         <div class="row">
 
             <div class="col-md-4">
-                <label>Descrição: *</label>
+                <label><b>Descrição: *</b></label>
                 <label for="Desc"></label><input type="text" class="form-control" id="Desc" name="Desc" placeholder="" required onkeyup="maiuscula(this)">
             </div>
  
             <div class="col-md-4">
-                <label>Departamento: *</label>
+                <label><b>Departamento: *</b></label>
                 <label for="Dep"></label>
                     <select id="Dep" name="Dep" class="form-control" required>
                         <option selected>Escolha...</option>
@@ -149,7 +149,7 @@ Dados do Documento
             </div>
 
             <div class="col-md-4">
-                <label>Origem: *</label>
+                <label><b>Origem: *</b></label>
                     <label for="Origem"></label>
                         <select id="Origem" name="Origem" class="form-control" required>
                         <option selected>Escolha...</option>
@@ -166,7 +166,7 @@ Dados do Documento
         <!-- Linha 5 -->
         <div class="row">
             <div class="col-md-2">
-                <label>Tipo de Projeto: *</label>
+                <label><b>Tipo de Projeto: *</b></label>
                 <label for="Tp_Projeto"></label>
                 <select id="Tp_Projeto" name="Tp_Projeto" class="form-control" onselect="mostra(Tp_Projeto)" required>
                     <option selected>Escolha...</option>
@@ -176,7 +176,7 @@ Dados do Documento
             </div>
 
             <div class="col-md-10" id="drop_job" style="display: block">
-                <label>Nome do Projeto: *</label>
+                <label><b>Nome do Projeto: *</b></label>
                 <label for="nome_job"></label>
                 <select id="nome_job" name="nome_job" class="form-control" >
                     <option selected>Escolha...</option>
@@ -201,12 +201,12 @@ Dados do Documento
         <div class="row">
 
             <div class="col-md-2">
-                <label>Local Arquivo: </label>
+                <label><b>Local Arquivo: </b></label>
                 <label for="Loc_Arquivo"></label><input type="text" class="form-control" id="Loc_Arquivo" name="Loc_Arquivo" placeholder="" onkeyup="maiuscula(this)" required>
             </div>
 
             <div class="col-md-2">
-                <label>Corredor:*</label>
+                <label><b>Corredor:*</b></label>
                 <label for="Loc_Cor"></label>
                 <select id="Loc_Cor" name="Loc_Cor" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -220,7 +220,7 @@ Dados do Documento
             </div>
 
             <div class="col-md-2">
-                <label>Estante:*</label>
+                <label><b>Estante:*</b></label>
                 <label for="Loc_Est"></label>
                 <select id="Loc_Est" name="Loc_Est" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -235,7 +235,7 @@ Dados do Documento
             </div>
 
             <div class="col-md-2">
-                <label>Caixa:*</label>
+                <label><b>Caixa:*</b></label>
                 <label for="Loc_Box_Eti"></label>
                 <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -250,7 +250,7 @@ Dados do Documento
             </div>
 
             <div class="col-md-2">
-                <label>Maço:*</label>
+                <label><b>Maço:*</b></label>
                 <label for="Loc_Maço"></label>
                 <select id="Loc_Maço" name="Loc_Maco" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -265,7 +265,7 @@ Dados do Documento
             </div>
 
             <div class="col-md-2">
-                <label>Status:*</label>
+                <label><b>Status:*</b></label>
                 <label for="Loc_Status"></label>
                 <select id="Loc_Status" name="Loc_Status" class="form-control" required>
                     <option selected>Escolha...</option>
@@ -278,17 +278,19 @@ Dados do Documento
 
 
             <div class="col-md-2">
-                <label>Desfaz/Destruir: *</label>
+                <label><b>Desfaz/Destruir: *</b></label>
                 <label for="Desfaz"></label><input type="text" placeholder= "" class="form-control" name="Desfaz" id="Desfaz" maxlength="7" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-6">
-                <label for="exampleFormControlTextarea1">Observações:</label>
+                <label for="exampleFormControlTextarea1"><b>Observações:</b></label>
                 <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" onkeyup="maiuscula(this)">NENHUMA OBSERVAÇÃO</textarea>
             </div>
 
             <!-- Envio de Arquivos -->
+
             <div class="arquivo_meio">
+                
                 <div class="row">
                     <div class="col-md-16">
                         <div class="input-group mb-10">
@@ -308,7 +310,7 @@ Dados do Documento
 
 
             <!-- Auditoria -> Criado e Editado pelo Usuario X -->
-            <div class="col-md-2">Criado Por:</label>
+            <div class="col-md-2"><b>Criado Por:</b></label>
                 <label for="criado_por">
                 <input type="text" class="form-control" id="criado_por" name="criado_por" value="{{session()->get('usuario')}}" readonly="readonly">
             </div>
