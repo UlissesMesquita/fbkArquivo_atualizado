@@ -26,7 +26,7 @@ class ControladorDashboard extends Controller
         if(session()->get('autenticado') == 1) {
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             $documentos = Cadastro_Documentos::all();
-            return view('forms_create/dashboard', compact('dash'));
+            return view('forms_create.dashboard', compact('dash'));
         }
         else {
             return redirect(route('index'));
