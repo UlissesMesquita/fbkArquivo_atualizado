@@ -26,7 +26,7 @@ class ControladorDashboard extends Controller
         if(session()->get('autenticado') == 1) {
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             $documentos = Cadastro_Documentos::all();
-            return view('forms_create.dashboard', compact('dash'));
+            return view('forms_create/dashboard', compact('dash'));
         }
         else {
             return redirect(route('index'));
@@ -83,7 +83,7 @@ class ControladorDashboard extends Controller
             $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
             $job = Job::orderBy('nome_job', 'ASC')->get();
             
-            return view('forms_edit.documentos_update', compact('emit', 'dest', 'ori', 'dep', 'edit', 'tp_documento', 'job'));
+            return view('forms_edit/documentos_update', compact('emit', 'dest', 'ori', 'dep', 'edit', 'tp_documento', 'job'));
         }
         else {
             return redirect(route('index'));
