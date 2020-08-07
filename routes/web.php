@@ -25,7 +25,7 @@ Route::POST('/', 'ControladorLogin@create')->name('valida-login');
 
 
 //Rotas Dashboard
-Route::GET('/dash', 'ControladorDashboard@index')->name('dashboard');
+Route::GET('dash', 'ControladorDashboard@index')->name('dashboard');
 Route::GET('/pdf/{name_pdf}', 'ControladorDashboard@showPdf')->name('pdf');
 Route::GET('/documentos_edit/{id}', 'ControladorDashboard@edit')->name('edit');
 Route::PUT('/documentos_update/{id}', 'ControladorDashboard@update')->name('update');
