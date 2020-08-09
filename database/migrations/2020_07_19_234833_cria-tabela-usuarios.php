@@ -20,6 +20,7 @@ class CriaTabelaUsuarios extends Migration
             $table->integer('autenticado')->default(0);
             $table->string('permissao');
             $table->string('ativo')->default('ativo');
+            $table->string('departamento');
 
         });
     }

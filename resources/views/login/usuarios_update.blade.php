@@ -17,27 +17,40 @@
     <div class="row">
 
     <div class="col-md-1">
-        <label>ID:</label>
+        <label><b>ID:</b></label>
         <label for="ID"></label><input type="text" class="form-control" value="{{$edit->id_usuario}}" id="id_usuario" name="id_usuario" value="{{$edit->id_usuario}}" disabled >
     </div>
   
       <div class="col-md-3">
-        <label>Login:</label>
+        <label><b>Login:</b></label>
         <label for="login"></label><input type="text" class="form-control" value="{{$edit->login}}" id="login" name="login" placeholder="" required>
       </div>
 
       <div class="col-md-2">
-        <label>Permissão: *</label>
+        <label><b>Permissão: *</b></label>
         <label for="permissao"></label>
             <select id="permissao" name="permissao" class="form-control" required>
                   <option selected>{{$edit->permissao}}</option>
                     <option>Admin</option>
                     <option>Operador</option>
             </select>
-        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label><b>Departamento: *</b></label>
+        <label for="departamento"></label>
+            <select id="departamento" name="departamento" class="form-control" required>
+                  <option selected>{{$edit->departamento}}</option>
+                    @if(isset($dep))
+                      @foreach($dep as $departamento)
+                          <option value="{{$departamento->cad_departamento}}">{{$departamento->cad_departamento}}</option>
+                      @endforeach
+                      @endif
+            </select>
+      </div>
 
         <div class="col-md-2">
-          <label>Ativo:*</label>
+          <label><b>Ativo:*</b></label>
           <label for="permissao"></label>
               <select id="ativo" name="ativo" class="form-control" required>
                     <option selected>{{$edit->ativo}}</option>
@@ -47,12 +60,12 @@
           </div>
   
       <div class="col-md-3">
-        <label>Password:</label>
+        <label><b>Senha:</b></label>
         <label for="password"></label><input type="password" class="form-control"  id="#" name="#" placeholder="" required>
       </div>
   
       <div class="col-md-3">
-        <label>Confirma Password:</label>
+        <label><b>Confirma Senha:</b></label>
         <label for="password"></label><input type="password" class="form-control"  id="password" name="password" placeholder="" required>
       </div>
   

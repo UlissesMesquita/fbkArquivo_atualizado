@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Login;
+use App\Departamentos;
 use Illuminate\Http\Request;
 
 class ControladorLogin extends Controller
@@ -93,12 +94,16 @@ class ControladorLogin extends Controller
         $log->login = $request->input('login');
         $log->password = md5($request->input('password'));
         $log->permissao = $request->input('permissao');
+        $log->departamento = $request->input('departamento');
         $log->ativo = $request->input('ativo');
         $log->save();
 
         //Mostra usuários Cadastrados na Tela de Cadastro
         $users = Login::all();
-        return view('login/usuarios', compact('users'));
+        $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
+        dd($dep);
+        
+        return view('login/usuarios', compact('users', 'dep'));
     }
 
     /**
@@ -113,7 +118,8 @@ class ControladorLogin extends Controller
         if(session()->get('autenticado') == 1) {
             //Mostra usuários na tela de Cadastro
             $users = Login::all();
-            return view('login/usuarios', compact('users'));
+            $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
+            return view('login/usuarios', compact('users', 'dep'));
         }
         else {
             return redirect(route('index'));
@@ -133,7 +139,8 @@ class ControladorLogin extends Controller
         
         if(session()->get('autenticado') == 1) {
             $edit = Login::find($id_usuario);
-            return view('login/usuarios_update', compact('edit'));
+            $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
+            return view('login/usuarios_update', compact('edit', 'dep'));
         }
         else {
             return redirect(route('index'));
@@ -157,12 +164,14 @@ class ControladorLogin extends Controller
             $log->login = $request->input('login');
             $log->password = $request->input('password');
             $log->permissao = $request->input('permissao');
+            $log->departamento = $request->input('departamento');
             $log->ativo = $request->input('ativo');
 
             //Altera Valores usuários Banco de Dados
             Login::where('id_usuario', $id_usuario)->update(['login' => $log->login]);
             Login::where('id_usuario', $id_usuario)->update(['password' => md5($log->password)]);
             Login::where('id_usuario', $id_usuario)->update(['permissao' => $log->permissao]);
+            Login::where('id_usuario', $id_usuario)->update(['departamento' => $log->departamento]);
             Login::where('id_usuario', $id_usuario)->update(['ativo' => $log->ativo]);
 
             return redirect(route('configuracoes-usuarios'));
