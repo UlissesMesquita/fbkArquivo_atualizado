@@ -66,10 +66,18 @@
                 <div class="dropdown-content1">
                     <a href="{{route('configuracoes-usuarios')}}">Usuários</a>
                 </div>
-        
           
-        </div>
+            </div>
         @endif
+
+            <!-- Usuario -->
+            <div class="dropdown1">
+                <button class="dropbtn1">{{session()->get('usuario')}}</button>
+                <div class="dropdown-content1">
+                    <a href="#">Alterar Senha</a>
+                </div>
+            </div>
+
             <!-- Sair -->
             <div class="dropdownExit1">
             <a href="{{route('leave')}}">Sair</a>

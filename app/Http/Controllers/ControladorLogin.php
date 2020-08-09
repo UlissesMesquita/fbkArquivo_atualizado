@@ -37,6 +37,7 @@ class ControladorLogin extends Controller
         $consulta = Login::all();
 
 
+
         
 
         foreach($consulta as $dados) {
@@ -49,6 +50,7 @@ class ControladorLogin extends Controller
                         //Atribuir Permissão da  Sessão.
                             session()->put('permissao', $dados['permissao']);
                             session()->put('id_usuario', $dados['id_usuario']);
+                            session()->put('departamento', $dados['departamento']);
                             session()->put('usuario',$log->login);
                             //dd(session()->get('usuario'));
                                                     //Autentica usuário
@@ -213,7 +215,6 @@ class ControladorLogin extends Controller
             return redirect(route('index'));
         }
 
-        
 
     }
 }

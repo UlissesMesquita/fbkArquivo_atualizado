@@ -327,8 +327,9 @@
                     
 
                             <!-- Botão de Editar -->
-                            <a id="delete-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
-                        
+                            @if(session()->get('departamento') == $dashboard->Dep || session()->get('permissao') == 'Admin')
+                                <a id="delete-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
+                            @endif
                         
                             <!-- Botão de Apagar -->
 
@@ -337,12 +338,13 @@
                             @endif
 
                             <!-- Botão de Anexo -->
-  
-                            <form method="POST" action="{{route('visualizar_anexo')}}">
-                                @csrf 
-                                    <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
-                                    <button type="submit" class="btn btn-link" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></button>
-                            </form>
+                            @if(session()->get('departamento') == $dashboard->Dep || session()->get('permissao') == 'Admin')
+                                <form method="POST" action="{{route('visualizar_anexo')}}">
+                                    @csrf 
+                                        <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">
+                                        <button type="submit" class="btn btn-link" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></button>
+                                </form>
+                            @endif
                       
  
 
