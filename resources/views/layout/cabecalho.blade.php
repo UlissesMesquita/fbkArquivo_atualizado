@@ -74,7 +74,7 @@
             <div class="dropdown1">
                 <button class="dropbtn1">{{session()->get('usuario')}}</button>
                 <div class="dropdown-content1">
-                    <a href="#">Alterar Senha</a>
+                    <a href="{{route('alterar_senha')}}">Alterar Senha</a>
                 </div>
             </div>
 

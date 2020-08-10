@@ -217,4 +217,46 @@ class ControladorLogin extends Controller
 
 
     }
+
+    public function paginaAlteraSenha(Request $request) {
+        if(session()->get('autenticado') == 1) {
+
+
+            $id_usuario_sessao = session()->get('id_usuario');
+            //dd($id_usuario_sessao);
+            $edit = Login::find($id_usuario_sessao);
+            
+            return view('forms_edit/usuario_update', compact('edit'));
+            
+        }
+        else {
+            return redirect(route('index'));
+        }
+
+    }
+
+    public function alterarSenha(Request $request) {
+        if(session()->get('autenticado') == 1) {
+            $usuario_sessao = session()->get('id_usuario');
+            $log = Login::find($usuario_sessao);
+
+
+            //dd($log);
+            //$log->login = $request->input('login');
+            $log->password = $request->input('password');
+
+            //Altera Valores usuários Banco de Dados
+            //Login::where('id_usuario', $usuario_sessao)->update(['login' => $log->login]);
+            Login::where('id_usuario', $usuario_sessao)->update(['password' => md5($log->password)]);
+
+            return redirect(route('dashboard'));
+            
+        }
+        else {
+            return redirect(route('index'));
+        }
+
+    }
+
+
 }

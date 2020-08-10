@@ -23,6 +23,9 @@ Route::GET('/', 'ControladorLogin@index')->name('index');
 Route::GET('/45b38db', 'ControladorLogin@leave')->name('leave');
 Route::POST('/', 'ControladorLogin@create')->name('valida-login');
 
+Route::GET('/senha', 'ControladorLogin@paginaAlteraSenha')->name('paginaAlterarSenha');
+Route::PUT('/senha', 'ControladorLogin@alterarSenha')->name('alterar_senha');
+
 
 //Rotas Dashboard
 Route::GET('/dash', 'ControladorDashboard@index')->name('dashboard');
