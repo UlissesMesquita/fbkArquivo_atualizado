@@ -16,6 +16,13 @@
   <br>
     <div class="row">
 
+
+
+      <div class="col-md-3">
+        <label><b>Login:</b></label>
+        <label for="login"></label><input type="text" class="form-control" value="{{$edit->login}}" id="login" name="login" placeholder="" required disabled>
+      </div>
+
       <div class="col-md-3">
         <label><b>Senha:</b></label>
         <label for="password"></label><input type="password" class="form-control"  id="#" name="#" placeholder="" required>

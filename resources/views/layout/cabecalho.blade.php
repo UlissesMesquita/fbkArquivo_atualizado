@@ -70,18 +70,26 @@
             </div>
         @endif
 
-            <!-- Usuario -->
+            {{-- <!-- Usuario -->
             <div class="dropdown1">
                 <button class="dropbtn1">{{session()->get('usuario')}}</button>
                 <div class="dropdown-content1">
                     <a href="{{route('alterar_senha')}}">Alterar Senha</a>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Sair -->
             <div class="dropdownExit1">
-            <a href="{{route('leave')}}">Sair</a>
+                <a href="{{route('leave')}}">Sair</a>
             </div>
+
+            <!-- Alterar Senha -->
+            <div class="dropdownExit1">
+                <a href="{{route('alterar_senha')}}">Alterar Senha</a>
+            </div>
+
+            
+
 
             
         </div>
