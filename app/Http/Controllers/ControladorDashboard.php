@@ -192,7 +192,6 @@ class ControladorDashboard extends Controller
     public function manual () {
         if(session()->get('autenticado') == 1) {
 
-            //return view('forms_create/visualizar_manual');
             return redirect(url("storage/Manual_Sistema_SisFBK.pdf"));
             
         }
