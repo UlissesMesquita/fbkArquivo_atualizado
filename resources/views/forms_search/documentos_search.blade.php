@@ -81,21 +81,20 @@
                 </div>
 
                 <div class="col-md-2">
-                    <label><b>Departamento:</b> </label>
+                    <label><b>Departamento: *</b></label>
                     <label for="Dep"></label>
-                        <select id="Dep" name="Dep" class="form-control">
-                            <option selected value="">Escolha...</option>
+                        <select id="Dep" name="Dep" class="form-control" required>
+                            <option selected>Escolha...</option>
                             @if(isset($dep))
-
-                                {{-- @if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
-                                    @foreach($dep as $departamento)
-                                        <option value="{{$departamento->dep}}">{{$departamento->dep)}}</option>
-                                    @endforeach
-                                @endif             --}}
-                                        <option value="{{session()->get('departamento')}}">{{session()->get('departamento')}}</option>
-                            @endif    
+                                @if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
+                                @foreach($dep as $departamento)
+                                    <option value="{{$departamento->cad_departamento}}">{{$departamento->cad_departamento}}</option>
+                                @endforeach
+                                @endif
+                                    <option value="{{session()->get('departamento')}}">{{session()->get('departamento')}}</option>
+                                @endif
                             </select>
-
+                        </select>
                 </div>
 
                 <div class="col-md-2">
