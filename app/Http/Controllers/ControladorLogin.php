@@ -103,7 +103,7 @@ class ControladorLogin extends Controller
         //Mostra usuários Cadastrados na Tela de Cadastro
         $users = Login::all();
         $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
-        dd($dep);
+        //dd($dep);
         
         return view('login/usuarios', compact('users', 'dep'));
     }

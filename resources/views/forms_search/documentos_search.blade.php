@@ -86,12 +86,16 @@
                         <select id="Dep" name="Dep" class="form-control">
                             <option selected value="">Escolha...</option>
                             @if(isset($dep))
-                                @foreach($dep as $departamento)
-                                    <option value="{{$departamento->cad_departamento}}">{{$departamento->cad_departamento}}</option>
-                                @endforeach
-                                @endif
+
+                                {{-- @if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
+                                    @foreach($dep as $departamento)
+                                        <option value="{{$departamento->dep}}">{{$departamento->dep)}}</option>
+                                    @endforeach
+                                @endif             --}}
+                                        <option value="{{session()->get('departamento')}}">{{session()->get('departamento')}}</option>
+                            @endif    
                             </select>
-                        </select>
+
                 </div>
 
                 <div class="col-md-2">
@@ -327,7 +331,7 @@
                     
 
                             <!-- Botão de Editar -->
-                            @if(session()->get('departamento') == $dashboard->Dep || session()->get('permissao') == 'Admin')
+                            @if(session()->get('departamento') == $dashboard->Dep || session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
                                 <a id="delete-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
                             @endif
                         
@@ -338,7 +342,7 @@
                             @endif
 
                             <!-- Botão de Anexo -->
-                            @if(session()->get('departamento') == $dashboard->Dep || session()->get('permissao') == 'Admin')
+                            @if(session()->get('departamento') == $dashboard->Dep || session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
                                 <form method="POST" action="{{route('visualizar_anexo')}}">
                                     @csrf 
                                         <input type="hidden" name="id_codigo" value="{{$dashboard->id_codigo}}">

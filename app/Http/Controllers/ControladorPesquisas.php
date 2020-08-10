@@ -25,6 +25,8 @@ class ControladorPesquisas extends Controller
     {
 
         if(session()->get('autenticado') == 1) {
+            
+            
             $emit = Empresas_Emitentes::all();
             $dep = Departamentos::all();
             $dest = Empresas_Destinatarias::all();
@@ -33,9 +35,9 @@ class ControladorPesquisas extends Controller
             $job = Job::all();
             $criado = Cadastro_Documentos::orderBy('criado_por', 'ASC')->distinct()->whereNotNull('criado_por')->get('criado_por'); 
             $editado = Cadastro_Documentos::orderBy('editado_por','ASC')->distinct()->whereNotNull('editado_por')->get('editado_por');
-        
-
+            
             return view('forms_search/documentos_search', compact('tp_documento','emit', 'dest', 'dash', 'job', 'criado', 'editado', 'dep'));
+            
         }
         else {
             return redirect(route('index'));
@@ -106,7 +108,7 @@ class ControladorPesquisas extends Controller
                     $dash = Cadastro_Documentos::where($dados)->get();
                 }
                 else {
-                    $dash = Cadastro_Documentos::all();
+                    $dash = Cadastro_Documentos::where(session()->get('departamento'));
                 }
                 $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
                 $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
@@ -115,19 +117,18 @@ class ControladorPesquisas extends Controller
                 $job = Job::orderBy('nome_job', 'ASC')->get();
                 $contador = Cadastro_Documentos::where($dados)->whereNotNull('id_codigo')->count();
                 
+            
                 
+                    if ($contador == null && $dash == null && $dados == null) {
+                        $contador = 0;
+                        return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job','contador', 'dep'));
+                    }
+                    else {
 
-                if ($contador == null && $dash == null) {
-                    $contador = 0;
-                    return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job','contador', 'dep'));
+                        return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job', 'contador', 'dep'));
+                    }
                 }
-                else {
-
-                    return view('forms_search/documentos_search', compact('tp_documento', 'dest', 'emit', 'dash', 'job', 'contador', 'dep'));
-                }
-
                 
-        }
         else {
             return redirect(route('index'));
         }
