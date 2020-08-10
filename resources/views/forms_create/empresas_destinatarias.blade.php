@@ -21,7 +21,7 @@
 
     <!--Exibição de dados -->
 
-<h2> Lista de Empresas Destinatárias Cadadstradas </h2>
+<h2> Lista de Empresas Destinatárias Cadadastradas </h2>
 
     <!-- Mostra os dados no banco de dados -->
         <table class="table table-striped">
