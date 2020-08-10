@@ -15,9 +15,13 @@ class ControladorDepartamento extends Controller
      */
     public function index(){
 
-        $departamentos = Departamentos::all()->sortByDesc('id_departamento');
-        return view('forms_create.departamentos', compact('departamentos'));
-
+        if(session()->get('autenticado') == 1) {
+            $departamentos = Departamentos::orderBy('cad_departamento', 'ASC')->get();
+            return view('forms_create.departamentos', compact('departamentos'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**

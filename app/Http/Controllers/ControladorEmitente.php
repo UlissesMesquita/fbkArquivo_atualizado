@@ -21,7 +21,7 @@ class ControladorEmitente extends Controller
         
 
     if(session()->get('autenticado') == 1) {
-        $emit = Empresas_Emitentes::all()->sortByDesc('id_empresa_emitente');
+        $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
         return view('forms_create/empresas_emitentes', compact('emit'));
     }
     else {

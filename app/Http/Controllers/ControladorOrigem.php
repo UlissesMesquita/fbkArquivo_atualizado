@@ -18,7 +18,7 @@ class ControladorOrigem extends Controller
 
         if(session()->get('autenticado') == 1) {
             
-            $origem = Origens::all()->sortByDesc('id_origem');
+            $origem = Origens::orderBy('cad_origem', 'ASC')->get();
             return view('forms_create/origens', compact('origem'));
         }
         else {

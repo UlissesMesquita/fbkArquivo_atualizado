@@ -18,7 +18,7 @@ class ControladorTipoDocumento extends Controller
     public function index()
     {
         if(session()->get('autenticado') == 1) {
-            $tp_documento = TipoDocumento::all()->sortByDesc('id_tp_documento');
+            $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
             return view('forms_create/tp_documento', compact('tp_documento'));
         }
         else {

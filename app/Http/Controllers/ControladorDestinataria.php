@@ -15,7 +15,8 @@ class ControladorDestinataria extends Controller
     public function index()
     {
         if(session()->get('autenticado') == 1) {
-            $destinatarias = Empresas_Destinatarias::all()->sortByDesc('id_empresa_destinataria');
+
+            $destinatarias = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
             return view('forms_create/empresas_destinatarias', compact('destinatarias'));
         }
         else {
