@@ -31,10 +31,10 @@ class ControladorPesquisas extends Controller
             $dep = Departamentos::all();
             $dest = Empresas_Destinatarias::all();
             if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA') {
-                $dash = Cadastro_Documentos::all();
+                $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             }
             else {
-                $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
+                $dash = Cadastro_Documentos::all()->where('Dep' ,'=', session()->get('departamento'))->sortByDesc('id_codigo');
             }
 
             
