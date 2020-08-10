@@ -78,6 +78,9 @@
                 </div>
             </div> --}}
 
+
+
+
             <!-- Sair -->
             <div class="dropdownExit1">
                 <a href="{{route('leave')}}">Sair</a>
@@ -87,6 +90,14 @@
             <div class="dropdownExit1">
                 <a href="{{route('alterar_senha')}}">Alterar Senha</a>
             </div>
+
+           <!-- Instruções do Sistema -->
+            <div class="dropdownExit1">
+                <a href="{{route('manual')}}">Instruções Sistema</a>
+            </div>
+
+
+
 
             
 

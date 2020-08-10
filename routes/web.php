@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 //Rotas para Login
 Route::GET('/', 'ControladorLogin@index')->name('index');
 
+Route::GET('/manual', 'ControladorDashboard@manual')->name('manual');
+
 Route::GET('/45b38db', 'ControladorLogin@leave')->name('leave');
 Route::POST('/', 'ControladorLogin@create')->name('valida-login');
 
