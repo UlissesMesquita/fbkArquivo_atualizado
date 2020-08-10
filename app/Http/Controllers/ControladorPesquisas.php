@@ -30,7 +30,14 @@ class ControladorPesquisas extends Controller
             $emit = Empresas_Emitentes::all();
             $dep = Departamentos::all();
             $dest = Empresas_Destinatarias::all();
-            $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
+            if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA') {
+                $dash = Cadastro_Documentos::all();
+            }
+            else {
+                $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
+            }
+
+            
             $tp_documento = TipoDocumento::all();
             $job = Job::all();
             $criado = Cadastro_Documentos::orderBy('criado_por', 'ASC')->distinct()->whereNotNull('criado_por')->get('criado_por'); 
@@ -108,7 +115,7 @@ class ControladorPesquisas extends Controller
                     $dash = Cadastro_Documentos::where($dados)->get();
                 }
                 else {
-                    $dash = Cadastro_Documentos::where(session()->get('departamento'));
+                    $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
                 }
                 $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
                 $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
