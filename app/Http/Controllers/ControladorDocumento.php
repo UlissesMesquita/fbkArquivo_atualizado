@@ -125,7 +125,7 @@ class ControladorDocumento extends Controller
             }
 
 
-            return redirect(route('dashboard'));
+            return redirect(route('documentos_create'));
         }
         else {
             return redirect(route('index'));

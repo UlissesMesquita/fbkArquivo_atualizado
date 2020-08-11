@@ -160,7 +160,7 @@ class ControladorDashboard extends Controller
                 
                 ]);
 
-                return redirect(route('dashboard'));
+                return redirect(route('pesquisa_index'));
         }
         else {
             return redirect(route('index'));
