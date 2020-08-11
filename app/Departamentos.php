@@ -12,7 +12,7 @@ class Departamentos extends Model
         public $incrementing = true;
         public $table = 'departamentos';
 
-// public function caixa_departamento() {
-//         return $this->belongsTo(caixa_departamento::class); 
-//     }
+ public function caixa_departamento() {
+         return $this->belongsTo(caixa_departamento::class); 
+     }
 }

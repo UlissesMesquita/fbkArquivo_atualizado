@@ -14,7 +14,7 @@ class Caixa_Departamento extends Model
     public $timestamps = false;
 
 
-// public function departamentos() {
-//     return $this->hasMany('App\Departamentos', 'id_caixa_departamento'); 
-// }
+    public function departamentos() {
+        return $this->hasMany('App\Departamentos', 'id_caixa_departamento'); 
+    }
 }

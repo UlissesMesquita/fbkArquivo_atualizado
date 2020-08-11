@@ -16,11 +16,10 @@ class CreateCaixaDepartamentosTable extends Migration
         Schema::create('caixa__departamentos', function (Blueprint $table) {
             $table->bigIncrements('id_caixa');
 
+            $table->bigInteger('id_caixa_departamento')->unsigned();
+            $table->foreign('id_caixa_departamento')->references('id_departamento')->on('departamentos')->onDelete('cascade');
+
             $table->string('departamento_caixa');
-            // $table->foreign('id_caixa_departamento')->references('id_departamento')->on('departamentos')->onDelete('cascade');
-
-
-            $table->string('nome_caixa');
             $table->string('status')->default('Aberta');
         });
     }
