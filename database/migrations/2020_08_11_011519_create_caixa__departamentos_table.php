@@ -19,7 +19,7 @@ class CreateCaixaDepartamentosTable extends Migration
             $table->bigInteger('id_caixa_departamento')->unsigned();
             $table->foreign('id_caixa_departamento')->references('id_departamento')->on('departamentos')->onDelete('cascade');
 
-            $table->string('departamento_caixa');
+            //$table->string('departamento_caixa');
             $table->string('status')->default('Aberta');
         });
     }

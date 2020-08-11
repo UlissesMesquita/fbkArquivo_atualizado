@@ -16,25 +16,23 @@
   @csrf
 <div class="row">
 
-
-  <div class="col-md-3">
-    <label><b>Nome da Caixa: *</b></label>
-    <label for="nome_caixa"></label><input type="text" class="form-control" id="nome_caixa" name="nome_caixa" maxlength="12" placeholder="" required onkeyup="maiuscula(this)">
-  </div>
-
-  <div class="col-md-4">
+  <div class="col-md-2">
     <label><b>Departamento: *</b></label>
-    <label for="id_departamento"></label>
-        <select id="cad_departamento" name="cad_departamento" class="form-control" required>
+    <label for="Dep"></label>
+        <select id="id_departamento" name="id_departamento" class="form-control" required>     
             <option selected>Escolha...</option>
             @if(isset($departamentos))
+                {{-- @if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA') --}}
                 @foreach($departamentos as $departamento)
-                    <option value="{{$departamento->cad_departamento}}">{{$departamento->cad_departamento}}</option>
+                    <option value="{{$departamento->id_departamento}}">{{$departamento->cad_departamento}}</option>
                 @endforeach
+                {{-- @endif --}}
+                    {{-- <option selected value="{{session()->get('departamento')}}" >{{session()->get('departamento')}}</option> --}}
                 @endif
             </select>
         </select>
-  </div>
+</div>
+
 
 
 </div>
@@ -51,7 +49,6 @@
   <thead>
       <tr>
           <th scope="col">#</th>
-          <th scope="col">Nome Caixa</th>
           <th scope="col">Departamento</th>
           <th scope="col">Ação</th>
       </tr>
@@ -60,12 +57,13 @@
   
   {{csrf_field()}}
 
+
       @foreach($caixas as $caixa)
 
           <tr>
               <th scope="row">{{$caixa->id_caixa}} </th>
-              <th scope="row">{{$caixa->nome_caixa}}</th>
-              <th scope="row">{{$caixa->departamento_caixa}}</td>
+              <th scope="row">{{ $caixa->id_caixa_departamento}}</th>
+
 
 
              <!-- Botões de Ação-->
