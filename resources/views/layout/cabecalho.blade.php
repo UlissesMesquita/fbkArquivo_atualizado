@@ -47,6 +47,7 @@
                         <a href="{{route(('destinataria_index'))}}">Empresas Destinatárias</a>
                         <a href="{{route('origem_index')}}">Origens</a>
                         <a href="{{route('departamento_index')}}">Departamentos</a>
+                        <a href="{{route('caixas')}}">Caixas</a>
                     </div>
             </div>
 

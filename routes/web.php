@@ -95,6 +95,6 @@ Route::POST('/config/i3173637da336815574f515casdf7a28095c880d4d37823455c99928cac
 Route::GET('/config/2o973637da33681557asdas22f7a28095c880d4d37823455c99928c1a3c3e4b680/edit/{id}', 'ControladorLogin@edit')->name('usuarios-edit');
 Route::PUT('/config/is973637da3asdasd15c222f7a28095c880d4d37823455c99928c1a2680/update/{id}', 'ControladorLogin@update')->name('usuarios-update');
 
-
-
+//Rotas para Caixas
+Route::GET('/caixas','ControladorCaixasDepartamento@index')->name('caixas');
 
