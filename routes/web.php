@@ -97,4 +97,11 @@ Route::PUT('/config/is973637da3asdasd15c222f7a28095c880d4d37823455c99928c1a2680/
 
 //Rotas para Caixas
 Route::GET('/caixas','ControladorCaixasDepartamento@index')->name('caixas');
+Route::POST('/caixas/novo', 'ControladorCaixasDepartamento@store')->name('nova_caixa');
 
+Route::GET('/caixas/abrir/{id}', 'ControladorCaixasDepartamento@abrirCaixa')->name('abrir_caixa');
+Route::GET('/caixas/fechar/{id}', 'ControladorCaixasDepartamento@fecharCaixa')->name('fechar_Caixa');
+
+Route::GET('/caixas/delete/{id}', 'ControladorCaixasDepartamento@destroy')->name('caixa_delete');
+Route::GET('/caixas/edit/{id}', 'ControladorCaixasDepartamento@edit')->name('caixa_edit');
+Route::PUT('/caixas/update/{id}', 'ControladorCaixasDepartamento@update')->name('caixa_update');

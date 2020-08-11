@@ -11,9 +11,10 @@ class Caixa_Departamento extends Model
     protected $primaryKey = 'caixa';
     public $incrementing = true;
     public $table = 'caixa__departamentos';
+    public $timestamps = false;
 
 
-public function departamentos() {
-    return $this->hasMany('App\Departamentos', 'id_caixa_departamento'); 
-}
+// public function departamentos() {
+//     return $this->hasMany('App\Departamentos', 'id_caixa_departamento'); 
+// }
 }
