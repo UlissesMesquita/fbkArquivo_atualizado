@@ -132,18 +132,18 @@ class ControladorCaixasDepartamento extends Controller
 
      public function abrirCaixa($id_caixa) {
          if(session()->get('autenticado') == 1) {
-             $caixa_aberta = Caixa_Departamento::where('status', '=', 'Aberta')->get();
-             //dd($caixa_aberta->count());
+            //  $caixa_aberta = Caixa_Departamento::where('status', '=', 'Aberta')->get();
+            //  //dd($caixa_aberta->count());
 
-             if ($caixa_aberta->count() >= 1) {
-                 echo "Feche a caixa que está aberta para poder abrir outra caixa";
-                 return redirect(route('caixas'));
-             }
-             else {
+            //  if ($caixa_aberta->count() >= 1) {
+            //      echo "Feche a caixa que está aberta para poder abrir outra caixa";
+            //      return redirect(route('caixas'));
+            //  }
+            //  else {
                  Caixa_Departamento::where('id_caixa', $id_caixa)->update(['status' => 'Aberta']);
                  return redirect(route('caixas'));
-             }
-         }
+            //  }
+          }
          else {
              return redirect(route('index'));
          }
