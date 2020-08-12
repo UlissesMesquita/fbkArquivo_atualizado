@@ -20,15 +20,8 @@ class ControladorCaixasDepartamento extends Controller
 
 
 
-
-
             $departamentos = Departamentos::orderBy('cad_departamento', 'ASC')->get();
 
-
-
-            // $caixas = Caixa_Departamento::orderBy('id_departamento', 'ASC')->orderBy('id_caixa', 'ASC')->where('status', '=', 'Aberta')->distinct('id_departamento')->get();
-            //dd($departamentos[0]->caixa_departamento);
-            // $caixas_fechadas = Caixa_Departamento::orderBy('id_departamento', 'ASC')->where('status', '=', 'Fechada')->get();
             
             return view('forms_create.caixas', compact('departamentos'));
         }
@@ -126,36 +119,36 @@ class ControladorCaixasDepartamento extends Controller
         //
     }
 
-    // public function fecharCaixa($id_caixa) {
-    //    // dd($id_caixa);
-    //    if(session()->get('autenticado') == 1) {
-    //         Caixa_Departamento::where('id_caixa', $id_caixa)->update(['status' => 'Fechada']);
-    //         return redirect(route('caixas'));
-    //    }
-    //    else {
-    //         return redirect(route('index'));
-    //     }
-    // }
+     public function fecharCaixa($id_caixa) {
+        // dd($id_caixa);
+        if(session()->get('autenticado') == 1) {
+             Caixa_Departamento::where('id_caixa', $id_caixa)->update(['status' => 'Fechada']);
+             return redirect(route('caixas'));
+        }
+        else {
+             return redirect(route('index'));
+         }
+     }
 
-    // public function abrirCaixa($id_caixa) {
-    //     if(session()->get('autenticado') == 1) {
-    //         $caixa_aberta = Caixa_Departamento::where('status', '=', 'Aberta')->get();
-    //         //dd($caixa_aberta->count());
+     public function abrirCaixa($id_caixa) {
+         if(session()->get('autenticado') == 1) {
+             $caixa_aberta = Caixa_Departamento::where('status', '=', 'Aberta')->get();
+             //dd($caixa_aberta->count());
 
-    //         if ($caixa_aberta->count() >= 1) {
-    //             echo "Feche a caixa que está aberta para poder abrir outra caixa";
-    //             return redirect(route('caixas'));
-    //         }
-    //         else {
-    //             Caixa_Departamento::where('id_caixa', $id_caixa)->update(['status' => 'Aberta']);
-    //             return redirect(route('caixas'));
-    //         }
-    //     }
-    //     else {
-    //         return redirect(route('index'));
-    //     }
+             if ($caixa_aberta->count() >= 1) {
+                 echo "Feche a caixa que está aberta para poder abrir outra caixa";
+                 return redirect(route('caixas'));
+             }
+             else {
+                 Caixa_Departamento::where('id_caixa', $id_caixa)->update(['status' => 'Aberta']);
+                 return redirect(route('caixas'));
+             }
+         }
+         else {
+             return redirect(route('index'));
+         }
           
-    // }
+     }
 
 }
 

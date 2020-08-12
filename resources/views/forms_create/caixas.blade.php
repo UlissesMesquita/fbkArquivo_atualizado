@@ -40,142 +40,74 @@
   <br><button id="cadastrar" name="Cadastrar" class="btn btn-success btn-lg btn-block" type="Submit"> Salvar</button><br>
 </form>
 
-
 <!--Exibição de dados -->
-<h2> Caixas Abertas</h2>
+
+
+
+@foreach($departamentos as $departamento )
+{{-- @if($departamento == $departamento->cad_departamento) --}}
+<h2> {{$departamento->cad_departamento}}</h2>
 
 <!-- Mostra os dados no banco de dados -->
 <table class="table table-striped">
   <thead>
       <tr>
 
-          <th scope="col">Id_Caixa</th>
-          <th scope="col">ID</th>
+          <th scope="col">Nº Caixa</th>
+          <th scope="col">Status</th>
           <th scope="col">Departamento</th>
           <th scope="col">Ação</th>
 
       </tr>
   </thead>
 
-  
   {{csrf_field()}}
 
-
-    @php
-    
-    $aux = '';
-    
-    @endphp
-
-    @foreach($departamentos as $departamento)
-      @foreach($departamento->caixa_departamento as $caixa)
-      @if ($aux <> $caixa->id_departamento)
-
-      @php
-          $aux = $caixa->id_departamento;
-          //dd($aux);
-          $linha = 1;
-      @endphp
-
-      @else
-      @php 
-          $linha++;
-      @endphp
-      @endif
-      @if($caixa->status == 'Aberta')
-
-
+        @php
+        $aux = '';
+        @endphp
+        @foreach($departamentos as $departamento)
+        @foreach($departamento->caixa_departamento as $caixa)
+        @if ($aux <> $caixa->id_departamento)
+        @php
+            $aux = $caixa->id_departamento;
+            //dd($aux);
+            $linha = 1;
+        @endphp
+        @else
+        @php 
+            $linha++;
+        @endphp
+        @endif
+        {{-- @if($caixa->status == 'Aberta') --}}
 
           <tr>
-           
-
-              <th scope="row">{{$caixa->id_caixa}} </th>
               <th scope="row"> {{$linha }} </th>
-              
+              <th scope="row">{{ $caixa->status}}</th>
               <th scope="row">{{ $departamento->cad_departamento}}</th>
-
-
 
              <!-- Botões de Ação-->
               <td>
                   <span></span>
                   <!-- Botão de Travar Caixa -->
                   <a class="fas fa-lock" href="/caixas/fechar/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente fechar a Caixa?')" method="GET"></a>
-
+                  <!-- Botão de Destravar Caixa -->
+                  <a class="fas fa-unlock" href="/caixas/abrir/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente Abrir a Caixa?')" method="GET"></a>
                   <!-- Botão de Editar -->
                   <a class="far fa-edit" href="{{route('departamento_edit', $caixa->id_caixa)}}" method="GET"></a>
                   <!-- Botão de Apagar -->
                   <a class="fas fa-trash" href="/departamento/delete/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
               </td>
           </tr>
-          @endif
+          {{-- @endif --}}
           @endforeach
       @endforeach
 </table>
 
-<br>
-<br>
-
-<h2> Caixas Fechadas</h2>
-<table class="table table-striped">
-  <thead>
-      <tr>
-          <th scope="col">Id_Caixa</th>
-          <th scope="col">ID</th>
-          <th scope="col">Departamento</th>
-          <th scope="col">Ação</th>
-      </tr>
-  </thead>
-
-  
-  {{csrf_field()}}
-
-  @php
-    $aux = 0;    
-  @endphp
-
-        @foreach($departamentos as $departamento)
-      @foreach($departamento->caixa_departamento as $caixa)
-      @if ($aux <> $caixa->id_departamento)
-
-      @php
-          $aux = $caixa->id_departamento;
-          //dd($aux);
-          $linha = 1;
-      @endphp
-
-      @else
-      @php 
-          $linha++;
-      @endphp
-      @endif
-      @if($caixa->status == 'Fechada')
-
-
-
-          <tr>
-              
-            <th scope="row">{{$caixa->id_caixa}} </th>
-            <th scope="row"> {{$linha }} </th>
-            
-            <th scope="row">{{ $departamento->cad_departamento}}</th>
-
-
-             <!-- Botões de Ação-->
-              <td>
-                  <span></span>
-                  <!-- Botão de Destravar Caixa -->
-              <a class="fas fa-lock-open" href="/caixas/abrir/{{$caixa->id_caixa}}/{{$caixa->departamento}}" onclick="return confirm('Deseja realmente abrir a Caixa?')" method="GET"></a>
-
-                  <!-- Botão de Editar -->
-                  <a class="far fa-edit" href="{{route('departamento_edit', $caixa->id_caixa)}}" method="GET"></a>
-                  <!-- Botão de Apagar -->
-                  <a class="fas fa-trash" href="/departamento/delete/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
-              </td>
-          </tr>
-          @endif
-      @endforeach
 @endforeach
-    </table>
+<br>
+<br>
 
-@endsection
+
+
+    @endsection
