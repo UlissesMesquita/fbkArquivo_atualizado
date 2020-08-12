@@ -49,10 +49,11 @@
   <thead>
       <tr>
 
-          <th scope="col">php</th>
-          <th scope="col">#</th>
+          <th scope="col">Id_Caixa</th>
+          <th scope="col">ID</th>
           <th scope="col">Departamento</th>
           <th scope="col">Ação</th>
+
       </tr>
   </thead>
 
@@ -88,8 +89,9 @@
           <tr>
            
 
-                <th scope="row"> {{$linha }} </th>
               <th scope="row">{{$caixa->id_caixa}} </th>
+              <th scope="row"> {{$linha }} </th>
+              
               <th scope="row">{{ $departamento->cad_departamento}}</th>
 
 
@@ -118,10 +120,10 @@
 <table class="table table-striped">
   <thead>
       <tr>
-        <th scope="col">php</th>
-        <th scope="col">#</th>
-        <th scope="col">Departamento</th>
-        <th scope="col">Ação</th>
+          <th scope="col">Id_Caixa</th>
+          <th scope="col">ID</th>
+          <th scope="col">Departamento</th>
+          <th scope="col">Ação</th>
       </tr>
   </thead>
 
@@ -152,9 +154,10 @@
 
 
           <tr>
-
-            <th scope="row"> {{$linha }} </th>
+              
             <th scope="row">{{$caixa->id_caixa}} </th>
+            <th scope="row"> {{$linha }} </th>
+            
             <th scope="row">{{ $departamento->cad_departamento}}</th>
 
 
