@@ -91,15 +91,15 @@
                   <span></span>
                   @if($caixa->status == 'Aberta')
                   <!-- Botão de Travar Caixa -->
-                  <a class="fas fa-lock" href="/caixas/fechar/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente fechar a Caixa?')" method="GET"></a>
+                  <a class="fas fa-lock fa-2x" href="/caixas/fechar/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente fechar a Caixa?')" method="GET"></a>
                   @else
                   <!-- Botão de Destravar Caixa -->
-                  <a class="fas fa-unlock" href="/caixas/abrir/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente Abrir a Caixa?')" method="GET"></a>
+                  <a class="fas fa-unlock fa-2x" href="/caixas/abrir/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente Abrir a Caixa?')" method="GET"></a>
                   @endif
                   <!-- Botão de Editar -->
-                  <a class="far fa-edit" href="{{route('departamento_edit', $caixa->id_caixa)}}" method="GET"></a>
+                  <a class="far fa-edit fa-2x" href="{{route('departamento_edit', $caixa->id_caixa)}}" method="GET"></a>
                   <!-- Botão de Apagar -->
-                  <a class="fas fa-trash" href="/departamento/delete/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
+                  <a class="fas fa-trash fa-2x" href="/departamento/delete/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
               </td>
           </tr>
           {{-- @endif --}}
