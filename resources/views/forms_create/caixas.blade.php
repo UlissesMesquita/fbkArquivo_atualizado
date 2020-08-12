@@ -44,7 +44,7 @@
 
 
 
-@foreach($departamentos as $departamento )
+
 {{-- @if($departamento == $departamento->cad_departamento) --}}
 <h2> {{$departamento->cad_departamento}}</h2>
 
@@ -107,7 +107,6 @@
       @endforeach
 </table>
 
-@endforeach
 <br>
 <br>
 
