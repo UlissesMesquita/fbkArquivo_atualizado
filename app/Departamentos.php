@@ -13,6 +13,6 @@ class Departamentos extends Model
         public $table = 'departamentos';
 
  public function caixa_departamento() {
-         return $this->belongsTo(caixa_departamento::class); 
+         return $this->hasMany('App\Caixa_Departamento', 'id_departamento')->orderBy('id_caixa','ASC'); 
      }
 }

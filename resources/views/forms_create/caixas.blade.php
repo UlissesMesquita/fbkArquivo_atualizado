@@ -48,6 +48,8 @@
 <table class="table table-striped">
   <thead>
       <tr>
+
+          <th scope="col">php</th>
           <th scope="col">#</th>
           <th scope="col">Departamento</th>
           <th scope="col">Ação</th>
@@ -58,11 +60,37 @@
   {{csrf_field()}}
 
 
-      @foreach($caixas as $caixa)
+    @php
+    
+    $aux = '';
+    
+    @endphp
+
+    @foreach($departamentos as $departamento)
+      @foreach($departamento->caixa_departamento as $caixa)
+      @if ($aux <> $caixa->id_departamento)
+
+      @php
+          $aux = $caixa->id_departamento;
+          //dd($aux);
+          $linha = 1;
+      @endphp
+
+      @else
+      @php 
+          $linha++;
+      @endphp
+      @endif
+      @if($caixa->status == 'Aberta')
+
+
 
           <tr>
+           
+
+                <th scope="row"> {{$linha }} </th>
               <th scope="row">{{$caixa->id_caixa}} </th>
-              <th scope="row">{{ $caixa->id_caixa_departamento}}</th>
+              <th scope="row">{{ $departamento->cad_departamento}}</th>
 
 
 
@@ -78,6 +106,8 @@
                   <a class="fas fa-trash" href="/departamento/delete/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
               </td>
           </tr>
+          @endif
+          @endforeach
       @endforeach
 </table>
 
@@ -88,22 +118,44 @@
 <table class="table table-striped">
   <thead>
       <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nome Caixa</th>
-          <th scope="col">Departamento</th>
-          <th scope="col">Ação</th>
+        <th scope="col">php</th>
+        <th scope="col">#</th>
+        <th scope="col">Departamento</th>
+        <th scope="col">Ação</th>
       </tr>
   </thead>
 
   
   {{csrf_field()}}
 
-      @foreach($caixas_fechadas as $caixa)
+  @php
+    $aux = 0;    
+  @endphp
+
+        @foreach($departamentos as $departamento)
+      @foreach($departamento->caixa_departamento as $caixa)
+      @if ($aux <> $caixa->id_departamento)
+
+      @php
+          $aux = $caixa->id_departamento;
+          //dd($aux);
+          $linha = 1;
+      @endphp
+
+      @else
+      @php 
+          $linha++;
+      @endphp
+      @endif
+      @if($caixa->status == 'Fechada')
+
+
 
           <tr>
-              <th scope="row">{{$caixa->id_caixa}} </th>
-              <th scope="row">{{$caixa->nome_caixa}}</th>
-              <th scope="row">{{$caixa->departamento_caixa}}</td>
+
+            <th scope="row"> {{$linha }} </th>
+            <th scope="row">{{$caixa->id_caixa}} </th>
+            <th scope="row">{{ $departamento->cad_departamento}}</th>
 
 
              <!-- Botões de Ação-->
@@ -118,7 +170,9 @@
                   <a class="fas fa-trash" href="/departamento/delete/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
               </td>
           </tr>
+          @endif
       @endforeach
-</table>
+@endforeach
+    </table>
 
 @endsection

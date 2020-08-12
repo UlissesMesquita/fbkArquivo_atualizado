@@ -26,10 +26,11 @@ class ControladorCaixasDepartamento extends Controller
 
 
 
-            $caixas = Caixa_Departamento::orderBy('id_caixa_departamento', 'ASC')->where('status', '=', 'Aberta')->distinct('id_caixa_departamento')->get();
-            //dd($caixas);
-            $caixas_fechadas = Caixa_Departamento::orderBy('id_caixa_departamento', 'ASC')->where('status', '=', 'Fechada')->get();
-            return view('forms_create.caixas', compact('departamentos', 'caixas', 'caixas_fechadas'));
+            // $caixas = Caixa_Departamento::orderBy('id_departamento', 'ASC')->orderBy('id_caixa', 'ASC')->where('status', '=', 'Aberta')->distinct('id_departamento')->get();
+            //dd($departamentos[0]->caixa_departamento);
+            // $caixas_fechadas = Caixa_Departamento::orderBy('id_departamento', 'ASC')->where('status', '=', 'Fechada')->get();
+            
+            return view('forms_create.caixas', compact('departamentos'));
         }
         else {
             return redirect(route('index'));
@@ -63,12 +64,12 @@ class ControladorCaixasDepartamento extends Controller
             $caixa = new Caixa_Departamento();
 
 
-            $caixa->id_caixa_departamento = $request->input('id_departamento');
+            $caixa->id_departamento = $request->input('id_departamento');
          
             
             //$fileUpload->id_upload_codigo = $doc->id_codigo;
 
-            $caixa->id_caixa_departamento = $caixa->id_caixa_departamento;
+            $caixa->id_departamento = $caixa->id_departamento;
 
 
             $caixa->save();
