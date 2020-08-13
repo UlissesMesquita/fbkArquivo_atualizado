@@ -47,6 +47,8 @@
     @endphp
     @foreach($departamentos as $departamento)
 <br>
+<div class="row">
+    <div class="col">
     <h2> {{$departamento->cad_departamento}}</h2>
 
 <!-- Mostra os dados no banco de dados -->
@@ -104,29 +106,12 @@
         {{-- @endif --}}
     @endforeach
 </table>
+</div>
+</div>
 @endforeach
 
 
 
-<div class="container">
-
-    <div class="row">
-
-      <div class="col-sm">
-        One of three columns
-      </div>
-
-      <div class="col-sm">
-        One of three columns
-      </div>
-
-      <div class="col-sm">
-        One of three columns
-      </div>
-
-    </div>
-    
-  </div>
 
 
 
