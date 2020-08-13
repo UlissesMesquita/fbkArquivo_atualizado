@@ -45,8 +45,14 @@
 
 
 
-{{-- @if($departamento == $departamento->cad_departamento) --}}
-<h2> {{$departamento->cad_departamento}}</h2>
+
+
+        @php
+        $aux = '';
+        @endphp
+        @foreach($departamentos as $departamento)
+
+        <h2> {{$departamento->cad_departamento}}</h2>
 
 <!-- Mostra os dados no banco de dados -->
 <table class="table table-striped">
@@ -62,11 +68,7 @@
   </thead>
 
   {{csrf_field()}}
-
-        @php
-        $aux = '';
-        @endphp
-        @foreach($departamentos as $departamento)
+        
         @foreach($departamento->caixa_departamento as $caixa)
         @if ($aux <> $caixa->id_departamento)
         @php
@@ -90,11 +92,11 @@
               <td>
                   <span></span>
                   @if($caixa->status == 'Aberta')
-                  <!-- Botão de Travar Caixa -->
-                  <a class="fas fa-unlock fa-2x" href="/caixas/fechar/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente fechar a Caixa?')" method="GET"></a>
+                    <!-- Botão de Travar Caixa -->
+                    <a class="fas fa-unlock fa-2x" href="/caixas/fechar/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente fechar a Caixa?')" method="GET"></a>
                   @else
-                  <!-- Botão de Destravar Caixa -->
-                  <a class="fas fa-lock fa-2x" href="/caixas/abrir/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente Abrir a Caixa?')" method="GET"></a>
+                    <!-- Botão de Destravar Caixa -->
+                    <a class="fas fa-lock fa-2x" href="/caixas/abrir/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente Abrir a Caixa?')" method="GET"></a>
                   @endif
                   <!-- Botão de Editar -->
                   <a class="far fa-edit fa-2x" href="{{route('departamento_edit', $caixa->id_caixa)}}" method="GET"></a>
@@ -102,10 +104,12 @@
                   <a class="fas fa-trash fa-2x" href="/departamento/delete/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
               </td>
           </tr>
+        
           {{-- @endif --}}
           @endforeach
+        </table>
       @endforeach
-</table>
+
 
 <br>
 <br>
