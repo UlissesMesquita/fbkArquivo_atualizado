@@ -37,31 +37,27 @@
 
 </div>
 
-  <br><button id="cadastrar" name="Cadastrar" class="btn btn-success btn-lg btn-block" type="Submit"> Salvar</button><br>
+  <br><button id="cadastrar" name="Cadastrar" class="btn btn-success btn-lg btn-block" type="Submit"> Criar</button><br>
 </form>
 
+
 <!--Exibição de dados -->
-
-
-
-
-
-
-        @php
-        $aux = '';
-        @endphp
-        @foreach($departamentos as $departamento)
-
-        <h2> {{$departamento->cad_departamento}}</h2>
+    @php
+    $aux = '';
+    @endphp
+    @foreach($departamentos as $departamento)
+<br>
+    <h2> {{$departamento->cad_departamento}}</h2>
 
 <!-- Mostra os dados no banco de dados -->
 <table class="table table-striped">
   <thead>
+    
       <tr>
 
           <th scope="col">Nº Caixa</th>
           <th scope="col">Status</th>
-          <th scope="col">Departamento</th>
+          
           <th scope="col">Ação</th>
 
       </tr>
@@ -69,24 +65,24 @@
 
   {{csrf_field()}}
         
-        @foreach($departamento->caixa_departamento as $caixa)
-        @if ($aux <> $caixa->id_departamento)
-        @php
-            $aux = $caixa->id_departamento;
-            //dd($aux);
-            $linha = 1;
-        @endphp
-        @else
-        @php 
-            $linha++;
-        @endphp
-        @endif
-        {{-- @if($caixa->status == 'Aberta') --}}
+    @foreach($departamento->caixa_departamento as $caixa)
+    @if ($aux <> $caixa->id_departamento)
+    @php
+        $aux = $caixa->id_departamento;
+        //dd($aux);
+        $linha = 1;
+    @endphp
+    @else
+    @php 
+        $linha++;
+    @endphp
+    @endif
+    {{-- @if($caixa->status == 'Aberta') --}}
 
           <tr>
               <th scope="row"> {{$linha }} </th>
               <th scope="row">{{ $caixa->status}}</th>
-              <th scope="row">{{ $departamento->cad_departamento}}</th>
+              
 
              <!-- Botões de Ação-->
               <td>
@@ -104,16 +100,34 @@
                   <a class="fas fa-trash fa-2x" href="/departamento/delete/{{$caixa->id_caixa}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
               </td>
           </tr>
-        
-          {{-- @endif --}}
-          @endforeach
-        </table>
-      @endforeach
-
-
-<br>
-<br>
+        </div>
+        {{-- @endif --}}
+    @endforeach
+</table>
+@endforeach
 
 
 
-    @endsection
+<div class="container">
+
+    <div class="row">
+
+      <div class="col-sm">
+        One of three columns
+      </div>
+
+      <div class="col-sm">
+        One of three columns
+      </div>
+
+      <div class="col-sm">
+        One of three columns
+      </div>
+
+    </div>
+    
+  </div>
+
+
+
+@endsection
