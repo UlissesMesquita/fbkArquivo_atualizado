@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
+use Illuminate\Database\Eloquent\Collection;
 
 class ControladorPesquisas extends Controller
 {
@@ -34,7 +35,7 @@ class ControladorPesquisas extends Controller
                 $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             }
             else {
-                $dash = Cadastro_Documentos::all()->where('Dep' ,'=', session()->get('departamento'))->sortByDesc('id_codigo');
+                $dash = Cadastro_Documentos::paginate(5)->where('Dep' ,'=', session()->get('departamento'))->sortByDesc('id_codigo');
             }
 
             

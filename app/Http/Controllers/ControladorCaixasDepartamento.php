@@ -93,7 +93,7 @@ class ControladorCaixasDepartamento extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**
@@ -105,7 +105,7 @@ class ControladorCaixasDepartamento extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -116,7 +116,16 @@ class ControladorCaixasDepartamento extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(session()->get('autenticado') == 1) {
+            //dd($id);
+            $caixa = Caixa_Departamento::where('id_caixa', '=', $id);
+            //dd($caixa);
+            $caixa->delete();
+            return redirect(route('caixas'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
      public function fecharCaixa($id_caixa) {
