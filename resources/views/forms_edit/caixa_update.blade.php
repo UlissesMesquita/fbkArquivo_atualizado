@@ -19,7 +19,7 @@
             <label for="Dep"></label>
                 <select id="Dep" name="Dep" class="form-control" required>
                     @if(isset($caixa))
-                                <option value="{{$caixa[0]->id_caixa}}">{{$caixa[0]->cad_departamento}}</option>
+                                <option selected value="{{$caixa[0]->id_caixa}}">{{$caixa[0]->cad_departamento}}</option>
                             @foreach($dep as $departamento)
                                 <option value="{{$departamento->id_departamento}}">{{$departamento->cad_departamento}}</option>
                             @endforeach

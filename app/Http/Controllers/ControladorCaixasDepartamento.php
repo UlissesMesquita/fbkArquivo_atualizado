@@ -123,12 +123,11 @@ class ControladorCaixasDepartamento extends Controller
     {
         if(session()->get('autenticado') == 1) {
 
-            
-            $id = new Caixa_Departamento();
-            $id_dep->id_departamento = $request->input('Dep');
-            dd($id_dep->id_departamento);
 
-            Caixa_Departamento::where('id_caixa', $id)->update(['id_departamento' => $id_dep->id_departamento]);
+            $dep = new Departamentos();
+            $dep->id_departamento = $request->input('Dep');
+
+            Caixa_Departamento::where('id_caixa', $id)->update(['id_departamento' => $dep->id_departamento]);
             return redirect(route('caixas'));
         }
         else {
