@@ -47,7 +47,9 @@
                         <a href="{{route(('destinataria_index'))}}">Empresas Destinatárias</a>
                         <a href="{{route('origem_index')}}">Origens</a>
                         <a href="{{route('departamento_index')}}">Departamentos</a>
+                    @if(session()->get('permissao') == 'Admin')
                         <a href="{{route('caixas')}}">Caixas</a>
+                    @endif
                     </div>
             </div>
 
@@ -64,11 +66,12 @@
             <!-- Configurações -->
             <div class="dropdown1">
             <button class="dropbtn1">Configurações</button>
+                <!-- Usuarios -->
                 <div class="dropdown-content1">
                     <a href="{{route('configuracoes-usuarios')}}">Usuários</a>
                 </div>
-          
             </div>
+            
         @endif
 
             {{-- <!-- Usuario -->

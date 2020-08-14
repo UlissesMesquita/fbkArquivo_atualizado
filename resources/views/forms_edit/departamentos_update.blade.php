@@ -10,6 +10,7 @@
 
 @section('conteudo')
     <form action="{{route('departamento_update', $dep_edit->id_departamento)}}" method="POST">
+        
         @method('PUT')
         @csrf
         <div class=""><br>

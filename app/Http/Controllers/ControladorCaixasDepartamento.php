@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Departamentos;
 use App\Caixa_Departamento;
+use Illuminate\Support\Facades\DB;
 
 class ControladorCaixasDepartamento extends Controller
 {
@@ -56,11 +57,7 @@ class ControladorCaixasDepartamento extends Controller
             
             $caixa = new Caixa_Departamento();
 
-
             $caixa->id_departamento = $request->input('id_departamento');
-         
-            
-            //$fileUpload->id_upload_codigo = $doc->id_codigo;
 
             $caixa->id_departamento = $caixa->id_departamento;
 
@@ -95,13 +92,16 @@ class ControladorCaixasDepartamento extends Controller
     {
         if(session()->get('autenticado') == 1) {
             
-            //$id_departamento = Caixa_Departamento::where('id_documentos', '=', $id);
 
-            $dep_edit = Departamentos::all();
-            //dd($dep_edit);
-            
+        $caixas = DB::table('caixa__departamentos')
+            ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+            ->select('id_caixa', 'cad_departamento')
+            ->orderBy('cad_departamento', 'ASC')
+            ->get();
+ 
+
     
-            return view('forms_edit/caixa_update', compact('dep_edit'));
+            return view('forms_edit/caixa_update', compact('caixas'));
         }
         else {
             return redirect(route('index'));
@@ -118,10 +118,12 @@ class ControladorCaixasDepartamento extends Controller
     public function update(Request $request, $id)
     {
         if(session()->get('autenticado') == 1) {
-            $caixa_departamento = new Caixa_Departamento();
-            $caixa_departamento->id_departamento = $request->input('Dep');
 
-            Caixa_Departamento::where('id_departamento', $id)->update(['id_departamento' => $caixa_departamento->id_departamento]);
+            $id = new Caixa_Departamento();
+            $id_dep->id_departamento = $request->input('Dep');
+            
+
+            Caixa_Departamento::where('id_caixa', $id)->update(['id_departamento' => $id_dep->id_departamento]);
             return redirect(route('caixas'));
         }
         else {
