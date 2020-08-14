@@ -93,7 +93,19 @@ class ControladorCaixasDepartamento extends Controller
      */
     public function edit($id)
     {
-       
+        if(session()->get('autenticado') == 1) {
+            
+            //$id_departamento = Caixa_Departamento::where('id_documentos', '=', $id);
+
+            $dep_edit = Departamentos::all();
+            //dd($dep_edit);
+            
+    
+            return view('forms_edit/caixa_update', compact('dep_edit'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**
@@ -105,7 +117,16 @@ class ControladorCaixasDepartamento extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        if(session()->get('autenticado') == 1) {
+            $caixa_departamento = new Caixa_Departamento();
+            $caixa_departamento->id_departamento = $request->input('Dep');
+
+            Caixa_Departamento::where('id_departamento', $id)->update(['id_departamento' => $caixa_departamento->id_departamento]);
+            return redirect(route('caixas'));
+        }
+        else {
+            return redirect(route('index'));
+        }
     }
 
     /**
@@ -116,16 +137,7 @@ class ControladorCaixasDepartamento extends Controller
      */
     public function destroy($id)
     {
-        if(session()->get('autenticado') == 1) {
-            //dd($id);
-            $caixa = Caixa_Departamento::where('id_caixa', '=', $id);
-            //dd($caixa);
-            $caixa->delete();
-            return redirect(route('caixas'));
-        }
-        else {
-            return redirect(route('index'));
-        }
+       
     }
 
      public function fecharCaixa($id_caixa) {

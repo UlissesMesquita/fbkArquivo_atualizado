@@ -35,7 +35,7 @@ class ControladorPesquisas extends Controller
                 $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             }
             else {
-                $dash = Cadastro_Documentos::paginate(5)->where('Dep' ,'=', session()->get('departamento'))->sortByDesc('id_codigo');
+                $dash = Cadastro_Documentos::all()->where('Dep' ,'=', session()->get('departamento'))->sortByDesc('id_codigo');
             }
 
             
