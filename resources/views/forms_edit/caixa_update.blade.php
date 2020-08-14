@@ -11,16 +11,17 @@
 @section('conteudo')
 
 
-     <form action="{{route('caixa_update', $caixas->id_caixa)}}" method="POST"> 
+     <form action="{{route('caixa_update', $id)}}" method="POST"> 
         @method('PUT')
         @csrf
         <div class="col-md-12">
             <label><b>Departamento: *</b></label>
             <label for="Dep"></label>
                 <select id="Dep" name="Dep" class="form-control" required>
-                    @if(isset($caixas))
-                            @foreach($caixas as $caixa)
-                                <option value="{{$caixa->id_caixa}}">{{$caixa->cad_departamento}}</option>
+                    @if(isset($caixa))
+                                <option value="{{$caixa[0]->id_caixa}}">{{$caixa[0]->cad_departamento}}</option>
+                            @foreach($dep as $departamento)
+                                <option value="{{$departamento->id_departamento}}">{{$departamento->cad_departamento}}</option>
                             @endforeach
                         @endif                      
                     </select>

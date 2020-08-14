@@ -93,15 +93,19 @@ class ControladorCaixasDepartamento extends Controller
         if(session()->get('autenticado') == 1) {
             
 
-        $caixas = DB::table('caixa__departamentos')
+        $caixa = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('id_caixa', 'cad_departamento')
+            ->where('id_caixa', '=', $id)
             ->orderBy('cad_departamento', 'ASC')
             ->get();
+
+            
  
+            $dep = Departamentos::all();
 
     
-            return view('forms_edit/caixa_update', compact('caixas'));
+            return view('forms_edit/caixa_update', compact('caixa', 'id', 'dep'));
         }
         else {
             return redirect(route('index'));
@@ -119,9 +123,10 @@ class ControladorCaixasDepartamento extends Controller
     {
         if(session()->get('autenticado') == 1) {
 
+            
             $id = new Caixa_Departamento();
             $id_dep->id_departamento = $request->input('Dep');
-            
+            dd($id_dep->id_departamento);
 
             Caixa_Departamento::where('id_caixa', $id)->update(['id_departamento' => $id_dep->id_departamento]);
             return redirect(route('caixas'));
