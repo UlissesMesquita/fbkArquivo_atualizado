@@ -28,9 +28,9 @@ class ControladorPesquisas extends Controller
         if(session()->get('autenticado') == 1) {
             
             
-            $emit = Empresas_Emitentes::all();
-            $dep = Departamentos::all();
-            $dest = Empresas_Destinatarias::all();
+            $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
+            $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
+            $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
             if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA') {
                 $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
             }
@@ -39,8 +39,8 @@ class ControladorPesquisas extends Controller
             }
 
             
-            $tp_documento = TipoDocumento::all();
-            $job = Job::all();
+            $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
+            $job = Job::orderBy('nome_job', 'ASC')->get();
             $criado = Cadastro_Documentos::orderBy('criado_por', 'ASC')->distinct()->whereNotNull('criado_por')->get('criado_por'); 
             $editado = Cadastro_Documentos::orderBy('editado_por','ASC')->distinct()->whereNotNull('editado_por')->get('editado_por');
             
