@@ -331,13 +331,17 @@
 
                             <!-- Botão de Editar -->
                             @if(session()->get('departamento') == $dashboard->Dep || session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
-                                <a id="delete-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
+                                <a id="edit-icon" class="far fa-edit fa-2x" href="documentos_edit/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
+                            @endif
+
+                                <!-- Botão de Clonar -->
+                            @if(session()->get('departamento') == $dashboard->Dep || session()->get('permissao') == 'Operador' || session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
+                                <a id="clone-icon" class="far fa-copy fa-2x" href="/documento/edit_clone/{{$dashboard->id_codigo}}" method="GET" onclick=""></a>
                             @endif
                         
                             <!-- Botão de Apagar -->
-
                             @if(session()->get('permissao') == 'Admin')
-                                <a id="edit-icon" class="fas fa-trash fa-2x" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
+                                <a id="delete-icon" class="fas fa-trash fa-2x" href="delete/{{$dashboard->id_codigo}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
                             @endif
 
                             <!-- Botão de Anexo -->

@@ -62,6 +62,65 @@ class ControladorDocumento extends Controller
 
     }
 
+
+public function edit_clone(Request $request, $id) {
+    if(session()->get('autenticado') == 1) {
+
+    $emit  = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
+    $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
+    $ori = Origens::orderBy('cad_origem', 'ASC')->get();
+    $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
+    $edit = Cadastro_Documentos::find($id);
+    $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
+    $job = Job::orderBy('nome_job', 'ASC')->get();
+    
+    return view('forms_edit/documentos_clone', compact('emit', 'dest', 'ori', 'dep', 'edit', 'tp_documento', 'job'));
+    }
+    else {
+        return redirect(route('index'));
+    }
+
+}
+
+    public function clone(Request $request) {
+        if(session()->get('autenticado') == 1) {
+            
+            $doc = new Cadastro_Documentos();
+
+            $doc->data = $request->input('data');
+            $doc->Assunto = $request->input('Assunto');
+            $doc->Emp_Emit = $request->input('Emp_Emit');
+            $doc->Emp_Dest = $request->input('Emp_Dest');
+            $doc->Formato_Doc = $request->input('Formato_Doc');
+            $doc->Tp_Projeto = $request->input('Tp_Projeto');
+            $doc->nome_job = $request->input('nome_job');
+            $doc->Nome_Doc = $request->input('Nome_Doc');
+            $doc->Valor_Doc = $request->input('Valor_Doc');
+            $doc->Dt_Ref = $request->input('Dt_Ref');
+            $doc->Desfaz = $request->input('Desfaz');
+            $doc->Loc_Arquivo = $request->input('Loc_Arquivo');
+            $doc->tp_documento = $request->input('tp_documento');
+            $doc->Palavra_Chave = $request->input('Palavra_Chave');
+            $doc->Desc = $request->input('Desc');
+            $doc->Dep = $request->input('Dep');
+            $doc->Origem = $request->input('Origem');
+            $doc->Loc_Cor = $request->input('Loc_Cor');
+            $doc->Loc_Est = $request->input('Loc_Est');
+            $doc->Loc_Box_Eti = $request->input('Loc_Box_Eti');
+            $doc->Loc_Maco = $request->input('Loc_Maco');
+            $doc->Loc_Status = $request->input('Loc_Status');
+            $doc->Loc_Obs = $request->input('Loc_Obs');
+            $doc->criado_por = $request->input('criado_por');
+            $doc->save();
+
+            return redirect(route('pesquisa_index'));
+        }
+
+        else {
+            return redirect(route('index'));
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *

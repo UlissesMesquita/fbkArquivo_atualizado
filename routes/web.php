@@ -36,10 +36,12 @@ Route::GET('/documentos_edit/{id}', 'ControladorDashboard@edit')->name('edit');
 Route::PUT('/documentos_update/{id}', 'ControladorDashboard@update')->name('update');
 Route::GET('/delete/{id}', 'ControladorDashboard@destroy')->name('delete_documento');
 
-//Rotas Criação de Novos Documentos
+//Rotas Documentos
 Route::GET('/documento', 'ControladorDocumento@create')->name('documentos_create');
 Route::POST('/documento/novo', 'ControladorDocumento@store')->name('novo_documento');
 Route::POST('/documento/anexo', 'ControladorDocumento@show')->name('visualizar_anexo');
+Route::GET('/documento/edit_clone/{id}', 'ControladorDocumento@edit_clone')->name('edit_clone');
+Route::PUT('/documento/clone', 'ControladorDocumento@clone')->name('clone');
 
 //Rotas JOB
 Route::GET('/job', 'ControladorJob@index')->name('job_index');
