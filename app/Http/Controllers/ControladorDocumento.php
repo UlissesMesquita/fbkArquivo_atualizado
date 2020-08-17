@@ -113,8 +113,29 @@ public function edit_clone(Request $request, $id) {
             $doc->criado_por = $request->input('criado_por');
             $doc->save();
 
+            
+            //Multiplos Uploads
+            foreach($request->allFiles()['anexo'] as $file) {
+                //dd($file->getClientOriginalName());
+
+                $fileUpload = new Upload();
+                $fileUpload->id_upload_codigo = $doc->id_codigo;
+
+                try {
+                    $fileUpload->path = $file->getClientOriginalName();
+                    $file->storeAs('anexos/'.$fileUpload->id_upload_codigo.'/', $file->getClientOriginalName());
+                    //dd($file->store('anexos'));
+                    //dd($fileUpload);
+                    $fileUpload->save();
+                    unset($fileUpload);
+
+                } catch (\Exception $e) {
+                    return redirect()->back()->withErrors(['erro' => 'Erro:'. $e->getMessage() ]);
+                }
+
             return redirect(route('pesquisa_index'));
         }
+    }
 
         else {
             return redirect(route('index'));
