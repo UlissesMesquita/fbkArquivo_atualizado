@@ -11,7 +11,7 @@ use App\Origens;
 use App\TipoDocumento;
 use App\Job;
 use App\Cadastro_Documentos;
-
+use App\Upload;
 
 
 class ControladorDashboard extends Controller
@@ -157,8 +157,30 @@ class ControladorDashboard extends Controller
                 'Loc_Obs' => $doc->Loc_Obs,
                 'Desfaz' => $doc->Desfaz,
                 'editado_por' => $doc->editado_por,
-                
                 ]);
+
+                
+            //Multiplos Uploads
+            foreach($request->allFiles()['anexo'] as $file) {
+                //dd($file->getClientOriginalName());
+
+                $fileUpload = new Upload();
+                $fileUpload->id_upload_codigo = $id;
+
+                try {
+                    $fileUpload->path = $file->getClientOriginalName();
+                    $file->storeAs('anexos/'.$fileUpload->id_upload_codigo.'/', $file->getClientOriginalName());
+                    //dd($file->store('anexos'));
+                    //dd($fileUpload);
+                    $fileUpload->save();
+                    unset($fileUpload);
+
+                } catch (\Exception $e) {
+                    return redirect()->back()->withErrors(['erro' => 'Erro:'. $e->getMessage() ]);
+                }
+            }
+
+
 
                 return redirect(route('pesquisa_index'));
         }

@@ -265,6 +265,25 @@
                 <label for="Loc_Obs"></label><textarea class="form-control" id="Loc_Obs" name="Loc_Obs" rows="1" value="{{$edit->Loc_Obs}}" onkeyup="maiuscula(this)">{{$edit->Loc_Obs}}</textarea>
             </div>
 
+
+            <!-- Envio de Arquivos -->
+
+            <div class="arquivo_meio">
+                
+                <div class="row">
+                    <div class="col-md-16">
+                        <div class="input-group mb-10">
+                            <div class="custom-file">
+                                <label class="custom-file-label" for="arquivo_campo">Upload..</label>
+                                <input type="hidden" name="MAX_FILE_SIZE" value="16777216">
+                                <input type="file" name="anexo[]" required="" class="custom-file-input" id="anexo[]" aria-describedby="inputGroupFileAddon01" multiple>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
         <!-- Linha 7 -->
