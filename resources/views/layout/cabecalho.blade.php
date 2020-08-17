@@ -34,13 +34,19 @@
 
         <!-- Logotipo - Fabrika Filmes -->
         <div class="navbar1">
-                <a href="{{route('dashboard')}}"><i class="fas fa-industry">  Fabrika Filmes</i></a>
+                {{-- <a href="{{route('dashboard')}}"><i class="fas fa-industry">  Fabrika Filmes</i></a> --}}
+
+        <!-- Inserir Documentos -->
+                <a href="{{route('documentos_create')}}">Inserir Documentos</a>
+
+
+
 
             <!-- Cadastros -->
             <div class="dropdown1">
                     <button class="dropbtn1">Cadastros</button>
                     <div class="dropdown-content1">
-                        <a href="{{route('documentos_create')}}">Documentos</a>
+                        {{-- <a href="{{route('documentos_create')}}">Documentos</a> --}}
                         <a href="{{route('job_index')}}">JOB</a>
                         <a href="{{route('tp_documento_index')}}">Tipo de Documentos</a>
                         <a href="{{route('emitente_index')}}">Empresas Emitentes</a>
@@ -73,17 +79,6 @@
             </div>
             
         @endif
-
-            {{-- <!-- Usuario -->
-            <div class="dropdown1">
-                <button class="dropbtn1">{{session()->get('usuario')}}</button>
-                <div class="dropdown-content1">
-                    <a href="{{route('alterar_senha')}}">Alterar Senha</a>
-                </div>
-            </div> --}}
-
-
-
 
             <!-- Sair -->
             <div class="dropdownExit1">
