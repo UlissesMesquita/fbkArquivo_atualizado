@@ -13,6 +13,7 @@ use App\Job;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use http\Header;
+use Illuminate\Support\Facades\DB;
 
 class ControladorDocumento extends Controller
 {
@@ -47,13 +48,22 @@ class ControladorDocumento extends Controller
             $ori = Origens::orderBy('cad_origem', 'ASC')->get();
             $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
             $tp_documentos = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
-            $job = Job::all();
+            $job = Job::orderBy('nome_job', 'ASC')->get();
+
+            $departamento_caixa = DB::table('caixa__departamentos')
+            ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+            ->select('cad_departamento')
+            ->where('status', '=', 'Aberta')
+            ->get();
+
+
+
             
             $documentos = Cadastro_Documentos::all();
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo')->take(1);
 
         
-            return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash', 'tp_documentos', 'job'));
+            return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash', 'tp_documentos', 'job', 'departamento_caixa'));
         }
         else {
             return redirect(route('index'));

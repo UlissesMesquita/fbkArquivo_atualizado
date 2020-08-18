@@ -57,10 +57,14 @@ class ControladorCaixasDepartamento extends Controller
             
             $caixa = new Caixa_Departamento();
 
+            
+            $ordem_Lastcaixa = Caixa_Departamento::where('id_departamento', '=', $request->input('id_departamento'))->max('ordem');
+            //dd($ordem_Lastcaixa);
+
             $caixa->id_departamento = $request->input('id_departamento');
-
+            
             $caixa->id_departamento = $caixa->id_departamento;
-
+            $caixa->ordem = $ordem_Lastcaixa + 1;
 
             $caixa->save();
 
