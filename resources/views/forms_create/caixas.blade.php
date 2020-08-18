@@ -36,15 +36,12 @@
 
 
 </div>
-
   <br><button id="cadastrar" name="Cadastrar" class="btn btn-success btn-lg btn-block" type="Submit"> Criar</button><br>
 </form>
 
 
 <!--Exibição de dados -->
-    @php
-    $aux = '';
-    @endphp
+   
     @foreach($departamentos as $departamento)
 <br>
 <div class="row">
@@ -68,21 +65,11 @@
   {{csrf_field()}}
         
     @foreach($departamento->caixa_departamento as $caixa)
-    @if ($aux <> $caixa->id_departamento)
-    @php
-        $aux = $caixa->id_departamento;
-        //dd($aux);
-        $linha = 1;
-    @endphp
-    @else
-    @php 
-        $linha++;
-    @endphp
-    @endif
+    
     {{-- @if($caixa->status == 'Aberta') --}}
 
           <tr>
-              <th scope="row"> {{$linha }} </th>
+              <th scope="row"> {{$caixa->ordem }} </th>
               <th scope="row">{{ $caixa->status}}</th>
               
 

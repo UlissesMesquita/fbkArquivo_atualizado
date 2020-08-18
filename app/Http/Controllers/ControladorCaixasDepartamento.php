@@ -66,6 +66,10 @@ class ControladorCaixasDepartamento extends Controller
             $caixa->id_departamento = $caixa->id_departamento;
             $caixa->ordem = $ordem_Lastcaixa + 1;
 
+
+            Caixa_Departamento::where('id_departamento', $request->input('id_departamento'))->update(['status' => 'Fechada']);
+
+
             $caixa->save();
 
         return redirect(route('caixas'));
