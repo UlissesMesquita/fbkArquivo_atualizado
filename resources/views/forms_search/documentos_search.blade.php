@@ -83,8 +83,8 @@
                 <div class="col-md-2">
                     <label><b>Departamento: *</b></label>
                     <label for="Dep"></label>
-                        <select id="Dep" name="Dep" class="form-control" required>
-                            <option selected>Escolha...</option>
+                        <select id="Dep" name="Dep" class="form-control">
+                            <option selected value="">Escolha...</option>
                             @if(isset($dep))
                                 @if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
                                 @foreach($dep as $departamento)
@@ -226,7 +226,7 @@
                     <label><b>Criado por: </b></label>
                     <label for="criado_por"></label>
                     <select id="criado_por" name="criado_por" class="form-control" >
-                        <option selected value="">Escolha...</option>
+                    <option selected value="">Escolha...</option>
                         @if(isset($criado))
                             @foreach($criado as $create)
                                 <option value="{{$create->criado_por}}">{{$create->criado_por}}</option>
