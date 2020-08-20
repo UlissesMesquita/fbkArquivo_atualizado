@@ -240,11 +240,11 @@ Dados do Documento
                 <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
                     <option selected>Escolha...</option>
                     <option>Digital</option>
-                    <?php
-                    for ($i=1; $i<31; $i++) {
-                        echo "<option value='".$i."'>". $i ."</option>";
-                    }
-                    ?>
+
+                    @foreach($caixa_departamento as $caixa_aberta)
+                        <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                    @endforeach
+
 
                 </select>
             </div>

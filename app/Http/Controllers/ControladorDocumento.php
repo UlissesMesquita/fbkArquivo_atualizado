@@ -10,6 +10,7 @@ use App\Origens;
 use App\Upload;
 use App\TipoDocumento;
 use App\Job;
+use App\Caixa_Departamento;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use http\Header;
@@ -50,20 +51,21 @@ class ControladorDocumento extends Controller
             $tp_documentos = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
             $job = Job::orderBy('nome_job', 'ASC')->get();
 
-            $departamento_caixa = DB::table('caixa__departamentos')
-            ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
-            ->select('cad_departamento')
-            ->where('status', '=', 'Aberta')
-            ->get();
+            // $caixa_departamento = DB::table('caixa__departamentos')
+            // ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+            // ->select('cad_departamento')
+            // ->where('status', '=', 'Aberta')
+            // ->get();
 
-
+            $caixa_departamento = Caixa_Departamento::where('status', '=', 'Aberta')->get();
+            //dd($caixa_departamento);
 
             
             $documentos = Cadastro_Documentos::all();
             $dash = Cadastro_Documentos::all()->sortByDesc('id_codigo')->take(1);
 
         
-            return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash', 'tp_documentos', 'job', 'departamento_caixa'));
+            return view('forms_create/documentos', compact('emit', 'dest', 'ori', 'dep', 'documentos', 'dash', 'tp_documentos', 'job', 'caixa_departamento'));
         }
         else {
             return redirect(route('index'));
