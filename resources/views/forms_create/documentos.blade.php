@@ -134,20 +134,23 @@ Dados do Documento
                 <label for="Desc"></label><input type="text" class="form-control" id="Desc" name="Desc" placeholder="" required onkeyup="maiuscula(this)">
             </div>
  
+
             <div class="col-md-4">
-                
                 <label><b>Departamento: *</b></label>
                 <label for="Dep"></label>
-                    <select id="Dep" name="Dep" class="form-control" required>
-                        <option selected>Escolha...</option>
+            <form action="#">
+                <select name="Dep" id="Dep" class="form-control" required>
+                    <option selected value="Escolha">Escolha</option>
                         @if(isset($dep))
                             @foreach($dep as $departamento)
                                 <option value="{{$departamento->cad_departamento}}">{{$departamento->cad_departamento}}</option>
                             @endforeach
-                            @endif
-                        </select>
-                    </select>
+                        @endif
+                </select>
+            </form>
             </div>
+
+
 
             <div class="col-md-4">
                 <label><b>Origem: *</b></label>
@@ -235,34 +238,177 @@ Dados do Documento
                 </select>
             </div>
 
-            
+            <div class="col-md-2">
 
-            <div class="DivPai">
-                
-
-                <div class="FINANCEIRO">
-                    <div class="col-md-2">
+                <div class="DivPai">
+                    <div class="Escolha">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
-                        <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
-                            <option selected>Escolha...</option>
-                            <option>Digital</option>
-        
-                            @foreach($caixa_departamento as $caixa_aberta)
-                                <option value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            
+                                <option value="">Escolha..</option>
+                           
+                        </select>
+                    </div>    
+
+                    <div class="DIV1">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Financeiro as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
                         </select>
                     </div>
+            
+    
+            
+                    <div class="FINANCEIRO">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Financeiro as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="DIRETORIA">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Diretoria as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>            
+                    <div class="PRODUÇÃO">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Producao as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="COMERCIAL">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Comercial as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="TÉCNICA">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Tecnica as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="COPIAGEM">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Copiagem as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="EDIÇÃO">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Edicao as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="MAM">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Mam as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="NÚCLEO CONTEÚDO">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Nucleo_Conteudo as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="CAMPANHA POLÍTICA">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Campanha_Politica as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="PROJETOS ESPECIAIS">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Projetos_Especiais as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="OUTROS">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Outros as $caixa_aberta)
+                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
                 </div>
-        
-                <div class="HERROU">   
-                </div>
-        
-                <div class="MUSICA">
-                </div>
+
+
+                </select>
             </div>
-
-
 
             <div class="col-md-2">
                 <label><b>Maço:*</b></label>
@@ -344,6 +490,15 @@ Dados do Documento
     </form>
 
 </div>
+
+
+
+
+
+
+
+
+
 
 @endsection
 

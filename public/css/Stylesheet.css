@@ -1,7 +1,14 @@
-.Escolha ,.FINANCEIRO,.MUSICA{
-  display:none;
-}
 
-/* .Div1 ,.Div2,.Div3{
-  display:none;
-} */
+.FINANCEIRO,
+.DIRETORIA,
+.PRODUÇÃO,
+.COMERCIAL,
+.TÉCNICA,
+.COPIAGEM,
+.EDIÇÃO,
+.MAM,
+/* ."NÚCLEO CONTEÚDO"
+."CAMPANHA POLÍTICA"
+."PROJETOS ESPECIAIS" */
+.OUTROS
+{display:none;}
