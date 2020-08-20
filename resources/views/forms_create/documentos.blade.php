@@ -245,30 +245,16 @@ Dados do Documento
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
-                            
                                 <option value="">Escolha..</option>
-                           
                         </select>
-                    </div>    
-
-                    <div class="DIV1">
-                        <label><b>Caixa:*</b></label>
-                        <label for="Loc_Box_Eti"></label>
-                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
-                            @foreach($caixa_departamento_Financeiro as $caixa_aberta)
-                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-            
+                    </div>     
     
-            
                     <div class="FINANCEIRO">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
                             @foreach($caixa_departamento_Financeiro as $caixa_aberta)
-                                <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                                <option value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -286,6 +272,15 @@ Dados do Documento
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
                             @foreach($caixa_departamento_Producao as $caixa_aberta)
+                                <option  value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="PÓS-PRODUÇÃO">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
+                            @foreach($caixa_departamento_Pos_Producao as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
                         </select>
@@ -335,7 +330,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
-                    <div class="NÚCLEO CONTEÚDO">
+                    <div class="NÚCLEO-CONTEÚDO">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
@@ -344,7 +339,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
-                    <div class="CAMPANHA POLÍTICA">
+                    <div class="CAMPANHA-POLÍTICA">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
@@ -353,7 +348,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
-                    <div class="PROJETOS ESPECIAIS">
+                    <div class="PROJETOS-ESPECIAIS">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>

@@ -51,84 +51,91 @@ class ControladorDocumento extends Controller
             $tp_documentos = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
             $job = Job::orderBy('nome_job', 'ASC')->get();
 
-            //FINANCEIRO - Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Financeiro = DB::table('caixa__departamentos')
              ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
              ->select('cad_departamento', 'ordem')
              ->where('cad_departamento', '=', 'ADM/FINANCEIRO')->where('status', '=', 'Aberta')
              ->get();
 
-            //Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Diretoria = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
             ->where('cad_departamento', '=', 'DIRETORIA')->where('status', '=', 'Aberta')
             ->get();
 
-            //Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Producao = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
             ->where('cad_departamento', '=', 'PRODUÇÃO')->where('status', '=', 'Aberta')
             ->get();
 
-            //Escolha caixa por departamento -> caixas aberas
+            
+            $caixa_departamento_Pos_Producao = DB::table('caixa__departamentos')
+            ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+            ->select('cad_departamento', 'ordem')
+            ->where('cad_departamento', '=', 'PÓS-PRODUÇÃO')->where('status', '=', 'Aberta')
+            ->get();
+
+            
             $caixa_departamento_Comercial = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
             ->where('cad_departamento', '=', 'COMERCIAL')->where('status', '=', 'Aberta')
             ->get();
 
-            //Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Tecnica = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
             ->where('cad_departamento', '=', 'TÉCNICA')->where('status', '=', 'Aberta')
             ->get();
 
-            //Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Copiagem = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
             ->where('cad_departamento', '=', 'COPIAGEM')->where('status', '=', 'Aberta')
             ->get();
 
-            //Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Edicao = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
             ->where('cad_departamento', '=', 'EDIÇÃO')->where('status', '=', 'Aberta')
             ->get();
 
-            //Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Mam = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
             ->where('cad_departamento', '=', 'MAM')->where('status', '=', 'Aberta')
             ->get();
 
-            //Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Nucleo_Conteudo = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
-            ->where('cad_departamento', '=', 'NÚCLEO CONTEÚDO')->where('status', '=', 'Aberta')
+            ->where('cad_departamento', '=', 'NÚCLEO-CONTEÚDO')->where('status', '=', 'Aberta')
             ->get();
  
-            //Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Campanha_Politica = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
-            ->where('cad_departamento', '=', 'CAMPANHA POLÍTICA')->where('status', '=', 'Aberta')
+            ->where('cad_departamento', '=', 'CAMPANHA-POLÍTICA')->where('status', '=', 'Aberta')
             ->get();
             
-             //Escolha caixa por departamento -> caixas aberas
+             
              $caixa_departamento_Projetos_Especiais = DB::table('caixa__departamentos')
              ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
              ->select('cad_departamento', 'ordem')
-             ->where('cad_departamento', '=', 'PROJETOS ESPECIAIS')->where('status', '=', 'Aberta')
+             ->where('cad_departamento', '=', 'PROJETOS-ESPECIAIS')->where('status', '=', 'Aberta')
              ->get();
             
-            //Escolha caixa por departamento -> caixas aberas
+            
             $caixa_departamento_Outros = DB::table('caixa__departamentos')
             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
             ->select('cad_departamento', 'ordem')
@@ -151,6 +158,7 @@ class ControladorDocumento extends Controller
                 'caixa_departamento_Financeiro',
                 'caixa_departamento_Diretoria',
                 'caixa_departamento_Producao',
+                'caixa_departamento_Pos_Producao',
                 'caixa_departamento_Comercial',
                 'caixa_departamento_Tecnica',
                 'caixa_departamento_Copiagem',
