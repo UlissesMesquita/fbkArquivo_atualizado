@@ -51,13 +51,13 @@ class ControladorDocumento extends Controller
             $tp_documentos = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
             $job = Job::orderBy('nome_job', 'ASC')->get();
 
-            // $caixa_departamento = DB::table('caixa__departamentos')
-            // ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
-            // ->select('cad_departamento')
-            // ->where('status', '=', 'Aberta')
-            // ->get();
+            $caixa_departamento = DB::table('caixa__departamentos')
+             ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+             ->select('cad_departamento', 'ordem')
+             ->where('cad_departamento', '=', 'FINANCEIRO')
+             ->get();
 
-            $caixa_departamento = Caixa_Departamento::where('status', '=', 'Aberta')->get();
+
             //dd($caixa_departamento);
 
             

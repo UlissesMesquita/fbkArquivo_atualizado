@@ -135,6 +135,7 @@ Dados do Documento
             </div>
  
             <div class="col-md-4">
+                
                 <label><b>Departamento: *</b></label>
                 <label for="Dep"></label>
                     <select id="Dep" name="Dep" class="form-control" required>
@@ -234,20 +235,34 @@ Dados do Documento
                 </select>
             </div>
 
-            <div class="col-md-2">
-                <label><b>Caixa:*</b></label>
-                <label for="Loc_Box_Eti"></label>
-                <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
-                    <option selected>Escolha...</option>
-                    <option>Digital</option>
+            
 
-                    @foreach($caixa_departamento as $caixa_aberta)
-                        <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
-                    @endforeach
+            <div class="DivPai">
+                
 
-
-                </select>
+                <div class="FINANCEIRO">
+                    <div class="col-md-2">
+                        <label><b>Caixa:*</b></label>
+                        <label for="Loc_Box_Eti"></label>
+                        <select id="Loc_Box_Eti" name="Loc_Box_Eti" class="form-control" required>
+                            <option selected>Escolha...</option>
+                            <option>Digital</option>
+        
+                            @foreach($caixa_departamento as $caixa_aberta)
+                                <option value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+        
+                <div class="HERROU">   
+                </div>
+        
+                <div class="MUSICA">
+                </div>
             </div>
+
+
 
             <div class="col-md-2">
                 <label><b>Maço:*</b></label>

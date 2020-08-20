@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/cabecalho.css')}}">
+    <link rel="stylesheet" href="{{asset('css/Stylesheet.css')}}">
 
 
     <link rel="stylesheet" href="{{asset('css/fontawesome/css/all.css')}}">
@@ -26,10 +27,12 @@
 <body>
 
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/JQuery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/JQuery.js')}}"></script><!--Versão 3.1.0-->
     <script type="text/javascript" src="{{asset('js/jquery-ui.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jsPersonalizado.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/upper.js')}}"></script>
+
+    <script src="{{asset('js/Javascript.js')}}"></script>
 
 
         <!-- Logotipo - Fabrika Filmes -->

@@ -25,7 +25,7 @@ class CreateCaixaDepartamentosTable extends Migration
 
             //$table->string('departamento_caixa');
             $table->string('status')->default('Aberta');
-            $table->int('ordem');
+            $table->integer('ordem');
 
            
         });
