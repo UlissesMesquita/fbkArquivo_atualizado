@@ -86,12 +86,15 @@
                     <select name="Dep" id="Dep" class="form-control" required>
                         <option selected value="Escolha">Escolha</option>
                             @if(isset($dep))
+                            
                             @if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
                                 @foreach($dep as $departamento)
                                     <option value="{{$departamento->cad_departamento}}">{{$departamento->cad_departamento}}</option>
                                 @endforeach
                             @endif
-                            <option value="{{session()->get('departamento')}}">{{session()->get('departamento')}}</option>     
+                                @if(session()->get('permissao') == 'Operador')
+                                    <option value="{{session()->get('departamento')}}">{{session()->get('departamento')}}</option>
+                                @endif     
                             @endif
                     </select>
                 
