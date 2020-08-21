@@ -1,5 +1,5 @@
 @extends('layout.cabecalho')
-<!DOCTYPE html>
+
 @section('titulo_pagina')
     Pesquisa
 @endsection
