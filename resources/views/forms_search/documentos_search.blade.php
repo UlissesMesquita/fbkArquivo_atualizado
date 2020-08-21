@@ -12,7 +12,7 @@
 
 
 <div class="container-fluid" id="campo-pesquisa">
-
+     
 
     <form class="form-horizontal" name="form" method="POST" action="{{route('pesquisa_novo')}}" enctype="multipart/form-data">
         @csrf
@@ -270,6 +270,7 @@
             <br>
 
 </div>
+{{-- {{ $dash->render() }} --}}
 @if(isset($contador))
 <h5> Registros Encontrados: {{$contador}} </h5>
 @endif
@@ -363,7 +364,7 @@
         @endforeach
     </tbody>
 </table>
-{{-- {{!! $dash->links() !!}} --}}
+
 
 
 @endsection

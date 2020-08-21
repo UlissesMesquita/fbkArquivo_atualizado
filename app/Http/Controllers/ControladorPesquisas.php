@@ -32,12 +32,12 @@ class ControladorPesquisas extends Controller
             $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
             $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
             if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA') {
-                $dash = Cadastro_Documentos::paginate(10)->sortByDesc('id_codigo');
-                //$dash = DB::table('cadastro__documentos')->paginate(5);
+                //$dash = Cadastro_Documentos::all()->sortByDesc('id_codigo');
+                $dash = DB::table('cadastro__documentos')->paginate(5);
                 
             }
             else {
-                $dash = Cadastro_Documentos::all()->where('Dep' ,'=', session()->get('departamento'))->sortByDesc('id_codigo')->paginate(10);
+                $dash = Cadastro_Documentos::all()->where('Dep' ,'=', session()->get('departamento'))->sortByDesc('id_codigo');
                 
             }
 
