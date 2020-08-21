@@ -55,7 +55,9 @@
                         <a href="{{route('emitente_index')}}">Empresas Emitentes</a>
                         <a href="{{route(('destinataria_index'))}}">Empresas Destinatárias</a>
                         <a href="{{route('origem_index')}}">Origens</a>
+                    @if(session()->get('permissao') == 'Admin')
                         <a href="{{route('departamento_index')}}">Departamentos</a>
+                    @endif
                     @if(session()->get('permissao') == 'Admin')
                         <a href="{{route('caixas')}}">Caixas</a>
                     @endif
