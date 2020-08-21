@@ -55,7 +55,7 @@ class ControladorDocumento extends Controller
             $caixa_departamento_Financeiro = DB::table('caixa__departamentos')
              ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
              ->select('cad_departamento', 'ordem')
-             ->where('cad_departamento', '=', 'ADM/FINANCEIRO')->where('status', '=', 'Aberta')
+             ->where('cad_departamento', '=', 'ADM-FINANCEIRO')->where('status', '=', 'Aberta')
              ->get();
 
             
@@ -230,6 +230,7 @@ public function edit_clone(Request $request, $id) {
             $doc->criado_por = $request->input('criado_por');
             $doc->save();
 
+            dd($doc);
             
             //Multiplos Uploads
             foreach($request->allFiles()['anexo'] as $file) {

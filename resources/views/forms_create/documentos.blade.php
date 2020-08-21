@@ -121,9 +121,7 @@ Dados do Documento
                 <label><b>Palavra-Chave: *</b></label>
                 <label for="Palavra_Chave"></label><input type="text" class="form-control" id="Palavra_Chave" name="Palavra_Chave" placeholder="" required onkeyup="maiuscula(this)">
             </div>
-
-
-            
+ 
         </div>
 
         <!-- Linha 4 -->
@@ -138,16 +136,18 @@ Dados do Documento
             <div class="col-md-4">
                 <label><b>Departamento: *</b></label>
                 <label for="Dep"></label>
-            <form action="#">
                 <select name="Dep" id="Dep" class="form-control" required>
                     <option selected value="Escolha">Escolha</option>
                         @if(isset($dep))
+                        @if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
                             @foreach($dep as $departamento)
                                 <option value="{{$departamento->cad_departamento}}">{{$departamento->cad_departamento}}</option>
                             @endforeach
                         @endif
+                        <option value="{{session()->get('departamento')}}">{{session()->get('departamento')}}</option>     
+                        @endif
                 </select>
-            </form>
+            
             </div>
 
 
@@ -245,11 +245,11 @@ Dados do Documento
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
-                                <option value="">Escolha..</option>
+                                <option>Escolha..</option>
                         </select>
                     </div>     
-    
-                    <div class="FINANCEIRO">
+                
+                    <div class="ADM-FINANCEIRO">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" required>
@@ -258,6 +258,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="DIRETORIA">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -266,7 +267,8 @@ Dados do Documento
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
                         </select>
-                    </div>            
+                    </div> 
+
                     <div class="PRODUÇÃO">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -276,6 +278,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="PÓS-PRODUÇÃO">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -285,6 +288,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="COMERCIAL">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -294,6 +298,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="TÉCNICA">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -303,6 +308,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="COPIAGEM">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -312,6 +318,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="EDIÇÃO">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -321,6 +328,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="MAM">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -330,6 +338,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="NÚCLEO-CONTEÚDO">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -339,6 +348,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="CAMPANHA-POLÍTICA">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -348,6 +358,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="PROJETOS-ESPECIAIS">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -357,6 +368,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
+
                     <div class="OUTROS">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
@@ -366,39 +378,7 @@ Dados do Documento
                             @endforeach
                         </select>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
+                
                 </div>
 
 
