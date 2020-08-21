@@ -257,7 +257,7 @@
 
             <div class="col-md-2">
                 <label><b>Desfaz/Destruir: </b></label>
-            <label for="Desfaz"></label><input placeholder= "" type="text" class="form-control" value= "{{$edit->Desfaz}}" name="Desfaz" maxlength="7" id="Desfaz" required onkeyup="maiuscula(this)">
+            <label for="Desfaz"></label><input placeholder= "" type="text" class="form-control" value= "{{$edit->Desfaz}}" name="Desfaz" maxlength="9" id="Desfaz" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-6">

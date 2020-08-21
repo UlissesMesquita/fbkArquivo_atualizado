@@ -99,7 +99,7 @@
 
                 <div class="col-md-2">
                     <label><b>Número Documento:</b> </label>
-                    <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" onkeyup="maiuscula(this)">
+                    <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="20" placeholder="" onkeyup="maiuscula(this)">
                 </div>
                 
                 <div class="col-md-3">

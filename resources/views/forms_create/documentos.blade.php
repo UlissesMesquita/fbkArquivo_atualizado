@@ -83,7 +83,7 @@ Dados do Documento
 
             <div class="col-md-3">
                 <label><b>Número Documento: *</b></label>
-                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="12" placeholder="" required onkeyup="maiuscula(this)">
+                <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" maxlength="20" placeholder="" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-4">
@@ -415,7 +415,7 @@ Dados do Documento
 
             <div class="col-md-2">
                 <label><b>Desfaz/Destruir: *</b></label>
-                <label for="Desfaz"></label><input type="text" placeholder= "" class="form-control" name="Desfaz" id="Desfaz" maxlength="7" required onkeyup="maiuscula(this)">
+                <label for="Desfaz"></label><input type="text" placeholder= "" class="form-control" name="Desfaz" id="Desfaz" maxlength="9" required onkeyup="maiuscula(this)">
             </div>
 
             <div class="col-md-6">
