@@ -83,8 +83,8 @@
                 <div class="col-md-2">
                     <label><b>Departamento: *</b></label>
                     <label for="Dep"></label>
-                    <select name="Dep" id="Dep" class="form-control" required>
-                        <option selected value="Escolha">Escolha</option>
+                    <select name="Dep" id="Dep" class="form-control">
+                        <option selected value="">Escolha</option>
                             @if(isset($dep))
                             
                             @if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
