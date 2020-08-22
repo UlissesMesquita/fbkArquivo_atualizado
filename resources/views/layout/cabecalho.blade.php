@@ -121,7 +121,14 @@
         </div>
 
 
-
+        <footer>
+            <b>©Controle de Arquivo Fabrika</b> Versão 1.0
+            <br>
+            Desenvolvido por <b>Ulisses Mesquita</b> 
+            <br>
+            Autorizado para Fabrika Filmes
+        </footer>
+        </div>
 
 
 </body>
