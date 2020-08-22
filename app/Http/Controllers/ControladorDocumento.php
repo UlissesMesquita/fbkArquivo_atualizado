@@ -191,7 +191,121 @@ public function edit_clone(Request $request, $id) {
     $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
     $job = Job::orderBy('nome_job', 'ASC')->get();
     
-    return view('forms_edit/documentos_clone', compact('emit', 'dest', 'ori', 'dep', 'edit', 'tp_documento', 'job'));
+    $caixa_departamento_Financeiro = DB::table('caixa__departamentos')
+    ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+    ->select('cad_departamento', 'ordem')
+    ->where('cad_departamento', '=', 'ADM-FINANCEIRO')->where('status', '=', 'Aberta')
+    ->get();
+
+   
+   $caixa_departamento_Diretoria = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'DIRETORIA')->where('status', '=', 'Aberta')
+   ->get();
+
+   
+   $caixa_departamento_Producao = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'PRODUÇÃO')->where('status', '=', 'Aberta')
+   ->get();
+
+   
+   $caixa_departamento_Pos_Producao = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'PÓS-PRODUÇÃO')->where('status', '=', 'Aberta')
+   ->get();
+
+   
+   $caixa_departamento_Comercial = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'COMERCIAL')->where('status', '=', 'Aberta')
+   ->get();
+
+   
+   $caixa_departamento_Tecnica = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'TÉCNICA')->where('status', '=', 'Aberta')
+   ->get();
+
+   
+   $caixa_departamento_Copiagem = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'COPIAGEM')->where('status', '=', 'Aberta')
+   ->get();
+
+   
+   $caixa_departamento_Edicao = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'EDIÇÃO')->where('status', '=', 'Aberta')
+   ->get();
+
+   
+   $caixa_departamento_Mam = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'MAM')->where('status', '=', 'Aberta')
+   ->get();
+
+   
+   $caixa_departamento_Nucleo_Conteudo = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'NÚCLEO-CONTEÚDO')->where('status', '=', 'Aberta')
+   ->get();
+
+   
+   $caixa_departamento_Campanha_Politica = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'CAMPANHA-POLÍTICA')->where('status', '=', 'Aberta')
+   ->get();
+   
+    
+    $caixa_departamento_Projetos_Especiais = DB::table('caixa__departamentos')
+    ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+    ->select('cad_departamento', 'ordem')
+    ->where('cad_departamento', '=', 'PROJETOS-ESPECIAIS')->where('status', '=', 'Aberta')
+    ->get();
+   
+   
+   $caixa_departamento_Outros = DB::table('caixa__departamentos')
+   ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
+   ->select('cad_departamento', 'ordem')
+   ->where('cad_departamento', '=', 'OUTROS')->where('status', '=', 'Aberta')
+   ->get(); 
+
+    return view('forms_edit/documentos_clone', compact(
+        'emit',
+        'dest',
+        'ori',
+        'dep',
+        'edit',
+        'tp_documento',
+        'job',
+        'caixa_departamento_Financeiro',
+        'caixa_departamento_Diretoria',
+        'caixa_departamento_Producao',
+        'caixa_departamento_Pos_Producao',
+        'caixa_departamento_Comercial',
+        'caixa_departamento_Tecnica',
+        'caixa_departamento_Copiagem',
+        'caixa_departamento_Edicao',
+        'caixa_departamento_Mam',
+        'caixa_departamento_Nucleo_Conteudo',
+        'caixa_departamento_Campanha_Politica',
+        'caixa_departamento_Projetos_Especiais',
+        'caixa_departamento_Outros'
+
+    ));
+
+
     }
     else {
         return redirect(route('index'));
@@ -230,7 +344,7 @@ public function edit_clone(Request $request, $id) {
             $doc->criado_por = $request->input('criado_por');
             $doc->save();
 
-            dd($doc);
+            //dd($doc);
             
             //Multiplos Uploads
             foreach($request->allFiles()['anexo'] as $file) {
