@@ -26,7 +26,7 @@
 
                 <div class="col-md-2">
                     <label><b>Data: </b></label>
-                    <label for="data"></label><input type=text class="form-control" id="data" name="data" placeholder="" value="{{$edit->data}}" disabled>
+                    <label for="data"></label><input type=text class="form-control" id="data" name="data" placeholder="" value="{{date('d/m/Y', strtotime($edit->data))}}" disabled>
                 </div>
 
                 <div class="col-md-4">
@@ -182,7 +182,7 @@
 
             <div class="col-md-2">
                 <label><b>Local Arquivo: </b></label>
-                <label for="Loc_Arquivo"></label><input type="text" class="form-control" value="{{$edit->Loc_Arquivo}}" id="Loc_Arquivo" name="Loc_Arquivo" placeholder="" onkeyup="maiuscula(this)">
+                <label for="Loc_Arquivo"></label><input type="text" class="form-control" value="{{$edit->Loc_Arquivo}}" id="Loc_Arquivo" name="Loc_Arquivo" placeholder="" onkeyup="maiuscula(this)" >
             </div>
 
             <div class="col-md-2">
@@ -418,7 +418,7 @@
                             <div class="custom-file">
                                 <label class="custom-file-label" for="arquivo_campo">Upload..</label>
                                 <input type="hidden" name="MAX_FILE_SIZE" value="16777216">
-                                <input type="file" name="anexo[]" required="" class="custom-file-input" id="anexo[]" aria-describedby="inputGroupFileAddon01" multiple>
+                                <input type="file" name="anexo[]"  class="custom-file-input" id="anexo[]" aria-describedby="inputGroupFileAddon01" multiple>
 
                             </div>
                         </div>

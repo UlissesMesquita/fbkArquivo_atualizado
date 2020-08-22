@@ -277,6 +277,10 @@ class ControladorDashboard extends Controller
                 ]);
 
                 
+                if($request->allFiles() == null) {
+
+                }
+                else {
             //Multiplos Uploads
             foreach($request->allFiles()['anexo'] as $file) {
                 //dd($file->getClientOriginalName());
@@ -296,7 +300,7 @@ class ControladorDashboard extends Controller
                     return redirect()->back()->withErrors(['erro' => 'Erro:'. $e->getMessage() ]);
                 }
             }
-
+        }
 
 
                 return redirect(route('pesquisa_index'));
