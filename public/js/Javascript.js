@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 var dep = document.getElementById('Dep');
 
-console.log(dep);
+
   $('#Dep').on('change',function(){
       var SelectValue='.'+$(this).val();
       $('.DivPai div').hide();
