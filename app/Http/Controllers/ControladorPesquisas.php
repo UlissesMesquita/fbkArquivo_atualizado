@@ -239,7 +239,7 @@ class ControladorPesquisas extends Controller
                 if(isset($data_in) && isset($data_out) && session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA'){
                     $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
                             Cadastro_Documentos::where($dados)->whereBetween('data', [$data_in, $data_out])->get();        
-
+                    
                 }elseif (isset($dados) ) {
                     if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
                         $dash = Cadastro_Documentos::where($dados)->where('Dep' ,'=', session()->get('departamento'))->orderBy('id_codigo', 'DESC')->get();
