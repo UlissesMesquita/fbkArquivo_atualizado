@@ -47,6 +47,12 @@ class ControladorPesquisas extends Controller
             $criado = Cadastro_Documentos::orderBy('criado_por', 'ASC')->distinct()->whereNotNull('criado_por')->get('criado_por'); 
             $editado = Cadastro_Documentos::orderBy('editado_por','ASC')->distinct()->whereNotNull('editado_por')->get('editado_por');
 
+            if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA') {
+                $contador = Cadastro_Documentos::whereNotNull('id_codigo')->count();
+            }
+            else {
+                $contador = Cadastro_Documentos::where('Dep','=', session()->get('departamento'))->whereNotNull('id_codigo')->count();
+            }
 
             $caixa_departamento_Financeiro = DB::table('caixa__departamentos')
              ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
@@ -141,6 +147,7 @@ class ControladorPesquisas extends Controller
 
             
             return view('forms_search/documentos_search', compact(
+            'contador',
             'tp_documento',
             'emit', 
             'dest', 
