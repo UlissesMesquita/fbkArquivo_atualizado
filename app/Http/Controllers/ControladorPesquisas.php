@@ -238,7 +238,8 @@ class ControladorPesquisas extends Controller
                 //dd($dados);
                 if(isset($data_in) && isset($data_out) && session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA'){
                     $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
-                            Cadastro_Documentos::where($dados)->whereBetween('data', [$data_in, $data_out])->get();        
+                            Cadastro_Documentos::where($dados)->whereBetween('data', [$data_in, $data_out])->get();
+                    $contador = $dash->count();                
                     
                 }elseif (isset($dados) ) {
                     if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
