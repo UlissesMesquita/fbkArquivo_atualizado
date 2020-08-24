@@ -254,7 +254,7 @@ class ControladorPesquisas extends Controller
                         $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
                         Cadastro_Documentos::where('Dep', '=', session()->get('departamento'))->where($dados)->whereBetween('data', [$data_in, $data_out])->get();
                         $contador = $dash->count();
-                        dd($dash);
+                        //dd($dash);
                     }
 
                 }
