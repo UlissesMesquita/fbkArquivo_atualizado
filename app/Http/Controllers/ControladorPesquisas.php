@@ -261,16 +261,19 @@ class ControladorPesquisas extends Controller
 
                 elseif (isset($dados) ) {
                     if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA'){
-                        $dash = Cadastro_Documentos::where($dados)->where('Dep' ,'=', session()->get('departamento'))->orderBy('id_codigo', 'DESC')->get();
+                        
+                        $dash = Cadastro_Documentos::where($dados)->orderBy('id_codigo', 'DESC')->get();
+                        $contador = $dash->count();
                     }    
                     else {
-                        $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
-                        $contador = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->count();
+
+                        $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->where($dados)->get();
+                        $contador = $dash->count();
                     }
                 }
-                else {
-                    $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
-                }
+                // else {
+                //     $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
+                // }
 
                 
                 $caixa_departamento_Financeiro = DB::table('caixa__departamentos')
