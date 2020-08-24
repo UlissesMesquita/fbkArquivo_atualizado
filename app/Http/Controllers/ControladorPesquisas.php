@@ -232,7 +232,7 @@ class ControladorPesquisas extends Controller
                     $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
                                     Cadastro_Documentos::where($dados)->whereBetween('data', [$data_in, $data_out])->get() ;
                 }elseif (isset($dados) ) {
-                    $dash = Cadastro_Documentos::where($dados)->get();
+                    $dash = Cadastro_Documentos::where($dados)->orderBy('id_codigo', 'DESC')->get();
                 }
                 else {
                     $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
