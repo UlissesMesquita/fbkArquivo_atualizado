@@ -61,10 +61,10 @@
       <label for="password"></label><input type="password" class="form-control" id="#" name="#" placeholder="" required>
     </div>
 
-    <div class="col-md-2">
+    {{-- <div class="col-md-2">
       <label><b>Confirma Senha:*</b></label>
       <label for="password"></label><input type="password" class="form-control" id="password" name="password" placeholder="" required>
-    </div>
+    </div> --}}
 
   </div>
 
@@ -107,9 +107,9 @@
                 <td>
                   <span></span>
                   <!-- Botão de Editar -->
-                  <a class="far fa-edit" method="GET" href="{{route('usuarios-edit', $user->id_usuario)}}"></a>
+                  <a class="far fa-edit fa-2x" method="GET" href="{{route('usuarios-edit', $user->id_usuario)}}"></a>
                   <!-- Botão de Apagar -->
-                  <a class="fas fa-trash"  method="GET" href="{{route('usuarios-delete', $user->id_usuario)}}"></a>
+                  <a class="fas fa-trash fa-2x"  method="GET" href="{{route('usuarios-delete', $user->id_usuario)}}"></a>
               </td>
 
               </tr>

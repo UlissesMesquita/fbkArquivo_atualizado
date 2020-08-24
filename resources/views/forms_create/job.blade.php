@@ -47,9 +47,9 @@
                 <td>
                     <span></span>
                     <!-- Botão de Editar -->
-                    <a class="far fa-edit" href="{{route('job_edit', $jobs->id_job)}}" method="GET"></a>
+                    <a class="far fa-edit fa-2x" href="{{route('job_edit', $jobs->id_job)}}" method="GET"></a>
                     <!-- Botão de Apagar -->
-                    <a class="fas fa-trash" href="/job/delete/{{$jobs->id_job}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
+                    <a class="fas fa-trash fa-2x" href="/job/delete/{{$jobs->id_job}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
                 </td>
 
 

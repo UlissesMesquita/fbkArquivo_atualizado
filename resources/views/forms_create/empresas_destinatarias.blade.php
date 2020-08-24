@@ -44,9 +44,9 @@
                 <td>
                     <span></span>
                     <!-- Botão de Editar -->
-                    <a class="far fa-edit" href="{{route('destinatarias_edit',$destinataria->id_empresa_destinataria)}}" method="GET"></a>
+                    <a class="far fa-edit fa-2x" href="{{route('destinatarias_edit',$destinataria->id_empresa_destinataria)}}" method="GET"></a>
                     <!-- Botão de Apagar -->
-                    <a class="fas fa-trash" href="/destinataria/delete/{{$destinataria->id_empresa_destinataria}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
+                    <a class="fas fa-trash fa-2x" href="/destinataria/delete/{{$destinataria->id_empresa_destinataria}}" onclick="return confirm('Deseja realmente excluir?')" method="GET"></a>
                 </td>
 
 
