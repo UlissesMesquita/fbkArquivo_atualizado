@@ -243,15 +243,26 @@ class ControladorPesquisas extends Controller
             // $dadosData = $this->arrayParseDate($request);
             
                 //dd($dados);
-                if(isset($data_in) && isset($data_out) && session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA'){
-                    $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
-                            Cadastro_Documentos::where($dados)->whereBetween('data', [$data_in, $data_out])->get();
-                    $contador = $dash->count();                
-                    
-                }elseif (isset($dados) ) {
-                    if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
+                if(isset($data_in) && isset($data_out)){
+                    if(session()->get('permissao') == 'Admin ' || session()->get('departamento') == 'DIRETORIA') {
+                        $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
+                                Cadastro_Documentos::where($dados)->whereBetween('data', [$data_in, $data_out])->get();
+                        $contador = $dash->count();
+                    }
+
+                    else {
+                        $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
+                        Cadastro_Documentos::where('Dep', '=', session()->get('departamento'))->where($dados)->whereBetween('data', [$data_in, $data_out])->get();
+                        $contador = $dash->count();
+                        dd($dash);
+                    }
+
+                }
+
+                elseif (isset($dados) ) {
+                    if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA'){
                         $dash = Cadastro_Documentos::where($dados)->where('Dep' ,'=', session()->get('departamento'))->orderBy('id_codigo', 'DESC')->get();
-                        
+                    }    
                     else {
                         $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
                         $contador = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->count();
