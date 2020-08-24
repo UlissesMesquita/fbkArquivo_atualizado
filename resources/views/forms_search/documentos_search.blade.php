@@ -428,7 +428,9 @@
             <br>
 
 </div>
-{{-- {{ $dash->render() }} --}}
+
+{{-- {{ $dash->link() }} --}}
+
 @if(isset($contador))
 <h5> Registros Encontrados: {{$contador}} </h5>
 @endif
@@ -518,7 +520,6 @@
         @endforeach
     </tbody>
 </table>
-
 
 
 @endsection

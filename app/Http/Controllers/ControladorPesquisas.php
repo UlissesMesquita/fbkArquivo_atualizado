@@ -225,24 +225,33 @@ class ControladorPesquisas extends Controller
 
 
             $dados = $this->arrayParse($request);
+            
+            $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
+            $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
+            $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
+            $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
+            $job = Job::orderBy('nome_job', 'ASC')->get();
+            $contador = Cadastro_Documentos::where($dados)->whereNotNull('id_codigo')->count();
+            
             // $dadosData = $this->arrayParseDate($request);
             
                 //dd($dados);
-                if(isset($data_in) && isset($data_out)){
+                if(isset($data_in) && isset($data_out) ){
                     $dash = empty($dados) ? Cadastro_Documentos::whereBetween('data', [$data_in, $data_out])->get(): 
                                     Cadastro_Documentos::where($dados)->whereBetween('data', [$data_in, $data_out])->get() ;
                 }elseif (isset($dados) ) {
-                    $dash = Cadastro_Documentos::where($dados)->orderBy('id_codigo', 'DESC')->get();
+                    if(session()->get('permissao') == 'Admin' || session()->get('departamento') == 'DIRETORIA')
+                        $dash = Cadastro_Documentos::where($dados)->orderBy('id_codigo', 'DESC')->get();
+                        
+                    else {
+                        $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
+                        $contador = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->count();
+                    }
                 }
                 else {
                     $dash = Cadastro_Documentos::where('Dep' ,'=', session()->get('departamento'))->get();
                 }
-                $emit = Empresas_Emitentes::orderBy('cad_emitentes', 'ASC')->get();
-                $dest = Empresas_Destinatarias::orderBy('cad_destinatarias', 'ASC')->get();
-                $dep = Departamentos::orderBy('cad_departamento', 'ASC')->get();
-                $tp_documento = TipoDocumento::orderBy('tp_documento', 'ASC')->get();
-                $job = Job::orderBy('nome_job', 'ASC')->get();
-                $contador = Cadastro_Documentos::where($dados)->whereNotNull('id_codigo')->count();
+
                 
                 $caixa_departamento_Financeiro = DB::table('caixa__departamentos')
                 ->join('departamentos', 'departamentos.id_departamento', '=', 'caixa__departamentos.id_departamento')
