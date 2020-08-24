@@ -102,6 +102,5 @@ Route::GET('/caixas','ControladorCaixasDepartamento@index')->name('caixas');
 Route::POST('/caixas/novo', 'ControladorCaixasDepartamento@store')->name('nova_caixa');
 Route::GET('/caixas/abrir/{id}', 'ControladorCaixasDepartamento@abrirCaixa')->name('abrir_caixa');
 Route::GET('/caixas/fechar/{id}', 'ControladorCaixasDepartamento@fecharCaixa')->name('fechar_Caixa');
-
 Route::GET('/caixas/edit/{id}', 'ControladorCaixasDepartamento@edit')->name('caixa_edit');
 Route::PUT('/caixas/update/{id}', 'ControladorCaixasDepartamento@update')->name('caixa_update');

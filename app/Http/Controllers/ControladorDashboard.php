@@ -335,7 +335,9 @@ class ControladorDashboard extends Controller
     public function manual () {
         if(session()->get('autenticado') == 1) {
 
-            return redirect(url("storage/Manual_Sistema_SisFBK.pdf"));
+
+            return view('layout/visualizar_Instrucoes');
+            //return redirect(url("storage/Manual_Sistema_SisFBK.pdf"));
             
         }
         else{
