@@ -437,12 +437,12 @@
     <thead>
         <tr id="Cabecalho-tabela">
 
-            <th scope="col"><b> Codigo</b></td>
+            <th scope="col"><b>ID</b></td>
             <th scope="col"><b>Data Principal</b></td>
             <th scope="col"><b>Emitente</b></td>
             <th scope="col"><b>Destinatária</b></th>    
             <th scope="col"><b>Tipo Documento</b></td>
-            <th scope="col"><b>Número Documento</b></td>
+            <th scope="col"><b>Nº Documento</b></td>
             <th scope="col"><b>Palavra Chave</b></td>
             <th scope="col"><b>Tipo projeto</b></td>
             <th scope="col"><b>Assunto</b></th>
@@ -452,7 +452,7 @@
             <th scope="col"><b>Caixa</b></td>
             <th scope="col"><b>Maço</b></td>
             <th scope="col"><b>Observações</b></td>
-            <th scope="col"><b>Mês de Referência</b></td>               
+            <th scope="col"><b>Mês Referência</b></td>               
             <th scope="col"><b>Valor</b></td>
 
             <th scope="col">Ferramentas</th>
