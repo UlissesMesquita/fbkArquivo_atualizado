@@ -247,7 +247,7 @@ class ControladorDashboard extends Controller
 
             $doc->editado_por = $request->input('editado_por');
             
-
+            dd($doc);
 
             Cadastro_Documentos::where('id_codigo', $id)->update([
                 //'data' => $doc->data,

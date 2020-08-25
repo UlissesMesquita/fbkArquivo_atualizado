@@ -39,7 +39,7 @@
                                 @endforeach
                         </select>
                 </div>
-    
+
                 <div class="col-md-4">
                     <label><b>Empresa Destinatária: </b></label>
                     <label for="Emp_Dest"></label>
@@ -67,7 +67,7 @@
                         </select>
                     </select>
             </div>
-            
+
             <div class="col-md-3">
                 <label><b>Número Documento: </b></label>
                 <label for="Nome_Doc"></label><input type="text" class="form-control" id="Nome_Doc" name="Nome_Doc" placeholder="" value="{{$edit->Nome_Doc}}" required onkeyup="maiuscula(this)">
@@ -141,10 +141,10 @@
                                 @foreach($ori as $origem)
                                     <option value="{{$origem->cad_origem}}">{{$origem->cad_origem}}</option>
                                 @endforeach
-                            @endif    
+                            @endif
                         </select>
             </div>
-                
+
         </div>
 
          <!-- Linha 5 -->
@@ -168,10 +168,10 @@
                         @foreach($job as $jobs)
                             <option value="{{$jobs->nome_job}}">{{$jobs->nome_job}}</option>
                         @endforeach
-                    @endif    
+                    @endif
                 </select>
             </div>
-     
+
         </div>
 
 <br>
@@ -204,7 +204,7 @@
                 <label for="Loc_Est"></label>
                 <select id="Loc_Est" name="Loc_Est" class="form-control" required>
                 <option selected>{{$edit->Loc_Est}}</option>
-                <option>Digital</option>   
+                <option>Digital</option>
                    <?php
                     for ($i=1; $i<31; $i++) {
                         echo "<option value='".$i."'>". $i ."</option>";
@@ -223,13 +223,13 @@
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
                         <option value="{{$edit->Loc_Box_Eti}}">{{$edit->Loc_Box_Eti}}</option>
                         </select>
-                    </div>     
-                
+                    </div>
+
                     <div class="ADM-FINANCEIRO">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Financeiro as $caixa_aberta)
                                 <option value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -240,18 +240,18 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Diretoria as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
                         </select>
-                    </div> 
+                    </div>
 
                     <div class="PRODUÇÃO">
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Producao as $caixa_aberta)
                                 <option  value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -262,7 +262,7 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Pos_Producao as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -273,7 +273,7 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Comercial as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -284,7 +284,7 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Tecnica as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -295,7 +295,7 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Copiagem as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -306,7 +306,7 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Edicao as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -317,7 +317,7 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Mam as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -328,7 +328,7 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Nucleo_Conteudo as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -339,7 +339,7 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Campanha_Politica as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -350,7 +350,7 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Projetos_Especiais as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
@@ -361,13 +361,13 @@
                         <label><b>Caixa:*</b></label>
                         <label for="Loc_Box_Eti"></label>
                         <select name="Loc_Box_Eti" id="Loc_Box_Eti" class="form-control" >
-                                <option selected value="Digital">Digital</option>
+                                {{-- <option selected value="Digital">Digital</option> --}}
                             @foreach($caixa_departamento_Outros as $caixa_aberta)
                                 <option style="display: block" value="{{$caixa_aberta->ordem}}">{{$caixa_aberta->ordem}}</option>
                             @endforeach
                         </select>
                     </div>
-                
+
                 </div>
             </div>
 
@@ -411,7 +411,7 @@
             <!-- Envio de Arquivos -->
 
             <div class="arquivo_meio">
-                
+
                 <div class="row">
                     <div class="col-md-16">
                         <div class="input-group mb-10">
@@ -425,34 +425,34 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
         <!-- Linha 7 -->
         <div class="row"></div>
         <!-- Linha 8 -->
         <div class="row">  </div>
-     
+
             <!-- Separador-->
             <div class="row">
                 <!-- Auditoria -> Criado e Editado pelo Usuario X -->
                 <div class="col-md-2" style="padding:27px">Criado Por:</label>
                     <label for="criado_por">
-                    <input type="text" class="form-control" id="criado_por" name="criado_por" value="{{$edit->criado_por}}" readonly="readonly"> 
+                    <input type="text" class="form-control" id="criado_por" name="criado_por" value="{{$edit->criado_por}}" readonly="readonly">
                 </div>
 
                 <div class="col-md-2" style="padding:27px">Alterado Por:</label>
                     <label for="editado_por">
-                    <input type="text" class="form-control" id="editado_por" name="editado_por" value="{{$edit->editado_por}}" readonly="readonly"> 
+                    <input type="text" class="form-control" id="editado_por" name="editado_por" value="{{$edit->editado_por}}" readonly="readonly">
                 </div>
 
                 <div class="col-md-2" style="padding:27px">Editando:</label>
                     <label for="editado_por">
-                    <input type="text" class="form-control" id="editado_por" name="editado_por" value="{{session()->get('usuario')}}" readonly="readonly"> 
+                    <input type="text" class="form-control" id="editado_por" name="editado_por" value="{{session()->get('usuario')}}" readonly="readonly">
                 </div>
         </div>
 
-    
+
 
 
         <!-- Botões Pagina-->
