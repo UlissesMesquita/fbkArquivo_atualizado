@@ -2,12 +2,27 @@
 $(document).ready(function() {
   //Select para mostrar e esconder divs
 
-var dep = document.getElementById('Dep');
+
+
 
 
   $('#Dep').on('change',function(){
       var SelectValue='.'+$(this).val();
+
+
+      //Desabilita o Campo
+      $(".DivPai #Loc_Box_Eti").prop( "disabled", true );
+      //Esconde o Campo
       $('.DivPai div').hide();
+
+      
+      //Mostra os Campos
       $(SelectValue).toggle();
+      // //Habilita o Campo
+      // $(SelectValue).prop( "disabled", false );
+      
   });
+
+  
 });
+
