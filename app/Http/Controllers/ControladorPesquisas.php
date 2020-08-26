@@ -366,7 +366,7 @@ class ControladorPesquisas extends Controller
                ->where('cad_departamento', '=', 'OUTROS')->where('status', '=', 'Aberta')
                ->get();    
 
-
+                    
 
 
             
