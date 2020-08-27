@@ -8,6 +8,7 @@ $(document).ready(function() {
 
   $('#Dep').on('change',function(){
       var SelectValue='.'+$(this).val();
+      var SelectValueID='#'+$(this).val();
 
 
       //Desabilita o Campo
@@ -16,11 +17,13 @@ $(document).ready(function() {
       $('.DivPai div').hide();
 
       
-      //Mostra os Campos
-      $(SelectValue).toggle();
-      // //Habilita o Campo
-      // $(SelectValue).prop( "disabled", false );
-      
+      // //Mostra os Campos
+      // $(SelectValue).toggle();
+      // // //Habilita o Campo
+      // $(SelectValueID).prop("disabled", false);
+
+
+
   });
 
   
