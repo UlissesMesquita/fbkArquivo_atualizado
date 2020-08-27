@@ -10,5 +10,6 @@
 .NÚCLEO-CONTEÚDO,
 .CAMPANHA-POLÍTICA,
 .PROJETOS-ESPECIAIS,
-.OUTROS
-{display:none;}
+.OUTROS {
+    display:none;
+}

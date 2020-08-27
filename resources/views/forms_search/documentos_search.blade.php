@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <label><b>Defaz/Destruir:</b> </label>
+                    <label><b>Desfaz/Destruir:</b> </label>
                     <label for="Desfaz"></label><input type="text" class="form-control" id="Desfaz" name="Desfaz"  maxlength="9" placeholder="" onkeyup="maiuscula(this)">
                 </div>
 
@@ -262,6 +262,7 @@
                             </select>
                         </div>
     
+                        
                         <div class="COPIAGEM">
                             <label><b>Caixa:*</b></label>
                             <label for="Loc_Box_Eti"></label>
