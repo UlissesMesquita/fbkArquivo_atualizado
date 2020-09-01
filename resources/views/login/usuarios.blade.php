@@ -56,15 +56,15 @@
             </select>
         </div>
 
-    <div class="col-md-2">
+    {{-- <div class="col-md-2">
       <label><b>Senha:*</b></label>
       <label for="password"></label><input type="password" class="form-control" id="#" name="#" placeholder="" required>
-    </div>
-
-    {{-- <div class="col-md-2">
-      <label><b>Confirma Senha:*</b></label>
-      <label for="password"></label><input type="password" class="form-control" id="password" name="password" placeholder="" required>
     </div> --}}
+
+     <div class="col-md-2">
+      <label><b>Senha:*</b></label>
+      <label for="password"></label><input type="password" class="form-control" id="password" name="password" placeholder="" required>
+    </div> 
 
   </div>
 
