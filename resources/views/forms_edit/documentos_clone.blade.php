@@ -441,9 +441,7 @@
 
         </div>
 
-@php
-    SET time_zone = 'America/Sao_Paulo';
-@endphp
+
 
         <!-- Linha 7 -->
         <div class="row"></div>
