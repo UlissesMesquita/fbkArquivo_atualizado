@@ -441,6 +441,10 @@
 
         </div>
 
+@php
+    SET time_zone = 'America/Sao_Paulo';
+@endphp
+
         <!-- Linha 7 -->
         <div class="row"></div>
         <!-- Linha 8 -->
@@ -451,7 +455,7 @@
                 <!-- Auditoria -> Criado e Editado pelo Usuario X -->
                 <div class="col-md-3" style="padding:27px">
                     <label for="criado_por">Criado Por:</label>
-                    <input type="text" class="form-control" id="criado_por" name="criado_por" value="{{$edit->criado_por}} - {{date('d/m/Y H:i:s', strtotime($edit->created_at))}}" readonly="readonly">
+                    <input type="text" class="form-control" id="criado_por" name="criado_por" value="{{$edit->criado_por}} - {{ date('d/m/Y H:i:s', strtotime($edit->created_at))}}" readonly="readonly">
                 </div>
 
                 <div class="col-md-3" style="padding:27px">
