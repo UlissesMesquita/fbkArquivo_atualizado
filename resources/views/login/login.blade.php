@@ -31,13 +31,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    <title>Login - FBK - Arquivo</title>
+    <title>Login - Casa Mesquita</title>
 </head>
 <div>
 <div class="cor"
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="container">
-        <a class="navbar-brand" href="{{route('index')}}">FBK - Controle de Arquivos Digitalizados</a>
+        <a class="navbar-brand" href="{{route('index')}}">Casa Mesquita - Controle de Arquivos</a>
     </div>
     <br>
     <br>
